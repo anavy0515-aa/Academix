@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Mathematics | Academix</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <a href="index.html" class="logo">
+        Academix<span>.</span>
+    </a>
+
+    <div class="nav-links">
+
+        <a href="index.html">Home</a>
+
+        <a href="index.html#classes">Classes</a>
+
+        <a href="notes.html">Notes</a>
+
+        <a href="science.html">Science Lab</a>
+
+        <a href="maths.html">Maths</a>
+
+        <a href="quiz.html">Quiz</a>
+
+    </div>
+
+    <button id="themeToggle"
+            class="theme-btn">
+        🌙
+    </button>
+
+</nav>
+
+
+
+<!-- HEADER -->
+
+<section class="section class-header">
+
+    <p class="eyebrow">
+        CLASS 9 • MATHEMATICS
+    </p>
+
+    <h1>
+        📐 Mathematics
+    </h1>
+
+    <p class="section-text">
+
+        Important formulas, concepts and
+        quick revision resources.
+
+    </p>
+
+</section>
+
+
+
+<!-- FORMULA BANK -->
+
+<section class="section dark-section">
+
+    <p class="eyebrow">
+        FORMULA BANK
+    </p>
+
+    <h2>
+        Important Formulas
+    </h2>
+
+    <p class="section-text">
+
+        Click a topic to see its important
+        formulas.
+
+    </p>
+
+
+    <div class="math-grid">
+
+
+        <!-- NUMBER SYSTEM -->
+
+        <div class="math-card">
+
+            <div class="math-icon">
+                🔢
+            </div>
+
+            <h3>
+                Number Systems
+            </h3>
+
+            <p>
+                Rational and irrational numbers.
+            </p>
+
+            <button onclick="showFormula(
+                'Number Systems',
+                'Rational Number = p/q, where q ≠ 0.\\n\\nIrrational numbers cannot be expressed in the form p/q.\\n\\nReal Numbers = Rational Numbers + Irrational Numbers.'
+            )">
+
+                View Formulas →
+
+            </button>
+
+        </div>
+
+
+
+        <!-- POLYNOMIALS -->
+
+        <div class="math-card">
+
+            <div class="math-icon">
+                ✖️
+            </div>
+
+            <h3>
+                Polynomials
+            </h3>
+
+            <p>
+                Identities and polynomial concepts.
+            </p>
+
+            <button onclick="showFormula(
+                'Polynomials',
+                '(a + b)² = a² + 2ab + b²\\n\\n(a - b)² = a² - 2ab + b²\\n\\n(a + b)(a - b) = a² - b²'
+            )">
+
+                View Formulas →
+
+            </button>
+
+        </div>
+
+
+
+        <!-- COORDINATE -->
+
+        <div class="math-card">
+
+            <div class="math-icon">
+                📍
+            </div>
+
+            <h3>
+                Coordinate Geometry
+            </h3>
+
+            <p>
+                Coordinates and Cartesian plane.
+            </p>
+
+            <button onclick="showFormula(
+                'Coordinate Geometry',
+                'A point is represented as (x, y).\\n\\nThe x-coordinate shows horizontal position.\\n\\nThe y-coordinate shows vertical position.\\n\\nOrigin = (0, 0).'
+            )">
+
+                View Formulas →
+
+            </button>
+
+        </div>
+
+
+
+        <!-- LINEAR EQUATIONS -->
+
+        <div class="math-card">
+
+            <div class="math-icon">
+                📈
+            </div>
+
+            <h3>
+                Linear Equations
+            </h3>
+
+            <p>
+                Equations in two variables.
+            </p>
+
+            <button onclick="showFormula(
+                'Linear Equations',
+                'A linear equation in two variables can be written as ax + by + c = 0.\\n\\nHere a, b and c are constants.'
+            )">
+
+                View Formulas →
+
+            </button>
+
+        </div>
+
+
+
+        <!-- TRIANGLES -->
+
+        <div class="math-card">
+
+            <div class="math-icon">
+                🔺
+            </div>
+
+            <h3>
+                Triangles
+            </h3>
+
+            <p>
+                Properties and important results.
+            </p>
+
+            <button onclick="showFormula(
+                'Triangles',
+                'Sum of angles of a triangle = 180°.\\n\\nExterior angle = Sum of the two opposite interior angles.\\n\\nCongruent triangles have the same shape and size.'
+            )">
+
+                View Formulas →
+
+            </button>
+
+        </div>
+
+
+
+        <!-- QUADRILATERALS -->
+
+        <div class="math-card">
+
+            <div class="math-icon">
+                ◇
+            </div>
+
+            <h3>
+                Quadrilaterals
+            </h3>
+
+            <p>
+                Properties of quadrilaterals.
+            </p>
+
+            <button onclick="showFormula(
+                'Quadrilaterals',
+                'Sum of interior angles of a quadrilateral = 360°.\\n\\nA parallelogram has opposite sides parallel and equal.'
+            )">
+
+                View Formulas →
+
+            </button>
+
+        </div>
+
+
+
+        <!-- CIRCLES -->
+
+        <div class="math-card">
+
+            <div class="math-icon">
+                ⭕
+            </div>
+
+            <h3>
+                Circles
+            </h3>
+
+            <p>
+                Radius, diameter and circle concepts.
+            </p>
+
+            <button onclick="showFormula(
+                'Circles',
+                'Diameter = 2 × Radius.\\n\\nRadius = Diameter ÷ 2.\\n\\nA circle is the set of points at the same distance from its centre.'
+            )">
+
+                View Formulas →
+
+            </button>
+
+        </div>
+
+
+
+        <!-- HERON -->
+
+        <div class="math-card">
+
+            <div class="math-icon">
+                📐
+            </div>
+
+            <h3>
+                Heron's Formula
+            </h3>
+
+            <p>
+                Area of a triangle.
+            </p>
+
+            <button onclick="showFormula(
+                'Heron’s Formula',
+                'For sides a, b and c:\\n\\ns = (a + b + c) / 2\\n\\nArea = √[s(s-a)(s-b)(s-c)]'
+            )">
+
+                View Formula →
+
+            </button>
+
+        </div>
+
+
+
+        <!-- SURFACE AREA -->
+
+        <div class="math-card">
+
+            <div class="math-icon">
+                📦
+            </div>
+
+            <h3>
+                Surface Area & Volume
+            </h3>
+
+            <p>
+                Important mensuration formulas.
+            </p>
+
+            <button onclick="showFormula(
+                'Surface Area & Volume',
+                'Cuboid Volume = l × b × h\\n\\nCube Volume = a³\\n\\nCylinder Volume = πr²h\\n\\nSphere Volume = 4/3 πr³'
+            )">
+
+                View Formulas →
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- QUICK REVISION -->
+
+<section class="section">
+
+    <p class="eyebrow">
+        QUICK REVISION
+    </p>
+
+    <h2>
+        Maths Revision Tools
+    </h2>
+
+
+    <div class="revision-grid">
+
+
+        <div class="revision-card">
+
+            <div>
+                🧠
+            </div>
+
+            <h3>
+                Important Questions
+            </h3>
+
+            <p>
+                Practice important conceptual
+                and application-based questions.
+            </p>
+
+            <a href="quiz.html">
+                Practice →
+            </a>
+
+        </div>
+
+
+
+        <div class="revision-card">
+
+            <div>
+                📝
+            </div>
+
+            <h3>
+                Short Notes
+            </h3>
+
+            <p>
+                Quick chapter revision in
+                simple language.
+            </p>
+
+            <a href="notes.html">
+                Open Notes →
+            </a>
+
+        </div>
+
+
+
+        <div class="revision-card">
+
+            <div>
+                🧮
+            </div>
+
+            <h3>
+                Practice
+            </h3>
+
+            <p>
+                Test your mathematical
+                problem-solving skills.
+            </p>
+
+            <a href="quiz.html">
+                Start →
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- POPUP -->
+
+<div id="formulaPopup"
+     class="note-popup">
+
+    <div class="popup-box">
+
+        <button
+            class="close-btn"
+            onclick="closeFormula()">
+
+            ×
+
+        </button>
+
+
+        <p class="eyebrow">
+            FORMULA
+        </p>
+
+
+        <h2 id="formulaTitle">
+            Mathematics
+        </h2>
+
+
+        <p id="formulaText"
+           class="formula-text">
+
+            Formula
+
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h3>
+        Academix<span>.</span>
+    </h3>
+
+    <p>
+        Learn • Explore • Improve
+    </p>
+
+    <p>
+        Developed by:
+        <strong>Your Name</strong>
+    </p>
+
+    <p class="copyright">
+        © 2026 Academix
+    </p>
+
+</footer>
+
+
+
+<script src="script.js"></script>
+
+
+<script>
+
+function showFormula(title, text) {
+
+    document.getElementById(
+        "formulaTitle"
+    ).textContent = title;
+
+
+    document.getElementById(
+        "formulaText"
+    ).textContent = text;
+
+
+    document.getElementById(
+        "formulaPopup"
+    ).classList.add("show");
+
+}
+
+
+function closeFormula() {
+
+    document.getElementById(
+        "formulaPopup"
+    ).classList.remove("show");
+
+}
+
+</script>
+
+
+</body>
+
+</html>

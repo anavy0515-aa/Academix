@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quiz | Academix</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <a href="index.html" class="logo">
+        Academix<span>.</span>
+    </a>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#classes">Classes</a>
+        <a href="notes.html">Notes</a>
+        <a href="science.html">Science</a>
+        <a href="maths.html">Maths</a>
+        <a href="quiz.html">Quiz</a>
+    </div>
+
+    <button id="themeToggle" class="theme-btn">🌙</button>
+
+</nav>
+
+
+<section class="section class-header">
+
+    <p class="eyebrow">
+        ACADEMIX • PRACTICE
+    </p>
+
+    <h1>
+        🧠 Quiz Zone
+    </h1>
+
+    <p class="section-text">
+        Test your knowledge and improve your
+        understanding with quick MCQs.
+    </p>
+
+</section>
+
+
+<section class="quiz-section">
+
+    <div class="quiz-box">
+
+        <div class="quiz-top">
+
+            <span id="questionNumber">
+                Question 1 of 10
+            </span>
+
+            <span id="scoreText">
+                Score: 0
+            </span>
+
+        </div>
+
+
+        <div class="progress-container">
+
+            <div id="progressBar"
+                 class="progress-bar">
+            </div>
+
+        </div>
+
+
+        <h2 id="question">
+            Loading question...
+        </h2>
+
+
+        <div id="options"
+             class="options">
+        </div>
+
+
+        <button
+            id="nextBtn"
+            class="next-btn"
+            onclick="nextQuestion()"
+            disabled>
+
+            Next Question →
+
+        </button>
+
+    </div>
+
+
+    <div id="resultBox"
+         class="result-box">
+
+        <div class="result-icon">
+            🎉
+        </div>
+
+        <p class="eyebrow">
+            QUIZ COMPLETE
+        </p>
+
+        <h2>
+            Great Job!
+        </h2>
+
+        <p id="finalScore">
+            Your score is 0/10
+        </p>
+
+        <p id="resultMessage">
+            Keep learning and keep improving!
+        </p>
+
+        <button
+            class="restart-btn"
+            onclick="restartQuiz()">
+
+            🔄 Try Again
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <h3>
+        Academix<span>.</span>
+    </h3>
+
+    <p>
+        Learn • Explore • Improve
+    </p>
+
+    <p>
+        Developed by:
+        <strong>Your Name</strong>
+    </p>
+
+    <p class="copyright">
+        © 2026 Academix
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+
+<script>
+
+const questions = [
+
+    {
+        question:
+            "Which of the following is a rational number?",
+
+        options: [
+            "√2",
+            "π",
+            "3/5",
+            "√3"
+        ],
+
+        answer: 2
+    },
+
+
+    {
+        question:
+            "What is the sum of angles of a triangle?",
+
+        options: [
+            "90°",
+            "180°",
+            "270°",
+            "360°"
+        ],
+
+        answer: 1
+    },
+
+
+    {
+        question:
+            "What is the atomic number of an element?",
+
+        options: [
+            "Number of neutrons",
+            "Number of electrons + neutrons",
+            "Number of protons",
+            "Mass number"
+        ],
+
+        answer: 2
+    },
+
+
+    {
+        question:
+            "Which state of matter has a fixed shape?",
+
+        options: [
+            "Solid",
+            "Liquid",
+            "Gas",
+            "None"
+        ],
+
+        answer: 0
+    },
+
+
+    {
+        question:
+            "What is the value of (a + b)²?",
+
+        options: [
+            "a² + b²",
+            "a² + 2ab + b²",
+            "a² - 2ab + b²",
+            "2a + 2b"
+        ],
+
+        answer: 1
+    },
+
+
+    {
+        question:
+            "What is the diameter of a circle with radius 7 cm?",
+
+        options: [
+            "7 cm",
+            "14 cm",
+            "21 cm",
+            "49 cm"
+        ],
+
+        answer: 1
+    },
+
+
+    {
+        question:
+            "Which particle has a negative charge?",
+
+        options: [
+            "Proton",
+            "Neutron",
+            "Electron",
+            "Nucleus"
+        ],
+
+        answer: 2
+    },
+
+
+    {
+        question:
+            "How many sides does a quadrilateral have?",
+
+        options: [
+            "3",
+            "4",
+            "5",
+            "6"
+        ],
+
+        answer: 1
+    },
+
+
+    {
+        question:
+            "Which of these is an irrational number?",
+
+        options: [
+            "1/2",
+            "0.25",
+            "√2",
+            "3"
+        ],
+
+        answer: 2
+    },
+
+
+    {
+        question:
+            "What is the SI unit of length?",
+
+        options: [
+            "Kilogram",
+            "Second",
+            "Metre",
+            "Newton"
+        ],
+
+        answer: 2
+    }
+
+];
+
+
+let currentQuestion = 0;
+let score = 0;
+let selected = false;
+
+
+function loadQuestion() {
+
+    selected = false;
+
+    const question =
+        questions[currentQuestion];
+
+
+    document.getElementById(
+        "question"
+    ).textContent =
+        question.question;
+
+
+    document.getElementById(
+        "questionNumber"
+    ).textContent =
+        `Question ${currentQuestion + 1} of ${questions.length}`;
+
+
+    document.getElementById(
+        "scoreText"
+    ).textContent =
+        `Score: ${score}`;
+
+
+    document.getElementById(
+        "progressBar"
+    ).style.width =
+        `${((currentQuestion + 1) / questions.length) * 100}%`;
+
+
+    const optionsBox =
+        document.getElementById("options");
+
+
+    optionsBox.innerHTML = "";
+
+
+    question.options.forEach(
+        (option, index) => {
+
+            const button =
+                document.createElement("button");
+
+            button.className =
+                "option-btn";
+
+            button.textContent =
+                option;
+
+
+            button.onclick =
+                () => selectAnswer(
+                    button,
+                    index
+                );
+
+
+            optionsBox.appendChild(button);
+
+        }
+    );
+
+
+    document.getElementById(
+        "nextBtn"
+    ).disabled = true;
+
+}
+
+
+function selectAnswer(button, index) {
+
+    if (selected) return;
+
+    selected = true;
+
+
+    const correct =
+        questions[currentQuestion].answer;
+
+
+    const allOptions =
+        document.querySelectorAll(
+            ".option-btn"
+        );
+
+
+    allOptions.forEach(
+        (option, i) => {
+
+            option.disabled = true;
+
+            if (i === correct) {
+                option.classList.add(
+                    "correct"
+                );
+            }
+
+        }
+    );
+
+
+    if (index === correct) {
+
+        score++;
+
+        button.classList.add(
+            "correct"
+        );
+
+    } else {
+
+        button.classList.add(
+            "wrong"
+        );
+
+    }
+
+
+    document.getElementById(
+        "scoreText"
+    ).textContent =
+        `Score: ${score}`;
+
+
+    document.getElementById(
+        "nextBtn"
+    ).disabled = false;
+
+}
+
+
+function nextQuestion() {
+
+    currentQuestion++;
+
+
+    if (
+        currentQuestion >=
+        questions.length
+    ) {
+
+        showResult();
+
+        return;
+
+    }
+
+
+    loadQuestion();
+
+}
+
+
+function showResult() {
+
+    document.querySelector(
+        ".quiz-box"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "resultBox"
+    ).classList.add("show");
+
+
+    document.getElementById(
+        "finalScore"
+    ).textContent =
+        `Your score is ${score}/${questions.length}`;
+
+
+    let message;
+
+
+    if (score === questions.length) {
+
+        message =
+            "Perfect score! Excellent work! 🏆";
+
+    } else if (score >= 7) {
+
+        message =
+            "Great work! Keep revising! 🔥";
+
+    } else if (score >= 5) {
+
+        message =
+            "Good attempt! A little more practice will help. 💪";
+
+    } else {
+
+        message =
+            "Keep learning! You will improve with practice. 📚";
+
+    }
+
+
+    document.getElementById(
+        "resultMessage"
+    ).textContent =
+        message;
+
+}
+
+
+function restartQuiz() {
+
+    currentQuestion = 0;
+
+    score = 0;
+
+
+    document.querySelector(
+        ".quiz-box"
+    ).style.display = "block";
+
+
+    document.getElementById(
+        "resultBox"
+    ).classList.remove("show");
+
+
+    loadQuestion();
+
+}
+
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>

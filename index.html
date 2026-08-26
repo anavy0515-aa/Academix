@@ -1,0 +1,912 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Academix by Tiwari</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #070b12;
+    color: #f5f7fb;
+    min-height: 100vh;
+}
+
+/* BACKGROUND */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+
+    background:
+        radial-gradient(
+            circle at 80% 10%,
+            rgba(0, 200, 255, 0.15),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 10% 80%,
+            rgba(130, 80, 255, 0.12),
+            transparent 30%
+        );
+}
+
+/* MAIN CONTAINER */
+
+.container {
+    width: 90%;
+    max-width: 1150px;
+    margin: auto;
+}
+
+/* NAVBAR */
+
+.navbar {
+    margin-top: 20px;
+
+    padding: 16px 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+
+    background: rgba(15,22,34,0.85);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    text-decoration: none;
+    color: white;
+}
+
+.logo-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #5ee7ff,
+        #9878ff
+    );
+
+    color: #071018;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.logo-name {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-name strong {
+    font-size: 18px;
+}
+
+.logo-name small {
+    margin-top: 3px;
+    color: #8490a1;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 8px;
+}
+
+.nav-links a {
+    padding: 9px 12px;
+
+    color: #8d99aa;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    border-radius: 8px;
+}
+
+.nav-links a:hover {
+    color: white;
+    background: rgba(255,255,255,0.06);
+}
+
+/* HERO */
+
+.hero {
+    min-height: 650px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 70px;
+}
+
+.badge {
+    display: inline-block;
+
+    padding: 8px 13px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 30px;
+
+    color: #8d99aa;
+
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+
+.hero h1 {
+    margin-top: 25px;
+
+    font-size: 72px;
+
+    line-height: 1;
+
+    letter-spacing: -4px;
+}
+
+.hero h1 span {
+    display: block;
+
+    background: linear-gradient(
+        90deg,
+        #5ee7ff,
+        #9878ff
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+.hero p {
+    max-width: 540px;
+
+    margin-top: 25px;
+
+    color: #8d99aa;
+
+    line-height: 1.8;
+
+    font-size: 15px;
+}
+
+.buttons {
+    margin-top: 30px;
+
+    display: flex;
+    gap: 12px;
+}
+
+.btn {
+    padding: 14px 19px;
+
+    border-radius: 11px;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.primary {
+    background: white;
+    color: #071018;
+}
+
+.secondary {
+    border: 1px solid rgba(255,255,255,0.09);
+    color: white;
+    background: rgba(255,255,255,0.04);
+}
+
+/* HERO VISUAL */
+
+.visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.study-card {
+    width: 320px;
+
+    padding: 28px;
+
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 25px;
+
+    background: linear-gradient(
+        145deg,
+        #162337,
+        #0b121d
+    );
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.45);
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+
+    color: #8793a5;
+
+    font-size: 9px;
+}
+
+.book {
+    width: 105px;
+    height: 105px;
+
+    margin: 45px auto 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 23px;
+
+    background: rgba(94,231,255,0.08);
+
+    font-size: 48px;
+}
+
+.study-card h2 {
+    text-align: center;
+    font-size: 29px;
+}
+
+.study-card p {
+    margin-top: 7px;
+
+    text-align: center;
+
+    color: #8793a5;
+
+    font-size: 12px;
+}
+
+.progress {
+    height: 5px;
+
+    margin-top: 38px;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    background: rgba(255,255,255,0.07);
+}
+
+.progress span {
+    display: block;
+
+    width: 75%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        #5ee7ff,
+        #9878ff
+    );
+}
+
+/* SECTIONS */
+
+section {
+    padding: 90px 0;
+}
+
+.section-title {
+    margin-bottom: 30px;
+}
+
+.section-title small {
+    color: #5ee7ff;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+.section-title h2 {
+    margin-top: 9px;
+
+    font-size: 42px;
+
+    letter-spacing: -2px;
+}
+
+/* CLASS */
+
+.class-card {
+    padding: 35px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 35px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.025);
+
+    text-decoration: none;
+
+    color: white;
+}
+
+.class-number {
+    font-size: 65px;
+
+    font-weight: bold;
+
+    color: rgba(255,255,255,0.1);
+}
+
+.class-content {
+    flex: 1;
+}
+
+.class-tag {
+    display: inline-block;
+
+    padding: 5px 9px;
+
+    border-radius: 6px;
+
+    background: rgba(94,231,255,0.1);
+
+    color: #5ee7ff;
+
+    font-size: 9px;
+
+    font-weight: bold;
+}
+
+.class-content h3 {
+    margin-top: 10px;
+
+    font-size: 29px;
+}
+
+.class-content p {
+    margin-top: 7px;
+
+    color: #8793a5;
+
+    line-height: 1.6;
+
+    font-size: 13px;
+}
+
+.arrow {
+    font-size: 25px;
+}
+
+/* FEATURES */
+
+.features {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+.feature {
+    min-height: 240px;
+
+    padding: 25px;
+
+    position: relative;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-radius: 18px;
+
+    background: rgba(14,21,33,0.75);
+
+    transition: 0.25s;
+}
+
+.feature:hover {
+    transform: translateY(-6px);
+
+    border-color:
+        rgba(94,231,255,0.3);
+}
+
+.feature-icon {
+    font-size: 32px;
+}
+
+.feature h3 {
+    margin-top: 35px;
+
+    font-size: 19px;
+}
+
+.feature p {
+    margin-top: 10px;
+
+    color: #8793a5;
+
+    line-height: 1.6;
+
+    font-size: 12px;
+}
+
+.feature a {
+    position: absolute;
+
+    bottom: 22px;
+
+    color: #5ee7ff;
+
+    text-decoration: none;
+
+    font-size: 11px;
+    font-weight: bold;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 35px 0;
+
+    border-top:
+        1px solid rgba(255,255,255,0.08);
+
+    color: #687486;
+
+    font-size: 11px;
+}
+
+.footer-content {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+/* MOBILE */
+
+@media (max-width: 850px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        padding: 70px 0;
+    }
+
+    .hero h1 {
+        font-size: 55px;
+    }
+
+    .features {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media (max-width: 550px) {
+
+    .container {
+        width: 92%;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .class-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+
+        <a href="index.html" class="logo">
+
+            <div class="logo-icon">
+                A
+            </div>
+
+            <div class="logo-name">
+
+                <strong>
+                    Academix
+                </strong>
+
+                <small>
+                    by Tiwari
+                </small>
+
+            </div>
+
+        </a>
+
+
+        <nav class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="#class">
+                Class 9
+            </a>
+
+            <a href="notes.html">
+                Notes
+            </a>
+
+            <a href="science.html">
+                Science
+            </a>
+
+            <a href="maths.html">
+                Maths
+            </a>
+
+            <a href="quiz.html">
+                Quiz
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- HERO -->
+
+    <main>
+
+        <section class="hero">
+
+            <div>
+
+                <div class="badge">
+                    SMART LEARNING • ACADEMIX
+                </div>
+
+
+                <h1>
+                    Learn.
+                    <span>Understand.</span>
+                    Grow.
+                </h1>
+
+
+                <p>
+                    Welcome to Academix by Tiwari —
+                    a simple and modern learning space
+                    for notes, concepts, revision and quizzes.
+                </p>
+
+
+                <div class="buttons">
+
+                    <a
+                        href="#class"
+                        class="btn primary">
+
+                        Explore Class 9 →
+
+                    </a>
+
+
+                    <a
+                        href="quiz.html"
+                        class="btn secondary">
+
+                        Start Quiz
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="visual">
+
+                <div class="study-card">
+
+                    <div class="card-top">
+
+                        <span>
+                            ACADEMIX
+                        </span>
+
+                        <span>
+                            2026
+                        </span>
+
+                    </div>
+
+
+                    <div class="book">
+                        📚
+                    </div>
+
+
+                    <h2>
+                        Class 9
+                    </h2>
+
+
+                    <p>
+                        Your learning space
+                    </p>
+
+
+                    <div class="progress">
+                        <span></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- CLASS 9 -->
+
+        <section id="class">
+
+            <div class="section-title">
+
+                <small>
+                    LEARNING PATH
+                </small>
+
+                <h2>
+                    Choose your class
+                </h2>
+
+            </div>
+
+
+            <a
+                href="class9.html"
+                class="class-card">
+
+                <div class="class-number">
+                    09
+                </div>
+
+
+                <div class="class-content">
+
+                    <span class="class-tag">
+                        CBSE
+                    </span>
+
+
+                    <h3>
+                        Class 9
+                    </h3>
+
+
+                    <p>
+                        Notes, Science, Maths,
+                        PDFs, important questions
+                        and quizzes.
+                    </p>
+
+                </div>
+
+
+                <div class="arrow">
+                    →
+                </div>
+
+            </a>
+
+        </section>
+
+
+
+        <!-- FEATURES -->
+
+        <section>
+
+            <div class="section-title">
+
+                <small>
+                    STUDY TOOLS
+                </small>
+
+                <h2>
+                    Everything you need.
+                </h2>
+
+            </div>
+
+
+            <div class="features">
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        📚
+                    </div>
+
+                    <h3>
+                        Notes
+                    </h3>
+
+                    <p>
+                        Easy-to-understand
+                        revision notes.
+                    </p>
+
+                    <a href="notes.html">
+                        Open Notes →
+                    </a>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        🔬
+                    </div>
+
+                    <h3>
+                        Science
+                    </h3>
+
+                    <p>
+                        Explore important
+                        Science concepts.
+                    </p>
+
+                    <a href="science.html">
+                        Science Lab →
+                    </a>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        📐
+                    </div>
+
+                    <h3>
+                        Maths
+                    </h3>
+
+                    <p>
+                        Important formulas
+                        and practice resources.
+                    </p>
+
+                    <a href="maths.html">
+                        Formula Bank →
+                    </a>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        🧠
+                    </div>
+
+                    <h3>
+                        Quiz Zone
+                    </h3>
+
+                    <p>
+                        Test your knowledge
+                        with interactive quizzes.
+                    </p>
+
+                    <a href="quiz.html">
+                        Start Quiz →
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <span>
+                © 2026 Academix by Tiwari
+            </span>
+
+            <span>
+                Learn • Understand • Grow
+            </span>
+
+        </div>
+
+    </footer>
+
+</div>
+
+</body>
+</html>
+```

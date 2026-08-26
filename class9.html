@@ -1,0 +1,1436 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class 9 | Academix by Tiwari</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#070b12;
+    color:#f4f7fb;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+/* BACKGROUND */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-2;
+    background:
+    radial-gradient(circle at 50% 0%,
+    rgba(70,220,255,.14),
+    transparent 30%),
+    radial-gradient(circle at 90% 80%,
+    rgba(145,100,255,.12),
+    transparent 28%);
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    opacity:.15;
+    background-image:
+    linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+    background-size:50px 50px;
+}
+
+.container{
+    width:min(1150px,calc(100% - 30px));
+    margin:auto;
+}
+
+/* NAVBAR */
+
+.navbar{
+    margin-top:18px;
+    padding:14px 20px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:18px;
+
+    background:rgba(12,18,29,.88);
+    backdrop-filter:blur(18px);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    text-decoration:none;
+    color:white;
+}
+
+.logo-icon{
+    width:42px;
+    height:42px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:12px;
+
+    background:linear-gradient(
+        135deg,
+        #63e6ff,
+        #9b7cff
+    );
+
+    color:#071018;
+    font-size:21px;
+    font-weight:900;
+}
+
+.logo-name{
+    display:flex;
+    flex-direction:column;
+}
+
+.logo-name strong{
+    font-size:18px;
+}
+
+.logo-name small{
+    margin-top:3px;
+    color:#778496;
+    font-size:8px;
+    letter-spacing:2px;
+}
+
+.navbar-right{
+    display:flex;
+    gap:8px;
+}
+
+.navbar-right a{
+    padding:9px 13px;
+
+    color:#9ba7b7;
+    text-decoration:none;
+
+    font-size:11px;
+
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:8px;
+}
+
+.navbar-right a:hover{
+    color:white;
+    background:rgba(255,255,255,.06);
+}
+
+/* ADVERTISEMENT */
+
+.ad-section{
+    padding:30px 0 15px;
+}
+
+.ad{
+    max-width:900px;
+    min-height:125px;
+
+    margin:auto;
+    padding:25px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:25px;
+
+    border:1px solid rgba(99,230,255,.15);
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+        120deg,
+        rgba(99,230,255,.07),
+        rgba(155,124,255,.08),
+        rgba(255,255,255,.025)
+    );
+
+    position:relative;
+    overflow:hidden;
+}
+
+.ad::after{
+    content:"";
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    right:-60px;
+    top:-80px;
+
+    border-radius:50%;
+
+    background:rgba(99,230,255,.08);
+}
+
+.ad-label{
+    color:#63e6ff;
+
+    font-size:8px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.ad h2{
+    margin-top:8px;
+    font-size:22px;
+}
+
+.ad p{
+    margin-top:7px;
+    color:#7f8b9c;
+    font-size:11px;
+}
+
+.ad-badge{
+    padding:11px 15px;
+
+    border-radius:10px;
+
+    background:rgba(255,255,255,.06);
+
+    color:#dce5ef;
+
+    font-size:10px;
+    white-space:nowrap;
+}
+
+/* CLASS HEADER */
+
+.class-header{
+    padding:55px 15px 35px;
+    text-align:center;
+}
+
+.class-tag{
+    display:inline-block;
+
+    padding:7px 13px;
+
+    border:1px solid rgba(99,230,255,.2);
+    border-radius:30px;
+
+    color:#63e6ff;
+
+    font-size:9px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.class-header h1{
+    margin-top:15px;
+
+    font-size:52px;
+    letter-spacing:-2px;
+}
+
+.class-header p{
+    max-width:600px;
+    margin:12px auto;
+
+    color:#8995a7;
+
+    font-size:13px;
+    line-height:1.7;
+}
+
+/* SUBJECT SECTION */
+
+.section{
+    padding:30px 0 80px;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:28px;
+}
+
+.section-title small{
+    color:#63e6ff;
+    font-size:8px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.section-title h2{
+    margin-top:8px;
+    font-size:31px;
+}
+
+/* SUBJECT GRID */
+
+.subject-grid{
+    width:min(1000px,100%);
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.subject-card{
+    padding:24px;
+
+    text-align:center;
+
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(20,31,47,.92),
+        rgba(10,16,26,.92)
+    );
+
+    transition:.25s;
+}
+
+.subject-card:hover{
+    transform:translateY(-6px);
+    border-color:rgba(99,230,255,.28);
+}
+
+.subject-icon{
+    width:60px;
+    height:60px;
+
+    margin:auto;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:17px;
+
+    background:rgba(99,230,255,.08);
+
+    font-size:28px;
+}
+
+.subject-card h3{
+    margin-top:15px;
+    font-size:19px;
+}
+
+.subject-card p{
+    margin:8px auto 0;
+
+    color:#7f8b9c;
+
+    font-size:10px;
+    line-height:1.6;
+}
+
+.subject-links{
+    margin-top:18px;
+
+    display:flex;
+    justify-content:center;
+    gap:7px;
+    flex-wrap:wrap;
+}
+
+.subject-links a{
+    padding:9px 10px;
+
+    color:#dce4ee;
+    text-decoration:none;
+
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:8px;
+
+    background:rgba(255,255,255,.035);
+
+    font-size:9px;
+}
+
+.subject-links a:hover{
+    background:#63e6ff;
+    color:#071018;
+}
+
+/* SUBJECT DETAILS */
+
+.details-area{
+    width:min(950px,100%);
+    margin:0 auto 80px;
+}
+
+.subject-detail{
+    margin-bottom:15px;
+
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:16px;
+
+    background:rgba(13,20,31,.9);
+
+    overflow:hidden;
+}
+
+.subject-detail summary{
+    padding:19px 22px;
+
+    cursor:pointer;
+
+    list-style:none;
+
+    text-align:center;
+
+    font-size:14px;
+    font-weight:bold;
+}
+
+.subject-detail summary::-webkit-details-marker{
+    display:none;
+}
+
+.subject-detail summary::after{
+    content:"+";
+    float:right;
+    color:#63e6ff;
+    font-size:17px;
+}
+
+.subject-detail[open] summary::after{
+    content:"−";
+}
+
+.detail-content{
+    padding:5px 28px 25px;
+
+    text-align:center;
+}
+
+.short-note{
+    max-width:720px;
+    margin:15px auto;
+
+    color:#8995a7;
+
+    font-size:11px;
+    line-height:1.9;
+}
+
+.resource-buttons{
+    display:flex;
+    justify-content:center;
+    gap:9px;
+    flex-wrap:wrap;
+}
+
+.resource-buttons a{
+    padding:10px 15px;
+
+    border-radius:9px;
+
+    text-decoration:none;
+
+    font-size:10px;
+    font-weight:bold;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    color:#dce4ee;
+}
+
+.resource-buttons a:hover{
+    background:#63e6ff;
+    color:#071018;
+}
+
+/* QUIZ */
+
+.quiz-section{
+    padding:70px 0 90px;
+}
+
+.quiz-box{
+    width:min(850px,100%);
+    margin:auto;
+}
+
+.question{
+    margin-bottom:14px;
+    padding:20px;
+
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:15px;
+
+    background:#0d141f;
+
+    text-align:center;
+}
+
+.question h3{
+    font-size:13px;
+    line-height:1.6;
+}
+
+.options{
+    margin-top:14px;
+
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:8px;
+}
+
+.options button{
+    padding:11px;
+
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:9px;
+
+    background:#111b29;
+    color:#cbd4df;
+
+    cursor:pointer;
+
+    font-size:10px;
+}
+
+.options button:hover{
+    background:#1a293b;
+}
+
+.quiz-result{
+    position:sticky;
+    bottom:15px;
+
+    width:max-content;
+    max-width:90%;
+
+    margin:25px auto 0;
+    padding:12px 22px;
+
+    border-radius:12px;
+
+    background:#101b2a;
+    border:1px solid rgba(99,230,255,.2);
+
+    color:#63e6ff;
+
+    font-size:12px;
+    font-weight:bold;
+}
+
+/* FOOTER */
+
+footer{
+    padding:30px 0;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    text-align:center;
+
+    color:#687486;
+
+    font-size:10px;
+}
+
+footer strong{
+    color:#c5ceda;
+}
+
+.developer{
+    margin-top:7px;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+    .subject-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .ad{
+        text-align:center;
+        flex-direction:column;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .container{
+        width:calc(100% - 20px);
+    }
+
+    .navbar-right a:not(:first-child){
+        display:none;
+    }
+
+    .subject-grid{
+        grid-template-columns:1fr;
+    }
+
+    .class-header h1{
+        font-size:44px;
+    }
+
+    .options{
+        grid-template-columns:1fr;
+    }
+
+    .detail-content{
+        padding-left:15px;
+        padding-right:15px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+<a href="index.html" class="logo">
+
+<div class="logo-icon">A</div>
+
+<div class="logo-name">
+<strong>Academix</strong>
+<small>BY TIWARI</small>
+</div>
+
+</a>
+
+<div class="navbar-right">
+
+<a href="index.html">⌂ Home</a>
+
+<a href="#subjects">Subjects</a>
+
+<a href="#quiz">Quiz</a>
+
+</div>
+
+</header>
+
+
+<!-- ================= ADVERTISEMENT ================= -->
+
+<section class="ad-section">
+
+<div class="ad">
+
+<div>
+
+<div class="ad-label">
+ACADEMIX STUDY SPACE
+</div>
+
+<h2>
+Study smarter, not harder.
+</h2>
+
+<p>
+Notes • Resources • Practice • Quizzes
+</p>
+
+</div>
+
+<div class="ad-badge">
+CLASS 9
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CLASS INTRO ================= -->
+
+<section class="class-header">
+
+<span class="class-tag">
+CBSE • CLASS 9
+</span>
+
+<h1>
+Class 9
+</h1>
+
+<p>
+Your complete study space for notes,
+NCERT resources, short revision material
+and practice quizzes.
+</p>
+
+</section>
+
+
+<!-- ================= SUBJECTS ================= -->
+
+<section class="section" id="subjects">
+
+<div class="section-title">
+
+<small>
+SELECT A SUBJECT
+</small>
+
+<h2>
+Class 9 Subjects
+</h2>
+
+</div>
+
+
+<div class="subject-grid">
+
+
+<div class="subject-card">
+
+<div class="subject-icon">📐</div>
+
+<h3>Mathematics</h3>
+
+<p>
+Concepts, formulas and quick revision.
+</p>
+
+<div class="subject-links">
+
+<a href="#maths">Short Notes</a>
+
+<a href="https://ncert.nic.in/textbook.php" target="_blank">
+NCERT
+</a>
+
+<a href="#quiz">Quiz</a>
+
+</div>
+
+</div>
+
+
+<div class="subject-card">
+
+<div class="subject-icon">🔬</div>
+
+<h3>Science</h3>
+
+<p>
+Physics, Chemistry and Biology revision.
+</p>
+
+<div class="subject-links">
+
+<a href="#science">Short Notes</a>
+
+<a href="https://ncert.nic.in/textbook.php" target="_blank">
+NCERT
+</a>
+
+<a href="#quiz">Quiz</a>
+
+</div>
+
+</div>
+
+
+<div class="subject-card">
+
+<div class="subject-icon">📖</div>
+
+<h3>English</h3>
+
+<p>
+Literature, grammar and writing.
+</p>
+
+<div class="subject-links">
+
+<a href="#english">Short Notes</a>
+
+<a href="https://ncert.nic.in/textbook.php" target="_blank">
+NCERT
+</a>
+
+<a href="#quiz">Quiz</a>
+
+</div>
+
+</div>
+
+
+<div class="subject-card">
+
+<div class="subject-icon">🇮🇳</div>
+
+<h3>Hindi</h3>
+
+<p>
+Literature, grammar and writing practice.
+</p>
+
+<div class="subject-links">
+
+<a href="#hindi">Short Notes</a>
+
+<a href="https://ncert.nic.in/textbook.php" target="_blank">
+NCERT
+</a>
+
+<a href="#quiz">Quiz</a>
+
+</div>
+
+</div>
+
+
+<div class="subject-card">
+
+<div class="subject-icon">🌍</div>
+
+<h3>Social Science</h3>
+
+<p>
+History, Geography, Civics and Economics.
+</p>
+
+<div class="subject-links">
+
+<a href="#sst">Short Notes</a>
+
+<a href="https://ncert.nic.in/textbook.php" target="_blank">
+NCERT
+</a>
+
+<a href="#quiz">Quiz</a>
+
+</div>
+
+</div>
+
+
+<div class="subject-card">
+
+<div class="subject-icon">💻</div>
+
+<h3>Computer</h3>
+
+<p>
+Computer fundamentals and digital skills.
+</p>
+
+<div class="subject-links">
+
+<a href="#computer">Short Notes</a>
+
+<a href="#computer">Resources</a>
+
+<a href="#quiz">Quiz</a>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ================= NOTES ================= -->
+
+<section class="details-area">
+
+<div class="section-title">
+
+<small>
+STUDY MATERIAL
+</small>
+
+<h2>
+Notes & Resources
+</h2>
+
+</div>
+
+
+<!-- MATHS -->
+
+<details class="subject-detail" id="maths">
+
+<summary>
+📐 Mathematics — Short Notes & NCERT
+</summary>
+
+<div class="detail-content">
+
+<p class="short-note">
+Revise important mathematical concepts,
+definitions, formulas and problem-solving
+methods. Practice examples after understanding
+the concept instead of memorising steps.
+</p>
+
+<div class="resource-buttons">
+
+<a href="https://ncert.nic.in/textbook.php"
+target="_blank">
+📄 Official NCERT
+</a>
+
+<a href="#quiz">
+🧠 Maths Quiz
+</a>
+
+</div>
+
+</div>
+
+</details>
+
+
+<!-- SCIENCE -->
+
+<details class="subject-detail" id="science">
+
+<summary>
+🔬 Science — Short Notes & NCERT
+</summary>
+
+<div class="detail-content">
+
+<p class="short-note">
+Science revision should connect concepts with
+examples. Revise definitions, diagrams, units,
+laws and important differences. Divide revision
+into Physics, Chemistry and Biology.
+</p>
+
+<div class="resource-buttons">
+
+<a href="https://ncert.nic.in/textbook.php"
+target="_blank">
+📄 Official NCERT
+</a>
+
+<a href="#quiz">
+🧠 Science Quiz
+</a>
+
+</div>
+
+</div>
+
+</details>
+
+
+<!-- ENGLISH -->
+
+<details class="subject-detail" id="english">
+
+<summary>
+📖 English — Short Notes & NCERT
+</summary>
+
+<div class="detail-content">
+
+<p class="short-note">
+Focus on reading comprehension, grammar,
+writing skills and literature. While revising
+literature, remember the central idea,
+characters, important events and themes.
+</p>
+
+<div class="resource-buttons">
+
+<a href="https://ncert.nic.in/textbook.php"
+target="_blank">
+📄 Official NCERT
+</a>
+
+<a href="#quiz">
+🧠 English Quiz
+</a>
+
+</div>
+
+</div>
+
+</details>
+
+
+<!-- HINDI -->
+
+<details class="subject-detail" id="hindi">
+
+<summary>
+🇮🇳 Hindi — Short Notes & NCERT
+</summary>
+
+<div class="detail-content">
+
+<p class="short-note">
+हिंदी में पाठ का मुख्य भाव, शब्दार्थ,
+व्याकरण और लेखन कौशल पर ध्यान दें।
+उत्तर लिखते समय भाषा सरल, स्पष्ट और
+व्यवस्थित रखें।
+</p>
+
+<div class="resource-buttons">
+
+<a href="https://ncert.nic.in/textbook.php"
+target="_blank">
+📄 Official NCERT
+</a>
+
+<a href="#quiz">
+🧠 Hindi Quiz
+</a>
+
+</div>
+
+</div>
+
+</details>
+
+
+<!-- SST -->
+
+<details class="subject-detail" id="sst">
+
+<summary>
+🌍 Social Science — Short Notes & NCERT
+</summary>
+
+<div class="detail-content">
+
+<p class="short-note">
+History में घटनाओं का क्रम और कारण-परिणाम,
+Geography में maps और concepts, Civics में
+democratic institutions और Economics में
+basic concepts को समझकर revise करें।
+</p>
+
+<div class="resource-buttons">
+
+<a href="https://ncert.nic.in/textbook.php"
+target="_blank">
+📄 Official NCERT
+</a>
+
+<a href="#quiz">
+🧠 SST Quiz
+</a>
+
+</div>
+
+</div>
+
+</details>
+
+
+<!-- COMPUTER -->
+
+<details class="subject-detail" id="computer">
+
+<summary>
+💻 Computer — Short Notes & Resources
+</summary>
+
+<div class="detail-content">
+
+<p class="short-note">
+Revise computer fundamentals, hardware,
+software, internet safety, digital communication,
+files, applications and other topics prescribed
+by your school.
+</p>
+
+<div class="resource-buttons">
+
+<a href="https://ncert.nic.in/"
+target="_blank">
+🌐 NCERT
+</a>
+
+<a href="#quiz">
+🧠 Computer Quiz
+</a>
+
+</div>
+
+</div>
+
+</details>
+
+</section>
+
+
+<!-- ================= QUIZ ================= -->
+
+<section class="quiz-section" id="quiz">
+
+<div class="section-title">
+
+<small>
+TEST YOUR KNOWLEDGE
+</small>
+
+<h2>
+Class 9 Quiz
+</h2>
+
+</div>
+
+
+<div class="quiz-box">
+
+
+<!-- Q1 -->
+
+<div class="question">
+
+<h3>
+1. Which of the following is an irrational number?
+</h3>
+
+<div class="options">
+
+<button onclick="check(this,true)">√2</button>
+<button onclick="check(this,false)">4</button>
+<button onclick="check(this,false)">9</button>
+<button onclick="check(this,false)">16</button>
+
+</div>
+
+</div>
+
+
+<!-- Q2 -->
+
+<div class="question">
+
+<h3>
+2. What is the SI unit of acceleration?
+</h3>
+
+<div class="options">
+
+<button onclick="check(this,false)">m/s</button>
+<button onclick="check(this,true)">m/s²</button>
+<button onclick="check(this,false)">kg</button>
+<button onclick="check(this,false)">N</button>
+
+</div>
+
+</div>
+
+
+<!-- Q3 -->
+
+<div class="question">
+
+<h3>
+3. The basic structural unit of life is:
+</h3>
+
+<div class="options">
+
+<button onclick="check(this,true)">Cell</button>
+<button onclick="check(this,false)">Tissue</button>
+<button onclick="check(this,false)">Organ</button>
+<button onclick="check(this,false)">Organ system</button>
+
+</div>
+
+</div>
+
+
+<!-- Q4 -->
+
+<div class="question">
+
+<h3>
+4. Which organelle is called the powerhouse of the cell?
+</h3>
+
+<div class="options">
+
+<button onclick="check(this,false)">Nucleus</button>
+<button onclick="check(this,true)">Mitochondria</button>
+<button onclick="check(this,false)">Vacuole</button>
+<button onclick="check(this,false)">Ribosome</button>
+
+</div>
+
+</div>
+
+
+<!-- Q5 -->
+
+<div class="question">
+
+<h3>
+5. A polynomial of degree 2 is called:
+</h3>
+
+<div class="options">
+
+<button onclick="check(this,false)">Linear</button>
+<button onclick="check(this,true)">Quadratic</button>
+<button onclick="check(this,false)">Cubic</button>
+<button onclick="check(this,false)">Constant</button>
+
+</div>
+
+</div>
+
+
+<!-- Q6 -->
+
+<div class="question">
+
+<h3>
+6. Which gas is required for aerobic respiration?
+</h3>
+
+<div class="options">
+
+<button onclick="check(this,true)">Oxygen</button>
+<button onclick="check(this,false)">Nitrogen</button>
+<button onclick="check(this,false)">Helium</button>
+<button onclick="check(this,false)">Hydrogen</button>
+
+</div>
+
+</div>
+
+
+<!-- Q7 -->
+
+<div class="question">
+
+<h3>
+7. The Red Planet is:
+</h3>
+
+<div class="options">
+
+<button onclick="check(this,false)">Venus</button>
+<button onclick="check(this,true)">Mars</button>
+<button onclick="check(this,false)">Jupiter</button>
+<button onclick="check(this,false)">Mercury</button>
+
+</div>
+
+</div>
+
+
+<!-- Q8 -->
+
+<div class="question">
+
+<h3>
+8. Which is a renewable source of energy?
+</h3>
+
+<div class="options">
+
+<button onclick="check(this,true)">Solar energy</button>
+<button onclick="check(this,false)">Coal</button>
+<button onclick="check(this,false)">Petroleum</button>
+<button onclick="check(this,false)">Natural gas</button>
+
+</div>
+
+</div>
+
+
+<!-- Q9 -->
+
+<div class="question">
+
+<h3>
+9. What is the plural form of "child"?
+</h3>
+
+<div class="options">
+
+<button onclick="check(this,false)">Childs</button>
+<button onclick="check(this,true)">Children</button>
+<button onclick="check(this,false)">Childes</button>
+<button onclick="check(this,false)">Childrens</button>
+
+</div>
+
+</div>
+
+
+<!-- Q10 -->
+
+<div class="question">
+
+<h3>
+10. How many sides does a triangle have?
+</h3>
+
+<div class="options">
+
+<button onclick="check(this,false)">2</button>
+<button onclick="check(this,true)">3</button>
+<button onclick="check(this,false)">4</button>
+<button onclick="check(this,false)">5</button>
+
+</div>
+
+</div>
+
+
+<!-- Q11 -->
+
+<div class="question">
+
+<h3>
+11. Which part of a plant transports water?
+</h3>
+
+<div class="options">
+
+<button onclick="check(this,true)">Xylem</button>
+<button onclick="check(this,false)">Phloem</button>
+<button onclick="check(this,false)">Stomata</button>
+<button onclick="check(this,false)">Root hair</button>
+
+</div>
+
+</div>
+
+
+<!-- Q12 -->
+
+<div class="question">
+
+<h3>
+12. Which branch of Social Science studies the Earth and its features?
+</h3>
+
+<div class="options">
+
+<button onclick="check(this,false)">History</button>
+<button onclick="check(this,true)">Geography</button>
+<button onclick="check(this,false)">Civics</button>
+<button onclick="check(this,false)">Economics</button>
+
+</div>
+
+</div>
+
+
+<div class="quiz-result" id="score">
+Score: 0 / 12
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div>
+© 2026 <strong>Academix by Tiwari</strong>
+</div>
+
+<div class="developer">
+Developed by <strong>Anshu Tiwari</strong>
+</div>
+
+</footer>
+
+</div>
+
+
+<script>
+
+let score = 0;
+
+const answered = new Set();
+
+function check(button, correct){
+
+const question =
+button.closest(".question");
+
+if(answered.has(question)){
+    return;
+}
+
+answered.add(question);
+
+const buttons =
+question.querySelectorAll("button");
+
+buttons.forEach(function(btn){
+    btn.disabled = true;
+});
+
+if(correct){
+
+    score++;
+
+    button.style.borderColor =
+    "#63e6ff";
+
+    button.style.color =
+    "#63e6ff";
+
+}else{
+
+    button.style.borderColor =
+    "#ff7777";
+
+    button.style.color =
+    "#ff7777";
+}
+
+document.getElementById("score").innerText =
+"Score: " + score + " / 12";
+
+}
+
+</script>
+
+</body>
+</html>
+
