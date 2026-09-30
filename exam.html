@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Exam Simulator | Academix</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#071018;
+    color:white;
+    min-height:100vh;
+}
+
+.navbar{
+    height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 6%;
+    background:rgba(7,16,24,0.95);
+    border-bottom:1px solid rgba(0,217,255,0.15);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.logo-box{
+    width:40px;
+    height:40px;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#00d9ff,#8b5cf6);
+    color:white;
+    font-weight:bold;
+}
+
+.navbar a{
+    color:#ccc;
+    text-decoration:none;
+    margin-left:25px;
+}
+
+.navbar a:hover{
+    color:#00d9ff;
+}
+
+.container{
+    width:90%;
+    max-width:1000px;
+    margin:40px auto;
+}
+
+.card{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 10px 40px rgba(0,0,0,0.25);
+}
+
+h1{
+    text-align:center;
+    font-size:36px;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#aaa;
+    margin-bottom:30px;
+}
+
+.setup{
+    max-width:600px;
+    margin:auto;
+}
+
+label{
+    display:block;
+    margin:20px 0 8px;
+    color:#ddd;
+}
+
+select{
+    width:100%;
+    padding:14px;
+    background:#101c26;
+    color:white;
+    border:1px solid #29404e;
+    border-radius:10px;
+    font-size:16px;
+}
+
+.start-btn,
+.submit-btn{
+    width:100%;
+    padding:15px;
+    margin-top:30px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#00d9ff,#8b5cf6);
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.start-btn:hover,
+.submit-btn:hover{
+    transform:translateY(-2px);
+}
+
+.exam-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    margin-bottom:25px;
+    flex-wrap:wrap;
+}
+
+.timer{
+    padding:12px 20px;
+    border-radius:12px;
+    background:rgba(255,60,60,0.12);
+    border:1px solid rgba(255,60,60,0.3);
+    color:#ff7777;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.progress{
+    height:8px;
+    background:#182832;
+    border-radius:10px;
+    overflow:hidden;
+    margin-bottom:30px;
+}
+
+.progress-bar{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+    transition:0.3s;
+}
+
+.question-number{
+    color:#00d9ff;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.question{
+    font-size:24px;
+    line-height:1.5;
+    margin-bottom:25px;
+}
+
+.option{
+    display:block;
+    padding:16px;
+    margin:12px 0;
+    border:1px solid #29404e;
+    border-radius:12px;
+    cursor:pointer;
+    transition:0.2s;
+    background:rgba(255,255,255,0.03);
+}
+
+.option:hover{
+    border-color:#00d9ff;
+    background:rgba(0,217,255,0.08);
+}
+
+.option.selected{
+    border-color:#00d9ff;
+    background:rgba(0,217,255,0.12);
+}
+
+.option input{
+    display:none;
+}
+
+.exam-buttons{
+    display:flex;
+    justify-content:space-between;
+    margin-top:30px;
+    gap:15px;
+}
+
+.exam-buttons button{
+    padding:13px 25px;
+    border-radius:10px;
+    border:1px solid #29404e;
+    background:#101c26;
+    color:white;
+    cursor:pointer;
+}
+
+.exam-buttons button:hover{
+    border-color:#00d9ff;
+}
+
+.palette{
+    margin-top:30px;
+}
+
+.palette h3{
+    margin-bottom:15px;
+}
+
+.palette-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.palette-btn{
+    width:40px;
+    height:40px;
+    border-radius:8px;
+    border:1px solid #29404e;
+    background:#101c26;
+    color:white;
+    cursor:pointer;
+}
+
+.palette-btn.active{
+    border-color:#00d9ff;
+}
+
+.palette-btn.answered{
+    background:#00a86b;
+    border-color:#00d98b;
+}
+
+.result{
+    text-align:center;
+}
+
+.score-circle{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    margin:30px auto;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#00d9ff,#8b5cf6);
+}
+
+.score-circle strong{
+    font-size:42px;
+}
+
+.result-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin:30px 0;
+}
+
+.result-box{
+    padding:20px;
+    background:rgba(255,255,255,0.05);
+    border-radius:12px;
+}
+
+.result-box strong{
+    display:block;
+    font-size:25px;
+    margin-bottom:5px;
+}
+
+.correct{
+    color:#00e58b;
+}
+
+.wrong{
+    color:#ff6464;
+}
+
+.unanswered{
+    color:#ffc857;
+}
+
+.hidden{
+    display:none;
+}
+
+@media(max-width:600px){
+
+    h1{
+        font-size:28px;
+    }
+
+    .question{
+        font-size:20px;
+    }
+
+    .card{
+        padding:20px;
+    }
+
+    .result-grid{
+        grid-template-columns:1fr;
+    }
+
+    .navbar{
+        padding:0 4%;
+    }
+
+    .navbar a{
+        margin-left:10px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        <div class="logo-box">A</div>
+        <span>Academix by Tiwari</span>
+    </div>
+
+    <div>
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+    </div>
+
+</nav>
+
+
+<div class="container">
+
+    <!-- SETUP SCREEN -->
+
+    <div id="setupScreen" class="card setup">
+
+        <h1>📝 Exam Simulator</h1>
+
+        <p class="subtitle">
+            Test your knowledge like a real exam.
+        </p>
+
+        <label>Select Subject</label>
+
+        <select id="subjectSelect">
+
+            <option value="maths">Mathematics</option>
+            <option value="science">Science</option>
+            <option value="sst">Social Science</option>
+            <option value="english">English</option>
+            <option value="computer">Computer</option>
+
+        </select>
+
+
+        <label>Exam Time</label>
+
+        <select id="timeSelect">
+
+            <option value="5">5 Minutes</option>
+            <option value="10">10 Minutes</option>
+            <option value="15">15 Minutes</option>
+
+        </select>
+
+
+        <button class="start-btn" onclick="startExam()">
+            🚀 Start Exam
+        </button>
+
+    </div>
+
+
+    <!-- EXAM SCREEN -->
+
+    <div id="examScreen" class="card hidden">
+
+        <div class="exam-header">
+
+            <div>
+                <h2 id="examTitle">Mathematics Exam</h2>
+                <p id="questionCount">Question 1 of 5</p>
+            </div>
+
+            <div class="timer" id="timer">
+                05:00
+            </div>
+
+        </div>
+
+
+        <div class="progress">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+
+        <div class="question-number" id="questionNumber">
+            Question 1
+        </div>
+
+        <div class="question" id="questionText">
+            Question will appear here.
+        </div>
+
+        <div id="optionsContainer"></div>
+
+
+        <div class="exam-buttons">
+
+            <button onclick="previousQuestion()">
+                ← Previous
+            </button>
+
+            <button onclick="nextQuestion()">
+                Next →
+            </button>
+
+        </div>
+
+
+        <button class="submit-btn" onclick="submitExam()">
+            Submit Exam
+        </button>
+
+
+        <div class="palette">
+
+            <h3>Question Palette</h3>
+
+            <div class="palette-grid" id="palette"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- RESULT SCREEN -->
+
+    <div id="resultScreen" class="card result hidden">
+
+        <h1>🎉 Exam Completed</h1>
+
+        <p class="subtitle" id="resultSubject">
+            Mathematics
+        </p>
+
+
+        <div class="score-circle">
+
+            <strong id="percentage">
+                0%
+            </strong>
+
+            <span>Score</span>
+
+        </div>
+
+
+        <div class="result-grid">
+
+            <div class="result-box correct">
+
+                <strong id="correctCount">
+                    0
+                </strong>
+
+                Correct
+
+            </div>
+
+
+            <div class="result-box wrong">
+
+                <strong id="wrongCount">
+                    0
+                </strong>
+
+                Wrong
+
+            </div>
+
+
+            <div class="result-box unanswered">
+
+                <strong id="unansweredCount">
+                    0
+                </strong>
+
+                Unanswered
+
+            </div>
+
+        </div>
+
+
+        <p id="finalScore">
+            You scored 0 out of 5
+        </p>
+
+
+        <button class="start-btn" onclick="restartExam()">
+            🔄 Try Again
+        </button>
+
+        <button class="start-btn" onclick="goDashboard()">
+            📊 Dashboard
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+const questionBank = {
+
+    maths: [
+
+        {
+            question:"What is the value of √144?",
+            options:["10","11","12","14"],
+            answer:2
+        },
+
+        {
+            question:"If x + 5 = 12, what is the value of x?",
+            options:["5","6","7","8"],
+            answer:2
+        },
+
+        {
+            question:"What is the value of 2³?",
+            options:["6","8","9","12"],
+            answer:1
+        },
+
+        {
+            question:"The sum of angles of a triangle is:",
+            options:["90°","180°","270°","360°"],
+            answer:1
+        },
+
+        {
+            question:"What is 15 × 4?",
+            options:["45","50","60","75"],
+            answer:2
+        }
+
+    ],
+
+
+    science: [
+
+        {
+            question:"The basic unit of life is:",
+            options:["Tissue","Organ","Cell","Nucleus"],
+            answer:2
+        },
+
+        {
+            question:"Which gas is required for respiration?",
+            options:["Nitrogen","Oxygen","Carbon dioxide","Hydrogen"],
+            answer:1
+        },
+
+        {
+            question:"Which organ pumps blood in the human body?",
+            options:["Lungs","Brain","Heart","Kidney"],
+            answer:2
+        },
+
+        {
+            question:"Water boils at what temperature at normal pressure?",
+            options:["50°C","75°C","100°C","150°C"],
+            answer:2
+        },
+
+        {
+            question:"Which force pulls objects towards Earth?",
+            options:["Magnetic force","Gravitational force","Friction","Muscular force"],
+            answer:1
+        }
+
+    ],
+
+
+    sst: [
+
+        {
+            question:"What is the capital of India?",
+            options:["Mumbai","New Delhi","Kolkata","Chennai"],
+            answer:1
+        },
+
+        {
+            question:"Which is the largest continent?",
+            options:["Africa","Europe","Asia","Australia"],
+            answer:2
+        },
+
+        {
+            question:"The Constitution of India came into effect on:",
+            options:["15 August 1947","26 January 1950","2 October 1950","26 November 1949"],
+            answer:1
+        },
+
+        {
+            question:"Which river is known as the longest river in India?",
+            options:["Yamuna","Ganga","Narmada","Godavari"],
+            answer:1
+        },
+
+        {
+            question:"Democracy means government by:",
+            options:["King","Army","People","Judges"],
+            answer:2
+        }
+
+    ],
+
+
+    english: [
+
+        {
+            question:"Which word is a noun?",
+            options:["Run","Beautiful","School","Quickly"],
+            answer:2
+        },
+
+        {
+            question:"Choose the correct plural of 'child'.",
+            options:["Childs","Childes","Children","Childrens"],
+            answer:2
+        },
+
+        {
+            question:"Which word is an adjective?",
+            options:["Beautiful","Run","Slowly","School"],
+            answer:0
+        },
+
+        {
+            question:"Choose the correct sentence.",
+            options:[
+                "He go to school.",
+                "He goes to school.",
+                "He going school.",
+                "He gone school."
+            ],
+            answer:1
+        },
+
+        {
+            question:"What is the opposite of 'ancient'?",
+            options:["Old","Modern","Past","Historic"],
+            answer:1
+        }
+
+    ],
+
+
+    computer: [
+
+        {
+            question:"What does CPU stand for?",
+            options:[
+                "Central Processing Unit",
+                "Computer Personal Unit",
+                "Central Program Utility",
+                "Computer Processing Utility"
+            ],
+            answer:0
+        },
+
+        {
+            question:"Which language is used to style webpages?",
+            options:["HTML","CSS","Python","SQL"],
+            answer:1
+        },
+
+        {
+            question:"Which of these is an operating system?",
+            options:["Windows","Google","HTML","Intel"],
+            answer:0
+        },
+
+        {
+            question:"Which symbol is used for comments in Python?",
+            options:["//","#","<!--","**"],
+            answer:1
+        },
+
+        {
+            question:"What does RAM stand for?",
+            options:[
+                "Random Access Memory",
+                "Read Access Memory",
+                "Rapid Application Module",
+                "Random Application Memory"
+            ],
+            answer:0
+        }
+
+    ]
+
+};
+
+
+let questions = [];
+let currentQuestion = 0;
+let userAnswers = [];
+let timeLeft = 300;
+let timerInterval;
+let currentSubject = "";
+
+
+function startExam(){
+
+    currentSubject =
+        document.getElementById("subjectSelect").value;
+
+    const selectedTime =
+        Number(document.getElementById("timeSelect").value);
+
+    timeLeft = selectedTime * 60;
+
+    questions =
+        [...questionBank[currentSubject]];
+
+    // Shuffle questions
+
+    questions.sort(() => Math.random() - 0.5);
+
+    userAnswers =
+        new Array(questions.length).fill(null);
+
+    currentQuestion = 0;
+
+    document.getElementById("setupScreen")
+        .classList.add("hidden");
+
+    document.getElementById("resultScreen")
+        .classList.add("hidden");
+
+    document.getElementById("examScreen")
+        .classList.remove("hidden");
+
+    document.getElementById("examTitle").textContent =
+        getSubjectName(currentSubject) + " Exam";
+
+    createPalette();
+
+    showQuestion();
+
+    startTimer();
+
+}
+
+
+function getSubjectName(subject){
+
+    const names = {
+
+        maths:"Mathematics",
+        science:"Science",
+        sst:"Social Science",
+        english:"English",
+        computer:"Computer"
+
+    };
+
+    return names[subject];
+
+}
+
+
+function showQuestion(){
+
+    const q = questions[currentQuestion];
+
+    document.getElementById("questionNumber")
+        .textContent =
+        "Question " + (currentQuestion + 1);
+
+    document.getElementById("questionCount")
+        .textContent =
+        "Question " +
+        (currentQuestion + 1) +
+        " of " +
+        questions.length;
+
+    document.getElementById("questionText")
+        .textContent = q.question;
+
+
+    const container =
+        document.getElementById("optionsContainer");
+
+    container.innerHTML = "";
+
+
+    q.options.forEach((option,index)=>{
+
+        const label =
+            document.createElement("label");
+
+        label.className = "option";
+
+        if(userAnswers[currentQuestion] === index){
+            label.classList.add("selected");
+        }
+
+
+        label.innerHTML =
+            `<input type="radio"
+            name="answer"
+            value="${index}">
+            ${String.fromCharCode(65 + index)}. ${option}`;
+
+
+        label.onclick = function(){
+
+            userAnswers[currentQuestion] = index;
+
+            document
+                .querySelectorAll(".option")
+                .forEach(el =>
+                    el.classList.remove("selected")
+                );
+
+            label.classList.add("selected");
+
+            updatePalette();
+
+        };
+
+
+        container.appendChild(label);
+
+    });
+
+
+    const progress =
+        ((currentQuestion + 1) /
+        questions.length) * 100;
+
+    document.getElementById("progressBar")
+        .style.width = progress + "%";
+
+    updatePalette();
+
+}
+
+
+function nextQuestion(){
+
+    if(currentQuestion < questions.length - 1){
+
+        currentQuestion++;
+
+        showQuestion();
+
+    }
+
+}
+
+
+function previousQuestion(){
+
+    if(currentQuestion > 0){
+
+        currentQuestion--;
+
+        showQuestion();
+
+    }
+
+}
+
+
+function createPalette(){
+
+    const palette =
+        document.getElementById("palette");
+
+    palette.innerHTML = "";
+
+
+    questions.forEach((q,index)=>{
+
+        const button =
+            document.createElement("button");
+
+        button.className = "palette-btn";
+
+        button.textContent = index + 1;
+
+        button.onclick = function(){
+
+            currentQuestion = index;
+
+            showQuestion();
+
+        };
+
+        palette.appendChild(button);
+
+    });
+
+}
+
+
+function updatePalette(){
+
+    const buttons =
+        document.querySelectorAll(".palette-btn");
+
+    buttons.forEach((button,index)=>{
+
+        button.classList.remove("active");
+        button.classList.remove("answered");
+
+
+        if(index === currentQuestion){
+
+            button.classList.add("active");
+
+        }
+
+        if(userAnswers[index] !== null){
+
+            button.classList.add("answered");
+
+        }
+
+    });
+
+}
+
+
+function startTimer(){
+
+    clearInterval(timerInterval);
+
+    updateTimer();
+
+
+    timerInterval = setInterval(()=>{
+
+        timeLeft--;
+
+        updateTimer();
+
+
+        if(timeLeft <= 0){
+
+            clearInterval(timerInterval);
+
+            alert("⏰ Time is over!");
+
+            submitExam();
+
+        }
+
+    },1000);
+
+}
+
+
+function updateTimer(){
+
+    const minutes =
+        Math.floor(timeLeft / 60);
+
+    const seconds =
+        timeLeft % 60;
+
+
+    document.getElementById("timer")
+        .textContent =
+        String(minutes).padStart(2,"0")
+        + ":" +
+        String(seconds).padStart(2,"0");
+
+}
+
+
+function submitExam(){
+
+    clearInterval(timerInterval);
+
+
+    let correct = 0;
+    let wrong = 0;
+    let unanswered = 0;
+
+
+    questions.forEach((q,index)=>{
+
+        if(userAnswers[index] === null){
+
+            unanswered++;
+
+        }
+        else if(userAnswers[index] === q.answer){
+
+            correct++;
+
+        }
+        else{
+
+            wrong++;
+
+        }
+
+    });
+
+
+    const percentage =
+        Math.round(
+            (correct / questions.length) * 100
+        );
+
+
+    document.getElementById("examScreen")
+        .classList.add("hidden");
+
+    document.getElementById("resultScreen")
+        .classList.remove("hidden");
+
+
+    document.getElementById("resultSubject")
+        .textContent =
+        getSubjectName(currentSubject);
+
+
+    document.getElementById("percentage")
+        .textContent =
+        percentage + "%";
+
+
+    document.getElementById("correctCount")
+        .textContent = correct;
+
+
+    document.getElementById("wrongCount")
+        .textContent = wrong;
+
+
+    document.getElementById("unansweredCount")
+        .textContent = unanswered;
+
+
+    document.getElementById("finalScore")
+        .textContent =
+        "You scored " +
+        correct +
+        " out of " +
+        questions.length;
+
+
+    // Save latest result
+
+    localStorage.setItem(
+        "academixLastScore",
+        percentage
+    );
+
+    localStorage.setItem(
+        "academixLastSubject",
+        getSubjectName(currentSubject)
+    );
+
+}
+
+
+function restartExam(){
+
+    document.getElementById("resultScreen")
+        .classList.add("hidden");
+
+    document.getElementById("setupScreen")
+        .classList.remove("hidden");
+
+}
+
+
+function goDashboard(){
+
+    window.location.href =
+        "dashboard.html";
+
+}
+
+</script>
+
+</body>
+</html>

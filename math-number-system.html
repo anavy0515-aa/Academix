@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Number Systems | Academix by Tiwari</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#071018;
+    color:white;
+    line-height:1.7;
+}
+
+/* NAVBAR */
+
+nav{
+    height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 7%;
+    background:#08141f;
+    border-bottom:1px solid rgba(0,217,255,0.2);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:20px;
+    font-weight:bold;
+    color:#00d9ff;
+}
+
+.logo-box{
+    width:40px;
+    height:40px;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#00d9ff,#8b5cf6);
+    color:white;
+    font-weight:bold;
+    font-size:20px;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#ddd;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#00d9ff;
+}
+
+
+/* HERO */
+
+.hero{
+    text-align:center;
+    padding:70px 20px;
+    background:
+    radial-gradient(circle at top,#102b40,transparent 60%);
+}
+
+.hero h1{
+    font-size:48px;
+    margin-bottom:10px;
+    background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    color:#aaa;
+    font-size:18px;
+}
+
+.chapter-tag{
+    display:inline-block;
+    margin-bottom:20px;
+    padding:7px 16px;
+    border:1px solid #00d9ff;
+    border-radius:20px;
+    color:#00d9ff;
+}
+
+
+/* MAIN CONTAINER */
+
+.container{
+    width:90%;
+    max-width:1100px;
+    margin:auto;
+}
+
+
+/* CARDS */
+
+.card{
+    background:#0c1b28;
+    border:1px solid rgba(0,217,255,.15);
+    border-radius:16px;
+    padding:30px;
+    margin-bottom:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+.card h2{
+    color:#00d9ff;
+    margin-bottom:18px;
+}
+
+.card h3{
+    color:#8b5cf6;
+    margin-top:20px;
+    margin-bottom:8px;
+}
+
+.card p{
+    color:#ddd;
+}
+
+ul{
+    padding-left:25px;
+    color:#ddd;
+}
+
+li{
+    margin:7px 0;
+}
+
+
+/* FORMULA */
+
+.formula{
+    background:#071018;
+    border-left:4px solid #00d9ff;
+    padding:15px 20px;
+    margin:15px 0;
+    border-radius:8px;
+    font-size:18px;
+    color:#fff;
+}
+
+
+/* EXAMPLES */
+
+.example{
+    background:#101f2d;
+    border-radius:10px;
+    padding:18px;
+    margin-top:15px;
+}
+
+.example strong{
+    color:#00d9ff;
+}
+
+
+/* IMPORTANT */
+
+.important{
+    border:1px solid #8b5cf6;
+    background:rgba(139,92,246,.08);
+}
+
+
+/* VIDEO */
+
+.video-box{
+    text-align:center;
+    padding:35px;
+    border:1px dashed #00d9ff;
+    border-radius:12px;
+}
+
+.video-box p{
+    margin-bottom:10px;
+}
+
+.video-box a{
+    display:inline-block;
+    margin-top:15px;
+    padding:12px 22px;
+    border-radius:10px;
+    background:#00d9ff;
+    color:#071018;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.video-box a:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 20px rgba(0,217,255,.4);
+}
+
+
+/* QUIZ */
+
+.quiz-question{
+    margin-bottom:25px;
+}
+
+.quiz-question p{
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.quiz-question label{
+    display:block;
+    padding:8px;
+    margin:5px 0;
+    background:#101f2d;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.quiz-question label:hover{
+    background:#163044;
+}
+
+.quiz-btn{
+    padding:12px 25px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    font-size:16px;
+}
+
+#result{
+    margin-top:20px;
+    font-size:20px;
+    color:#00d9ff;
+    font-weight:bold;
+}
+
+
+/* NAVIGATION BUTTONS */
+
+.navigation{
+    text-align:center;
+}
+
+.navigation a{
+    display:inline-block;
+    padding:12px 22px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:bold;
+    margin:10px;
+    transition:.3s;
+}
+
+.back-btn{
+    background:#00d9ff;
+    color:#071018;
+}
+
+.next-btn{
+    background:#8b5cf6;
+    color:white;
+}
+
+.navigation a:hover{
+    transform:translateY(-3px);
+}
+
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:40px 20px;
+    margin-top:60px;
+    border-top:1px solid rgba(255,255,255,.1);
+    color:#888;
+}
+
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    nav{
+        padding:0 4%;
+    }
+
+    .nav-links{
+        gap:10px;
+    }
+
+    .nav-links a{
+        font-size:13px;
+    }
+
+    .hero h1{
+        font-size:35px;
+    }
+
+    .card{
+        padding:20px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="logo">
+
+        <div class="logo-box">
+            A
+        </div>
+
+        Academix by Tiwari
+
+    </div>
+
+
+    <div class="nav-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="maths.html">
+            Mathematics
+        </a>
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <span class="chapter-tag">
+        Class 9 Mathematics • Chapter 1
+    </span>
+
+    <h1>
+        Number Systems
+    </h1>
+
+    <p>
+        Complete Notes • Important Concepts • Examples • Quiz
+    </p>
+
+</section>
+
+
+
+<div class="container">
+
+
+<!-- INTRODUCTION -->
+
+<section class="card">
+
+<h2>📖 1. Introduction</h2>
+
+<p>
+A number system is a system used to represent numbers.
+In Class 9, we study different types of numbers such as
+natural numbers, whole numbers, integers, rational numbers
+and irrational numbers.
+</p>
+
+
+<h3>Types of Numbers</h3>
+
+<ul>
+
+<li>Natural Numbers</li>
+
+<li>Whole Numbers</li>
+
+<li>Integers</li>
+
+<li>Rational Numbers</li>
+
+<li>Irrational Numbers</li>
+
+<li>Real Numbers</li>
+
+</ul>
+
+</section>
+
+
+
+<!-- TYPES OF NUMBERS -->
+
+<section class="card">
+
+<h2>🔢 2. Types of Numbers</h2>
+
+
+<h3>Natural Numbers (N)</h3>
+
+<p>
+Natural numbers are counting numbers.
+</p>
+
+<div class="formula">
+
+N = {1, 2, 3, 4, 5, ...}
+
+</div>
+
+
+
+<h3>Whole Numbers (W)</h3>
+
+<p>
+Whole numbers include zero along with natural numbers.
+</p>
+
+<div class="formula">
+
+W = {0, 1, 2, 3, 4, ...}
+
+</div>
+
+
+
+<h3>Integers (Z)</h3>
+
+<p>
+Integers include positive numbers, negative numbers and zero.
+</p>
+
+<div class="formula">
+
+Z = {..., -3, -2, -1, 0, 1, 2, 3, ...}
+
+</div>
+
+
+
+<h3>Rational Numbers (Q)</h3>
+
+<p>
+A number that can be written in the form p/q,
+where p and q are integers and q ≠ 0,
+is called a rational number.
+</p>
+
+<div class="formula">
+
+p/q , where q ≠ 0
+
+</div>
+
+
+<div class="example">
+
+<strong>Examples:</strong>
+
+<br>
+
+1/2, 3/4, -5/7, 2, 0
+
+</div>
+
+
+
+<h3>Irrational Numbers</h3>
+
+<p>
+Numbers that cannot be expressed in the form p/q
+are called irrational numbers.
+</p>
+
+
+<div class="example">
+
+<strong>Examples:</strong>
+
+<br>
+
+√2, √3, √5, π
+
+</div>
+
+
+
+<h3>Real Numbers (R)</h3>
+
+<p>
+The collection of rational and irrational numbers
+is called the set of real numbers.
+</p>
+
+
+<div class="formula">
+
+Real Numbers = Rational Numbers + Irrational Numbers
+
+</div>
+
+</section>
+
+
+
+<!-- NUMBER LINE -->
+
+<section class="card">
+
+<h2>📏 3. Representation on Number Line</h2>
+
+<p>
+Every real number can be represented by a unique point
+on the number line.
+</p>
+
+
+<div class="example">
+
+<strong>Important:</strong>
+
+<p>
+Positive numbers lie to the right of zero,
+while negative numbers lie to the left of zero.
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- DECIMAL EXPANSION -->
+
+<section class="card">
+
+<h2>🔢 4. Decimal Expansions</h2>
+
+<p>
+Rational numbers can have terminating or
+non-terminating recurring decimal expansions.
+</p>
+
+
+<h3>Terminating Decimal</h3>
+
+<div class="example">
+
+1/2 = 0.5
+
+<br>
+
+3/4 = 0.75
+
+<br>
+
+7/8 = 0.875
+
+</div>
+
+
+
+<h3>Non-Terminating Recurring Decimal</h3>
+
+<div class="example">
+
+1/3 = 0.3333...
+
+<br>
+
+2/11 = 0.181818...
+
+</div>
+
+
+
+<h3>Irrational Decimal</h3>
+
+<p>
+Irrational numbers have non-terminating and
+non-repeating decimal expansions.
+</p>
+
+
+<div class="example">
+
+√2 = 1.41421356...
+
+<br>
+
+π = 3.14159265...
+
+</div>
+
+</section>
+
+
+
+<!-- IMPORTANT THEOREM -->
+
+<section class="card important">
+
+<h2>⭐ 5. Important Result</h2>
+
+<p>
+Let p/q be a rational number in its lowest form,
+where p and q are integers and q ≠ 0.
+</p>
+
+
+<p style="margin-top:15px;">
+
+The decimal expansion of p/q terminates
+if and only if the prime factorisation of q
+is of the form:
+
+</p>
+
+
+<div class="formula">
+
+q = 2ⁿ × 5ᵐ
+
+</div>
+
+
+<p>
+
+where n and m are non-negative integers.
+
+</p>
+
+
+<div class="example">
+
+<strong>Example:</strong>
+
+<br><br>
+
+3/40
+
+<br><br>
+
+40 = 2³ × 5
+
+<br><br>
+
+Therefore, 3/40 has a terminating decimal expansion.
+
+</div>
+
+</section>
+
+
+
+<!-- LAWS OF EXPONENTS -->
+
+<section class="card">
+
+<h2>⚡ 6. Laws of Exponents</h2>
+
+
+<div class="formula">
+
+aᵐ × aⁿ = aᵐ⁺ⁿ
+
+</div>
+
+
+<div class="formula">
+
+aᵐ ÷ aⁿ = aᵐ⁻ⁿ
+
+</div>
+
+
+<div class="formula">
+
+(aᵐ)ⁿ = aᵐⁿ
+
+</div>
+
+
+<div class="formula">
+
+a⁰ = 1
+
+</div>
+
+
+<div class="formula">
+
+a⁻ᵐ = 1/aᵐ
+
+</div>
+
+
+<div class="formula">
+
+aᵐ⁄ⁿ = ⁿ√(aᵐ)
+
+</div>
+
+</section>
+
+
+
+<!-- IMPORTANT POINTS -->
+
+<section class="card important">
+
+<h2>⭐ 7. Important Points for Exam</h2>
+
+<ul>
+
+<li>
+Every natural number is a whole number.
+</li>
+
+<li>
+Every whole number is an integer.
+</li>
+
+<li>
+Every integer is a rational number.
+</li>
+
+<li>
+Every rational number is a real number.
+</li>
+
+<li>
+Irrational numbers are also real numbers.
+</li>
+
+<li>
+√2, √3 and √5 are irrational numbers.
+</li>
+
+<li>
+Every rational number has either a terminating
+or recurring decimal expansion.
+</li>
+
+<li>
+Irrational numbers have non-terminating
+and non-repeating decimal expansions.
+</li>
+
+<li>
+0 is a whole number, integer and rational number.
+</li>
+
+</ul>
+
+</section>
+
+
+
+<!-- VIDEO -->
+
+<section class="card">
+
+<h2>🎥 8. Video Learning</h2>
+
+
+<div class="video-box">
+
+<p>
+
+Learn Mathematics from
+<strong>Team Ritik Mishra</strong>.
+
+</p>
+
+
+<p>
+
+Watch the Number Systems explanation
+and other Class 9 Maths videos.
+
+</p>
+
+
+<a href="https://www.youtube.com/@TeamRitikMishra"
+target="_blank">
+
+▶ Watch Maths Videos
+
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- QUIZ -->
+
+<section class="card">
+
+<h2>📝 9. Chapter Quiz</h2>
+
+
+
+<div class="quiz-question">
+
+<p>
+1. Which of the following is irrational?
+</p>
+
+
+<label>
+<input type="radio" name="q1" value="0">
+1/2
+</label>
+
+
+<label>
+<input type="radio" name="q1" value="1">
+√2
+</label>
+
+
+<label>
+<input type="radio" name="q1" value="0">
+3/4
+</label>
+
+
+<label>
+<input type="radio" name="q1" value="0">
+5
+</label>
+
+</div>
+
+
+
+<div class="quiz-question">
+
+<p>
+2. Which number belongs to whole numbers?
+</p>
+
+
+<label>
+<input type="radio" name="q2" value="1">
+0
+</label>
+
+
+<label>
+<input type="radio" name="q2" value="0">
+-1
+</label>
+
+
+<label>
+<input type="radio" name="q2" value="0">
+-5
+</label>
+
+
+<label>
+<input type="radio" name="q2" value="0">
+-10
+</label>
+
+</div>
+
+
+
+<div class="quiz-question">
+
+<p>
+3. Which is a rational number?
+</p>
+
+
+<label>
+<input type="radio" name="q3" value="0">
+√2
+</label>
+
+
+<label>
+<input type="radio" name="q3" value="0">
+√3
+</label>
+
+
+<label>
+<input type="radio" name="q3" value="1">
+3/5
+</label>
+
+
+<label>
+<input type="radio" name="q3" value="0">
+π
+</label>
+
+</div>
+
+
+
+<div class="quiz-question">
+
+<p>
+4. What is 2³ × 2²?
+</p>
+
+
+<label>
+<input type="radio" name="q4" value="0">
+2⁵ = 16
+</label>
+
+
+<label>
+<input type="radio" name="q4" value="1">
+2⁵ = 32
+</label>
+
+
+<label>
+<input type="radio" name="q4" value="0">
+2⁶ = 64
+</label>
+
+
+<label>
+<input type="radio" name="q4" value="0">
+2⁴ = 8
+</label>
+
+</div>
+
+
+
+<div class="quiz-question">
+
+<p>
+5. Which type of decimal expansion does √2 have?
+</p>
+
+
+<label>
+<input type="radio" name="q5" value="0">
+Terminating
+</label>
+
+
+<label>
+<input type="radio" name="q5" value="0">
+Recurring
+</label>
+
+
+<label>
+<input type="radio" name="q5" value="1">
+Non-terminating and non-repeating
+</label>
+
+
+<label>
+<input type="radio" name="q5" value="0">
+None
+</label>
+
+</div>
+
+
+
+<button class="quiz-btn" onclick="checkQuiz()">
+
+Submit Quiz
+
+</button>
+
+
+<div id="result"></div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>
+© 2026 Academix by Tiwari
+</p>
+
+<p>
+Developed with ❤️ by: ANSHU TIWARI
+</p>
+
+</footer>
+
+
+
+<script>
+
+function checkQuiz(){
+
+    let score = 0;
+
+    for(let i = 1; i <= 5; i++){
+
+        let answer = document.querySelector(
+            'input[name="q' + i + '"]:checked'
+        );
+
+        if(answer && answer.value === "1"){
+            score++;
+        }
+
+    }
+
+
+    let result = document.getElementById("result");
+
+
+    result.innerHTML =
+    "Your Score: " + score + " / 5";
+
+
+    localStorage.setItem(
+        "numberSystemsScore",
+        score
+    );
+
+}
+
+</script>
+
+</body>
+</html>

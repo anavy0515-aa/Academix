@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Polynomials | Academix by Tiwari</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#071018;
+    color:white;
+    line-height:1.7;
+}
+
+/* NAVBAR */
+
+nav{
+    height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 7%;
+    background:#08141f;
+    border-bottom:1px solid rgba(0,217,255,.2);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:#00d9ff;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.logo-box{
+    width:40px;
+    height:40px;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#00d9ff,#8b5cf6);
+    color:white;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+}
+
+.nav-links a{
+    color:#ddd;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#00d9ff;
+}
+
+
+/* HERO */
+
+.hero{
+    text-align:center;
+    padding:70px 20px;
+    background:
+    radial-gradient(circle at top,#102b40,transparent 60%);
+}
+
+.hero h1{
+    font-size:48px;
+    margin-bottom:10px;
+    background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    color:#aaa;
+    font-size:18px;
+}
+
+.chapter-tag{
+    display:inline-block;
+    padding:7px 16px;
+    margin-bottom:20px;
+    border:1px solid #00d9ff;
+    border-radius:20px;
+    color:#00d9ff;
+}
+
+
+/* CONTAINER */
+
+.container{
+    width:90%;
+    max-width:1100px;
+    margin:auto;
+}
+
+
+/* CARDS */
+
+.card{
+    background:#0c1b28;
+    border:1px solid rgba(0,217,255,.15);
+    border-radius:16px;
+    padding:30px;
+    margin-bottom:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+.card h2{
+    color:#00d9ff;
+    margin-bottom:18px;
+}
+
+.card h3{
+    color:#8b5cf6;
+    margin-top:20px;
+    margin-bottom:8px;
+}
+
+.card p{
+    color:#ddd;
+}
+
+ul{
+    padding-left:25px;
+    color:#ddd;
+}
+
+li{
+    margin:7px 0;
+}
+
+
+/* FORMULA */
+
+.formula{
+    background:#071018;
+    border-left:4px solid #00d9ff;
+    padding:15px 20px;
+    margin:15px 0;
+    border-radius:8px;
+    font-size:18px;
+    color:white;
+    overflow-x:auto;
+}
+
+
+/* EXAMPLE */
+
+.example{
+    background:#101f2d;
+    border-radius:10px;
+    padding:18px;
+    margin-top:15px;
+}
+
+.example strong{
+    color:#00d9ff;
+}
+
+
+/* IMPORTANT */
+
+.important{
+    border:1px solid #8b5cf6;
+    background:rgba(139,92,246,.08);
+}
+
+
+/* VIDEO */
+
+.video-box{
+    text-align:center;
+    padding:35px;
+    border:1px dashed #00d9ff;
+    border-radius:12px;
+}
+
+.video-box a{
+    display:inline-block;
+    margin-top:15px;
+    padding:12px 22px;
+    border-radius:10px;
+    background:#00d9ff;
+    color:#071018;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.video-box a:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 20px rgba(0,217,255,.4);
+}
+
+
+/* QUIZ */
+
+.quiz-question{
+    margin-bottom:25px;
+}
+
+.quiz-question p{
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.quiz-question label{
+    display:block;
+    padding:9px;
+    margin:5px 0;
+    background:#101f2d;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.quiz-question label:hover{
+    background:#163044;
+}
+
+.quiz-btn{
+    padding:12px 25px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    font-size:16px;
+}
+
+#result{
+    margin-top:20px;
+    font-size:20px;
+    color:#00d9ff;
+    font-weight:bold;
+}
+
+
+/* NAVIGATION */
+
+.navigation{
+    text-align:center;
+}
+
+.navigation a{
+    display:inline-block;
+    padding:12px 22px;
+    margin:10px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.navigation a:hover{
+    transform:translateY(-3px);
+}
+
+.back-btn{
+    background:#00d9ff;
+    color:#071018;
+}
+
+.next-btn{
+    background:#8b5cf6;
+    color:white;
+}
+
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:40px 20px;
+    margin-top:60px;
+    border-top:1px solid rgba(255,255,255,.1);
+    color:#888;
+}
+
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    nav{
+        padding:0 4%;
+    }
+
+    .nav-links{
+        gap:10px;
+    }
+
+    .nav-links a{
+        font-size:13px;
+    }
+
+    .hero h1{
+        font-size:35px;
+    }
+
+    .card{
+        padding:20px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="logo">
+
+        <div class="logo-box">
+            A
+        </div>
+
+        Academix by Tiwari
+
+    </div>
+
+
+    <div class="nav-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="maths.html">
+            Mathematics
+        </a>
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <span class="chapter-tag">
+        Class 9 Mathematics • Chapter 2
+    </span>
+
+    <h1>
+        Polynomials
+    </h1>
+
+    <p>
+        Complete Notes • Concepts • Identities • Examples • Quiz
+    </p>
+
+</section>
+
+
+
+<div class="container">
+
+
+<!-- INTRODUCTION -->
+
+<section class="card">
+
+<h2>📖 1. What is a Polynomial?</h2>
+
+<p>
+A polynomial in one variable is an algebraic expression
+in which the powers of the variable are non-negative
+integers and the coefficients are real numbers.
+</p>
+
+
+<div class="formula">
+
+Example: 3x² + 5x - 7
+
+</div>
+
+
+<p>
+Here, x is the variable and 3, 5 and -7 are the coefficients.
+</p>
+
+</section>
+
+
+
+<!-- TERMS -->
+
+<section class="card">
+
+<h2>🔢 2. Terms of a Polynomial</h2>
+
+<p>
+The different parts of a polynomial separated by
+plus or minus signs are called terms.
+</p>
+
+
+<div class="example">
+
+<strong>Example:</strong>
+
+<br><br>
+
+5x³ - 4x² + 7x - 9
+
+<br><br>
+
+Terms are:
+
+<br>
+
+5x³, -4x², 7x and -9
+
+</div>
+
+
+<h3>Coefficient</h3>
+
+<p>
+The numerical factor multiplying a variable is called
+its coefficient.
+</p>
+
+
+<div class="example">
+
+In 7x², the coefficient of x² is <strong>7</strong>.
+
+</div>
+
+</section>
+
+
+
+<!-- DEGREE -->
+
+<section class="card">
+
+<h2>📊 3. Degree of a Polynomial</h2>
+
+<p>
+The highest power of the variable in a polynomial
+is called its degree.
+</p>
+
+
+<div class="example">
+
+<strong>Example:</strong>
+
+<br><br>
+
+4x³ + 2x² - 5x + 8
+
+<br><br>
+
+Highest power = 3
+
+<br>
+
+Therefore, degree = <strong>3</strong>
+
+</div>
+
+
+<h3>Special Cases</h3>
+
+<ul>
+
+<li>
+A non-zero constant polynomial has degree 0.
+</li>
+
+<li>
+The zero polynomial has no defined degree.
+</li>
+
+</ul>
+
+</section>
+
+
+
+<!-- TYPES -->
+
+<section class="card">
+
+<h2>🧩 4. Types of Polynomials</h2>
+
+
+<h3>Constant Polynomial</h3>
+
+<div class="formula">
+
+5
+
+</div>
+
+<p>
+Degree = 0
+</p>
+
+
+
+<h3>Linear Polynomial</h3>
+
+<div class="formula">
+
+ax + b
+
+</div>
+
+<p>
+Degree = 1
+</p>
+
+
+
+<h3>Quadratic Polynomial</h3>
+
+<div class="formula">
+
+ax² + bx + c
+
+</div>
+
+<p>
+Degree = 2
+</p>
+
+
+
+<h3>Cubic Polynomial</h3>
+
+<div class="formula">
+
+ax³ + bx² + cx + d
+
+</div>
+
+<p>
+Degree = 3
+</p>
+
+</section>
+
+
+
+<!-- VALUE -->
+
+<section class="card">
+
+<h2>🧮 5. Value of a Polynomial</h2>
+
+<p>
+To find the value of a polynomial for a particular value
+of the variable, substitute that value into the polynomial.
+</p>
+
+
+<div class="example">
+
+<strong>Example:</strong>
+
+<br><br>
+
+p(x) = x² + 3x + 2
+
+<br><br>
+
+Find p(2).
+
+<br><br>
+
+p(2) = (2)² + 3(2) + 2
+
+<br>
+
+= 4 + 6 + 2
+
+<br>
+
+= <strong>12</strong>
+
+</div>
+
+</section>
+
+
+
+<!-- ZERO -->
+
+<section class="card">
+
+<h2>🎯 6. Zero of a Polynomial</h2>
+
+<p>
+A number k is called a zero of a polynomial p(x)
+if p(k) = 0.
+</p>
+
+
+<div class="formula">
+
+p(k) = 0
+
+</div>
+
+
+<div class="example">
+
+<strong>Example:</strong>
+
+<br><br>
+
+p(x) = x - 5
+
+<br><br>
+
+Put x = 5:
+
+<br>
+
+p(5) = 5 - 5 = 0
+
+<br><br>
+
+Therefore, <strong>5 is the zero of the polynomial.</strong>
+
+</div>
+
+</section>
+
+
+
+<!-- REMAINDER -->
+
+<section class="card">
+
+<h2>📐 7. Remainder Theorem</h2>
+
+<p>
+When a polynomial p(x) is divided by x - a,
+the remainder is p(a).
+</p>
+
+
+<div class="formula">
+
+Remainder = p(a)
+
+</div>
+
+
+<div class="example">
+
+<strong>Example:</strong>
+
+<br><br>
+
+p(x) = x² + 3x + 2
+
+<br><br>
+
+Divide by x - 1.
+
+<br><br>
+
+Here a = 1.
+
+<br>
+
+p(1) = 1 + 3 + 2 = 6
+
+<br><br>
+
+Therefore, remainder = <strong>6</strong>.
+
+</div>
+
+</section>
+
+
+
+<!-- FACTOR THEOREM -->
+
+<section class="card">
+
+<h2>⭐ 8. Factor Theorem</h2>
+
+<p>
+If p(a) = 0, then x - a is a factor of p(x).
+</p>
+
+
+<div class="formula">
+
+p(a) = 0  ⟹  (x - a) is a factor of p(x)
+
+</div>
+
+
+<div class="example">
+
+<strong>Example:</strong>
+
+<br><br>
+
+p(x) = x² - 5x + 6
+
+<br><br>
+
+p(2) = 4 - 10 + 6 = 0
+
+<br><br>
+
+Therefore, x - 2 is a factor.
+
+</div>
+
+</section>
+
+
+
+<!-- IDENTITIES -->
+
+<section class="card important">
+
+<h2>⭐ 9. Important Algebraic Identities</h2>
+
+
+<h3>Identity 1</h3>
+
+<div class="formula">
+
+(a + b)² = a² + 2ab + b²
+
+</div>
+
+
+<h3>Identity 2</h3>
+
+<div class="formula">
+
+(a - b)² = a² - 2ab + b²
+
+</div>
+
+
+<h3>Identity 3</h3>
+
+<div class="formula">
+
+(a + b)(a - b) = a² - b²
+
+</div>
+
+
+<h3>Identity 4</h3>
+
+<div class="formula">
+
+(x + a)(x + b)
+= x² + (a + b)x + ab
+
+</div>
+
+
+<h3>Identity 5</h3>
+
+<div class="formula">
+
+(x - a)(x - b)
+= x² - (a + b)x + ab
+
+</div>
+
+</section>
+
+
+
+<!-- IMPORTANT QUESTIONS -->
+
+<section class="card">
+
+<h2>❓ 10. Important Questions</h2>
+
+<ul>
+
+<li>
+Find the degree of 7x³ - 5x² + 2x - 8.
+</li>
+
+<li>
+Find the value of p(2) for p(x) = x² + 3x + 1.
+</li>
+
+<li>
+Find the zero of p(x) = x - 7.
+</li>
+
+<li>
+Check whether x - 2 is a factor of x² - 5x + 6.
+</li>
+
+<li>
+Expand (x + 5)².
+</li>
+
+<li>
+Factorise x² - 25.
+</li>
+
+</ul>
+
+</section>
+
+
+
+<!-- IMPORTANT POINTS -->
+
+<section class="card important">
+
+<h2>🔥 11. Exam Important Points</h2>
+
+<ul>
+
+<li>
+Degree means the highest power of the variable.
+</li>
+
+<li>
+A linear polynomial has degree 1.
+</li>
+
+<li>
+A quadratic polynomial has degree 2.
+</li>
+
+<li>
+A cubic polynomial has degree 3.
+</li>
+
+<li>
+The zero of p(x) is the value of x for which p(x) = 0.
+</li>
+
+<li>
+For divisor x - a, remainder = p(a).
+</li>
+
+<li>
+If p(a) = 0, then x - a is a factor of p(x).
+</li>
+
+<li>
+Learn all important algebraic identities properly.
+</li>
+
+</ul>
+
+</section>
+
+
+
+<!-- VIDEO -->
+
+<section class="card">
+
+<h2>🎥 12. Video Learning</h2>
+
+<div class="video-box">
+
+<p>
+Learn Class 9 Mathematics from
+<strong>Team Ritik Mishra</strong>.
+</p>
+
+<p>
+Watch Polynomials and other Mathematics topics.
+</p>
+
+<a href="https://www.youtube.com/@TeamRitikMishra"
+target="_blank">
+
+▶ Watch Maths Videos
+
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- QUIZ -->
+
+<section class="card">
+
+<h2>📝 13. Chapter Quiz</h2>
+
+
+
+<div class="quiz-question">
+
+<p>
+1. What is the degree of 5x³ + 2x² - 7?
+</p>
+
+<label>
+<input type="radio" name="q1" value="0">
+1
+</label>
+
+<label>
+<input type="radio" name="q1" value="0">
+2
+</label>
+
+<label>
+<input type="radio" name="q1" value="1">
+3
+</label>
+
+<label>
+<input type="radio" name="q1" value="0">
+7
+</label>
+
+</div>
+
+
+
+<div class="quiz-question">
+
+<p>
+2. What is the zero of p(x) = x - 4?
+</p>
+
+<label>
+<input type="radio" name="q2" value="0">
+0
+</label>
+
+<label>
+<input type="radio" name="q2" value="0">
+2
+</label>
+
+<label>
+<input type="radio" name="q2" value="1">
+4
+</label>
+
+<label>
+<input type="radio" name="q2" value="0">
+-4
+</label>
+
+</div>
+
+
+
+<div class="quiz-question">
+
+<p>
+3. Which is a quadratic polynomial?
+</p>
+
+<label>
+<input type="radio" name="q3" value="0">
+3x + 2
+</label>
+
+<label>
+<input type="radio" name="q3" value="1">
+x² + 4x + 1
+</label>
+
+<label>
+<input type="radio" name="q3" value="0">
+x³ + 2
+</label>
+
+<label>
+<input type="radio" name="q3" value="0">
+7
+</label>
+
+</div>
+
+
+
+<div class="quiz-question">
+
+<p>
+4. What is (a + b)²?
+</p>
+
+<label>
+<input type="radio" name="q4" value="1">
+a² + 2ab + b²
+</label>
+
+<label>
+<input type="radio" name="q4" value="0">
+a² - 2ab + b²
+</label>
+
+<label>
+<input type="radio" name="q4" value="0">
+a² - b²
+</label>
+
+<label>
+<input type="radio" name="q4" value="0">
+a² + b²
+</label>
+
+</div>
+
+
+
+<div class="quiz-question">
+
+<p>
+5. If p(a) = 0, then which is a factor of p(x)?
+</p>
+
+<label>
+<input type="radio" name="q5" value="1">
+x - a
+</label>
+
+<label>
+<input type="radio" name="q5" value="0">
+x + a
+</label>
+
+<label>
+<input type="radio" name="q5" value="0">
+x² - a
+</label>
+
+<label>
+<input type="radio" name="q5" value="0">
+a - x²
+</label>
+
+</div>
+
+
+
+<button class="quiz-btn" onclick="checkQuiz()">
+
+Submit Quiz
+
+</button>
+
+
+<div id="result"></div>
+
+</section>
+
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>
+© 2026 Academix by Tiwari
+</p>
+
+<p>
+Developed with ❤️ by: ANSHU TIWARI
+</p>
+
+</footer>
+
+
+
+<script>
+
+function checkQuiz(){
+
+    let score = 0;
+
+    for(let i = 1; i <= 5; i++){
+
+        let answer = document.querySelector(
+            'input[name="q' + i + '"]:checked'
+        );
+
+        if(answer && answer.value === "1"){
+            score++;
+        }
+
+    }
+
+    document.getElementById("result").innerHTML =
+    "Your Score: " + score + " / 5";
+
+    localStorage.setItem(
+        "polynomialsScore",
+        score
+    );
+
+}
+
+</script>
+
+
+</body>
+</html>

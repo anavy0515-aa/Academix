@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Student Dashboard | Academix</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.dashboard-page {
+    min-height: 100vh;
+    padding: 100px 25px 50px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.dashboard-header {
+    margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+    color: #00d9ff;
+    font-size: 34px;
+    margin-bottom: 8px;
+}
+
+.dashboard-header p {
+    color: #9ca3af;
+}
+
+
+/* STATS */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: #111827;
+    border: 1px solid #374151;
+    border-radius: 18px;
+    padding: 22px;
+}
+
+.stat-card .icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+.stat-card h3 {
+    color: #9ca3af;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.stat-card .number {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+
+/* MAIN GRID */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+
+/* SUBJECTS */
+
+.panel {
+    background: #111827;
+    border: 1px solid #374151;
+    border-radius: 20px;
+    padding: 25px;
+}
+
+.panel h2 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.subject-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.subject {
+    padding: 18px;
+    border-radius: 14px;
+    background: #1f2937;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.subject:hover {
+    transform: translateY(-3px);
+    background: #273449;
+}
+
+.subject h3 {
+    color: white;
+    margin-bottom: 5px;
+}
+
+.subject p {
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+
+/* QUICK TOOLS */
+
+.tools {
+    display: grid;
+    gap: 12px;
+}
+
+.tool {
+    padding: 16px;
+    background: #1f2937;
+    border-radius: 13px;
+    cursor: pointer;
+    color: white;
+    transition: 0.2s;
+}
+
+.tool:hover {
+    background: #374151;
+    transform: translateX(3px);
+}
+
+
+/* GOAL */
+
+.goal-box {
+    margin-top: 20px;
+}
+
+.goal-text {
+    display: flex;
+    justify-content: space-between;
+    color: #d1d5db;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.progress {
+    width: 100%;
+    height: 12px;
+    background: #1f2937;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: #00d9ff;
+    border-radius: 20px;
+    transition: 0.4s;
+}
+
+
+/* RESET */
+
+.reset-btn {
+    margin-top: 25px;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #991b1b;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 850px) {
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .dashboard-page {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .subject-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="dashboard-page">
+
+<div class="dashboard-header">
+
+<h1>Student Dashboard</h1>
+
+<p>
+Welcome to your Academix study space 🚀
+</p>
+
+</div>
+
+<!-- STATS -->
+
+<div class="stats-grid">
+
+<div class="stat-card">
+
+<div class="icon">⏱️</div>
+
+<h3>Study Time</h3>
+
+<div class="number" id="studyTime">
+0 min
+</div>
+
+</div>
+
+<div class="stat-card">
+
+<div class="icon">🔥</div>
+
+<h3>Focus Sessions</h3>
+
+<div class="number" id="sessions">
+0
+</div>
+
+</div>
+
+<div class="stat-card">
+
+<div class="icon">📚</div>
+
+<h3>Subjects</h3>
+
+<div class="number">
+5
+</div>
+
+</div>
+
+<div class="stat-card">
+
+<div class="icon">🎯</div>
+
+<h3>Daily Goal</h3>
+
+<div class="number">
+120 min
+</div>
+
+</div>
+
+</div>
+
+<div class="dashboard-grid">
+
+<!-- LEFT -->
+
+<div>
+
+<div class="panel">
+
+<h2>My Subjects</h2>
+
+<div class="subject-grid">
+
+<div class="subject"
+onclick="openPage('maths.html')">
+
+<h3>📐 Mathematics</h3>
+
+<p>Class 9 Mathematics</p>
+
+</div>
+
+<div class="subject"
+onclick="openPage('science.html')">
+
+<h3>🔬 Science</h3>
+
+<p>Physics • Chemistry • Biology</p>
+
+</div>
+
+<div class="subject"
+onclick="openPage('sst.html')">
+
+<h3>🌍 Social Science</h3>
+
+<p>History • Geography • Civics</p>
+
+</div>
+
+<div class="subject"
+onclick="openPage('english.html')">
+
+<h3>📖 English</h3>
+
+<p>Grammar • Literature</p>
+
+</div>
+
+<div class="subject"
+onclick="openPage('computer.html')">
+
+<h3>💻 Computer</h3>
+
+<p>Computer fundamentals</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- GOAL -->
+
+<div class="panel goal-box">
+
+<h2>Today's Goal</h2>
+
+<div class="goal-text">
+
+<span>Study Progress</span>
+
+<span id="goalPercent">
+0%
+</span>
+
+</div>
+
+<div class="progress">
+
+<div
+class="progress-bar"
+id="progressBar">
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- RIGHT -->
+
+<div>
+
+<div class="panel">
+
+<h2>Quick Tools</h2>
+
+<div class="tools">
+
+<div class="tool"
+onclick="openPage('focus.html')">
+
+⏱️ Focus Timer
+
+</div>
+
+<div class="tool"
+onclick="openPage('calculator.html')">
+
+🧮 Scientific Calculator
+
+</div>
+
+<div class="tool"
+onclick="alert('Exam Simulator coming soon!')">
+
+📝 Exam Simulator
+
+</div>
+
+<div class="tool"
+onclick="alert('Study Planner coming soon!')">
+
+📅 Study Planner
+
+</div>
+
+</div>
+
+<button
+class="reset-btn"
+onclick="resetDashboard()">
+
+Reset Dashboard
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+
+function openPage(page) {
+
+    window.location.href = page;
+
+}
+
+
+/* LOAD DATA */
+
+let studyTime =
+    Number(localStorage.getItem("academixStudyTime")) || 0;
+
+let sessions =
+    Number(localStorage.getItem("academixSessions")) || 0;
+
+
+/* DISPLAY */
+
+document.getElementById("studyTime")
+    .textContent = studyTime + " min";
+
+document.getElementById("sessions")
+    .textContent = sessions;
+
+
+/* GOAL */
+
+let percentage =
+    Math.min((studyTime / 120) * 100, 100);
+
+
+document.getElementById("goalPercent")
+    .textContent =
+    Math.round(percentage) + "%";
+
+
+document.getElementById("progressBar")
+    .style.width =
+    percentage + "%";
+
+
+/* RESET */
+
+function resetDashboard() {
+
+    let confirmReset =
+        confirm(
+            "Reset all dashboard progress?"
+        );
+
+
+    if (confirmReset) {
+
+        localStorage.removeItem(
+            "academixStudyTime"
+        );
+
+        localStorage.removeItem(
+            "academixSessions"
+        );
+
+        location.reload();
+
+    }
+
+}
+
+</script>
+
+</body>
+
+</html>

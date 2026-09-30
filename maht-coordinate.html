@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Coordinate Geometry | Academix by Tiwari</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#071018;
+    color:white;
+    line-height:1.7;
+}
+
+/* NAVBAR */
+
+nav{
+    height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 7%;
+    background:#08141f;
+    border-bottom:1px solid rgba(0,217,255,.2);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:#00d9ff;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.logo-box{
+    width:40px;
+    height:40px;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#00d9ff,#8b5cf6);
+    color:white;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+}
+
+.nav-links a{
+    color:#ddd;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#00d9ff;
+}
+
+
+/* HERO */
+
+.hero{
+    text-align:center;
+    padding:70px 20px;
+    background:
+    radial-gradient(circle at top,#102b40,transparent 60%);
+}
+
+.hero h1{
+    font-size:48px;
+    margin-bottom:10px;
+    background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    color:#aaa;
+    font-size:18px;
+}
+
+.chapter-tag{
+    display:inline-block;
+    padding:7px 16px;
+    margin-bottom:20px;
+    border:1px solid #00d9ff;
+    border-radius:20px;
+    color:#00d9ff;
+}
+
+
+/* CONTAINER */
+
+.container{
+    width:90%;
+    max-width:1100px;
+    margin:auto;
+}
+
+
+/* CARDS */
+
+.card{
+    background:#0c1b28;
+    border:1px solid rgba(0,217,255,.15);
+    border-radius:16px;
+    padding:30px;
+    margin-bottom:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+.card h2{
+    color:#00d9ff;
+    margin-bottom:18px;
+}
+
+.card h3{
+    color:#8b5cf6;
+    margin-top:20px;
+    margin-bottom:8px;
+}
+
+.card p{
+    color:#ddd;
+}
+
+ul{
+    padding-left:25px;
+    color:#ddd;
+}
+
+li{
+    margin:7px 0;
+}
+
+
+/* FORMULA */
+
+.formula{
+    background:#071018;
+    border-left:4px solid #00d9ff;
+    padding:15px 20px;
+    margin:15px 0;
+    border-radius:8px;
+    font-size:18px;
+    color:white;
+    overflow-x:auto;
+}
+
+
+/* EXAMPLE */
+
+.example{
+    background:#101f2d;
+    border-radius:10px;
+    padding:18px;
+    margin-top:15px;
+}
+
+.example strong{
+    color:#00d9ff;
+}
+
+
+/* IMPORTANT */
+
+.important{
+    border:1px solid #8b5cf6;
+    background:rgba(139,92,246,.08);
+}
+
+
+/* VIDEO */
+
+.video-box{
+    text-align:center;
+    padding:35px;
+    border:1px dashed #00d9ff;
+    border-radius:12px;
+}
+
+.video-box a{
+    display:inline-block;
+    margin-top:15px;
+    padding:12px 22px;
+    border-radius:10px;
+    background:#00d9ff;
+    color:#071018;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.video-box a:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 20px rgba(0,217,255,.4);
+}
+
+
+/* QUIZ */
+
+.quiz-question{
+    margin-bottom:25px;
+}
+
+.quiz-question p{
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.quiz-question label{
+    display:block;
+    padding:9px;
+    margin:5px 0;
+    background:#101f2d;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.quiz-question label:hover{
+    background:#163044;
+}
+
+.quiz-btn{
+    padding:12px 25px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    font-size:16px;
+}
+
+#result{
+    margin-top:20px;
+    font-size:20px;
+    color:#00d9ff;
+    font-weight:bold;
+}
+
+
+/* NAVIGATION */
+
+.navigation{
+    text-align:center;
+}
+
+.navigation a{
+    display:inline-block;
+    padding:12px 22px;
+    margin:10px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.navigation a:hover{
+    transform:translateY(-3px);
+}
+
+.back-btn{
+    background:#00d9ff;
+    color:#071018;
+}
+
+.next-btn{
+    background:#8b5cf6;
+    color:white;
+}
+
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:40px 20px;
+    margin-top:60px;
+    border-top:1px solid rgba(255,255,255,.1);
+    color:#888;
+}
+
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    nav{
+        padding:0 4%;
+    }
+
+    .nav-links{
+        gap:10px;
+    }
+
+    .nav-links a{
+        font-size:13px;
+    }
+
+    .hero h1{
+        font-size:35px;
+    }
+
+    .card{
+        padding:20px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="logo">
+
+        <div class="logo-box">
+            A
+        </div>
+
+        Academix by Tiwari
+
+    </div>
+
+
+    <div class="nav-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="maths.html">
+            Mathematics
+        </a>
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <span class="chapter-tag">
+        Class 9 Mathematics • Chapter 3
+    </span>
+
+    <h1>
+        Coordinate Geometry
+    </h1>
+
+    <p>
+        Complete Notes • Cartesian Plane • Coordinates • Quadrants • Quiz
+    </p>
+
+</section>
+
+
+
+<div class="container">
+
+
+<!-- INTRODUCTION -->
+
+<section class="card">
+
+<h2>📖 1. Introduction</h2>
+
+<p>
+Coordinate Geometry is the study of geometry using
+numbers and algebra. It helps us locate points on a
+plane using coordinates.
+</p>
+
+<p style="margin-top:15px;">
+The system used to locate a point is called the
+<strong>Cartesian Coordinate System.</strong>
+</p>
+
+</section>
+
+
+
+<!-- CARTESIAN PLANE -->
+
+<section class="card">
+
+<h2>📐 2. Cartesian Plane</h2>
+
+<p>
+A Cartesian plane consists of two perpendicular number lines:
+</p>
+
+<ul>
+
+<li>
+<strong>X-axis</strong> — horizontal axis
+</li>
+
+<li>
+<strong>Y-axis</strong> — vertical axis
+</li>
+
+<li>
+<strong>Origin</strong> — point where the two axes intersect
+</li>
+
+</ul>
+
+
+<div class="formula">
+
+Origin = (0, 0)
+
+</div>
+
+
+<div class="example">
+
+<strong>Remember:</strong>
+
+<br><br>
+
+X-axis → horizontal
+
+<br>
+
+Y-axis → vertical
+
+<br>
+
+Origin → (0, 0)
+
+</div>
+
+</section>
+
+
+
+<!-- COORDINATES -->
+
+<section class="card">
+
+<h2>🔢 3. Coordinates of a Point</h2>
+
+<p>
+The position of a point is represented by an ordered pair
+(x, y).
+</p>
+
+
+<div class="formula">
+
+Point = (x, y)
+
+</div>
+
+
+<p>
+The first coordinate is called the <strong>x-coordinate</strong>
+or abscissa.
+</p>
+
+<p>
+The second coordinate is called the <strong>y-coordinate</strong>
+or ordinate.
+</p>
+
+
+<div class="example">
+
+<strong>Example:</strong>
+
+<br><br>
+
+For point P(4, 3):
+
+<br><br>
+
+x-coordinate = 4
+
+<br>
+
+y-coordinate = 3
+
+</div>
+
+</section>
+
+
+
+<!-- ABSCISSA OR ORDINATE -->
+
+<section class="card">
+
+<h2>📍 4. Abscissa and Ordinate</h2>
+
+
+<h3>Abscissa</h3>
+
+<p>
+The x-coordinate of a point is called its abscissa.
+</p>
+
+
+<h3>Ordinate</h3>
+
+<p>
+The y-coordinate of a point is called its ordinate.
+</p>
+
+
+<div class="example">
+
+For P(-5, 7):
+
+<br><br>
+
+Abscissa = <strong>-5</strong>
+
+<br>
+
+Ordinate = <strong>7</strong>
+
+</div>
+
+</section>
+
+
+
+<!-- QUADRANTS -->
+
+<section class="card">
+
+<h2>🧭 5. Quadrants</h2>
+
+<p>
+The x-axis and y-axis divide the Cartesian plane into
+four regions called quadrants.
+</p>
+
+
+<div class="formula">
+
+First Quadrant → (+, +)
+
+</div>
+
+
+<div class="formula">
+
+Second Quadrant → (-, +)
+
+</div>
+
+
+<div class="formula">
+
+Third Quadrant → (-, -)
+
+</div>
+
+
+<div class="formula">
+
+Fourth Quadrant → (+, -)
+
+</div>
+
+
+<div class="example">
+
+<strong>Easy way to remember:</strong>
+
+<br><br>
+
+I → + +
+
+<br>
+
+II → - +
+
+<br>
+
+III → - -
+
+<br>
+
+IV → + -
+
+</div>
+
+</section>
+
+
+
+<!-- POINTS ON AXES -->
+
+<section class="card">
+
+<h2>📌 6. Points on the Axes</h2>
+
+
+<h3>Point on X-axis</h3>
+
+<p>
+For every point on the x-axis, the y-coordinate is zero.
+</p>
+
+
+<div class="formula">
+
+(x, 0)
+
+</div>
+
+
+<div class="example">
+
+Examples:
+
+<br><br>
+
+(5, 0)
+
+<br>
+
+(-3, 0)
+
+<br>
+
+(10, 0)
+
+</div>
+
+
+
+<h3>Point on Y-axis</h3>
+
+<p>
+For every point on the y-axis, the x-coordinate is zero.
+</p>
+
+
+<div class="formula">
+
+(0, y)
+
+</div>
+
+
+<div class="example">
+
+Examples:
+
+<br><br>
+
+(0, 5)
+
+<br>
+
+(0, -3)
+
+<br>
+
+(0, 10)
+
+</div>
+
+</section>
+
+
+
+<!-- ORIGIN -->
+
+<section class="card important">
+
+<h2>⭐ 7. Origin</h2>
+
+<p>
+The point where the x-axis and y-axis intersect
+is called the origin.
+</p>
+
+
+<div class="formula">
+
+Origin = (0, 0)
+
+</div>
+
+
+<p>
+The origin does not lie in any quadrant.
+</p>
+
+</section>
+
+
+
+<!-- EXAMPLES -->
+
+<section class="card">
+
+<h2>🧮 8. Important Examples</h2>
+
+
+<div class="example">
+
+<strong>Example 1:</strong>
+
+<br><br>
+
+In which quadrant does P(3, 5) lie?
+
+<br><br>
+
+Both coordinates are positive.
+
+<br>
+
+Therefore, P(3,5) lies in the
+
+<strong>First Quadrant.</strong>
+
+</div>
+
+
+
+<div class="example">
+
+<strong>Example 2:</strong>
+
+<br><br>
+
+In which quadrant does Q(-4, 6) lie?
+
+<br><br>
+
+x is negative and y is positive.
+
+<br>
+
+Therefore, Q(-4,6) lies in the
+
+<strong>Second Quadrant.</strong>
+
+</div>
+
+
+
+<div class="example">
+
+<strong>Example 3:</strong>
+
+<br><br>
+
+In which quadrant does R(-2,-7) lie?
+
+<br><br>
+
+Both coordinates are negative.
+
+<br>
+
+Therefore, R(-2,-7) lies in the
+
+<strong>Third Quadrant.</strong>
+
+</div>
+
+
+
+<div class="example">
+
+<strong>Example 4:</strong>
+
+<br><br>
+
+In which quadrant does S(5,-3) lie?
+
+<br><br>
+
+x is positive and y is negative.
+
+<br>
+
+Therefore, S(5,-3) lies in the
+
+<strong>Fourth Quadrant.</strong>
+
+</div>
+
+</section>
+
+
+
+<!-- IMPORTANT POINTS -->
+
+<section class="card important">
+
+<h2>⭐ 9. Important Points for Exam</h2>
+
+<ul>
+
+<li>
+Coordinates are written in the order (x, y).
+</li>
+
+<li>
+The x-coordinate is called the abscissa.
+</li>
+
+<li>
+The y-coordinate is called the ordinate.
+</li>
+
+<li>
+The origin is (0,0).
+</li>
+
+<li>
+Every point on the x-axis has y-coordinate 0.
+</li>
+
+<li>
+Every point on the y-axis has x-coordinate 0.
+</li>
+
+<li>
+Points in the first quadrant have (+,+) coordinates.
+</li>
+
+<li>
+Points in the second quadrant have (-,+) coordinates.
+</li>
+
+<li>
+Points in the third quadrant have (-,-) coordinates.
+</li>
+
+<li>
+Points in the fourth quadrant have (+,-) coordinates.
+</li>
+
+<li>
+The origin does not belong to any quadrant.
+</li>
+
+</ul>
+
+</section>
+
+
+
+<!-- VIDEO -->
+
+<section class="card">
+
+<h2>🎥 10. Video Learning</h2>
+
+<div class="video-box">
+
+<p>
+Learn Class 9 Mathematics from
+<strong>Team Ritik Mishra</strong>.
+</p>
+
+<p>
+Watch Coordinate Geometry and other Maths topics.
+</p>
+
+<a href="https://www.youtube.com/@TeamRitikMishra"
+target="_blank">
+
+▶ Watch Maths Videos
+
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- QUIZ -->
+
+<section class="card">
+
+<h2>📝 11. Chapter Quiz</h2>
+
+
+
+<div class="quiz-question">
+
+<p>
+1. What is the coordinate of the origin?
+</p>
+
+<label>
+<input type="radio" name="q1" value="1">
+(0, 0)
+</label>
+
+<label>
+<input type="radio" name="q1" value="0">
+(1, 1)
+</label>
+
+<label>
+<input type="radio" name="q1" value="0">
+(0, 1)
+</label>
+
+<label>
+<input type="radio" name="q1" value="0">
+(1, 0)
+</label>
+
+</div>
+
+
+
+<div class="quiz-question">
+
+<p>
+2. What is the abscissa of P(5, 7)?
+</p>
+
+<label>
+<input type="radio" name="q2" value="1">
+5
+</label>
+
+<label>
+<input type="radio" name="q2" value="0">
+7
+</label>
+
+<label>
+<input type="radio" name="q2" value="0">
+-5
+</label>
+
+<label>
+<input type="radio" name="q2" value="0">
+-7
+</label>
+
+</div>
+
+
+
+<div class="quiz-question">
+
+<p>
+3. In which quadrant does (-3, 5) lie?
+</p>
+
+<label>
+<input type="radio" name="q3" value="0">
+First
+</label>
+
+<label>
+<input type="radio" name="q3" value="1">
+Second
+</label>
+
+<label>
+<input type="radio" name="q3" value="0">
+Third
+</label>
+
+<label>
+<input type="radio" name="q3" value="0">
+Fourth
+</label>
+
+</div>
+
+
+
+<div class="quiz-question">
+
+<p>
+4. Which point lies on the x-axis?
+</p>
+
+<label>
+<input type="radio" name="q4" value="0">
+(0, 5)
+</label>
+
+<label>
+<input type="radio" name="q4" value="1">
+(5, 0)
+</label>
+
+<label>
+<input type="radio" name="q4" value="0">
+(5, 5)
+</label>
+
+<label>
+<input type="radio" name="q4" value="0">
+(-5, 5)
+</label>
+
+</div>
+
+
+
+<div class="quiz-question">
+
+<p>
+5. What is the ordinate of (-4, 8)?
+</p>
+
+<label>
+<input type="radio" name="q5" value="0">
+-4
+</label>
+
+<label>
+<input type="radio" name="q5" value="1">
+8
+</label>
+
+<label>
+<input type="radio" name="q5" value="0">
+4
+</label>
+
+<label>
+<input type="radio" name="q5" value="0">
+-8
+</label>
+
+</div>
+
+
+
+<button class="quiz-btn" onclick="checkQuiz()">
+
+Submit Quiz
+
+</button>
+
+
+<div id="result"></div>
+
+</section>
+
+
+
+<!-- NAVIGATION -->
+
+<section class="card navigation">
+
+<h2>🚀 Continue Learning</h2>
+
+
+<a href="maths-polynomials.html"
+class="back-btn">
+
+← Previous Chapter
+
+</a>
+
+
+<a href="maths.html"
+class="back-btn">
+
+📚 All Chapters
+
+</a>
+
+
+<a href="maths-linear-equations.html"
+class="next-btn">
+
+Next Chapter →
+
+</a>
+
+</section>
+
+
+</div>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>
+© 2026 Academix by Tiwari
+</p>
+
+<p>
+Developed with ❤️ by: ANSHU TIWARI
+</p>
+
+</footer>
+
+
+
+<script>
+
+function checkQuiz(){
+
+    let score = 0;
+
+    for(let i = 1; i <= 5; i++){
+
+        let answer = document.querySelector(
+            'input[name="q' + i + '"]:checked'
+        );
+
+        if(answer && answer.value === "1"){
+            score++;
+        }
+
+    }
+
+
+    document.getElementById("result").innerHTML =
+    "Your Score: " + score + " / 5";
+
+
+    localStorage.setItem(
+        "coordinateGeometryScore",
+        score
+    );
+
+}
+
+</script>
+
+
+</body>
+</html>

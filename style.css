@@ -7,8 +7,8 @@
 
 :root {
     --bg: #070b12;
-    --surface: #0e1521;
-    --surface2: #121c2b;
+    --surface: #f6f9ff;
+    --surface2: #dce3ee;
     --text: #f5f7fb;
     --muted: #8995a7;
     --border: rgba(255,255,255,.09);
@@ -87,7 +87,7 @@ body::after {
     border: 1px solid var(--border);
     border-radius: 18px;
 
-    background: rgba(10,16,26,.82);
+    background: rgba(170, 172, 176, 0.82);
     backdrop-filter: blur(18px);
 }
 
@@ -881,5 +881,174 @@ body.light .feature-card {
         align-items: flex-start;
         gap: 18px;
     }
+    
+    
+}
+#acharya-button {
+position: fixed;
+right: 25px;
+bottom: 25px;
+width: 60px;
+height: 60px;
+border-radius: 50%;
+background: linear-gradient(135deg, #00d9ff, #8b5cf6);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 28px;
+cursor: pointer;
+z-index: 9999;
+box-shadow: 0 0 25px rgba(0, 217, 255, 0.4);
 }
 
+#acharya-chat {
+position: fixed;
+right: 25px;
+bottom: 95px;
+width: 350px;
+height: 480px;
+background: #636f89;
+border: 1px solid #374151;
+border-radius: 18px;
+display: none;
+flex-direction: column;
+overflow: hidden;
+z-index: 9998;
+box-shadow: 0 0 30px rgba(159, 83, 83, 0.5);
+}
+
+.acharya-header {
+padding: 16px;
+background: linear-gradient(90deg, #00d9ff, #8b5cf6);
+color: white;
+position: relative;
+}
+
+.acharya-header b {
+display: block;
+font-size: 18px;
+}
+
+.acharya-header span {
+font-size: 12px;
+opacity: 0.9;
+}
+
+.acharya-header button {
+position: absolute;
+right: 12px;
+top: 10px;
+background: none;
+border: none;
+color: white;
+font-size: 25px;
+cursor: pointer;
+}
+
+#acharya-messages {
+flex: 1;
+padding: 15px;
+overflow-y: auto;
+}
+
+.acharya-welcome,
+.acharya-message,
+.user-message {
+padding: 10px 12px;
+border-radius: 12px;
+margin-bottom: 10px;
+font-size: 14px;
+line-height: 1.5;
+}
+
+.acharya-welcome,
+.acharya-message {
+background: #1f2937;
+}
+
+.user-message {
+background: #164e63;
+margin-left: 30px;
+}
+
+.acharya-input {
+display: flex;
+padding: 12px;
+border-top: 1px solid #374151;
+}
+
+.acharya-input input {
+flex: 1;
+padding: 11px;
+border: none;
+border-radius: 10px;
+background: #486eb9;
+color: white;
+outline: none;
+}
+
+.acharya-input button {
+width: 45px;
+margin-left: 8px;
+border: none;
+border-radius: 10px;
+background: #00d9ff;
+cursor: pointer;
+}
+.academix-logo {
+
+width: 44px;
+
+height: 44px;
+
+display: flex;
+
+align-items: center;
+
+justify-content: center;
+
+border-radius: 12px;
+
+background: rgba(0, 217, 255, 0.08);
+
+border: 1px solid rgba(0, 217, 255, 0.25);
+
+box-shadow: 0 0 20px rgba(0, 217, 255, 0.15);
+
+}
+
+.logo-svg {
+
+width: 36px;
+
+height: 36px;
+
+}
+
+
+
+.nav-btn {
+    padding: 12px 22px;
+    border: 1px solid #00d9ff;
+    border-radius: 10px;
+    color: #00d9ff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.25s;
+}
+
+.nav-btn:hover {
+    background: #00d9ff;
+    color: #071018;
+    transform: translateY(-2px);
+}
+
+.nav-btn.next {
+    border-color: #8b5cf6;
+    color: #8b5cf6;
+}
+
+.nav-btn.next:hover {
+    background: #8b5cf6;
+    color: white;
+}

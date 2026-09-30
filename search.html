@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Search | Academix</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#071018;
+    color:white;
+    min-height:100vh;
+}
+
+/* NAVBAR */
+
+.navbar{
+    height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 6%;
+    border-bottom:1px solid rgba(0,217,255,0.15);
+    background:#071018;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.logo-box{
+    width:40px;
+    height:40px;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#00d9ff,#8b5cf6);
+}
+
+.navbar a{
+    color:#ccc;
+    text-decoration:none;
+    margin-left:25px;
+}
+
+.navbar a:hover{
+    color:#00d9ff;
+}
+
+/* MAIN */
+
+.container{
+    width:90%;
+    max-width:1000px;
+    margin:60px auto;
+}
+
+.title{
+    text-align:center;
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#aaa;
+    margin-bottom:35px;
+}
+
+/* SEARCH */
+
+.search-box{
+    display:flex;
+    gap:10px;
+    margin-bottom:35px;
+}
+
+.search-box input{
+    flex:1;
+    padding:18px;
+    border-radius:14px;
+    border:1px solid #29404e;
+    background:#101c26;
+    color:white;
+    font-size:17px;
+    outline:none;
+}
+
+.search-box input:focus{
+    border-color:#00d9ff;
+    box-shadow:0 0 15px rgba(0,217,255,0.15);
+}
+
+.search-box button{
+    padding:0 25px;
+    border:none;
+    border-radius:14px;
+    background:linear-gradient(135deg,#00d9ff,#8b5cf6);
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* RESULTS */
+
+.result-info{
+    color:#aaa;
+    margin-bottom:15px;
+}
+
+.results{
+    display:grid;
+    gap:15px;
+}
+
+.result-card{
+    padding:22px;
+    border-radius:15px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1);
+    transition:0.25s;
+}
+
+.result-card:hover{
+    transform:translateY(-3px);
+    border-color:#00d9ff;
+    background:rgba(0,217,255,0.06);
+}
+
+.result-card h3{
+    color:#00d9ff;
+    margin-bottom:8px;
+}
+
+.result-card p{
+    color:#aaa;
+    margin-bottom:12px;
+}
+
+.subject{
+    display:inline-block;
+    padding:5px 10px;
+    border-radius:20px;
+    background:rgba(139,92,246,0.15);
+    color:#c4a7ff;
+    font-size:13px;
+    margin-bottom:12px;
+}
+
+.open-btn{
+    display:inline-block;
+    padding:8px 15px;
+    border-radius:8px;
+    border:1px solid #00d9ff;
+    color:#00d9ff;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.open-btn:hover{
+    background:#00d9ff;
+    color:#071018;
+}
+
+/* NO RESULT */
+
+.no-result{
+    text-align:center;
+    padding:50px 20px;
+    color:#888;
+    display:none;
+}
+
+.no-result h2{
+    color:white;
+    margin-bottom:10px;
+}
+
+/* QUICK SEARCH */
+
+.quick-title{
+    margin:35px 0 15px;
+}
+
+.quick-search{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.quick-search button{
+    padding:10px 16px;
+    border-radius:20px;
+    border:1px solid #29404e;
+    background:#101c26;
+    color:#ccc;
+    cursor:pointer;
+}
+
+.quick-search button:hover{
+    border-color:#00d9ff;
+    color:#00d9ff;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .navbar{
+        padding:0 4%;
+    }
+
+    .navbar a{
+        margin-left:10px;
+    }
+
+    .title{
+        font-size:30px;
+    }
+
+    .search-box{
+        flex-direction:column;
+    }
+
+    .search-box button{
+        padding:14px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        <div class="logo-box">
+            A
+        </div>
+
+        <span>Academix by Tiwari</span>
+
+    </div>
+
+
+    <div>
+
+        <a href="index.html">Home</a>
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- MAIN -->
+
+<div class="container">
+
+
+    <h1 class="title">
+        🔎 Search Academix
+    </h1>
+
+
+    <p class="subtitle">
+        Search chapters, topics and study resources.
+    </p>
+
+
+
+    <!-- SEARCH BOX -->
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search e.g. Motion, Algebra, Democracy..."
+            onkeydown="handleEnter(event)"
+        >
+
+        <button onclick="performSearch()">
+            Search
+        </button>
+
+    </div>
+
+
+
+    <div
+        class="result-info"
+        id="resultInfo">
+    </div>
+
+
+
+    <!-- RESULTS -->
+
+    <div
+        class="results"
+        id="results">
+    </div>
+
+
+
+    <!-- NO RESULT -->
+
+    <div
+        class="no-result"
+        id="noResult">
+
+        <h2>
+            😕 No results found
+        </h2>
+
+        <p>
+            Try searching another chapter or topic.
+        </p>
+
+    </div>
+
+
+
+    <!-- QUICK SEARCH -->
+
+    <h3 class="quick-title">
+        Popular Searches
+    </h3>
+
+
+    <div class="quick-search">
+
+        <button onclick="quickSearch('motion')">
+            Motion
+        </button>
+
+        <button onclick="quickSearch('algebra')">
+            Algebra
+        </button>
+
+        <button onclick="quickSearch('cell')">
+            Cell
+        </button>
+
+        <button onclick="quickSearch('democracy')">
+            Democracy
+        </button>
+
+        <button onclick="quickSearch('python')">
+            Python
+        </button>
+
+        <button onclick="quickSearch('grammar')">
+            Grammar
+        </button>
+
+    </div>
+
+
+</div>
+
+
+
+<script>
+
+
+/* SEARCH DATABASE */
+
+const searchData = [
+
+
+    /* MATHEMATICS */
+
+    {
+        title:"Number Systems",
+        subject:"Mathematics",
+        description:"Real numbers, irrational numbers and properties of numbers.",
+        keywords:"number numbers real irrational rational",
+        page:"maths.html"
+    },
+
+    {
+        title:"Polynomials",
+        subject:"Mathematics",
+        description:"Learn polynomial expressions, zeroes and algebraic identities.",
+        keywords:"polynomial polynomials algebra zeroes identities",
+        page:"maths.html"
+    },
+
+    {
+        title:"Coordinate Geometry",
+        subject:"Mathematics",
+        description:"Coordinates, Cartesian plane and graphical representation.",
+        keywords:"coordinate geometry graph x axis y axis",
+        page:"maths.html"
+    },
+
+    {
+        title:"Linear Equations",
+        subject:"Mathematics",
+        description:"Understand linear equations and their solutions.",
+        keywords:"linear equation equations algebra",
+        page:"maths.html"
+    },
+
+    {
+        title:"Statistics",
+        subject:"Mathematics",
+        description:"Mean, median, mode and data handling.",
+        keywords:"statistics mean median mode data",
+        page:"maths.html"
+    },
+
+
+    /* SCIENCE */
+
+    {
+        title:"Matter in Our Surroundings",
+        subject:"Science",
+        description:"States of matter, particles and change of state.",
+        keywords:"matter solid liquid gas temperature evaporation",
+        page:"science.html"
+    },
+
+    {
+        title:"Motion",
+        subject:"Science",
+        description:"Distance, displacement, speed, velocity and acceleration.",
+        keywords:"motion speed velocity acceleration distance displacement",
+        page:"science.html"
+    },
+
+    {
+        title:"Force and Laws of Motion",
+        subject:"Science",
+        description:"Force, inertia, momentum and Newton's laws.",
+        keywords:"force newton inertia momentum laws motion",
+        page:"science.html"
+    },
+
+    {
+        title:"The Fundamental Unit of Life",
+        subject:"Science",
+        description:"Cell structure, organelles and functions.",
+        keywords:"cell cells nucleus mitochondria ribosome biology",
+        page:"science.html"
+    },
+
+    {
+        title:"Tissues",
+        subject:"Science",
+        description:"Plant and animal tissues and their functions.",
+        keywords:"tissue tissues plant animal biology",
+        page:"science.html"
+    },
+
+
+    /* SOCIAL SCIENCE */
+
+    {
+        title:"The French Revolution",
+        subject:"Social Science",
+        description:"Causes, events and effects of the French Revolution.",
+        keywords:"french revolution history france",
+        page:"sst.html"
+    },
+
+    {
+        title:"Democracy",
+        subject:"Social Science",
+        description:"Meaning, features and importance of democracy.",
+        keywords:"democracy democratic government politics",
+        page:"sst.html"
+    },
+
+    {
+        title:"Constitutional Design",
+        subject:"Social Science",
+        description:"Constitution, democratic principles and constitutional design.",
+        keywords:"constitution constitutional democracy",
+        page:"sst.html"
+    },
+
+    {
+        title:"India: Size and Location",
+        subject:"Social Science",
+        description:"Location, size and geographical position of India.",
+        keywords:"india geography location size map",
+        page:"sst.html"
+    },
+
+
+    /* ENGLISH */
+
+    {
+        title:"Tenses",
+        subject:"English",
+        description:"Learn present, past and future tenses.",
+        keywords:"tense tenses grammar present past future",
+        page:"english.html"
+    },
+
+    {
+        title:"Parts of Speech",
+        subject:"English",
+        description:"Noun, pronoun, verb, adjective, adverb and more.",
+        keywords:"grammar noun pronoun verb adjective adverb",
+        page:"english.html"
+    },
+
+    {
+        title:"Reading Comprehension",
+        subject:"English",
+        description:"Improve comprehension and answering techniques.",
+        keywords:"reading comprehension passage english",
+        page:"english.html"
+    },
+
+
+    /* COMPUTER */
+
+    {
+        title:"Python",
+        subject:"Computer",
+        description:"Introduction to Python programming.",
+        keywords:"python programming coding code",
+        page:"computer.html"
+    },
+
+    {
+        title:"HTML",
+        subject:"Computer",
+        description:"Learn the structure of webpages using HTML.",
+        keywords:"html webpage website coding",
+        page:"computer.html"
+    },
+
+    {
+        title:"CSS",
+        subject:"Computer",
+        description:"Style webpages using CSS.",
+        keywords:"css styling website design",
+        page:"computer.html"
+    },
+
+    {
+        title:"Computer Networks",
+        subject:"Computer",
+        description:"Basic concepts of computer networks and internet.",
+        keywords:"network networking internet computer",
+        page:"computer.html"
+    }
+
+];
+
+
+
+/* SEARCH FUNCTION */
+
+function performSearch(){
+
+    const input =
+        document.getElementById("searchInput");
+
+    const query =
+        input.value
+        .toLowerCase()
+        .trim();
+
+
+    const results =
+        document.getElementById("results");
+
+    const noResult =
+        document.getElementById("noResult");
+
+    const resultInfo =
+        document.getElementById("resultInfo");
+
+
+    results.innerHTML="";
+
+
+    if(query === ""){
+
+        resultInfo.textContent="";
+        noResult.style.display="none";
+
+        return;
+
+    }
+
+
+    const filtered =
+        searchData.filter(item => {
+
+            const text =
+                (
+                    item.title +
+                    " " +
+                    item.subject +
+                    " " +
+                    item.description +
+                    " " +
+                    item.keywords
+                ).toLowerCase();
+
+            return text.includes(query);
+
+        });
+
+
+    if(filtered.length === 0){
+
+        resultInfo.textContent="";
+
+        noResult.style.display="block";
+
+        return;
+
+    }
+
+
+    noResult.style.display="none";
+
+
+    resultInfo.textContent =
+        filtered.length +
+        " result(s) found";
+
+
+    filtered.forEach(item => {
+
+        const card =
+            document.createElement("div");
+
+        card.className="result-card";
+
+
+        card.innerHTML = `
+
+            <span class="subject">
+                ${item.subject}
+            </span>
+
+            <h3>
+                ${item.title}
+            </h3>
+
+            <p>
+                ${item.description}
+            </p>
+
+            <a
+                class="open-btn"
+                href="${item.page}"
+            >
+                Open Subject →
+            </a>
+
+        `;
+
+
+        results.appendChild(card);
+
+    });
+
+}
+
+
+
+/* ENTER KEY */
+
+function handleEnter(event){
+
+    if(event.key === "Enter"){
+
+        performSearch();
+
+    }
+
+}
+
+
+
+/* QUICK SEARCH */
+
+function quickSearch(query){
+
+    document.getElementById("searchInput")
+        .value=query;
+
+    performSearch();
+
+}
+
+
+</script>
+
+
+</body>
+</html>

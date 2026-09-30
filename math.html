@@ -1,556 +1,827 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class 9 Mathematics | Academix by Tiwari</title>
 
-    <meta charset="UTF-8">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+body {
+    font-family: Arial, sans-serif;
+    background: #071018;
+    color: white;
+    line-height: 1.6;
+}
 
-    <title>Mathematics | Academix</title>
+/* NAVBAR */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(7,16,24,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,217,255,0.2);
+    padding: 15px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-    <link rel="stylesheet" href="style.css">
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
+.logo-box {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    border: 2px solid #00d9ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00d9ff;
+    font-size: 22px;
+    font-weight: bold;
+    box-shadow: 0 0 15px rgba(0,217,255,0.3);
+}
+
+.logo-text {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.logo-text span {
+    color: #00d9ff;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #00d9ff;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 70px 20px 50px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 8px 18px;
+    border: 1px solid #00d9ff;
+    border-radius: 30px;
+    color: #00d9ff;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.hero h1 span {
+    background: linear-gradient(90deg,#00d9ff,#8b5cf6);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    max-width: 700px;
+    margin: auto;
+    color: #aab8c5;
+    font-size: 17px;
+}
+
+/* STATS */
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin: 20px auto 50px;
+}
+
+.stat {
+    background: #0c1b28;
+    border: 1px solid rgba(0,217,255,0.2);
+    padding: 18px 35px;
+    border-radius: 14px;
+    text-align: center;
+    min-width: 150px;
+}
+
+.stat h2 {
+    color: #00d9ff;
+    font-size: 26px;
+}
+
+.stat p {
+    color: #9aa9b6;
+    font-size: 14px;
+}
+
+/* CHAPTER SECTION */
+.container {
+    width: 86%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-title h2 {
+    font-size: 32px;
+}
+
+.section-title p {
+    color: #8d9aa7;
+    margin-top: 5px;
+}
+
+/* CHAPTER GRID */
+.chapter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 22px;
+    margin-bottom: 60px;
+}
+
+/* CHAPTER CARD */
+.chapter-card {
+    background: #0c1b28;
+    border: 1px solid rgba(0,217,255,0.15);
+    border-radius: 18px;
+    padding: 25px;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.chapter-card::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: #00d9ff;
+    filter: blur(70px);
+    opacity: 0.08;
+    top: -40px;
+    right: -40px;
+}
+
+.chapter-card:hover {
+    transform: translateY(-6px);
+    border-color: #00d9ff;
+    box-shadow: 0 10px 35px rgba(0,217,255,0.12);
+}
+
+.chapter-number {
+    color: #8b5cf6;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.chapter-card h3 {
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.chapter-card p {
+    color: #9aa9b6;
+    font-size: 14px;
+    min-height: 45px;
+    margin-bottom: 20px;
+}
+
+/* BUTTON */
+.study-btn {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 10px;
+    border: 1px solid #00d9ff;
+    color: #00d9ff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.25s;
+}
+
+.study-btn:hover {
+    background: #00d9ff;
+    color: #071018;
+    transform: translateY(-2px);
+}
+
+/* COMING SOON */
+.coming-soon {
+    opacity: 0.75;
+}
+
+.coming-btn {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 10px;
+    border: 1px solid #555;
+    color: #777;
+    text-decoration: none;
+    cursor: not-allowed;
+}
+
+/* TOOLS */
+.tools {
+    margin-bottom: 70px;
+}
+
+.tool-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 20px;
+}
+
+.tool-card {
+    background: #0c1b28;
+    border: 1px solid rgba(139,92,246,0.25);
+    border-radius: 16px;
+    padding: 25px;
+    text-align: center;
+}
+
+.tool-card h3 {
+    margin-bottom: 8px;
+}
+
+.tool-card p {
+    color: #9aa9b6;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.tool-btn {
+    display: inline-block;
+    padding: 9px 16px;
+    border-radius: 9px;
+    border: 1px solid #8b5cf6;
+    color: #8b5cf6;
+    text-decoration: none;
+}
+
+.tool-btn:hover {
+    background: #8b5cf6;
+    color: white;
+}
+
+/* BACK BUTTON */
+.back-section {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.back-btn {
+    display: inline-block;
+    padding: 13px 25px;
+    border-radius: 10px;
+    background: linear-gradient(90deg,#00d9ff,#8b5cf6);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* FOOTER */
+footer {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 30px 20px;
+    text-align: center;
+    color: #7f8b96;
+}
+
+footer strong {
+    color: #00d9ff;
+}
+
+/* MOBILE */
+@media(max-width:700px) {
+
+    nav {
+        padding: 12px 5%;
+    }
+
+    nav div:last-child {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero {
+        padding-top: 50px;
+    }
+
+    .container {
+        width: 90%;
+    }
+}
+</style>
 </head>
 
 <body>
 
-
 <!-- NAVBAR -->
+<nav>
 
-<nav class="navbar">
+    <div class="logo">
 
-    <a href="index.html" class="logo">
-        Academix<span>.</span>
-    </a>
+        <div class="logo-box">
+            A
+        </div>
 
-    <div class="nav-links">
-
-        <a href="index.html">Home</a>
-
-        <a href="index.html#classes">Classes</a>
-
-        <a href="notes.html">Notes</a>
-
-        <a href="science.html">Science Lab</a>
-
-        <a href="maths.html">Maths</a>
-
-        <a href="quiz.html">Quiz</a>
+        <div class="logo-text">
+            Academix <span>by Tiwari</span>
+        </div>
 
     </div>
 
-    <button id="themeToggle"
-            class="theme-btn">
-        🌙
-    </button>
+    <div>
+        <a href="index.html">Home</a>
+        <a href="maths.html">Mathematics</a>
+        <a href="dashboard.html">📊 Dashboard</a>
+    </div>
 
 </nav>
 
 
+<!-- HERO -->
+<section class="hero">
 
-<!-- HEADER -->
-
-<section class="section class-header">
-
-    <p class="eyebrow">
+    <div class="badge">
         CLASS 9 • MATHEMATICS
-    </p>
+    </div>
 
     <h1>
-        📐 Mathematics
+        Master <span>Mathematics</span>
     </h1>
 
-    <p class="section-text">
-
-        Important formulas, concepts and
-        quick revision resources.
-
+    <p>
+        Learn every chapter of Class 9 Mathematics with clear notes,
+        examples, quizzes and video resources.
     </p>
 
 </section>
 
 
-
-<!-- FORMULA BANK -->
-
-<section class="section dark-section">
-
-    <p class="eyebrow">
-        FORMULA BANK
-    </p>
-
-    <h2>
-        Important Formulas
-    </h2>
-
-    <p class="section-text">
-
-        Click a topic to see its important
-        formulas.
-
-    </p>
-
-
-    <div class="math-grid">
-
-
-        <!-- NUMBER SYSTEM -->
-
-        <div class="math-card">
-
-            <div class="math-icon">
-                🔢
-            </div>
-
-            <h3>
-                Number Systems
-            </h3>
-
-            <p>
-                Rational and irrational numbers.
-            </p>
-
-            <button onclick="showFormula(
-                'Number Systems',
-                'Rational Number = p/q, where q ≠ 0.\\n\\nIrrational numbers cannot be expressed in the form p/q.\\n\\nReal Numbers = Rational Numbers + Irrational Numbers.'
-            )">
-
-                View Formulas →
-
-            </button>
-
-        </div>
-
-
-
-        <!-- POLYNOMIALS -->
-
-        <div class="math-card">
-
-            <div class="math-icon">
-                ✖️
-            </div>
-
-            <h3>
-                Polynomials
-            </h3>
-
-            <p>
-                Identities and polynomial concepts.
-            </p>
-
-            <button onclick="showFormula(
-                'Polynomials',
-                '(a + b)² = a² + 2ab + b²\\n\\n(a - b)² = a² - 2ab + b²\\n\\n(a + b)(a - b) = a² - b²'
-            )">
-
-                View Formulas →
-
-            </button>
-
-        </div>
-
-
-
-        <!-- COORDINATE -->
-
-        <div class="math-card">
-
-            <div class="math-icon">
-                📍
-            </div>
-
-            <h3>
-                Coordinate Geometry
-            </h3>
-
-            <p>
-                Coordinates and Cartesian plane.
-            </p>
-
-            <button onclick="showFormula(
-                'Coordinate Geometry',
-                'A point is represented as (x, y).\\n\\nThe x-coordinate shows horizontal position.\\n\\nThe y-coordinate shows vertical position.\\n\\nOrigin = (0, 0).'
-            )">
-
-                View Formulas →
-
-            </button>
-
-        </div>
-
-
-
-        <!-- LINEAR EQUATIONS -->
-
-        <div class="math-card">
-
-            <div class="math-icon">
-                📈
-            </div>
-
-            <h3>
-                Linear Equations
-            </h3>
-
-            <p>
-                Equations in two variables.
-            </p>
-
-            <button onclick="showFormula(
-                'Linear Equations',
-                'A linear equation in two variables can be written as ax + by + c = 0.\\n\\nHere a, b and c are constants.'
-            )">
-
-                View Formulas →
-
-            </button>
-
-        </div>
-
-
-
-        <!-- TRIANGLES -->
-
-        <div class="math-card">
-
-            <div class="math-icon">
-                🔺
-            </div>
-
-            <h3>
-                Triangles
-            </h3>
-
-            <p>
-                Properties and important results.
-            </p>
-
-            <button onclick="showFormula(
-                'Triangles',
-                'Sum of angles of a triangle = 180°.\\n\\nExterior angle = Sum of the two opposite interior angles.\\n\\nCongruent triangles have the same shape and size.'
-            )">
-
-                View Formulas →
-
-            </button>
-
-        </div>
-
-
-
-        <!-- QUADRILATERALS -->
-
-        <div class="math-card">
-
-            <div class="math-icon">
-                ◇
-            </div>
-
-            <h3>
-                Quadrilaterals
-            </h3>
-
-            <p>
-                Properties of quadrilaterals.
-            </p>
-
-            <button onclick="showFormula(
-                'Quadrilaterals',
-                'Sum of interior angles of a quadrilateral = 360°.\\n\\nA parallelogram has opposite sides parallel and equal.'
-            )">
-
-                View Formulas →
-
-            </button>
-
-        </div>
-
-
-
-        <!-- CIRCLES -->
-
-        <div class="math-card">
-
-            <div class="math-icon">
-                ⭕
-            </div>
-
-            <h3>
-                Circles
-            </h3>
-
-            <p>
-                Radius, diameter and circle concepts.
-            </p>
-
-            <button onclick="showFormula(
-                'Circles',
-                'Diameter = 2 × Radius.\\n\\nRadius = Diameter ÷ 2.\\n\\nA circle is the set of points at the same distance from its centre.'
-            )">
-
-                View Formulas →
-
-            </button>
-
-        </div>
-
-
-
-        <!-- HERON -->
-
-        <div class="math-card">
-
-            <div class="math-icon">
-                📐
-            </div>
-
-            <h3>
-                Heron's Formula
-            </h3>
-
-            <p>
-                Area of a triangle.
-            </p>
-
-            <button onclick="showFormula(
-                'Heron’s Formula',
-                'For sides a, b and c:\\n\\ns = (a + b + c) / 2\\n\\nArea = √[s(s-a)(s-b)(s-c)]'
-            )">
-
-                View Formula →
-
-            </button>
-
-        </div>
-
-
-
-        <!-- SURFACE AREA -->
-
-        <div class="math-card">
-
-            <div class="math-icon">
-                📦
-            </div>
-
-            <h3>
-                Surface Area & Volume
-            </h3>
-
-            <p>
-                Important mensuration formulas.
-            </p>
-
-            <button onclick="showFormula(
-                'Surface Area & Volume',
-                'Cuboid Volume = l × b × h\\n\\nCube Volume = a³\\n\\nCylinder Volume = πr²h\\n\\nSphere Volume = 4/3 πr³'
-            )">
-
-                View Formulas →
-
-            </button>
-
-        </div>
-
-
+<!-- STATS -->
+<div class="stats">
+
+    <div class="stat">
+        <h2>15</h2>
+        <p>Chapters</p>
     </div>
 
-</section>
-
-
-
-<!-- QUICK REVISION -->
-
-<section class="section">
-
-    <p class="eyebrow">
-        QUICK REVISION
-    </p>
-
-    <h2>
-        Maths Revision Tools
-    </h2>
-
-
-    <div class="revision-grid">
-
-
-        <div class="revision-card">
-
-            <div>
-                🧠
-            </div>
-
-            <h3>
-                Important Questions
-            </h3>
-
-            <p>
-                Practice important conceptual
-                and application-based questions.
-            </p>
-
-            <a href="quiz.html">
-                Practice →
-            </a>
-
-        </div>
-
-
-
-        <div class="revision-card">
-
-            <div>
-                📝
-            </div>
-
-            <h3>
-                Short Notes
-            </h3>
-
-            <p>
-                Quick chapter revision in
-                simple language.
-            </p>
-
-            <a href="notes.html">
-                Open Notes →
-            </a>
-
-        </div>
-
-
-
-        <div class="revision-card">
-
-            <div>
-                🧮
-            </div>
-
-            <h3>
-                Practice
-            </h3>
-
-            <p>
-                Test your mathematical
-                problem-solving skills.
-            </p>
-
-            <a href="quiz.html">
-                Start →
-            </a>
-
-        </div>
-
-
+    <div class="stat">
+        <h2>∞</h2>
+        <p>Practice</p>
     </div>
 
-</section>
-
-
-
-<!-- POPUP -->
-
-<div id="formulaPopup"
-     class="note-popup">
-
-    <div class="popup-box">
-
-        <button
-            class="close-btn"
-            onclick="closeFormula()">
-
-            ×
-
-        </button>
-
-
-        <p class="eyebrow">
-            FORMULA
-        </p>
-
-
-        <h2 id="formulaTitle">
-            Mathematics
-        </h2>
-
-
-        <p id="formulaText"
-           class="formula-text">
-
-            Formula
-
-        </p>
-
+    <div class="stat">
+        <h2>24/7</h2>
+        <p>Learning</p>
     </div>
 
 </div>
 
 
+<!-- CHAPTERS -->
+<section class="container">
+
+    <div class="section-title">
+        <h2>📚 Mathematics Chapters</h2>
+        <p>Select a chapter to start learning</p>
+    </div>
+
+
+    <div class="chapter-grid">
+
+
+        <!-- CHAPTER 1 -->
+        <div class="chapter-card">
+
+            <div class="chapter-number">
+                CHAPTER 01
+            </div>
+
+            <h3>🔢 Number Systems</h3>
+
+            <p>
+                Rational and irrational numbers,
+                decimal expansions and laws of exponents.
+            </p>
+
+            <a href="maths-number-systems.html" class="study-btn">
+                📖 Study Chapter
+            </a>
+
+        </div>
+
+
+        <!-- CHAPTER 2 -->
+        <div class="chapter-card">
+
+            <div class="chapter-number">
+                CHAPTER 02
+            </div>
+
+            <h3>🔤 Polynomials</h3>
+
+            <p>
+                Learn polynomial terms, degrees,
+                zeros, identities and factor theorem.
+            </p>
+
+            <a href="maths-polynomials.html" class="study-btn">
+                📖 Study Chapter
+            </a>
+
+        </div>
+
+
+        <!-- CHAPTER 3 -->
+        <div class="chapter-card">
+
+            <div class="chapter-number">
+                CHAPTER 03
+            </div>
+
+            <h3>📍 Coordinate Geometry</h3>
+
+            <p>
+                Cartesian plane, coordinates,
+                quadrants, axes and plotting points.
+            </p>
+
+            <a href="maths-coordinate.html" class="study-btn">
+                📖 Study Chapter
+            </a>
+
+        </div>
+
+
+        <!-- CHAPTER 4 -->
+        <div class="chapter-card">
+
+            <div class="chapter-number">
+                CHAPTER 04
+            </div>
+
+            <h3>📐 Linear Equations in Two Variables</h3>
+
+            <p>
+                Understand solutions, graphs,
+                ordered pairs and linear equations.
+            </p>
+
+            <a href="maths-linear-equations.html" class="study-btn">
+                📖 Study Chapter
+            </a>
+
+        </div>
+
+
+        <!-- CHAPTER 5 -->
+        <div class="chapter-card coming-soon">
+
+            <div class="chapter-number">
+                CHAPTER 05
+            </div>
+
+            <h3>📏 Introduction to Euclid's Geometry</h3>
+
+            <p>
+                Euclid's definitions, axioms,
+                postulates and geometrical concepts.
+            </p>
+
+            <a href="maths-euclid.html" class="study-btn">
+                📖 Study Chapter
+            </a>
+
+        </div>
+
+
+        <!-- CHAPTER 6 -->
+        <div class="chapter-card coming-soon">
+
+            <div class="chapter-number">
+                CHAPTER 06
+            </div>
+
+            <h3>📐 Lines and Angles</h3>
+
+            <p>
+                Lines, angles, parallel lines,
+                transversal and angle relationships.
+            </p>
+
+            <a href="maths-lines-angles.html" class="study-btn">
+                📖 Study Chapter
+            </a>
+
+        </div>
+
+
+        <!-- CHAPTER 7 -->
+        <div class="chapter-card coming-soon">
+
+            <div class="chapter-number">
+                CHAPTER 07
+            </div>
+
+            <h3>🔺 Triangles</h3>
+
+            <p>
+                Congruence of triangles,
+                properties and important theorems.
+            </p>
+
+            <a href="maths-triangles.html" class="study-btn">
+                📖 Study Chapter
+            </a>
+
+        </div>
+
+
+        <!-- CHAPTER 8 -->
+        <div class="chapter-card coming-soon">
+
+            <div class="chapter-number">
+                CHAPTER 08
+            </div>
+
+            <h3>⬛ Quadrilaterals</h3>
+
+            <p>
+                Properties of parallelograms,
+                rectangles, squares and quadrilaterals.
+            </p>
+
+            <a href="maths-quadrilaterals.html" class="study-btn">
+                📖 Study Chapter
+            </a>
+
+        </div>
+
+
+        <!-- CHAPTER 9 -->
+        <div class="chapter-card coming-soon">
+
+            <div class="chapter-number">
+                CHAPTER 09
+            </div>
+
+            <h3>⭕ Circles</h3>
+
+            <p>
+                Circle concepts, chords,
+                arcs, angles and important theorems.
+            </p>
+
+            <a href="maths-circles.html" class="study-btn">
+                📖 Study Chapter
+            </a>
+
+        </div>
+
+
+        <!-- CHAPTER 10 -->
+        <div class="chapter-card coming-soon">
+
+            <div class="chapter-number">
+                CHAPTER 10
+            </div>
+
+            <h3>📐 Heron's Formula</h3>
+
+            <p>
+                Calculate the area of triangles
+                using Heron's formula.
+            </p>
+
+            <a href="maths-herons-formula.html" class="study-btn">
+                📖 Study Chapter
+            </a>
+
+        </div>
+
+
+        <!-- CHAPTER 11 -->
+        <div class="chapter-card coming-soon">
+
+            <div class="chapter-number">
+                CHAPTER 11
+            </div>
+
+            <h3>📦 Surface Areas and Volumes</h3>
+
+            <p>
+                Surface area and volume of
+                cubes, cuboids, cylinders and other solids.
+            </p>
+
+            <a href="maths-surface-areas.html" class="study-btn">
+                📖 Study Chapter
+            </a>
+
+        </div>
+
+
+        <!-- CHAPTER 12 -->
+        <div class="chapter-card coming-soon">
+
+            <div class="chapter-number">
+                CHAPTER 12
+            </div>
+
+            <h3>📊 Statistics</h3>
+
+            <p>
+                Collection, presentation and
+                interpretation of statistical data.
+            </p>
+
+            <a href="maths-statistics.html" class="study-btn">
+                📖 Study Chapter
+            </a>
+
+        </div>
+
+
+        <!-- CHAPTER 13 -->
+        <div class="chapter-card coming-soon">
+
+            <div class="chapter-number">
+                CHAPTER 13
+            </div>
+
+            <h3>🎲 Probability</h3>
+
+            <p>
+                Introduction to probability,
+                experiments, outcomes and events.
+            </p>
+
+            <a href="maths-probability.html" class="study-btn">
+                📖 Study Chapter
+            </a>
+
+        </div>
+
+
+        <!-- CHAPTER 14 -->
+        <div class="chapter-card coming-soon">
+
+            <div class="chapter-number">
+                CHAPTER 14
+            </div>
+
+            <h3>📘 Mathematics Practice</h3>
+
+            <p>
+                Extra practice questions and
+                revision material for Class 9 Mathematics.
+            </p>
+
+            <a href="#" class="coming-btn">
+                Coming Soon
+            </a>
+
+        </div>
+
+
+        <!-- CHAPTER 15 -->
+        <div class="chapter-card coming-soon">
+
+            <div class="chapter-number">
+                CHAPTER 15
+            </div>
+
+            <h3>📝 Mathematics Revision</h3>
+
+            <p>
+                Full syllabus revision,
+                important formulas and quick practice.
+            </p>
+
+            <a href="#" class="coming-btn">
+                Coming Soon
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- QUICK TOOLS -->
+<section class="container tools">
+
+    <div class="section-title">
+        <h2>⚡ Quick Study Tools</h2>
+        <p>Useful tools while studying Mathematics</p>
+    </div>
+
+
+    <div class="tool-grid">
+
+        <div class="tool-card">
+
+            <h3>🧮 Scientific Calculator</h3>
+
+            <p>
+                Solve mathematical calculations quickly.
+            </p>
+
+            <a href="calculator.html" class="tool-btn">
+                Open Calculator
+            </a>
+
+        </div>
+
+
+        <div class="tool-card">
+
+            <h3>⏱ Focus Timer</h3>
+
+            <p>
+                Study with focused sessions.
+            </p>
+
+            <a href="focus.html" class="tool-btn">
+                Start Timer
+            </a>
+
+        </div>
+
+
+        <div class="tool-card">
+
+            <h3>📝 Exam Simulator</h3>
+
+            <p>
+                Test your preparation with MCQs.
+            </p>
+
+            <a href="exam.html" class="tool-btn">
+                Start Exam
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- BACK -->
+<div class="back-section">
+
+    <a href="index.html" class="back-btn">
+        ← Back to Academix Home
+    </a>
+
+</div>
+
 
 <!-- FOOTER -->
-
 <footer>
 
-    <h3>
-        Academix<span>.</span>
-    </h3>
-
     <p>
-        Learn • Explore • Improve
+        © 2026 <strong>Academix by Tiwari</strong>
     </p>
 
     <p>
-        Developed by:
-        <strong>Your Name</strong>
-    </p>
-
-    <p class="copyright">
-        © 2026 Academix
+        Developed with ❤️ by: <strong>ANSHU TIWARI</strong>
     </p>
 
 </footer>
 
 
-
-<script src="script.js"></script>
-
-
-<script>
-
-function showFormula(title, text) {
-
-    document.getElementById(
-        "formulaTitle"
-    ).textContent = title;
-
-
-    document.getElementById(
-        "formulaText"
-    ).textContent = text;
-
-
-    document.getElementById(
-        "formulaPopup"
-    ).classList.add("show");
-
-}
-
-
-function closeFormula() {
-
-    document.getElementById(
-        "formulaPopup"
-    ).classList.remove("show");
-
-}
-
-</script>
-
-
 </body>
-
 </html>

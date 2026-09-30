@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Scientific Calculator | Academix</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.calculator-page {
+    min-height: 100vh;
+    padding: 100px 20px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator {
+    width: 430px;
+    max-width: 100%;
+    background: #111827;
+    padding: 22px;
+    border-radius: 24px;
+    border: 1px solid #374151;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+}
+
+.calculator h1 {
+    text-align: center;
+    color: #00d9ff;
+    margin-bottom: 18px;
+}
+
+.display {
+    width: 100%;
+    min-height: 85px;
+    background: #070b12;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+    color: white;
+    text-align: right;
+    overflow-x: auto;
+}
+
+.expression {
+    color: #9ca3af;
+    font-size: 15px;
+    min-height: 22px;
+}
+
+.result {
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.mode {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    color: #9ca3af;
+}
+
+.mode button {
+    border: none;
+    border-radius: 8px;
+    padding: 7px 12px;
+    cursor: pointer;
+    background: #1f2937;
+    color: white;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+}
+
+.buttons button {
+    height: 52px;
+    border: none;
+    border-radius: 10px;
+    background: #1f2937;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.buttons button:hover {
+    background: #374151;
+}
+
+.operator {
+    background: #4c1d95 !important;
+}
+
+.function {
+    background: #164e63 !important;
+}
+
+.equal {
+    background: #00d9ff !important;
+    color: #071018 !important;
+    font-weight: bold;
+}
+
+.clear {
+    background: #991b1b !important;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="calculator-page">
+
+<div class="calculator">
+
+<h1>Scientific Calculator</h1>
+
+<div class="display">
+
+<div class="expression" id="expression"></div>
+
+<div class="result" id="result">
+0
+</div>
+
+</div>
+
+<div class="mode">
+
+<span id="modeText">DEG</span>
+
+<button onclick="toggleMode()">
+DEG / RAD
+</button>
+
+</div>
+
+<div class="buttons">
+
+<button class="clear" onclick="clearAll()">AC</button>
+
+<button onclick="deleteLast()">⌫</button>
+
+<button onclick="add('(')">(</button>
+
+<button onclick="add(')')">)</button>
+
+<button class="operator" onclick="add('/')">÷</button>
+
+<button class="function" onclick="scientific('sin')">sin</button>
+
+<button class="function" onclick="scientific('cos')">cos</button>
+
+<button class="function" onclick="scientific('tan')">tan</button>
+
+<button class="function" onclick="scientific('log')">log</button>
+
+<button class="operator" onclick="add('*')">×</button>
+
+<button class="function" onclick="scientific('sqrt')">√</button>
+
+<button class="function" onclick="scientific('square')">x²</button>
+
+<button class="function" onclick="add('**')">xʸ</button>
+
+<button class="function" onclick="add('Math.PI')">π</button>
+
+<button class="operator" onclick="add('-')">−</button>
+
+<button onclick="add('7')">7</button>
+
+<button onclick="add('8')">8</button>
+
+<button onclick="add('9')">9</button>
+
+<button class="function" onclick="scientific('ln')">ln</button>
+
+<button class="operator" onclick="add('+')">+</button>
+
+<button onclick="add('4')">4</button>
+
+<button onclick="add('5')">5</button>
+
+<button onclick="add('6')">6</button>
+
+<button class="function" onclick="add('Math.E')">e</button>
+
+<button class="equal" onclick="calculate()">=</button>
+
+<button onclick="add('1')">1</button>
+
+<button onclick="add('2')">2</button>
+
+<button onclick="add('3')">3</button>
+
+<button onclick="add('.')">.</button>
+
+<button onclick="add('0')">0</button>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+let expression = "";
+
+let degreeMode = true;
+
+
+const expressionDisplay =
+document.getElementById("expression");
+
+const resultDisplay =
+document.getElementById("result");
+
+const modeText =
+document.getElementById("modeText");
+
+
+function updateDisplay() {
+
+    expressionDisplay.textContent =
+        expression;
+
+}
+
+
+function add(value) {
+
+    expression += value;
+
+    updateDisplay();
+
+}
+
+
+function clearAll() {
+
+    expression = "";
+
+    expressionDisplay.textContent = "";
+
+    resultDisplay.textContent = "0";
+
+}
+
+
+function deleteLast() {
+
+    expression =
+        expression.slice(0, -1);
+
+    updateDisplay();
+
+}
+
+
+function toggleMode() {
+
+    degreeMode = !degreeMode;
+
+    modeText.textContent =
+        degreeMode ? "DEG" : "RAD";
+
+}
+
+
+function toRadians(value) {
+
+    return value * Math.PI / 180;
+
+}
+
+
+function scientific(type) {
+
+    try {
+
+        let value =
+            Function("return " + expression)();
+
+
+        if (type === "sin") {
+
+            value =
+                Math.sin(
+                    degreeMode
+                    ? toRadians(value)
+                    : value
+                );
+
+        }
+
+
+        if (type === "cos") {
+
+            value =
+                Math.cos(
+                    degreeMode
+                    ? toRadians(value)
+                    : value
+                );
+
+        }
+
+
+        if (type === "tan") {
+
+            value =
+                Math.tan(
+                    degreeMode
+                    ? toRadians(value)
+                    : value
+                );
+
+        }
+
+
+        if (type === "log") {
+
+            value = Math.log10(value);
+
+        }
+
+
+        if (type === "ln") {
+
+            value = Math.log(value);
+
+        }
+
+
+        if (type === "sqrt") {
+
+            value = Math.sqrt(value);
+
+        }
+
+
+        if (type === "square") {
+
+            value = value ** 2;
+
+        }
+
+
+        expression =
+            String(value);
+
+        resultDisplay.textContent =
+            value;
+
+        updateDisplay();
+
+    }
+
+    catch {
+
+        resultDisplay.textContent =
+            "Error";
+
+    }
+
+}
+
+
+function calculate() {
+
+    try {
+
+        let answer =
+            Function(
+                "return " + expression
+            )();
+
+
+        resultDisplay.textContent =
+            answer;
+
+        expression =
+            String(answer);
+
+    }
+
+    catch {
+
+        resultDisplay.textContent =
+            "Error";
+
+    }
+
+}
+
+</script>
+
+</body>
+
+</html>
