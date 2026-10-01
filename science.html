@@ -1,447 +1,455 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta charset="UTF-8">
+<title>Science | Academix by Tiwari</title>
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<style>
 
-    <title>Class 9 Science | Academix</title>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-    <link rel="stylesheet" href="style.css">
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#071018;
+    color:white;
+    min-height:100vh;
+}
 
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* NAVBAR */
+
+.navbar{
+    width:100%;
+    padding:18px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid rgba(0,217,255,0.15);
+    background:rgba(7,16,24,0.96);
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.logo{
+    width:42px;
+    height:42px;
+    border-radius:10px;
+    border:1px solid #00d9ff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#00d9ff;
+    font-size:23px;
+    box-shadow:0 0 15px rgba(0,217,255,0.25);
+}
+
+.nav-links{
+    display:flex;
+    gap:10px;
+}
+
+.nav-links a{
+    padding:9px 14px;
+    border-radius:9px;
+    color:#cbd5e1;
+    transition:0.25s;
+}
+
+.nav-links a:hover{
+    color:#00d9ff;
+    background:rgba(0,217,255,0.1);
+}
+
+.login{
+    border:1px solid #00d9ff;
+    color:#00d9ff !important;
+}
+
+/* HERO */
+
+.hero{
+    text-align:center;
+    padding:80px 20px 55px;
+    background:
+    radial-gradient(
+        circle at 50% 20%,
+        rgba(0,217,255,0.16),
+        transparent 38%
+    );
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 16px;
+    border-radius:30px;
+    border:1px solid rgba(0,217,255,0.4);
+    color:#00d9ff;
+    font-size:14px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:50px;
+    margin-bottom:18px;
+}
+
+.hero h1 span{
+    color:#00d9ff;
+}
+
+.hero p{
+    max-width:700px;
+    margin:auto;
+    color:#94a3b8;
+    font-size:17px;
+    line-height:1.7;
+}
+
+/* MAIN OPTIONS */
+
+.options{
+    max-width:1100px;
+    margin:30px auto 80px;
+    padding:20px;
+}
+
+.option-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
+
+.option-card{
+    position:relative;
+    padding:35px;
+    min-height:230px;
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,0.07),
+        rgba(255,255,255,0.025)
+    );
+
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:20px;
+
+    transition:0.3s;
+    overflow:hidden;
+}
+
+.option-card::before{
+    content:"";
+    position:absolute;
+    width:150px;
+    height:150px;
+    right:-50px;
+    top:-50px;
+    background:#00d9ff;
+    opacity:0.06;
+    border-radius:50%;
+}
+
+.option-card:hover{
+    transform:translateY(-7px);
+    border-color:rgba(0,217,255,0.55);
+    box-shadow:0 15px 40px rgba(0,217,255,0.08);
+}
+
+.icon{
+    font-size:42px;
+    margin-bottom:18px;
+}
+
+.option-card h2{
+    font-size:25px;
+    margin-bottom:12px;
+}
+
+.option-card p{
+    color:#94a3b8;
+    line-height:1.6;
+    font-size:15px;
+    margin-bottom:22px;
+}
+
+.option-btn{
+    display:inline-block;
+    padding:11px 20px;
+    border-radius:10px;
+    background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+    color:white;
+    font-weight:bold;
+    transition:0.25s;
+}
+
+.option-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 25px rgba(0,217,255,0.2);
+}
+
+/* VIDEO SECTION */
+
+.video-section{
+    max-width:1100px;
+    margin:0 auto 80px;
+    padding:20px;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.section-title h2{
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+.section-title p{
+    color:#94a3b8;
+}
+
+.video-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
+
+.video-card{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:18px;
+    padding:28px;
+    text-align:center;
+}
+
+.video-card h3{
+    font-size:21px;
+    margin-bottom:10px;
+}
+
+.video-card p{
+    color:#94a3b8;
+    font-size:14px;
+    margin-bottom:20px;
+}
+
+.youtube-btn{
+    display:inline-block;
+    padding:11px 20px;
+    border-radius:10px;
+    border:1px solid #00d9ff;
+    color:#00d9ff;
+    transition:0.25s;
+}
+
+.youtube-btn:hover{
+    background:#00d9ff;
+    color:#071018;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:30px 20px;
+    border-top:1px solid rgba(255,255,255,0.08);
+    color:#64748b;
+}
+
+footer strong{
+    color:#00d9ff;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .option-grid,
+    .video-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:500px){
+
+    .hero h1{
+        font-size:32px;
+    }
+
+    .option-card{
+        padding:25px;
+    }
+}
+
+</style>
 </head>
 
 <body>
+
 
 <!-- NAVBAR -->
 
 <nav class="navbar">
 
-    <a href="index.html" class="logo">
-        Academix<span>.</span>
+    <a href="index.html" class="brand">
+
+        <div class="logo">✦</div>
+
+        <span>Academix by Tiwari</span>
+
     </a>
+
 
     <div class="nav-links">
 
         <a href="index.html">Home</a>
 
-        <a href="index.html#classes">Classes</a>
+        <a href="maths.html">Mathematics</a>
 
-        <a href="notes.html">Notes</a>
+        <a href="science.html">Science</a>
 
-        <a href="science.html">Science Lab</a>
+        <a href="dashboard.html">📊 Dashboard</a>
 
-        <a href="maths.html">Maths</a>
+        <a href="exam.html">Exam Simulator</a>
 
-        <a href="quiz.html">Quiz</a>
+        <a href="login.html" class="login">🔐 Login</a>
 
     </div>
-
-    <button id="themeToggle"
-            class="theme-btn">
-        🌙
-    </button>
 
 </nav>
 
 
-<!-- HEADER -->
+<!-- HERO -->
 
-<section class="section class-header">
+<section class="hero">
 
-    <p class="eyebrow">
+    <div class="badge">
         CLASS 9 • SCIENCE
-    </p>
+    </div>
 
     <h1>
-        🔬 Science
+        Explore <span>Science</span>
     </h1>
 
-    <p class="section-text">
-
-        Explore important concepts, chapter
-        notes, questions and official textbook
-        resources.
-
+    <p>
+        Learn Science through interactive quizzes,
+        visual learning, useful videos and important
+        revision notes.
     </p>
 
 </section>
 
 
-<!-- BOOK -->
+<!-- MAIN OPTIONS -->
 
-<section class="section">
+<section class="options">
 
-    <div class="science-book-card">
+    <div class="option-grid">
 
-        <div class="book-symbol">
-            🔬
-        </div>
 
-        <div>
+        <!-- QUIZ -->
 
-            <p class="eyebrow">
-                MAIN TEXTBOOK
-            </p>
+        <div class="option-card">
 
-            <h2>
-                Class 9 Science
-            </h2>
+            <div class="icon">🧠</div>
+
+            <h2>Unlimited Quiz</h2>
 
             <p>
-                NCERT Science textbook and
-                chapter-wise learning resources.
+                Practice Science questions again and again.
+                Test your concepts and improve your preparation.
             </p>
 
-            <div class="book-buttons">
-
-                <a
-                    href="https://ncert.nic.in/textbook.php"
-                    target="_blank"
-                    class="primary-btn">
-
-                    Official NCERT PDF →
-
-                </a>
-
-                <a
-                    href="#chapters"
-                    class="secondary-btn">
-
-                    Explore Chapters
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- CHAPTERS -->
-
-<section
-    id="chapters"
-    class="section dark-section">
-
-    <p class="eyebrow">
-        CHAPTER-WISE NOTES
-    </p>
-
-    <h2>
-        Important Science Topics
-    </h2>
-
-    <p class="section-text">
-
-        Quick revision notes written in
-        simple language.
-
-    </p>
-
-
-    <div class="chapter-grid">
-
-
-        <!-- CHAPTER 1 -->
-
-        <div class="chapter-card">
-
-            <span class="chapter-number">
-                01
-            </span>
-
-            <h3>
-                Matter in Our Surroundings
-            </h3>
-
-            <p>
-                Matter, particles, states of matter,
-                temperature and change of state.
-            </p>
-
-            <div class="important">
-
-                <strong>Key Points</strong>
-
-                <ul>
-
-                    <li>
-                        Matter is made of tiny particles.
-                    </li>
-
-                    <li>
-                        Particles have spaces between them.
-                    </li>
-
-                    <li>
-                        Temperature affects particle motion.
-                    </li>
-
-                    <li>
-                        Matter can change its state.
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <button
-                onclick="showNote(
-                'Matter in Our Surroundings',
-                'Matter is anything that has mass and occupies space. Its particles are constantly moving and have spaces between them. Increasing temperature generally increases particle motion.')">
-
-                Quick Note →
-
-            </button>
-
-        </div>
-
-
-        <!-- CHAPTER 2 -->
-
-        <div class="chapter-card">
-
-            <span class="chapter-number">
-                02
-            </span>
-
-            <h3>
-                Is Matter Around Us Pure?
-            </h3>
-
-            <p>
-                Mixtures, solutions, suspensions,
-                colloids and separation methods.
-            </p>
-
-            <div class="important">
-
-                <strong>Key Points</strong>
-
-                <ul>
-
-                    <li>
-                        Mixtures contain two or more substances.
-                    </li>
-
-                    <li>
-                        Solutions are homogeneous mixtures.
-                    </li>
-
-                    <li>
-                        Suspensions have larger particles.
-                    </li>
-
-                    <li>
-                        Filtration can separate insoluble solids.
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <button
-                onclick="showNote(
-                'Is Matter Around Us Pure?',
-                'A mixture contains two or more substances that are not chemically combined. Mixtures may be homogeneous or heterogeneous and can often be separated using physical methods.')">
-
-                Quick Note →
-
-            </button>
-
-        </div>
-
-
-        <!-- CHAPTER 3 -->
-
-        <div class="chapter-card">
-
-            <span class="chapter-number">
-                03
-            </span>
-
-            <h3>
-                Atoms and Molecules
-            </h3>
-
-            <p>
-                Atoms, molecules, symbols, formulae
-                and chemical calculations.
-            </p>
-
-            <div class="important">
-
-                <strong>Key Points</strong>
-
-                <ul>
-
-                    <li>
-                        Atoms are basic units of elements.
-                    </li>
-
-                    <li>
-                        Molecules contain bonded atoms.
-                    </li>
-
-                    <li>
-                        Chemical formulae represent substances.
-                    </li>
-
-                    <li>
-                        Relative atomic mass is useful in calculations.
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <button
-                onclick="showNote(
-                'Atoms and Molecules',
-                'An atom is the basic unit of an element that participates in chemical reactions. Molecules are formed when atoms combine chemically in definite ratios.')">
-
-                Quick Note →
-
-            </button>
-
-        </div>
-
-
-        <!-- CHAPTER 4 -->
-
-        <div class="chapter-card">
-
-            <span class="chapter-number">
-                04
-            </span>
-
-            <h3>
-                Structure of the Atom
-            </h3>
-
-            <p>
-                Electrons, protons, neutrons,
-                atomic number and mass number.
-            </p>
-
-            <div class="important">
-
-                <strong>Key Points</strong>
-
-                <ul>
-
-                    <li>
-                        Protons have positive charge.
-                    </li>
-
-                    <li>
-                        Electrons have negative charge.
-                    </li>
-
-                    <li>
-                        Neutrons have no charge.
-                    </li>
-
-                    <li>
-                        Atomic number equals number of protons.
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <button
-                onclick="showNote(
-                'Structure of the Atom',
-                'Atoms contain a nucleus with protons and neutrons, while electrons occupy regions around the nucleus. The atomic number is the number of protons in an atom.')">
-
-                Quick Note →
-
-            </button>
-
-        </div>
-
-
-        <!-- REVISION -->
-
-        <div class="chapter-card special-card">
-
-            <span class="chapter-number">
-                ⭐
-            </span>
-
-            <h3>
-                Important Questions
-            </h3>
-
-            <p>
-                Practice important conceptual
-                questions from Science.
-            </p>
-
-            <div class="question-list">
-
-                <p>
-                    • What are the characteristics
-                    of particles of matter?
-                </p>
-
-                <p>
-                    • Differentiate between
-                    solution and suspension.
-                </p>
-
-                <p>
-                    • What is an atom?
-                </p>
-
-                <p>
-                    • What is atomic number?
-                </p>
-
-            </div>
-
-            <a
-                href="quiz.html"
-                class="primary-btn">
-
-                Practice Quiz →
-
+            <a href="science-quiz.html" class="option-btn">
+                Start Quiz →
             </a>
 
         </div>
 
 
-        <!-- LAB -->
+        <!-- 3D -->
 
-        <div class="chapter-card special-card">
+        <div class="option-card">
 
-            <span class="chapter-number">
-                🧪
-            </span>
+            <div class="icon">🔬</div>
 
-            <h3>
-                Interactive Science
-            </h3>
+            <h2>3D Science View</h2>
 
             <p>
-                We will add interactive
-                science animations here.
+                Explore Science visually with interactive
+                3D models of cells, organs, molecules and
+                other Science-related concepts.
             </p>
 
-            <a
-                href="science.html"
-                class="primary-btn">
+            <a href="science-3d.html" class="option-btn">
+                Explore 3D →
+            </a>
 
-                Open Science Lab →
+        </div>
 
+
+        <!-- VIDEOS -->
+
+        <div class="option-card">
+
+            <div class="icon">🎥</div>
+
+            <h2>Video Resources</h2>
+
+            <p>
+                Learn difficult Science concepts through
+                selected educational video resources.
+            </p>
+
+            <a href="#videos" class="option-btn">
+                Watch Videos →
+            </a>
+
+        </div>
+
+
+        <!-- NOTES -->
+
+        <div class="option-card">
+
+            <div class="icon">📚</div>
+
+            <h2>Important Notes</h2>
+
+            <p>
+                Quick revision notes containing important
+                definitions, concepts, diagrams and
+                exam-focused points.
+            </p>
+
+            <a href="science-notes.html" class="option-btn">
+                Open Notes →
             </a>
 
         </div>
@@ -452,94 +460,91 @@
 </section>
 
 
-<!-- NOTE POPUP -->
+<!-- VIDEO RESOURCES -->
 
-<div
-    id="notePopup"
-    class="note-popup">
+<section class="video-section" id="videos">
 
-    <div class="popup-box">
+    <div class="section-title">
 
-        <button
-            class="close-btn"
-            onclick="closeNote()">
+        <h2>Science Video Resources</h2>
 
-            ×
-
-        </button>
-
-        <p class="eyebrow">
-            QUICK REVISION
-        </p>
-
-        <h2 id="popupTitle">
-            Science
-        </h2>
-
-        <p id="popupText">
-            Note
+        <p>
+            Learn Science from these educational YouTube channels.
         </p>
 
     </div>
 
-</div>
+
+    <div class="video-grid">
+
+
+        <!-- AASAN SCIENCE -->
+
+        <div class="video-card">
+
+            <div class="icon">▶️</div>
+
+            <h3>Aasan Science 21</h3>
+
+            <p>
+                Science learning videos and concept explanations.
+            </p>
+
+            <a
+                href="https://www.youtube.com/@Aasanscience21"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="youtube-btn"
+            >
+                Watch Channel →
+            </a>
+
+        </div>
+
+
+        <!-- RAKSHAK SIR -->
+
+        <div class="video-card">
+
+            <div class="icon">▶️</div>
+
+            <h3>Rakshak Sir Science</h3>
+
+            <p>
+                Additional Science lectures and learning resources.
+            </p>
+
+            <a
+                href="https://www.youtube.com/@RakshakSirScience"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="youtube-btn"
+            >
+                Watch Channel →
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
 
 
 <!-- FOOTER -->
 
 <footer>
 
-    <h3>
-        Academix<span>.</span>
-    </h3>
-
     <p>
-        Learn • Explore • Improve
+        © 2026 <strong>Academix by Tiwari</strong>
     </p>
 
-    <p>
-        Developed With❤️ by:
-        <strong>ANSHU TIWARI</strong>
-    </p>
-
-    <p class="copyright">
-        © 2026 Academix
+    <p style="margin-top:8px;">
+        Developed with ❤️ by ANSHU TIWARI
     </p>
 
 </footer>
 
 
-<script src="script.js"></script>
-
-<script>
-
-function showNote(title, text) {
-
-    document.getElementById(
-        "popupTitle"
-    ).textContent = title;
-
-    document.getElementById(
-        "popupText"
-    ).textContent = text;
-
-    document.getElementById(
-        "notePopup"
-    ).classList.add("show");
-
-}
-
-
-function closeNote() {
-
-    document.getElementById(
-        "notePopup"
-    ).classList.remove("show");
-
-}
-
-</script>
-
 </body>
-
 </html>

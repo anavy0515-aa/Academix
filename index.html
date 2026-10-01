@@ -1,15 +1,12 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Academix by Tiwari</title>
+<title>Academix by Tiwari | Learn Smarter</title>
 
-<link rel="stylesheet" href="style.css">
+<meta name="description" content="Academix by Tiwari - Learn smarter with notes, quizzes, study tools and AI assistance.">
 
 <style>
 
@@ -18,19 +15,29 @@
 ========================= */
 
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    margin: 0;
-    background: #070b12;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #050b16;
     color: white;
-    font-family: Arial, sans-serif;
+    line-height: 1.6;
 }
 
 a {
     text-decoration: none;
     color: inherit;
+}
+
+button {
+    font-family: inherit;
 }
 
 
@@ -39,37 +46,31 @@ a {
 ========================= */
 
 .navbar {
-    position: fixed;
+    position: sticky;
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 72px;
+    z-index: 9999;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    padding: 0 7%;
+    padding: 14px 6%;
 
-    background: rgba(7, 11, 18, 0.75);
+    background: rgba(5, 11, 22, 0.88);
+    border-bottom: 1px solid rgba(0, 217, 255, 0.12);
+
     backdrop-filter: blur(15px);
-
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-
-    z-index: 9999;
 }
 
-
-.logo {
+.logo-area {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-
-.logo-icon {
-    width: 42px;
-    height: 42px;
+.academix-logo {
+    width: 44px;
+    height: 44px;
 
     display: flex;
     align-items: center;
@@ -77,54 +78,86 @@ a {
 
     border-radius: 12px;
 
-    background: linear-gradient(
-        135deg,
-        #00d9ff,
-        #8b5cf6
-    );
+    border: 1px solid rgba(0, 217, 255, 0.6);
 
-    font-size: 22px;
+    background: rgba(0, 217, 255, 0.05);
+
+    box-shadow:
+        0 0 15px rgba(0, 217, 255, 0.18);
 }
 
+.logo-svg {
+    width: 36px;
+    height: 36px;
+}
 
 .logo-text {
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 800;
+    letter-spacing: 0.3px;
 }
 
 .logo-text span {
     color: #00d9ff;
 }
 
-
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 28px;
+    gap: 12px;
 }
 
-
 .nav-links a {
-    color: #cbd5e1;
+    padding: 9px 13px;
+
+    color: #dbeafe;
+
     font-size: 14px;
+
+    border-radius: 9px;
+
     transition: 0.25s;
 }
 
-
 .nav-links a:hover {
     color: #00d9ff;
+    background: rgba(0, 217, 255, 0.08);
 }
 
+.login-button {
+    padding: 10px 18px !important;
 
-.nav-button {
-    padding: 10px 17px;
+    border: 1px solid #00d9ff;
 
     border-radius: 10px;
 
-    background: #00d9ff;
-    color: #071018 !important;
+    color: #00d9ff !important;
 
     font-weight: bold;
+}
+
+.login-button:hover {
+    background: #00d9ff !important;
+    color: #071018 !important;
+
+    transform: translateY(-2px);
+}
+
+.search-nav {
+    padding: 10px 16px !important;
+
+    border: 1px solid rgba(0, 217, 255, 0.5);
+
+    border-radius: 10px;
+
+    color: #00d9ff !important;
+}
+
+.search-nav:hover {
+    background: #00d9ff !important;
+    color: #071018 !important;
+
+    transform: translateY(-2px);
 }
 
 
@@ -133,93 +166,61 @@ a {
 ========================= */
 
 .hero {
-    min-height: 100vh;
+    min-height: 88vh;
 
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
-    padding: 120px 7% 70px;
+    gap: 50px;
 
-    position: relative;
-    overflow: hidden;
+    padding: 80px 8%;
+
+    background:
+        radial-gradient(
+            circle at 20% 30%,
+            rgba(0, 217, 255, 0.12),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(139, 92, 246, 0.12),
+            transparent 35%
+        );
 }
-
-
-.hero::before {
-    content: "";
-
-    position: absolute;
-
-    width: 500px;
-    height: 500px;
-
-    background: #00d9ff;
-
-    filter: blur(180px);
-
-    opacity: 0.12;
-
-    top: 80px;
-    left: -150px;
-}
-
-
-.hero::after {
-    content: "";
-
-    position: absolute;
-
-    width: 500px;
-    height: 500px;
-
-    background: #8b5cf6;
-
-    filter: blur(180px);
-
-    opacity: 0.12;
-
-    right: -150px;
-    bottom: -100px;
-}
-
 
 .hero-content {
-    width: 55%;
-
-    position: relative;
-    z-index: 2;
+    max-width: 650px;
 }
 
-
-.badge {
+.hero-badge {
     display: inline-block;
 
-    padding: 8px 14px;
+    padding: 7px 14px;
 
-    border-radius: 30px;
+    margin-bottom: 20px;
 
-    background: rgba(0,217,255,0.08);
+    border: 1px solid rgba(0, 217, 255, 0.3);
 
-    border: 1px solid rgba(0,217,255,0.25);
+    border-radius: 20px;
 
     color: #00d9ff;
 
-    font-size: 13px;
+    font-size: 12px;
+    font-weight: bold;
 
-    margin-bottom: 20px;
+    background: rgba(0, 217, 255, 0.06);
 }
 
-
 .hero h1 {
-    font-size: clamp(45px, 6vw, 78px);
+    font-size: clamp(42px, 6vw, 72px);
 
     line-height: 1.05;
 
-    margin: 0 0 20px;
+    margin-bottom: 22px;
 }
 
-
-.gradient-text {
+.hero h1 span {
     background: linear-gradient(
         90deg,
         #00d9ff,
@@ -227,206 +228,221 @@ a {
     );
 
     -webkit-background-clip: text;
-
     -webkit-text-fill-color: transparent;
 }
 
-
 .hero p {
-    color: #9ca3af;
+    color: #a9b7cc;
 
     font-size: 18px;
 
-    line-height: 1.7;
-
-    max-width: 600px;
+    max-width: 580px;
 
     margin-bottom: 30px;
 }
 
-
 .hero-buttons {
     display: flex;
-
-    gap: 12px;
+    gap: 14px;
 
     flex-wrap: wrap;
 }
 
+.primary-button {
+    padding: 13px 22px;
 
-.primary-btn,
-.secondary-btn {
+    border-radius: 11px;
 
-    padding: 14px 22px;
+    background: linear-gradient(
+        135deg,
+        #00d9ff,
+        #8b5cf6
+    );
 
-    border-radius: 12px;
+    color: white;
 
     font-weight: bold;
 
     transition: 0.25s;
-
 }
 
-
-.primary-btn {
-    background: #00d9ff;
-    color: #071018;
-}
-
-
-.secondary-btn {
-    border: 1px solid #374151;
-    color: white;
-    background: #111827;
-}
-
-
-.primary-btn:hover,
-.secondary-btn:hover {
-
+.primary-button:hover {
     transform: translateY(-3px);
 
+    box-shadow:
+        0 10px 25px rgba(0, 217, 255, 0.2);
+}
+
+.secondary-button {
+    padding: 13px 22px;
+
+    border-radius: 11px;
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    color: #dbeafe;
+
+    background: rgba(255,255,255,0.04);
+
+    transition: 0.25s;
+}
+
+.secondary-button:hover {
+    border-color: #00d9ff;
+
+    color: #00d9ff;
+
+    transform: translateY(-3px);
 }
 
 
 /* =========================
-   HERO DASHBOARD
+   HERO SEARCH
 ========================= */
 
-.hero-visual {
-
-    width: 45%;
-
+.hero-search {
     display: flex;
 
-    justify-content: center;
+    max-width: 580px;
 
-    position: relative;
+    margin-top: 25px;
 
-    z-index: 2;
+    background: rgba(255,255,255,0.04);
+
+    border: 1px solid rgba(0,217,255,0.2);
+
+    border-radius: 12px;
+
+    overflow: hidden;
+}
+
+.hero-search input {
+    flex: 1;
+
+    padding: 14px 16px;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 14px;
+}
+
+.hero-search input::placeholder {
+    color: #7d8da5;
+}
+
+.hero-search button {
+    padding: 0 20px;
+
+    border: none;
+
+    background: linear-gradient(
+        135deg,
+        #00d9ff,
+        #8b5cf6
+    );
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
 }
 
 
-.dashboard-preview {
+/* =========================
+   HERO DASHBOARD PREVIEW
+========================= */
 
-    width: 400px;
-    max-width: 100%;
+.hero-preview {
+    width: 420px;
 
     padding: 22px;
 
-    border-radius: 25px;
+    border-radius: 22px;
 
-    background: rgba(17,24,39,0.75);
+    background: rgba(10, 20, 38, 0.8);
 
-    border: 1px solid #374151;
+    border: 1px solid rgba(0,217,255,0.2);
 
     box-shadow:
-        0 30px 80px rgba(0,0,0,0.5);
+        0 0 50px rgba(0,217,255,0.08);
 
-    transform: rotate(2deg);
-
-    animation: floatCard 4s ease-in-out infinite;
+    backdrop-filter: blur(15px);
 }
-
-
-@keyframes floatCard {
-
-    0%,100% {
-        transform: translateY(0) rotate(2deg);
-    }
-
-    50% {
-        transform: translateY(-12px) rotate(2deg);
-    }
-
-}
-
 
 .preview-top {
-
     display: flex;
-
     justify-content: space-between;
-
-    align-items: center;
 
     margin-bottom: 20px;
 }
 
-
-.preview-top h3 {
-    margin: 0;
+.preview-title {
+    font-weight: bold;
 }
 
-
-.online {
+.preview-status {
     color: #22c55e;
 
     font-size: 12px;
 }
 
-
-.preview-stat {
-
+.preview-card {
     padding: 18px;
 
-    border-radius: 15px;
-
-    background: #1f2937;
-
     margin-bottom: 12px;
+
+    border-radius: 14px;
+
+    background: rgba(255,255,255,0.04);
+
+    border: 1px solid rgba(255,255,255,0.06);
 }
 
-
-.preview-stat small {
-    color: #9ca3af;
-}
-
-
-.preview-stat strong {
-
+.preview-card strong {
     display: block;
 
-    font-size: 28px;
-
-    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
+.progress {
+    height: 7px;
 
-.mini-progress {
-
-    height: 8px;
-
-    background: #374151;
+    margin-top: 10px;
 
     border-radius: 20px;
 
-    overflow: hidden;
+    background: #172338;
 
-    margin-top: 12px;
+    overflow: hidden;
 }
 
-
-.mini-progress div {
+.progress span {
+    display: block;
 
     width: 72%;
-
     height: 100%;
+
+    border-radius: 20px;
 
     background: linear-gradient(
         90deg,
         #00d9ff,
         #8b5cf6
     );
-
 }
 
 
 /* =========================
    STATS
 ========================= */
-.stats {
 
+.stats {
     display: grid;
 
     grid-template-columns:
@@ -434,42 +450,29 @@ a {
 
     gap: 15px;
 
-    padding: 0 7% 70px;
+    padding: 30px 8%;
 }
 
-
-.stat {
-
-    padding: 25px;
-
-    background: #111827;
-
-    border: 1px solid #374151;
-
-    border-radius: 18px;
+.stat-card {
+    padding: 24px;
 
     text-align: center;
+
+    border-radius: 16px;
+
+    background: rgba(255,255,255,0.03);
+
+    border: 1px solid rgba(255,255,255,0.07);
 }
 
+.stat-card h2 {
+    color: #00d9ff;
 
-.stat-icon {
-    font-size: 28px;
+    font-size: 30px;
 }
 
-
-.stat strong {
-
-    display: block;
-
-    font-size: 25px;
-
-    margin: 8px 0;
-
-}
-
-
-.stat span {
-    color: #9ca3af;
+.stat-card p {
+    color: #8998ae;
 
     font-size: 13px;
 }
@@ -480,30 +483,23 @@ a {
 ========================= */
 
 .section {
-
-    padding: 80px 7%;
+    padding: 80px 8%;
 }
 
-
-.section-title {
-
+.section-heading {
     text-align: center;
 
     margin-bottom: 45px;
 }
 
-
-.section-title h2 {
-
+.section-heading h2 {
     font-size: 38px;
 
     margin-bottom: 10px;
 }
 
-
-.section-title p {
-
-    color: #9ca3af;
+.section-heading p {
+    color: #8e9bb0;
 }
 
 
@@ -512,61 +508,51 @@ a {
 ========================= */
 
 .subject-grid {
-
     display: grid;
 
     grid-template-columns:
         repeat(5, 1fr);
 
-    gap: 15px;
+    gap: 18px;
 }
 
-
 .subject-card {
-
     padding: 25px 20px;
 
-    background: #111827;
-
-    border: 1px solid #374151;
+    min-height: 180px;
 
     border-radius: 18px;
 
-    transition: 0.25s;
+    background: rgba(255,255,255,0.035);
 
+    border: 1px solid rgba(255,255,255,0.07);
+
+    transition: 0.3s;
 }
-
 
 .subject-card:hover {
+    transform: translateY(-7px);
 
-    transform: translateY(-8px);
+    border-color: rgba(0,217,255,0.35);
 
-    border-color: #00d9ff;
-
+    box-shadow:
+        0 15px 35px rgba(0,217,255,0.08);
 }
-
 
 .subject-icon {
+    font-size: 32px;
 
-    font-size: 35px;
-
-    margin-bottom: 18px;
+    margin-bottom: 15px;
 }
-
 
 .subject-card h3 {
-
-    margin-bottom: 8px;
+    margin-bottom: 7px;
 }
 
-
 .subject-card p {
-
-    color: #9ca3af;
+    color: #8998ae;
 
     font-size: 13px;
-
-    line-height: 1.5;
 }
 
 
@@ -575,7 +561,6 @@ a {
 ========================= */
 
 .tools-grid {
-
     display: grid;
 
     grid-template-columns:
@@ -584,50 +569,49 @@ a {
     gap: 18px;
 }
 
-
 .tool-card {
-
     padding: 28px;
 
-    border-radius: 20px;
+    border-radius: 18px;
 
     background:
         linear-gradient(
             145deg,
-            #111827,
-            #0d1420
+            rgba(0,217,255,0.05),
+            rgba(139,92,246,0.04)
         );
 
-    border: 1px solid #374151;
+    border: 1px solid rgba(255,255,255,0.07);
 
-    transition: 0.25s;
+    transition: 0.3s;
 }
-
 
 .tool-card:hover {
+    transform: translateY(-6px);
 
-    transform: translateY(-7px);
-
-    border-color: #8b5cf6;
-
+    border-color: rgba(139,92,246,0.35);
 }
 
+.tool-card .icon {
+    font-size: 34px;
 
-.tool-icon {
-
-    font-size: 35px;
-
-    margin-bottom: 15px;
+    margin-bottom: 14px;
 }
-
 
 .tool-card p {
+    color: #8998ae;
 
-    color: #9ca3af;
+    font-size: 13px;
 
-    font-size: 14px;
+    margin: 8px 0 18px;
+}
 
-    line-height: 1.5;
+.tool-link {
+    color: #00d9ff;
+
+    font-size: 13px;
+
+    font-weight: bold;
 }
 
 
@@ -636,37 +620,33 @@ a {
 ========================= */
 
 .cta {
+    margin: 30px 8% 80px;
 
-    margin: 40px 7% 80px;
-
-    padding: 60px 30px;
+    padding: 55px 30px;
 
     text-align: center;
 
     border-radius: 25px;
 
     background:
-        linear-gradient(
-            135deg,
+        radial-gradient(
+            circle at center,
             rgba(0,217,255,0.12),
-            rgba(139,92,246,0.12)
+            rgba(139,92,246,0.08),
+            rgba(255,255,255,0.02)
         );
 
-    border: 1px solid #374151;
+    border: 1px solid rgba(0,217,255,0.15);
 }
 
-
 .cta h2 {
-
-    font-size: 40px;
+    font-size: 34px;
 
     margin-bottom: 12px;
 }
 
-
 .cta p {
-
-    color: #9ca3af;
+    color: #94a3b8;
 
     margin-bottom: 25px;
 }
@@ -676,155 +656,235 @@ a {
    FOOTER
 ========================= */
 
-.footer {
+footer {
+    padding: 35px 8%;
 
-    padding: 30px 7%;
+    text-align: center;
 
-    border-top: 1px solid #1f2937;
+    border-top: 1px solid rgba(255,255,255,0.06);
 
-    display: flex;
-
-    justify-content: space-between;
-
-    gap: 20px;
-
-    color: #9ca3af;
+    color: #718096;
 
     font-size: 13px;
 }
 
-
-.footer strong {
-    color: white;
+footer strong {
+    color: #00d9ff;
 }
 
 
 /* =========================
-   RESPONSIVE
+   ACHARYA AI FLOATING LOGO
 ========================= */
 
-@media (max-width: 950px) {
+.acharya-logo {
+    position: fixed;
 
-    .nav-links {
-        gap: 15px;
+    right: 25px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 68px;
+    height: 68px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(7, 15, 30, 0.96);
+
+    border: 2px solid rgba(0, 217, 255, 0.5);
+
+    cursor: pointer;
+
+    z-index: 99999;
+
+    box-shadow:
+        0 0 18px rgba(0, 217, 255, 0.35),
+        0 0 35px rgba(139, 92, 246, 0.25);
+
+    animation: acharyaGlow 3s ease-in-out infinite;
+
+    transition: 0.3s ease;
+}
+
+.acharya-svg {
+    width: 52px;
+    height: 52px;
+}
+
+.acharya-logo:hover {
+    transform: translateY(-50%) scale(1.12);
+
+    border-color: #00d9ff;
+
+    box-shadow:
+        0 0 25px rgba(0, 217, 255, 0.65),
+        0 0 50px rgba(139, 92, 246, 0.45);
+}
+
+@keyframes acharyaGlow {
+
+    0% {
+        box-shadow:
+            0 0 18px rgba(0, 217, 255, 0.3),
+            0 0 35px rgba(139, 92, 246, 0.2);
     }
+
+    50% {
+        box-shadow:
+            0 0 28px rgba(0, 217, 255, 0.55),
+            0 0 45px rgba(139, 92, 246, 0.35);
+    }
+
+    100% {
+        box-shadow:
+            0 0 18px rgba(0, 217, 255, 0.3),
+            0 0 35px rgba(139, 92, 246, 0.2);
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 1000px) {
 
     .hero {
         flex-direction: column;
 
         text-align: center;
-    }
-
-    .hero-content,
-    .hero-visual {
-
-        width: 100%;
     }
 
     .hero-content {
-
-        display: flex;
-
-        flex-direction: column;
-
-        align-items: center;
-
-        margin-bottom: 60px;
+        max-width: 750px;
     }
 
-    .stats {
+    .hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-        grid-template-columns:
-            repeat(2, 1fr);
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-search {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-preview {
+        width: 100%;
+        max-width: 500px;
     }
 
     .subject-grid {
-
         grid-template-columns:
-            repeat(2, 1fr);
+            repeat(3, 1fr);
     }
 
     .tools-grid {
-
         grid-template-columns:
             repeat(2, 1fr);
-    }
-
-}
-
-
-@media (max-width: 600px) {
-
-    .navbar {
-
-        padding: 0 20px;
-    }
-
-    .nav-links a:not(.nav-button) {
-
-        display: none;
-    }
-
-    .hero {
-
-        padding-left: 20px;
-
-        padding-right: 20px;
-    }
-
-    .hero h1 {
-
-        font-size: 45px;
     }
 
     .stats {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
 
-        grid-template-columns: 1fr;
+    .nav-links {
+        gap: 4px;
+    }
+}
 
-        padding-left: 20px;
+@media (max-width: 700px) {
 
-        padding-right: 20px;
+    .navbar {
+        padding: 12px 4%;
+    }
+
+    .nav-links a {
+        display: none;
+    }
+
+    .logo-text {
+        font-size: 17px;
+    }
+
+    .hero {
+        padding: 60px 5%;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .hero-search {
+        width: 100%;
+    }
+
+    .stats {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        padding: 20px 5%;
+    }
+
+    .subject-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .tools-grid {
+        grid-template-columns:
+            1fr;
     }
 
     .section {
-
-        padding-left: 20px;
-
-        padding-right: 20px;
+        padding: 60px 5%;
     }
 
-    .subject-grid,
-    .tools-grid {
-
-        grid-template-columns: 1fr;
-    }
-
-    .cta {
-
-        margin-left: 20px;
-
-        margin-right: 20px;
-    }
-
-    .cta h2 {
-
+    .section-heading h2 {
         font-size: 30px;
     }
 
-    .footer {
+    .acharya-logo {
+        right: 18px;
+        bottom: 20px;
+        top: auto;
 
-        flex-direction: column;
+        transform: none;
 
-        text-align: center;
+        width: 60px;
+        height: 60px;
     }
 
+    .acharya-svg {
+        width: 46px;
+        height: 46px;
+    }
+
+    .acharya-logo:hover {
+        transform: scale(1.1);
+    }
 }
 
 </style>
-
 </head>
 
+
 <body>
+
 
 <!-- =========================
      NAVBAR
@@ -832,75 +892,81 @@ a {
 
 <nav class="navbar">
 
-<a href="index.html" class="logo">
+    <a href="index.html" class="logo-area">
 
-<div class="academix-logo">
+        <div class="academix-logo">
 
-<svg viewBox="0 0 64 64" class="logo-svg">
+            <svg viewBox="0 0 64 64" class="logo-svg">
 
-<defs>
+                <defs>
+                    <linearGradient
+                        id="logoGradient"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="100%"
+                    >
+                        <stop offset="0%" stop-color="#00d9ff"/>
+                        <stop offset="100%" stop-color="#8b5cf6"/>
+                    </linearGradient>
+                </defs>
 
-<linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <path
+                    d="M10 20 L32 10 L54 20 L32 30 Z"
+                    fill="none"
+                    stroke="url(#logoGradient)"
+                    stroke-width="4"
+                    stroke-linejoin="round"
+                />
 
-<stop offset="0%" stop-color="#00d9ff"/>
+                <path
+                    d="M16 27 V42 L32 51 L48 42 V27"
+                    fill="none"
+                    stroke="url(#logoGradient)"
+                    stroke-width="4"
+                    stroke-linejoin="round"
+                />
 
-<stop offset="100%" stop-color="#8b5cf6"/>
+                <path
+                    d="M32 30 V50"
+                    stroke="url(#logoGradient)"
+                    stroke-width="4"
+                />
 
-</linearGradient>
+            </svg>
 
-</defs>
+        </div>
 
-<path d="M8 17 L32 9 L56 17 L32 25 Z" fill="url(#logoGradient)"/>
+        <div class="logo-text">
+            Academix <span>by Tiwari</span>
+        </div>
 
-<path d="M14 22 V39 C14 43 22 48 32 51 C42 48 50 43 50 39 V22" fill="none" stroke="url(#logoGradient)" stroke-width="4" stroke-linejoin="round"/>
+    </a>
 
-<path d="M32 25 V49" stroke="#ffffff" stroke-width="3"/>
 
-<path d="M21 30 L32 34 L43 30" fill="none" stroke="#ffffff" stroke-width="2.5"/>
+    <div class="nav-links">
 
-</svg>
+        <a href="index.html">Home</a>
 
-</div>
-<div class="logo-text">
-Academix <span>by Tiwari</span>
-</div>
+        <a href="#subjects">Subjects</a>
 
-</a>
+        <a href="dashboard.html">📊 Dashboard</a>
 
-<div class="nav-links">
+        <a href="#tools">Tools</a>
 
-<a href="index.html">
-Home
-</a>
+        <a href="search.html" class="search-nav">
+            🔎 Search
+        </a>
 
-<a href="#subjects">
-Subjects
-</a>
+        <a href="login.html" class="login-button">
+            🔐 Login
+        </a>
 
-<a href="dashboard.html">
-📊 Dashboard
-</a>
-<a href="login.html" class="login-button">
-    🔐 Login
-</a>
-
-<a href="#tools">
-Tools
-</a>
-<a href="search.html" class="search-nav">
-    🔎 Search
-</a>
-
-<a href="dashboard.html"
-class="nav-button">
-
-Start Learning
-
-</a>
-
-</div>
+    </div>
 
 </nav>
+
+
 
 <!-- =========================
      HERO
@@ -908,113 +974,120 @@ Start Learning
 
 <section class="hero">
 
-<div class="hero-content">
+    <div class="hero-content">
 
-<div class="badge">
-🚀 The smarter way to study
-</div>
+        <div class="hero-badge">
+            🚀 SMART LEARNING PLATFORM
+        </div>
 
-<h1>
+        <h1>
+            Learn Smarter.<br>
+            <span>Build Your Future.</span>
+        </h1>
 
-Learn Smarter.<br>
+        <p>
+            Academix by Tiwari is your modern learning platform
+            for notes, quizzes, practice, exams, study tools
+            and AI-powered learning.
+        </p>
 
-<span class="gradient-text">
-Build Your Future.
-</span>
 
-</h1>
+        <div class="hero-buttons">
 
-<p>
+            <a href="#subjects" class="primary-button">
+                Start Learning →
+            </a>
 
-Academix is your complete digital study space
-for learning, practicing, focusing and tracking
-your academic progress — all in one place.
+            <a href="dashboard.html" class="secondary-button">
+                Open Dashboard
+            </a>
 
-</p>
+        </div>
 
-<div class="hero-buttons">
 
-<a href="dashboard.html"
-class="primary-btn">
+        <div class="hero-search">
 
-🚀 Start Learning
+            <input
+                type="text"
+                id="homeSearch"
+                placeholder="🔎 Search chapters, topics, subjects..."
+                onkeydown="if(event.key==='Enter') homeSearch()"
+            >
 
-</a>
+            <button onclick="homeSearch()">
+                Search
+            </button>
 
-<a href="#subjects"
-class="secondary-btn">
+        </div>
 
-📚 Explore Subjects
+    </div>
 
-</a>
 
-</div>
 
-</div>
+    <!-- DASHBOARD PREVIEW -->
 
-<div class="hero-visual">
+    <div class="hero-preview">
 
-<div class="dashboard-preview">
+        <div class="preview-top">
 
-<div class="preview-top">
+            <div class="preview-title">
+                Student Dashboard
+            </div>
 
-<h3>
-My Study Space
-</h3>
+            <div class="preview-status">
+                ● Active
+            </div>
 
-<span class="online">
-● Active
-</span>
+        </div>
 
-</div>
 
-<div class="preview-stat">
+        <div class="preview-card">
 
-<small>
-Today's Focus
-</small>
+            <strong>
+                📚 Today's Learning
+            </strong>
 
-<strong>
-72%
-</strong>
+            <span>
+                Mathematics • Science • English
+            </span>
 
-<div class="mini-progress">
+            <div class="progress">
+                <span></span>
+            </div>
 
-<div></div>
+        </div>
 
-</div>
 
-</div>
+        <div class="preview-card">
 
-<div class="preview-stat">
+            <strong>
+                🎯 Focus Session
+            </strong>
 
-<small>
-Study Sessions
-</small>
+            <span>
+                50 minute study session
+            </span>
 
-<strong>
-08 🔥
-</strong>
+        </div>
 
-</div>
 
-<div class="preview-stat">
+        <div class="preview-card">
 
-<small>
-Current Goal
-</small>
+            <strong>
+                🧠 Exam Simulator
+            </strong>
 
-<strong>
-120 min 🎯
-</strong>
+            <span>
+                Practice your knowledge
+            </span>
 
-</div>
+        </div>
 
-</div>
-
-</div>
+    </div>
 
 </section>
+
+
 
 <!-- =========================
      STATS
@@ -1022,283 +1095,223 @@ Current Goal
 
 <section class="stats">
 
-<div class="stat">
+    <div class="stat-card">
+        <h2>5</h2>
+        <p>Core Subjects</p>
+    </div>
 
-<div class="stat-icon">
-📚
-</div>
+    <div class="stat-card">
+        <h2>100+</h2>
+        <p>Learning Topics</p>
+    </div>
 
-<strong>
-5
-</strong>
+    <div class="stat-card">
+        <h2>4+</h2>
+        <p>Study Tools</p>
+    </div>
 
-<span>
-Core Subjects
-</span>
-
-</div>
-
-<div class="stat">
-
-<div class="stat-icon">
-🧠
-</div>
-
-<strong>
-100+
-</strong>
-
-<span>
-Learning Topics
-</span>
-
-</div>
-
-<div class="stat">
-
-<div class="stat-icon">
-⚡
-</div>
-
-<strong>
-4+
-</strong>
-
-<span>
-Study Tools
-</span>
-
-</div>
-
-<div class="stat">
-
-<div class="stat-icon">
-🎯
-</div>
-
-<strong>
-24/7
-</strong>
-
-<span>
-Learn Anytime
-</span>
-
-</div>
+    <div class="stat-card">
+        <h2>24/7</h2>
+        <p>Learn Anytime</p>
+    </div>
 
 </section>
+
+
 
 <!-- =========================
      SUBJECTS
 ========================= -->
 
-<section class="section"
-         id="subjects">
+<section class="section" id="subjects">
 
-<div class="section-title">
+    <div class="section-heading">
 
-<h2>
-Everything You Need to Learn
-</h2>
+        <h2>Explore Subjects</h2>
 
-<p>
-Explore your subjects and start learning.
-</p>
+        <p>
+            Choose a subject and start learning.
+        </p>
 
-</div>
+    </div>
 
-<div class="subject-grid">
 
-<a href="maths.html"
-class="subject-card">
+    <div class="subject-grid">
 
-<div class="subject-icon">
-📐
-</div>
 
-<h3>
-Mathematics
-</h3>
+        <a href="math.html" class="subject-card">
 
-<p>
-Build concepts, solve problems
-and strengthen your mathematics.
-</p>
+            <div class="subject-icon">📐</div>
 
-</a>
+            <h3>Mathematics</h3>
 
-<a href="science.html"
-class="subject-card">
+            <p>
+                Concepts, formulas, chapters,
+                practice and quizzes.
+            </p>
 
-<div class="subject-icon">
-🔬
-</div>
+        </a>
 
-<h3>
-Science
-</h3>
 
-<p>
-Explore Physics, Chemistry
-and Biology.
-</p>
+        <a href="science.html" class="subject-card">
 
-</a>
+            <div class="subject-icon">🔬</div>
 
-<a href="sst.html"
-class="subject-card">
+            <h3>Science</h3>
 
-<div class="subject-icon">
-🌍
-</div>
+            <p>
+                Physics, Chemistry, Biology,
+                notes, quizzes and 3D learning.
+            </p>
 
-<h3>
-Social Science
-</h3>
+        </a>
 
-<p>
-History, Geography, Civics
-and Economics.
-</p>
 
-</a>
+        <a href="sst.html" class="subject-card">
 
-<a href="english.html"
-class="subject-card">
+            <div class="subject-icon">🌍</div>
 
-<div class="subject-icon">
-📖
-</div>
+            <h3>Social Science</h3>
 
-<h3>
-English
-</h3>
+            <p>
+                History, Geography, Civics
+                and Economics.
+            </p>
 
-<p>
-Improve grammar, literature
-and communication.
-</p>
+        </a>
 
-</a>
 
-<a href="computer.html"
-class="subject-card">
+        <a href="english.html" class="subject-card">
 
-<div class="subject-icon">
-💻
-</div>
+            <div class="subject-icon">📖</div>
 
-<h3>
-Computer
-</h3>
+            <h3>English</h3>
 
-<p>
-Learn computers, technology
-and digital skills.
-</p>
+            <p>
+                Grammar, practice,
+                tests and quizzes.
+            </p>
 
-</a>
+        </a>
 
-</div>
+
+        <a href="computer.html" class="subject-card">
+
+            <div class="subject-icon">💻</div>
+
+            <h3>Computer</h3>
+
+            <p>
+                Programming, web development,
+                AI, networking and IT.
+            </p>
+
+        </a>
+
+
+    </div>
 
 </section>
+
+
 
 <!-- =========================
      TOOLS
 ========================= -->
 
-<section class="section"
-         id="tools">
+<section class="section" id="tools">
 
-<div class="section-title">
+    <div class="section-heading">
 
-<h2>
-Powerful Study Tools
-</h2>
+        <h2>Powerful Study Tools</h2>
 
-<p>
-Everything you need to make studying easier.
-</p>
+        <p>
+            Everything you need to study smarter.
+        </p>
 
-</div>
+    </div>
 
-<div class="tools-grid">
 
-<a href="focus.html"
-class="tool-card">
+    <div class="tools-grid">
 
-<div class="tool-icon">
-⏱️
-</div>
 
-<h3>
-Focus Timer
-</h3>
+        <a href="focus.html" class="tool-card">
 
-<p>
-Use focused study sessions
-and build a consistent routine.
-</p>
+            <div class="icon">⏱️</div>
 
-</a>
+            <h3>Focus Timer</h3>
 
-<a href="calculator.html"
-class="tool-card">
+            <p>
+                Improve concentration with
+                focused study sessions.
+            </p>
 
-<div class="tool-icon">
-🧮
-</div>
+            <span class="tool-link">
+                Open Tool →
+            </span>
 
-<h3>
-Scientific Calculator
-</h3>
+        </a>
 
-<p>
-Calculate mathematical and
-scientific expressions quickly.
-</p>
 
-</a>
+        <a href="calculator.html" class="tool-card">
 
-<a href="dashboard.html"
-class="tool-card">
+            <div class="icon">🧮</div>
 
-<div class="tool-icon">
-📊
-</div>
+            <h3>Scientific Calculator</h3>
 
-<h3>
-Student Dashboard
-</h3>
+            <p>
+                Solve mathematical calculations
+                quickly and easily.
+            </p>
 
-<p>
-Track your study time,
-sessions and daily progress.
-</p>
+            <span class="tool-link">
+                Open Tool →
+            </span>
 
-</a>
+        </a>
 
-<div class="tool-card"
-     onclick="comingSoon()">
 
-<div class="tool-icon">
-📝
-</div>
+        <a href="dashboard.html" class="tool-card">
 
-<h3>
-Exam Simulator
-</h3>
+            <div class="icon">📊</div>
 
-<p>
-Practice tests with a
-real exam-style experience.
-</p>
+            <h3>Student Dashboard</h3>
 
-</div>
+            <p>
+                Track your study time,
+                sessions and progress.
+            </p>
 
-</div>
+            <span class="tool-link">
+                Open Dashboard →
+            </span>
+
+        </a>
+
+
+        <a href="exam.html" class="tool-card">
+
+            <div class="icon">🎯</div>
+
+            <h3>Exam Simulator</h3>
+
+            <p>
+                Practice timed exams and
+                check your performance.
+            </p>
+
+            <span class="tool-link">
+                Start Exam →
+            </span>
+
+        </a>
+
+
+    </div>
 
 </section>
+
+
 
 <!-- =========================
      CTA
@@ -1306,61 +1319,230 @@ real exam-style experience.
 
 <section class="cta">
 
-<h2>
-Ready to Start Learning?
-</h2>
+    <h2>
+        Ready to Start Learning?
+    </h2>
 
-<p>
-Your study journey starts here.
-</p>
+    <p>
+        Explore Academix and build your knowledge
+        one topic at a time.
+    </p>
 
-<a href="dashboard.html"
-class="primary-btn">
-
-🚀 Open My Dashboard
-
-</a>
+    <a href="#subjects" class="primary-button">
+        Start Learning →
+    </a>
 
 </section>
+
+
 
 <!-- =========================
      FOOTER
 ========================= -->
 
-<footer class="footer">
+<footer>
 
-<div>
+    <p>
+        © 2026 <strong>Academix by Tiwari</strong>
+    </p>
 
-© 2026 <strong>
-Academix by Tiwari </strong>
-
-<br>
-
-Developed with ❤️ by: <strong>
-ANSHU TIWARI </strong>
-
-</div>
-
-<div>
-
-Learn • Understand • Grow
-
-</div>
+    <p>
+        Developed with ❤️ by: ANSHU TIWARI
+    </p>
 
 </footer>
 
+
+
+<!-- =========================
+     ACHARYA AI FLOATING LOGO
+========================= -->
+
+<div
+    class="acharya-logo"
+    onclick="openAcharya()"
+    title="Acharya AI"
+>
+
+    <svg
+        viewBox="0 0 100 100"
+        class="acharya-svg"
+    >
+
+        <defs>
+
+            <linearGradient
+                id="acharyaGradient"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="100%"
+            >
+
+                <stop
+                    offset="0%"
+                    stop-color="#00d9ff"
+                />
+
+                <stop
+                    offset="100%"
+                    stop-color="#8b5cf6"
+                />
+
+            </linearGradient>
+
+        </defs>
+
+
+        <!-- Outer Ring -->
+
+        <circle
+            cx="50"
+            cy="50"
+            r="43"
+            fill="none"
+            stroke="url(#acharyaGradient)"
+            stroke-width="4"
+        />
+
+
+        <!-- AI Brain -->
+
+        <path
+            d="
+            M35 42
+            C35 32 43 27 50 32
+            C57 27 65 32 65 42
+            C70 45 70 54 65 58
+            C63 68 55 73 50 68
+            C45 73 37 68 35 58
+            C30 54 30 45 35 42Z
+            "
+            fill="none"
+            stroke="url(#acharyaGradient)"
+            stroke-width="4"
+            stroke-linecap="round"
+        />
+
+
+        <!-- Neural Nodes -->
+
+        <circle
+            cx="42"
+            cy="45"
+            r="3"
+            fill="#00d9ff"
+        />
+
+        <circle
+            cx="58"
+            cy="45"
+            r="3"
+            fill="#8b5cf6"
+        />
+
+        <circle
+            cx="50"
+            cy="55"
+            r="3"
+            fill="#00d9ff"
+        />
+
+
+        <!-- Neural Connections -->
+
+        <line
+            x1="42"
+            y1="45"
+            x2="50"
+            y2="55"
+            stroke="#00d9ff"
+            stroke-width="2"
+        />
+
+        <line
+            x1="58"
+            y1="45"
+            x2="50"
+            y2="55"
+            stroke="#8b5cf6"
+            stroke-width="2"
+        />
+
+
+        <!-- Knowledge Rays -->
+
+        <line
+            x1="50"
+            y1="15"
+            x2="50"
+            y2="23"
+            stroke="#00d9ff"
+            stroke-width="3"
+            stroke-linecap="round"
+        />
+
+        <line
+            x1="30"
+            y1="20"
+            x2="35"
+            y2="27"
+            stroke="#8b5cf6"
+            stroke-width="3"
+            stroke-linecap="round"
+        />
+
+        <line
+            x1="70"
+            y1="20"
+            x2="65"
+            y2="27"
+            stroke="#00d9ff"
+            stroke-width="3"
+            stroke-linecap="round"
+        />
+
+    </svg>
+
+</div>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
 <script>
 
-function comingSoon() {
+function openAcharya() {
 
-    alert(
-        "Exam Simulator is coming soon! 🚀"
-    );
+    window.location.href = "acharya.html";
+
+}
+
+
+function homeSearch() {
+
+    const query =
+        document.getElementById("homeSearch")
+        .value
+        .trim();
+
+    if (query === "") {
+
+        window.location.href = "search.html";
+
+        return;
+    }
+
+    window.location.href =
+        "search.html?query=" +
+        encodeURIComponent(query);
 
 }
 
 </script>
 
-</body>
 
+</body>
 </html>

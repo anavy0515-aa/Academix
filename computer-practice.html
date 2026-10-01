@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>IT Practice Lab | Academix by Tiwari</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#060a12;
+    color:#fff;
+    min-height:100vh;
+}
+
+header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    padding:16px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(6,10,18,.94);
+    border-bottom:1px solid rgba(0,217,255,.18);
+    backdrop-filter:blur(14px);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:#00d9ff;
+    font-weight:bold;
+    font-size:20px;
+}
+
+.logo-icon{
+    width:38px;
+    height:38px;
+    border-radius:10px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#00d9ff,#8b5cf6);
+    color:#071018;
+    font-weight:bold;
+}
+
+.back{
+    color:#00d9ff;
+    text-decoration:none;
+    border:1px solid #00d9ff;
+    padding:9px 16px;
+    border-radius:9px;
+}
+
+.back:hover{
+    background:#00d9ff;
+    color:#071018;
+}
+
+.container{
+    width:92%;
+    max-width:1250px;
+    margin:auto;
+}
+
+.hero{
+    text-align:center;
+    padding:65px 10px 40px;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 15px;
+    border:1px solid rgba(0,217,255,.35);
+    border-radius:30px;
+    color:#00d9ff;
+    font-size:13px;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:48px;
+    background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    margin-bottom:15px;
+}
+
+.hero p{
+    max-width:760px;
+    margin:auto;
+    color:#9ca8ba;
+    line-height:1.7;
+}
+
+
+/* XP */
+
+.xp-panel{
+    background:#101827;
+    border:1px solid rgba(0,217,255,.15);
+    border-radius:18px;
+    padding:22px;
+    margin-bottom:35px;
+}
+
+.xp-top{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:12px;
+}
+
+.xp-top span{
+    color:#9ca8ba;
+}
+
+.xp-top strong{
+    color:#00d9ff;
+}
+
+.xp-bar{
+    height:10px;
+    background:#070d18;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.xp-fill{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+    transition:.4s;
+}
+
+
+/* LAB CARDS */
+
+.lab-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    margin-bottom:55px;
+}
+
+.lab-card{
+    background:#101827;
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:18px;
+    padding:25px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.lab-card:hover{
+    transform:translateY(-6px);
+    border-color:rgba(0,217,255,.45);
+    box-shadow:0 15px 35px rgba(0,217,255,.07);
+}
+
+.lab-icon{
+    font-size:35px;
+    margin-bottom:15px;
+}
+
+.lab-card h3{
+    margin-bottom:9px;
+}
+
+.lab-card p{
+    color:#8f9bad;
+    font-size:14px;
+    line-height:1.5;
+}
+
+.lab-tag{
+    display:inline-block;
+    margin-top:15px;
+    padding:6px 9px;
+    border-radius:7px;
+    background:#0b1220;
+    color:#00d9ff;
+    font-size:12px;
+}
+
+
+/* WORKSPACE */
+
+.workspace{
+    background:#0d1421;
+    border:1px solid rgba(0,217,255,.15);
+    border-radius:20px;
+    overflow:hidden;
+    margin-bottom:55px;
+}
+
+.workspace-head{
+    padding:18px 22px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.workspace-head h2{
+    font-size:21px;
+}
+
+.mode{
+    color:#00d9ff;
+    font-size:13px;
+}
+
+.editor-area{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    min-height:470px;
+}
+
+.editor-box{
+    padding:20px;
+    border-right:1px solid rgba(255,255,255,.08);
+}
+
+.editor-label{
+    color:#8f9bad;
+    font-size:13px;
+    margin-bottom:10px;
+}
+
+textarea{
+    width:100%;
+    height:350px;
+    resize:none;
+    border:1px solid #263248;
+    border-radius:10px;
+    background:#060a12;
+    color:#d9f8ff;
+    padding:15px;
+    outline:none;
+    font-family:Consolas,monospace;
+    font-size:14px;
+    line-height:1.6;
+}
+
+textarea:focus{
+    border-color:#00d9ff;
+}
+
+.preview-box{
+    padding:20px;
+}
+
+iframe{
+    width:100%;
+    height:350px;
+    border:1px solid #263248;
+    border-radius:10px;
+    background:white;
+}
+
+.run-area{
+    padding:15px 20px;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.run-btn{
+    border:none;
+    padding:11px 20px;
+    border-radius:9px;
+    background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.run-btn:hover{
+    transform:translateY(-2px);
+}
+
+
+/* CHALLENGES */
+
+.section-title{
+    text-align:center;
+    margin-bottom:28px;
+}
+
+.section-title h2{
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+.section-title p{
+    color:#8f9bad;
+}
+
+.challenge-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+    margin-bottom:60px;
+}
+
+.challenge{
+    background:#101827;
+    border:1px solid rgba(255,255,255,.07);
+    padding:25px;
+    border-radius:17px;
+}
+
+.challenge-type{
+    color:#00d9ff;
+    font-size:12px;
+    margin-bottom:10px;
+    font-weight:bold;
+}
+
+.challenge h3{
+    margin-bottom:10px;
+}
+
+.challenge p{
+    color:#a0acbd;
+    line-height:1.6;
+    font-size:14px;
+    margin-bottom:18px;
+}
+
+.challenge button{
+    border:1px solid #00d9ff;
+    background:transparent;
+    color:#00d9ff;
+    padding:9px 15px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.challenge button:hover{
+    background:#00d9ff;
+    color:#071018;
+}
+
+
+/* AI */
+
+.ai-lab{
+    background:
+    linear-gradient(135deg,
+    rgba(0,217,255,.07),
+    rgba(139,92,246,.09));
+    border:1px solid rgba(139,92,246,.25);
+    border-radius:20px;
+    padding:32px;
+    margin-bottom:60px;
+}
+
+.ai-lab h2{
+    margin-bottom:10px;
+}
+
+.ai-lab p{
+    color:#9ca8ba;
+    line-height:1.6;
+    margin-bottom:20px;
+}
+
+.ai-input{
+    display:flex;
+    gap:10px;
+}
+
+.ai-input input{
+    flex:1;
+    background:#070d18;
+    color:white;
+    border:1px solid #29364d;
+    padding:13px;
+    border-radius:9px;
+    outline:none;
+}
+
+.ai-input button{
+    background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+    border:none;
+    color:white;
+    padding:13px 20px;
+    border-radius:9px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.ai-output{
+    margin-top:20px;
+    background:#070d18;
+    border:1px solid #263248;
+    border-radius:10px;
+    padding:18px;
+    color:#c5d1df;
+    min-height:55px;
+}
+
+
+/* ACHIEVEMENTS */
+
+.achievement-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-bottom:55px;
+}
+
+.achievement{
+    background:#101827;
+    border:1px solid rgba(255,255,255,.07);
+    padding:20px;
+    text-align:center;
+    border-radius:15px;
+    opacity:.45;
+}
+
+.achievement.unlocked{
+    opacity:1;
+    border-color:rgba(0,217,255,.4);
+}
+
+.achievement-icon{
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.achievement h3{
+    font-size:15px;
+}
+
+.achievement p{
+    color:#8996a8;
+    font-size:12px;
+    margin-top:6px;
+}
+
+
+/* RESET */
+
+.reset-area{
+    text-align:center;
+    margin-bottom:55px;
+}
+
+.reset-btn{
+    border:1px solid #ff5577;
+    background:transparent;
+    color:#ff5577;
+    padding:10px 18px;
+    border-radius:9px;
+    cursor:pointer;
+}
+
+.reset-btn:hover{
+    background:#ff5577;
+    color:white;
+}
+
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid rgba(255,255,255,.08);
+    text-align:center;
+    padding:28px;
+    color:#718096;
+    font-size:13px;
+}
+
+footer strong{
+    color:#00d9ff;
+}
+
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .lab-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .achievement-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:650px){
+
+    .hero h1{
+        font-size:35px;
+    }
+
+    .lab-grid,
+    .challenge-grid,
+    .achievement-grid{
+        grid-template-columns:1fr;
+    }
+
+    .editor-area{
+        grid-template-columns:1fr;
+    }
+
+    .editor-box{
+        border-right:none;
+        border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .ai-input{
+        flex-direction:column;
+    }
+
+    header{
+        padding:14px 5%;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            &lt;/&gt;
+        </div>
+
+        Academix IT Lab
+
+    </div>
+
+    <a href="computer.html" class="back">
+        ← Computer
+    </a>
+
+</header>
+
+
+
+<div class="container">
+
+
+<section class="hero">
+
+    <div class="badge">
+        ⚡ HANDS-ON TECHNOLOGY PRACTICE
+    </div>
+
+    <h1>
+        IT Practice Lab
+    </h1>
+
+    <p>
+        Don't just read about technology.
+        Build, experiment, debug and think like a developer.
+    </p>
+
+</section>
+
+
+
+<!-- XP -->
+
+<div class="xp-panel">
+
+    <div class="xp-top">
+
+        <span>
+            🚀 Your Tech XP
+        </span>
+
+        <strong id="xpText">
+            0 XP
+        </strong>
+
+    </div>
+
+    <div class="xp-bar">
+        <div class="xp-fill" id="xpFill"></div>
+    </div>
+
+</div>
+
+
+
+<!-- LABS -->
+
+<div class="section-title">
+
+    <h2>🧪 Interactive Labs</h2>
+
+    <p>
+        Choose a technology and start experimenting.
+    </p>
+
+</div>
+
+
+
+<div class="lab-grid">
+
+
+    <div class="lab-card" onclick="scrollToWorkspace('HTML')">
+
+        <div class="lab-icon">🌐</div>
+
+        <h3>HTML Lab</h3>
+
+        <p>
+            Create webpage structures and see
+            your result instantly.
+        </p>
+
+        <span class="lab-tag">LIVE PREVIEW</span>
+
+    </div>
+
+
+
+    <div class="lab-card" onclick="scrollToWorkspace('CSS')">
+
+        <div class="lab-icon">🎨</div>
+
+        <h3>CSS Lab</h3>
+
+        <p>
+            Experiment with colors, layouts,
+            borders and modern web design.
+        </p>
+
+        <span class="lab-tag">DESIGN</span>
+
+    </div>
+
+
+
+    <div class="lab-card" onclick="scrollToWorkspace('JS')">
+
+        <div class="lab-icon">⚡</div>
+
+        <h3>JavaScript Lab</h3>
+
+        <p>
+            Learn programming logic and
+            interact with webpages.
+        </p>
+
+        <span class="lab-tag">LOGIC</span>
+
+    </div>
+
+
+
+    <div class="lab-card" onclick="addXP(20)">
+
+        <div class="lab-icon">🐍</div>
+
+        <h3>Python Logic Lab</h3>
+
+        <p>
+            Practice variables, conditions,
+            loops and algorithmic thinking.
+        </p>
+
+        <span class="lab-tag">PYTHON</span>
+
+    </div>
+
+
+
+    <div class="lab-card" onclick="scrollToAI()">
+
+        <div class="lab-icon">🤖</div>
+
+        <h3>AI Lab</h3>
+
+        <p>
+            Explore prompts, classification,
+            reasoning and AI concepts.
+        </p>
+
+        <span class="lab-tag">ARTIFICIAL INTELLIGENCE</span>
+
+    </div>
+
+
+
+    <div class="lab-card" onclick="addXP(20)">
+
+        <div class="lab-icon">🔐</div>
+
+        <h3>Cyber Lab</h3>
+
+        <p>
+            Learn safe cybersecurity concepts,
+            digital privacy and threat awareness.
+        </p>
+
+        <span class="lab-tag">CYBER SAFETY</span>
+
+    </div>
+
+</div>
+
+
+
+<!-- CODING WORKSPACE -->
+
+<div class="workspace" id="workspace">
+
+    <div class="workspace-head">
+
+        <h2>💻 Web Coding Playground</h2>
+
+        <span class="mode" id="mode">
+            HTML MODE
+        </span>
+
+    </div>
+
+
+    <div class="editor-area">
+
+
+        <div class="editor-box">
+
+            <div class="editor-label">
+                ✍️ Write HTML
+            </div>
+
+            <textarea id="code">
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<style>
+
+body{
+    font-family:Arial;
+    text-align:center;
+    padding:40px;
+}
+
+h1{
+    color:#0077ff;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Hello Academix!</h1>
+
+<p>My first webpage.</p>
+
+</body>
+
+</html>
+
+            </textarea>
+
+        </div>
+
+
+        <div class="preview-box">
+
+            <div class="editor-label">
+                👀 Live Preview
+            </div>
+
+            <iframe id="preview"></iframe>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="run-area">
+
+        <button class="run-btn" onclick="runCode()">
+            ▶ Run Code
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- CHALLENGES -->
+
+<div class="section-title">
+
+    <h2>🧠 Tech Challenges</h2>
+
+    <p>
+        Solve real-world style IT problems.
+    </p>
+
+</div>
+
+
+
+<div class="challenge-grid">
+
+
+    <div class="challenge">
+
+        <div class="challenge-type">
+            DEBUGGING
+        </div>
+
+        <h3>🐛 Find the Bug</h3>
+
+        <p>
+            A webpage is not displaying correctly.
+            Which area should you inspect first:
+            HTML structure, CSS styling or JavaScript logic?
+        </p>
+
+        <button onclick="challengeAnswer('debug')">
+            Analyze
+        </button>
+
+    </div>
+
+
+
+    <div class="challenge">
+
+        <div class="challenge-type">
+            NETWORKING
+        </div>
+
+        <h3>🌐 Network Detective</h3>
+
+        <p>
+            Your browser can open a website by IP address
+            but not by its domain name. Which system
+            should you investigate?
+        </p>
+
+        <button onclick="challengeAnswer('network')">
+            Investigate
+        </button>
+
+    </div>
+
+
+
+    <div class="challenge">
+
+        <div class="challenge-type">
+            CYBER SAFETY
+        </div>
+
+        <h3>🔐 Security Detective</h3>
+
+        <p>
+            You receive a message asking for your password
+            through an unknown link. What security concept
+            should immediately come to mind?
+        </p>
+
+        <button onclick="challengeAnswer('security')">
+            Analyze
+        </button>
+
+    </div>
+
+
+
+    <div class="challenge">
+
+        <div class="challenge-type">
+            ALGORITHM
+        </div>
+
+        <h3>🧩 Logic Challenge</h3>
+
+        <p>
+            You need a program to repeat an operation
+            a known number of times. Which programming
+            concept would you consider?
+        </p>
+
+        <button onclick="challengeAnswer('logic')">
+            Solve
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- AI LAB -->
+
+<div class="ai-lab" id="aiLab">
+
+    <h2>🤖 AI Thinking Lab</h2>
+
+    <p>
+        AI systems work with instructions and information.
+        Write a simple task below and experiment with
+        how a structured prompt can improve clarity.
+    </p>
+
+
+    <div class="ai-input">
+
+        <input
+            id="aiPrompt"
+            type="text"
+            placeholder="Example: Explain photosynthesis to a Class 9 student"
+        >
+
+        <button onclick="runAILab()">
+            Analyze Prompt
+        </button>
+
+    </div>
+
+
+    <div class="ai-output" id="aiOutput">
+
+        Your prompt analysis will appear here.
+
+    </div>
+
+</div>
+
+
+
+<!-- ACHIEVEMENTS -->
+
+<div class="section-title">
+
+    <h2>🏆 Tech Achievements</h2>
+
+    <p>
+        Complete activities and unlock achievements.
+    </p>
+
+</div>
+
+
+
+<div class="achievement-grid">
+
+
+    <div class="achievement" id="ach1">
+
+        <div class="achievement-icon">🌱</div>
+
+        <h3>First Experiment</h3>
+
+        <p>Run your first code.</p>
+
+    </div>
+
+
+
+    <div class="achievement" id="ach2">
+
+        <div class="achievement-icon">⚡</div>
+
+        <h3>Tech Explorer</h3>
+
+        <p>Earn 50 XP.</p>
+
+    </div>
+
+
+
+    <div class="achievement" id="ach3">
+
+        <div class="achievement-icon">🤖</div>
+
+        <h3>AI Thinker</h3>
+
+        <p>Analyze an AI prompt.</p>
+
+    </div>
+
+
+
+    <div class="achievement" id="ach4">
+
+        <div class="achievement-icon">🏆</div>
+
+        <h3>IT Builder</h3>
+
+        <p>Earn 100 XP.</p>
+
+    </div>
+
+</div>
+
+
+
+<div class="reset-area">
+
+    <button class="reset-btn" onclick="resetProgress()">
+        Reset Practice Progress
+    </button>
+
+</div>
+
+
+</div>
+
+
+
+<footer>
+
+    © 2026 <strong>Academix by Tiwari</strong>
+    <br><br>
+    Developed with ❤️ by ANSHU TIWARI
+
+</footer>
+
+
+
+<script>
+
+
+/* XP SYSTEM */
+
+let xp =
+    Number(localStorage.getItem("academixITXP")) || 0;
+
+let codeRuns =
+    Number(localStorage.getItem("academixCodeRuns")) || 0;
+
+let aiRuns =
+    Number(localStorage.getItem("academixAIRuns")) || 0;
+
+
+function updateXP(){
+
+    document.getElementById("xpText").textContent =
+        xp + " XP";
+
+    let percentage =
+        Math.min((xp / 100) * 100,100);
+
+    document.getElementById("xpFill").style.width =
+        percentage + "%";
+
+
+    localStorage.setItem(
+        "academixITXP",
+        xp
+    );
+
+
+    updateAchievements();
+
+}
+
+
+function addXP(amount){
+
+    xp += amount;
+
+    updateXP();
+
+}
+
+
+function updateAchievements(){
+
+    if(codeRuns >= 1){
+
+        document
+        .getElementById("ach1")
+        .classList.add("unlocked");
+
+    }
+
+
+    if(xp >= 50){
+
+        document
+        .getElementById("ach2")
+        .classList.add("unlocked");
+
+    }
+
+
+    if(aiRuns >= 1){
+
+        document
+        .getElementById("ach3")
+        .classList.add("unlocked");
+
+    }
+
+
+    if(xp >= 100){
+
+        document
+        .getElementById("ach4")
+        .classList.add("unlocked");
+
+    }
+
+}
+
+
+
+/* CODING PLAYGROUND */
+
+function runCode(){
+
+    const code =
+        document.getElementById("code").value;
+
+    document
+        .getElementById("preview")
+        .srcdoc = code;
+
+
+    codeRuns++;
+
+    localStorage.setItem(
+        "academixCodeRuns",
+        codeRuns
+    );
+
+
+    addXP(10);
+
+}
+
+
+function scrollToWorkspace(type){
+
+    document
+        .getElementById("workspace")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+
+    const mode =
+        document.getElementById("mode");
+
+    if(type === "HTML"){
+
+        mode.textContent =
+            "HTML MODE";
+
+    }
+
+    else if(type === "CSS"){
+
+        mode.textContent =
+            "CSS MODE";
+
+    }
+
+    else{
+
+        mode.textContent =
+            "JAVASCRIPT MODE";
+
+    }
+
+}
+
+
+
+/* AI LAB */
+
+function scrollToAI(){
+
+    document
+        .getElementById("aiLab")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+}
+
+
+function runAILab(){
+
+    const input =
+        document
+        .getElementById("aiPrompt")
+        .value
+        .trim();
+
+
+    const output =
+        document.getElementById("aiOutput");
+
+
+    if(input === ""){
+
+        output.textContent =
+            "Write a task first.";
+
+        return;
+
+    }
+
+
+    aiRuns++;
+
+
+    localStorage.setItem(
+        "academixAIRuns",
+        aiRuns
+    );
+
+
+    addXP(15);
+
+
+    output.innerHTML =
+        "<strong>Prompt Analysis:</strong><br><br>" +
+
+        "Your task is understandable. " +
+
+        "To make an AI prompt stronger, try specifying " +
+
+        "three things: the task, the target audience, " +
+
+        "and the desired format.<br><br>" +
+
+        "<strong>Your prompt:</strong> " +
+
+        input;
+
+}
+
+
+
+/* CHALLENGES */
+
+function challengeAnswer(type){
+
+    let message = "";
+
+
+    if(type === "debug"){
+
+        message =
+        "Start by identifying which layer is failing: HTML structure, CSS presentation, or JavaScript behavior.";
+
+    }
+
+
+    if(type === "network"){
+
+        message =
+        "Think about the system responsible for translating a domain name into an IP address.";
+
+    }
+
+
+    if(type === "security"){
+
+        message =
+        "Treat unexpected requests for passwords through unknown links as a potential phishing attempt.";
+
+    }
+
+
+    if(type === "logic"){
+
+        message =
+        "A loop is the programming concept commonly used to repeat an operation.";
+
+    }
+
+
+    alert(message);
+
+    addXP(10);
+
+}
+
+
+
+/* RESET */
+
+function resetProgress(){
+
+    const confirmReset =
+        confirm(
+            "Reset all IT Practice Lab progress?"
+        );
+
+
+    if(!confirmReset) return;
+
+
+    localStorage.removeItem("academixITXP");
+    localStorage.removeItem("academixCodeRuns");
+    localStorage.removeItem("academixAIRuns");
+
+
+    xp = 0;
+    codeRuns = 0;
+    aiRuns = 0;
+
+
+    document
+        .querySelectorAll(".achievement")
+        .forEach(function(item){
+
+            item.classList.remove("unlocked");
+
+        });
+
+
+    updateXP();
+
+}
+
+
+updateXP();
+
+</script>
+
+
+</body>
+</html>

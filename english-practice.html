@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Grammar Practice | Academix by Tiwari</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#071018;
+    color:white;
+    line-height:1.6;
+}
+
+header{
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#09131d;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo{
+    color:#00d9ff;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.back{
+    text-decoration:none;
+    color:#00d9ff;
+    border:1px solid #00d9ff;
+    padding:9px 16px;
+    border-radius:9px;
+}
+
+.back:hover{
+    background:#00d9ff;
+    color:#071018;
+}
+
+.hero{
+    text-align:center;
+    padding:55px 20px 35px;
+}
+
+.hero h1{
+    font-size:43px;
+    margin-bottom:10px;
+    background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    color:#aab7c4;
+    font-size:17px;
+}
+
+.container{
+    width:90%;
+    max-width:1050px;
+    margin:auto;
+}
+
+.practice-card{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:18px;
+    padding:25px;
+    margin-bottom:25px;
+}
+
+.practice-card h2{
+    color:#00d9ff;
+    margin-bottom:8px;
+}
+
+.practice-card > p{
+    color:#aab7c4;
+    margin-bottom:20px;
+}
+
+.question{
+    margin-top:22px;
+    padding:18px;
+    background:rgba(255,255,255,0.04);
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+.question-number{
+    color:#8b5cf6;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.question p{
+    color:#dbe3e9;
+    margin-bottom:12px;
+}
+
+input[type="text"]{
+    width:100%;
+    padding:12px;
+    background:#0b1721;
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:8px;
+    color:white;
+    outline:none;
+}
+
+input[type="text"]:focus{
+    border-color:#00d9ff;
+}
+
+.option{
+    display:block;
+    padding:10px 13px;
+    margin:8px 0;
+    background:#0b1721;
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:8px;
+    cursor:pointer;
+    color:#dbe3e9;
+}
+
+.option:hover{
+    border-color:#00d9ff;
+}
+
+.check-btn{
+    margin-top:15px;
+    padding:11px 20px;
+    border:none;
+    border-radius:9px;
+    background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.check-btn:hover{
+    transform:translateY(-2px);
+}
+
+.feedback{
+    display:none;
+    margin-top:12px;
+    padding:11px;
+    border-radius:8px;
+}
+
+.correct{
+    display:block;
+    background:rgba(0,220,120,0.12);
+    border-left:4px solid #00e676;
+}
+
+.wrong{
+    display:block;
+    background:rgba(255,70,70,0.12);
+    border-left:4px solid #ff5252;
+}
+
+.score-box{
+    text-align:center;
+    background:linear-gradient(
+        135deg,
+        rgba(0,217,255,0.08),
+        rgba(139,92,246,0.08)
+    );
+    border:1px solid rgba(0,217,255,0.2);
+    border-radius:18px;
+    padding:30px;
+    margin-bottom:30px;
+}
+
+.score-box h2{
+    color:#00d9ff;
+}
+
+.score{
+    font-size:45px;
+    font-weight:bold;
+    color:#8b5cf6;
+    margin:10px;
+}
+
+.reset-btn{
+    padding:11px 22px;
+    border:none;
+    border-radius:9px;
+    background:#182530;
+    color:#00d9ff;
+    border:1px solid #00d9ff;
+    cursor:pointer;
+}
+
+.reset-btn:hover{
+    background:#00d9ff;
+    color:#071018;
+}
+
+footer{
+    text-align:center;
+    margin-top:60px;
+    padding:28px;
+    border-top:1px solid rgba(255,255,255,0.1);
+    color:#8795a3;
+}
+
+@media(max-width:600px){
+
+    .hero h1{
+        font-size:32px;
+    }
+
+    .practice-card{
+        padding:18px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="logo">
+    Academix by Tiwari
+</div>
+
+<a href="english.html" class="back">
+    ← English
+</a>
+
+</header>
+
+
+<section class="hero">
+
+<h1>✍️ Grammar Practice Zone</h1>
+
+<p>
+Practice different types of Class 9 English Grammar questions.
+</p>
+
+</section>
+
+
+<div class="container">
+
+
+<div class="score-box">
+
+<h2>📊 Practice Score</h2>
+
+<div class="score" id="score">
+0 / 20
+</div>
+
+<p>
+Solve the questions and check your answers instantly.
+</p>
+
+<br>
+
+<button class="reset-btn" onclick="resetPractice()">
+🔄 Reset Practice
+</button>
+
+</div>
+
+
+<!-- ================= FILL IN THE BLANKS ================= -->
+
+<div class="practice-card">
+
+<h2>📝 Fill in the Blanks</h2>
+
+<p>
+Type the correct word or form of the verb.
+</p>
+
+
+<div class="question">
+
+<div class="question-number">
+1.
+</div>
+
+<p>
+She _____ to school every day.
+</p>
+
+<input type="text" id="q1" placeholder="Type your answer">
+
+<button class="check-btn" onclick="checkText('q1','goes','f1')">
+Check
+</button>
+
+<div class="feedback" id="f1"></div>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-number">
+2.
+</div>
+
+<p>
+They _____ playing cricket when it started raining.
+</p>
+
+<input type="text" id="q2" placeholder="Type your answer">
+
+<button class="check-btn" onclick="checkText('q2','were','f2')">
+Check
+</button>
+
+<div class="feedback" id="f2"></div>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-number">
+3.
+</div>
+
+<p>
+I have lived here _____ 2020.
+</p>
+
+<input type="text" id="q3" placeholder="Type your answer">
+
+<button class="check-btn" onclick="checkText('q3','since','f3')">
+Check
+</button>
+
+<div class="feedback" id="f3"></div>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-number">
+4.
+</div>
+
+<p>
+There isn't _____ water in the bottle.
+</p>
+
+<input type="text" id="q4" placeholder="Type your answer">
+
+<button class="check-btn" onclick="checkText('q4','much','f4')">
+Check
+</button>
+
+<div class="feedback" id="f4"></div>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-number">
+5.
+</div>
+
+<p>
+You _____ obey the traffic rules.
+</p>
+
+<input type="text" id="q5" placeholder="Type your answer">
+
+<button class="check-btn" onclick="checkText('q5','must','f5')">
+Check
+</button>
+
+<div class="feedback" id="f5"></div>
+
+</div>
+
+</div>
+
+
+
+<!-- ================= ERROR CORRECTION ================= -->
+
+<div class="practice-card">
+
+<h2>🔎 Error Correction</h2>
+
+<p>
+Choose the correct replacement for the underlined error.
+</p>
+
+
+<div class="question">
+
+<div class="question-number">
+6.
+</div>
+
+<p>
+"He <b>go</b> to school every day."
+</p>
+
+<label class="option">
+<input type="radio" name="q6" value="A">
+go
+</label>
+
+<label class="option">
+<input type="radio" name="q6" value="B">
+goes
+</label>
+
+<label class="option">
+<input type="radio" name="q6" value="C">
+going
+</label>
+
+<label class="option">
+<input type="radio" name="q6" value="D">
+gone
+</label>
+
+<button class="check-btn" onclick="checkRadio('q6','B','f6')">
+Check
+</button>
+
+<div class="feedback" id="f6"></div>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-number">
+7.
+</div>
+
+<p>
+"She <b>don't</b> like coffee."
+</p>
+
+<label class="option">
+<input type="radio" name="q7" value="A">
+don't
+</label>
+
+<label class="option">
+<input type="radio" name="q7" value="B">
+doesn't
+</label>
+
+<label class="option">
+<input type="radio" name="q7" value="C">
+didn't
+</label>
+
+<label class="option">
+<input type="radio" name="q7" value="D">
+not
+</label>
+
+<button class="check-btn" onclick="checkRadio('q7','B','f7')">
+Check
+</button>
+
+<div class="feedback" id="f7"></div>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-number">
+8.
+</div>
+
+<p>
+"He is good <b>in</b> Mathematics."
+</p>
+
+<label class="option">
+<input type="radio" name="q8" value="A">
+in
+</label>
+
+<label class="option">
+<input type="radio" name="q8" value="B">
+on
+</label>
+
+<label class="option">
+<input type="radio" name="q8" value="C">
+at
+</label>
+
+<label class="option">
+<input type="radio" name="q8" value="D">
+with
+</label>
+
+<button class="check-btn" onclick="checkRadio('q8','C','f8')">
+Check
+</button>
+
+<div class="feedback" id="f8"></div>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-number">
+9.
+</div>
+
+<p>
+"Each of the boys <b>have</b> a book."
+</p>
+
+<label class="option">
+<input type="radio" name="q9" value="A">
+have
+</label>
+
+<label class="option">
+<input type="radio" name="q9" value="B">
+has
+</label>
+
+<label class="option">
+<input type="radio" name="q9" value="C">
+having
+</label>
+
+<label class="option">
+<input type="radio" name="q9" value="D">
+had have
+</label>
+
+<button class="check-btn" onclick="checkRadio('q9','B','f9')">
+Check
+</button>
+
+<div class="feedback" id="f9"></div>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-number">
+10.
+</div>
+
+<p>
+"He can <b>swims</b> very well."
+</p>
+
+<label class="option">
+<input type="radio" name="q10" value="A">
+swim
+</label>
+
+<label class="option">
+<input type="radio" name="q10" value="B">
+swims
+</label>
+
+<label class="option">
+<input type="radio" name="q10" value="C">
+swimming
+</label>
+
+<label class="option">
+<input type="radio" name="q10" value="D">
+swam
+</label>
+
+<button class="check-btn" onclick="checkRadio('q10','A','f10')">
+Check
+</button>
+
+<div class="feedback" id="f10"></div>
+
+</div>
+
+</div>
+
+
+
+<!-- ================= SENTENCE TRANSFORMATION ================= -->
+
+<div class="practice-card">
+
+<h2>🔄 Sentence Transformation</h2>
+
+<p>
+Choose the grammatically correct transformed sentence.
+</p>
+
+
+<div class="question">
+
+<div class="question-number">
+11.
+</div>
+
+<p>
+Change into passive voice: "The teacher praised Rahul."
+</p>
+
+<label class="option">
+<input type="radio" name="q11" value="A">
+Rahul praised the teacher.
+</label>
+
+<label class="option">
+<input type="radio" name="q11" value="B">
+Rahul was praised by the teacher.
+</label>
+
+<label class="option">
+<input type="radio" name="q11" value="C">
+Rahul is praised by the teacher.
+</label>
+
+<label class="option">
+<input type="radio" name="q11" value="D">
+Rahul had praised the teacher.
+</label>
+
+<button class="check-btn" onclick="checkRadio('q11','B','f11')">
+Check
+</button>
+
+<div class="feedback" id="f11"></div>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-number">
+12.
+</div>
+
+<p>
+Change into reported speech: He said, "I am tired."
+</p>
+
+<label class="option">
+<input type="radio" name="q12" value="A">
+He said that I am tired.
+</label>
+
+<label class="option">
+<input type="radio" name="q12" value="B">
+He said that he was tired.
+</label>
+
+<label class="option">
+<input type="radio" name="q12" value="C">
+He says that he was tired.
+</label>
+
+<label class="option">
+<input type="radio" name="q12" value="D">
+He said that he is tired.
+</label>
+
+<button class="check-btn" onclick="checkRadio('q12','B','f12')">
+Check
+</button>
+
+<div class="feedback" id="f12"></div>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-number">
+13.
+</div>
+
+<p>
+Choose the correct sentence.
+</p>
+
+<label class="option">
+<input type="radio" name="q13" value="A">
+She does not likes tea.
+</label>
+
+<label class="option">
+<input type="radio" name="q13" value="B">
+She do not like tea.
+</label>
+
+<label class="option">
+<input type="radio" name="q13" value="C">
+She does not like tea.
+</label>
+
+<label class="option">
+<input type="radio" name="q13" value="D">
+She not likes tea.
+</label>
+
+<button class="check-btn" onclick="checkRadio('q13','C','f13')">
+Check
+</button>
+
+<div class="feedback" id="f13"></div>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-number">
+14.
+</div>
+
+<p>
+Choose the correct sentence.
+</p>
+
+<label class="option">
+<input type="radio" name="q14" value="A">
+An university is nearby.
+</label>
+
+<label class="option">
+<input type="radio" name="q14" value="B">
+A university is nearby.
+</label>
+
+<label class="option">
+<input type="radio" name="q14" value="C">
+The university are nearby.
+</label>
+
+<label class="option">
+<input type="radio" name="q14" value="D">
+University a is nearby.
+</label>
+
+<button class="check-btn" onclick="checkRadio('q14','B','f14')">
+Check
+</button>
+
+<div class="feedback" id="f14"></div>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-number">
+15.
+</div>
+
+<p>
+Choose the correct sentence.
+</p>
+
+<label class="option">
+<input type="radio" name="q15" value="A">
+Neither Rohan nor his friends is ready.
+</label>
+
+<label class="option">
+<input type="radio" name="q15" value="B">
+Neither Rohan nor his friends are ready.
+</label>
+
+<label class="option">
+<input type="radio" name="q15" value="C">
+Neither Rohan nor his friends am ready.
+</label>
+
+<label class="option">
+<input type="radio" name="q15" value="D">
+Neither Rohan nor his friends be ready.
+</label>
+
+<button class="check-btn" onclick="checkRadio('q15','B','f15')">
+Check
+</button>
+
+<div class="feedback" id="f15"></div>
+
+</div>
+
+</div>
+
+
+
+<!-- ================= MIXED PRACTICE ================= -->
+
+<div class="practice-card">
+
+<h2>🧠 Mixed Grammar Challenge</h2>
+
+<p>
+Final practice set — mixed grammar concepts.
+</p>
+
+
+<div class="question">
+
+<div class="question-number">
+16.
+</div>
+
+<p>
+Choose the correct option: "I have been waiting _____ two hours."
+</p>
+
+<label class="option">
+<input type="radio" name="q16" value="A">
+since
+</label>
+
+<label class="option">
+<input type="radio" name="q16" value="B">
+for
+</label>
+
+<label class="option">
+<input type="radio" name="q16" value="C">
+from
+</label>
+
+<label class="option">
+<input type="radio" name="q16" value="D">
+at
+</label>
+
+<button class="check-btn" onclick="checkRadio('q16','B','f16')">
+Check
+</button>
+
+<div class="feedback" id="f16"></div>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-number">
+17.
+</div>
+
+<p>
+Choose the correct option: "_____ I come in, sir?"
+</p>
+
+<label class="option">
+<input type="radio" name="q17" value="A">
+Must
+</label>
+
+<label class="option">
+<input type="radio" name="q17" value="B">
+May
+</label>
+
+<label class="option">
+<input type="radio" name="q17" value="C">
+Should
+</label>
+
+<label class="option">
+<input type="radio" name="q17" value="D">
+Would
+</label>
+
+<button class="check-btn" onclick="checkRadio('q17','B','f17')">
+Check
+</button>
+
+<div class="feedback" id="f17"></div>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-number">
+18.
+</div>
+
+<p>
+Choose the correct option: "There are _____ students in the class."
+</p>
+
+<label class="option">
+<input type="radio" name="q18" value="A">
+much
+</label>
+
+<label class="option">
+<input type="radio" name="q18" value="B">
+little
+</label>
+
+<label class="option">
+<input type="radio" name="q18" value="C">
+many
+</label>
+
+<label class="option">
+<input type="radio" name="q18" value="D">
+less
+</label>
+
+<button class="check-btn" onclick="checkRadio('q18','C','f18')">
+Check
+</button>
+
+<div class="feedback" id="f18"></div>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-number">
+19.
+</div>
+
+<p>
+Choose the correct sentence.
+</p>
+
+<label class="option">
+<input type="radio" name="q19" value="A">
+She will be studying tomorrow at 8 PM.
+</label>
+
+<label class="option">
+<input type="radio" name="q19" value="B">
+She will studying tomorrow at 8 PM.
+</label>
+
+<label class="option">
+<input type="radio" name="q19" value="C">
+She will have study tomorrow at 8 PM.
+</label>
+
+<label class="option">
+<input type="radio" name="q19" value="D">
+She studying will tomorrow.
+</label>
+
+<button class="check-btn" onclick="checkRadio('q19','A','f19')">
+Check
+</button>
+
+<div class="feedback" id="f19"></div>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-number">
+20.
+</div>
+
+<p>
+Choose the correct sentence.
+</p>
+
+<label class="option">
+<input type="radio" name="q20" value="A">
+Although he was tired, he continued working.
+</label>
+
+<label class="option">
+<input type="radio" name="q20" value="B">
+Although he tired, he continued working.
+</label>
+
+<label class="option">
+<input type="radio" name="q20" value="C">
+Although he was tired but he continued working.
+</label>
+
+<label class="option">
+<input type="radio" name="q20" value="D">
+Although he was tired and but continued working.
+</label>
+
+<button class="check-btn" onclick="checkRadio('q20','A','f20')">
+Check
+</button>
+
+<div class="feedback" id="f20"></div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<footer>
+
+© 2026 Academix by Tiwari<br>
+Developed with ❤️ by ANSHU TIWARI
+
+</footer>
+
+
+
+<script>
+
+let score = 0;
+
+let answeredQuestions = new Set();
+
+
+function updateScore(){
+
+    document.getElementById("score").textContent =
+        score + " / 20";
+
+    localStorage.setItem(
+        "englishPracticeScore",
+        score
+    );
+
+}
+
+
+function checkText(inputId,correct,feedbackId){
+
+    if(answeredQuestions.has(inputId)){
+        return;
+    }
+
+    let input =
+        document.getElementById(inputId);
+
+    let answer =
+        input.value.trim().toLowerCase();
+
+    let feedback =
+        document.getElementById(feedbackId);
+
+    if(answer === ""){
+
+        feedback.textContent =
+            "Please enter an answer first.";
+
+        feedback.className =
+            "feedback wrong";
+
+        return;
+
+    }
+
+    answeredQuestions.add(inputId);
+
+    if(answer === correct){
+
+        score++;
+
+        feedback.textContent =
+            "✅ Correct! Your answer is right.";
+
+        feedback.className =
+            "feedback correct";
+
+    }else{
+
+        feedback.textContent =
+            "❌ Incorrect. Correct answer: " +
+            correct;
+
+        feedback.className =
+            "feedback wrong";
+
+    }
+
+    input.disabled = true;
+
+    updateScore();
+
+}
+
+
+function checkRadio(name,correct,feedbackId){
+
+    if(answeredQuestions.has(name)){
+        return;
+    }
+
+    let selected =
+        document.querySelector(
+            'input[name="' + name + '"]:checked'
+        );
+
+    let feedback =
+        document.getElementById(feedbackId);
+
+    if(!selected){
+
+        feedback.textContent =
+            "Please select an option first.";
+
+        feedback.className =
+            "feedback wrong";
+
+        return;
+
+    }
+
+    answeredQuestions.add(name);
+
+    if(selected.value === correct){
+
+        score++;
+
+        feedback.textContent =
+            "✅ Correct! Excellent.";
+
+        feedback.className =
+            "feedback correct";
+
+    }else{
+
+        feedback.textContent =
+            "❌ Incorrect. Check the grammar rule again.";
+
+        feedback.className =
+            "feedback wrong";
+
+    }
+
+    let options =
+        document.querySelectorAll(
+            'input[name="' + name + '"]'
+        );
+
+    options.forEach(option=>{
+        option.disabled = true;
+    });
+
+    updateScore();
+
+}
+
+
+function resetPractice(){
+
+    location.reload();
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>

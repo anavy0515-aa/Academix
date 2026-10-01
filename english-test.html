@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Grammar Test | Academix</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#070b14;
+    color:white;
+    min-height:100vh;
+}
+
+header{
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid rgba(0,217,255,0.2);
+    background:rgba(7,11,20,0.9);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+    color:#00d9ff;
+}
+
+.back-btn{
+    text-decoration:none;
+    color:#00d9ff;
+    border:1px solid #00d9ff;
+    padding:9px 16px;
+    border-radius:9px;
+    transition:0.25s;
+}
+
+.back-btn:hover{
+    background:#00d9ff;
+    color:#071018;
+}
+
+.container{
+    width:90%;
+    max-width:1000px;
+    margin:40px auto;
+}
+
+.hero{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.hero h1{
+    font-size:42px;
+    margin-bottom:10px;
+    background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    color:#aab4c5;
+}
+
+.test-info{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin:25px 0;
+}
+
+.info-card{
+    background:#101827;
+    border:1px solid rgba(0,217,255,0.15);
+    padding:18px;
+    border-radius:14px;
+    text-align:center;
+}
+
+.info-card span{
+    display:block;
+    font-size:13px;
+    color:#8d99aa;
+    margin-bottom:6px;
+}
+
+.info-card strong{
+    font-size:20px;
+    color:#00d9ff;
+}
+
+.timer{
+    position:sticky;
+    top:80px;
+    z-index:50;
+    background:#111a2a;
+    border:1px solid rgba(139,92,246,0.5);
+    padding:14px;
+    border-radius:12px;
+    text-align:center;
+    margin-bottom:25px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.timer.warning{
+    color:#ffcc00;
+}
+
+.timer.danger{
+    color:#ff5555;
+}
+
+.question{
+    background:#101827;
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:16px;
+    padding:24px;
+    margin-bottom:20px;
+}
+
+.question h3{
+    margin-bottom:18px;
+    line-height:1.5;
+}
+
+.option{
+    display:block;
+    background:#0b1220;
+    border:1px solid #263248;
+    padding:13px 15px;
+    border-radius:10px;
+    margin:10px 0;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.option:hover{
+    border-color:#00d9ff;
+    background:#101d30;
+}
+
+.option input{
+    margin-right:10px;
+    accent-color:#00d9ff;
+}
+
+.submit-area{
+    text-align:center;
+    margin:35px 0;
+}
+
+.submit-btn,
+.restart-btn{
+    border:none;
+    padding:14px 28px;
+    border-radius:10px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.25s;
+}
+
+.submit-btn{
+    background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+    color:white;
+}
+
+.submit-btn:hover,
+.restart-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 25px rgba(0,217,255,0.2);
+}
+
+.result{
+    display:none;
+    background:#101827;
+    border:1px solid rgba(0,217,255,0.3);
+    border-radius:18px;
+    padding:35px;
+    text-align:center;
+    margin-top:30px;
+}
+
+.result h2{
+    font-size:32px;
+    margin-bottom:15px;
+    color:#00d9ff;
+}
+
+.score{
+    font-size:50px;
+    font-weight:bold;
+    margin:15px 0;
+    background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.result-stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin:25px 0;
+}
+
+.stat{
+    background:#0b1220;
+    padding:18px;
+    border-radius:12px;
+}
+
+.stat strong{
+    display:block;
+    font-size:24px;
+    color:#00d9ff;
+    margin-bottom:5px;
+}
+
+.stat span{
+    color:#8d99aa;
+    font-size:13px;
+}
+
+.message{
+    color:#b8c3d4;
+    margin-bottom:25px;
+    font-size:17px;
+}
+
+.restart-btn{
+    background:#00d9ff;
+    color:#071018;
+    margin-right:10px;
+}
+
+.home-btn{
+    display:inline-block;
+    text-decoration:none;
+    color:#00d9ff;
+    border:1px solid #00d9ff;
+    padding:13px 25px;
+    border-radius:10px;
+}
+
+.home-btn:hover{
+    background:#00d9ff;
+    color:#071018;
+}
+
+@media(max-width:700px){
+
+    header{
+        padding:15px 5%;
+    }
+
+    .hero h1{
+        font-size:32px;
+    }
+
+    .test-info{
+        grid-template-columns:1fr;
+    }
+
+    .result-stats{
+        grid-template-columns:1fr;
+    }
+
+    .question{
+        padding:18px;
+    }
+
+    .container{
+        width:94%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Academix by Tiwari</div>
+    <a href="english.html" class="back-btn">← Back to English</a>
+</header>
+
+<div class="container">
+
+    <div class="hero">
+        <h1>English Grammar Test</h1>
+        <p>Test your complete Class 9 English Grammar knowledge.</p>
+    </div>
+
+    <div class="test-info">
+
+        <div class="info-card">
+            <span>Total Questions</span>
+            <strong>30</strong>
+        </div>
+
+        <div class="info-card">
+            <span>Total Marks</span>
+            <strong>30</strong>
+        </div>
+
+        <div class="info-card">
+            <span>Time Limit</span>
+            <strong>20 Min</strong>
+        </div>
+
+    </div>
+
+    <div class="timer" id="timer">
+        ⏱️ Time Left: 20:00
+    </div>
+
+    <form id="testForm">
+
+        <div class="question">
+            <h3>1. She _____ to school every day.</h3>
+
+            <label class="option">
+                <input type="radio" name="q1" value="A"> go
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q1" value="B"> goes
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q1" value="C"> going
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q1" value="D"> gone
+            </label>
+        </div>
+
+
+        <div class="question">
+            <h3>2. They _____ playing football when it started raining.</h3>
+
+            <label class="option">
+                <input type="radio" name="q2" value="A"> is
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q2" value="B"> was
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q2" value="C"> were
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q2" value="D"> are
+            </label>
+        </div>
+
+
+        <div class="question">
+            <h3>3. You _____ obey your parents.</h3>
+
+            <label class="option">
+                <input type="radio" name="q3" value="A"> may
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q3" value="B"> must
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q3" value="C"> might
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q3" value="D"> can
+            </label>
+        </div>
+
+
+        <div class="question">
+            <h3>4. There isn't _____ milk in the glass.</h3>
+
+            <label class="option">
+                <input type="radio" name="q4" value="A"> many
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q4" value="B"> few
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q4" value="C"> much
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q4" value="D"> several
+            </label>
+        </div>
+
+
+        <div class="question">
+            <h3>5. Neither Ravi nor his friends _____ present.</h3>
+
+            <label class="option">
+                <input type="radio" name="q5" value="A"> was
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q5" value="B"> is
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q5" value="C"> were
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q5" value="D"> has
+            </label>
+        </div>
+
+
+        <div class="question">
+            <h3>6. He has lived here _____ 2018.</h3>
+
+            <label class="option">
+                <input type="radio" name="q6" value="A"> for
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q6" value="B"> since
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q6" value="C"> from
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q6" value="D"> by
+            </label>
+        </div>
+
+
+        <div class="question">
+            <h3>7. She is _____ honest girl.</h3>
+
+            <label class="option">
+                <input type="radio" name="q7" value="A"> a
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q7" value="B"> an
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q7" value="C"> the
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q7" value="D"> no article
+            </label>
+        </div>
+
+
+        <div class="question">
+            <h3>8. The teacher said, "The earth moves around the sun." Choose the correct reported speech.</h3>
+
+            <label class="option">
+                <input type="radio" name="q8" value="A"> The teacher said that the earth moved around the sun.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q8" value="B"> The teacher said that the earth moves around the sun.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q8" value="C"> The teacher says that the earth moved around the sun.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q8" value="D"> The teacher told that the earth moves around the sun.
+            </label>
+        </div>
+
+
+        <div class="question">
+            <h3>9. Choose the passive voice: "The boy kicked the ball."</h3>
+
+            <label class="option">
+                <input type="radio" name="q9" value="A"> The ball was kicked by the boy.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q9" value="B"> The ball is kicked by the boy.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q9" value="C"> The ball has kicked by the boy.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q9" value="D"> The ball had kick by the boy.
+            </label>
+        </div>
+
+
+        <div class="question">
+            <h3>10. I _____ my homework before dinner yesterday.</h3>
+
+            <label class="option">
+                <input type="radio" name="q10" value="A"> finish
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q10" value="B"> finished
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q10" value="C"> have finished
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q10" value="D"> finishing
+            </label>
+        </div>
+
+
+        <div class="question">
+            <h3>11. The plural of "child" is:</h3>
+
+            <label class="option">
+                <input type="radio" name="q11" value="A"> childs
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q11" value="B"> childes
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q11" value="C"> children
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q11" value="D"> childrens
+            </label>
+        </div>
+
+
+        <div class="question">
+            <h3>12. Choose the correct sentence.</h3>
+
+            <label class="option">
+                <input type="radio" name="q12" value="A"> He don't like tea.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q12" value="B"> He doesn't likes tea.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q12" value="C"> He doesn't like tea.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q12" value="D"> He not like tea.
+            </label>
+        </div>
+
+
+        <div class="question">
+            <h3>13. I am interested _____ music.</h3>
+
+            <label class="option">
+                <input type="radio" name="q13" value="A"> on
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q13" value="B"> at
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q13" value="C"> in
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q13" value="D"> for
+            </label>
+        </div>
+
+
+        <div class="question">
+            <h3>14. He worked hard _____ he could pass the examination.</h3>
+
+            <label class="option">
+                <input type="radio" name="q14" value="A"> but
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q14" value="B"> so that
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q14" value="C"> although
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q14" value="D"> because
+            </label>
+        </div>
+
+
+        <div class="question">
+            <h3>15. Choose the correct form: "She _____ a letter now."</h3>
+
+            <label class="option">
+                <input type="radio" name="q15" value="A"> writes
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q15" value="B"> wrote
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q15" value="C"> is writing
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q15" value="D"> has write
+            </label>
+        </div>
+
+
+        <div class="question">
+            <h3>16. By this time tomorrow, I _____ my work.</h3>
+
+            <label class="option">
+                <input type="radio" name="q16" value="A"> finish
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q16" value="B"> finished
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q16" value="C"> will have finished
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q16" value="D"> am finishing
+            </label>
+        </div>
+
+
+        <div class="question">
+            <h3>17. Each of the boys _____ a book.</h3>
+
+            <label class="option">
+                <input type="radio" name="q17" value="A"> have
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q17" value="B"> has
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q17" value="C"> having
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q17" value="D"> are having
+            </label>
+        </div>
+
+
+        <div class="question">
+            <h3>18. You _____ not smoke here. It is prohibited.</h3>
+
+            <label class="option">
+                <input type="radio" name="q18" value="A"> can
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q18" value="B"> may
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q18" value="C"> must
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q18" value="D"> could
+            </label>
+        </div>
+
+
+        <div class="question">
+            <h3>19. Choose the correct conjunction: "I stayed home _____ it was raining."</h3>
+
+            <label class="option">
+                <input type="radio" name="q19" value="A"> because
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q19" value="B"> but
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q19" value="C"> or
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q19" value="D"> although
+            </label>
+        </div>
+
+
+        <div class="question">
+            <h3>20. Choose the correct determiner: "There are _____ students in the classroom."</h3>
+
+            <label class="option">
+                <input type="radio" name="q20" value="A"> much
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q20" value="B"> many
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q20" value="C"> little
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q20" value="D"> less
+            </label>
+        </div>
+
+
+        <div class="question">
+            <h3>21. Choose the correct passive voice: "They are building a bridge."</h3>
+
+            <label class="option">
+                <input type="radio" name="q21" value="A"> A bridge is being built by them.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q21" value="B"> A bridge was built by them.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q21" value="C"> A bridge has built by them.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q21" value="D"> A bridge is built them.
+            </label>
+        </div>
+
+
+        <div class="question">
+            <h3>22. The teacher said to me, "Work hard." Choose the correct reported speech.</h3>
+
+            <label class="option">
+                <input type="radio" name="q22" value="A"> The teacher told me work hard.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q22" value="B"> The teacher told me to work hard.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q22" value="C"> The teacher said me to work hard.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q22" value="D"> The teacher tells me worked hard.
+            </label>
+        </div>
+
+
+        <div class="question">
+            <h3>23. Which sentence contains a relative clause?</h3>
+
+            <label class="option">
+                <input type="radio" name="q23" value="A"> I went home early.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q23" value="B"> The boy who won the race is my friend.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q23" value="C"> She sings beautifully.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q23" value="D"> They arrived yesterday.
+            </label>
+        </div>
+
+
+        <div class="question">
+            <h3>24. Choose the correct sentence.</h3>
+
+            <label class="option">
+                <input type="radio" name="q24" value="A"> She is senior than me.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q24" value="B"> She is senior to me.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q24" value="C"> She is senior from me.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q24" value="D"> She is senior with me.
+            </label>
+        </div>
+
+
+        <div class="question">
+            <h3>25. Identify the adjective: "The beautiful flower bloomed."</h3>
+
+            <label class="option">
+                <input type="radio" name="q25" value="A"> The
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q25" value="B"> beautiful
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q25" value="C"> flower
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q25" value="D"> bloomed
+            </label>
+        </div>
+
+
+        <div class="question">
+            <h3>26. Identify the adverb: "He ran quickly."</h3>
+
+            <label class="option">
+                <input type="radio" name="q26" value="A"> He
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q26" value="B"> ran
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q26" value="C"> quickly
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q26" value="D"> none
+            </label>
+        </div>
+
+
+        <div class="question">
+            <h3>27. Choose the correct preposition: "The cat is hiding _____ the table."</h3>
+
+            <label class="option">
+                <input type="radio" name="q27" value="A"> under
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q27" value="B"> since
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q27" value="C"> during
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q27" value="D"> because
+            </label>
+        </div>
+
+
+        <div class="question">
+            <h3>28. Choose the correct sentence.</h3>
+
+            <label class="option">
+                <input type="radio" name="q28" value="A"> One of my friend is here.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q28" value="B"> One of my friends are here.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q28" value="C"> One of my friends is here.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q28" value="D"> One of my friend are here.
+            </label>
+        </div>
+
+
+        <div class="question">
+            <h3>29. Choose the correct form: "If I _____ rich, I would help the poor."</h3>
+
+            <label class="option">
+                <input type="radio" name="q29" value="A"> am
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q29" value="B"> was
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q29" value="C"> were
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q29" value="D"> be
+            </label>
+        </div>
+
+
+        <div class="question">
+            <h3>30. Choose the correct sentence.</h3>
+
+            <label class="option">
+                <input type="radio" name="q30" value="A"> Neither of the answers are correct.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q30" value="B"> Neither of the answers is correct.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q30" value="C"> Neither of the answer are correct.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q30" value="D"> Neither answers is correct.
+            </label>
+        </div>
+
+
+        <div class="submit-area">
+            <button type="button" class="submit-btn" onclick="submitTest()">
+                Submit Test
+            </button>
+        </div>
+
+    </form>
+
+
+    <div class="result" id="result">
+
+        <h2>Test Completed!</h2>
+
+        <div class="score" id="score">0%</div>
+
+        <div class="result-stats">
+
+            <div class="stat">
+                <strong id="correct">0</strong>
+                <span>Correct</span>
+            </div>
+
+            <div class="stat">
+                <strong id="wrong">0</strong>
+                <span>Wrong</span>
+            </div>
+
+            <div class="stat">
+                <strong id="unanswered">0</strong>
+                <span>Unanswered</span>
+            </div>
+
+        </div>
+
+        <p class="message" id="message"></p>
+
+        <button class="restart-btn" onclick="restartTest()">
+            Retake Test
+        </button>
+
+        <a href="english.html" class="home-btn">
+            Back to English
+        </a>
+
+    </div>
+
+</div>
+
+
+<script>
+
+const answers = {
+
+    q1:"B",
+    q2:"C",
+    q3:"B",
+    q4:"C",
+    q5:"C",
+    q6:"B",
+    q7:"B",
+    q8:"B",
+    q9:"A",
+    q10:"B",
+    q11:"C",
+    q12:"C",
+    q13:"C",
+    q14:"B",
+    q15:"C",
+    q16:"C",
+    q17:"B",
+    q18:"C",
+    q19:"A",
+    q20:"B",
+    q21:"A",
+    q22:"B",
+    q23:"B",
+    q24:"B",
+    q25:"B",
+    q26:"C",
+    q27:"A",
+    q28:"C",
+    q29:"C",
+    q30:"B"
+
+};
+
+
+let timeLeft = 20 * 60;
+let timerInterval;
+let submitted = false;
+
+
+function updateTimer(){
+
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft % 60;
+
+    document.getElementById("timer").innerHTML =
+        "⏱️ Time Left: " +
+        minutes + ":" +
+        String(seconds).padStart(2,"0");
+
+    if(timeLeft <= 120){
+        document.getElementById("timer").classList.add("warning");
+    }
+
+    if(timeLeft <= 30){
+        document.getElementById("timer").classList.remove("warning");
+        document.getElementById("timer").classList.add("danger");
+    }
+
+    if(timeLeft <= 0){
+
+        clearInterval(timerInterval);
+
+        if(!submitted){
+            submitTest(true);
+        }
+
+        return;
+    }
+
+    timeLeft--;
+
+}
+
+
+timerInterval = setInterval(updateTimer,1000);
+
+
+function submitTest(autoSubmit = false){
+
+    if(submitted) return;
+
+    submitted = true;
+
+    clearInterval(timerInterval);
+
+    let correct = 0;
+    let wrong = 0;
+    let unanswered = 0;
+
+    for(let i = 1; i <= 30; i++){
+
+        const selected =
+            document.querySelector(
+                'input[name="q'+i+'"]:checked'
+            );
+
+        if(!selected){
+
+            unanswered++;
+
+        }
+        else if(selected.value === answers["q"+i]){
+
+            correct++;
+
+        }
+        else{
+
+            wrong++;
+
+        }
+
+    }
+
+    const percentage = Math.round((correct / 30) * 100);
+
+    document.getElementById("score").textContent =
+        percentage + "%";
+
+    document.getElementById("correct").textContent =
+        correct;
+
+    document.getElementById("wrong").textContent =
+        wrong;
+
+    document.getElementById("unanswered").textContent =
+        unanswered;
+
+
+    let message = "";
+
+    if(percentage >= 90){
+
+        message =
+        "Excellent! Your grammar preparation is very strong. 🔥";
+
+    }
+    else if(percentage >= 75){
+
+        message =
+        "Great work! Keep practicing to make your grammar even stronger.";
+
+    }
+    else if(percentage >= 50){
+
+        message =
+        "Good attempt! Revise the weak grammar topics and try again.";
+
+    }
+    else{
+
+        message =
+        "Keep practicing! Review your grammar notes and retake the test.";
+
+    }
+
+
+    if(autoSubmit){
+
+        message =
+        "Time's up! Your test was submitted automatically. " + message;
+
+    }
+
+
+    document.getElementById("message").textContent = message;
+
+
+    const bestScore =
+        Number(localStorage.getItem("englishGrammarTestBest")) || 0;
+
+    if(percentage > bestScore){
+
+        localStorage.setItem(
+            "englishGrammarTestBest",
+            percentage
+        );
+
+    }
+
+
+    localStorage.setItem(
+        "englishGrammarTestLastScore",
+        percentage
+    );
+
+
+    document.getElementById("result").style.display = "block";
+
+    document.getElementById("result")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+}
+
+
+function restartTest(){
+
+    window.location.reload();
+
+}
+
+</script>
+
+</body>
+</html>

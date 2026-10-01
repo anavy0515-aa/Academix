@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Interactive India Map | Academix by Tiwari</title>
+
+<!-- Leaflet -->
+<link
+rel="stylesheet"
+href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#050816;
+    color:white;
+    min-height:100vh;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+    height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 7%;
+
+    background:rgba(5,8,22,.95);
+
+    border-bottom:1px solid rgba(0,217,255,.2);
+
+    position:sticky;
+    top:0;
+
+    z-index:1000;
+}
+
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.academix-logo{
+    width:44px;
+    height:44px;
+
+    border-radius:12px;
+
+    border:1px solid #00d9ff;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    box-shadow:
+    0 0 15px rgba(0,217,255,.35);
+}
+
+.logo-svg{
+    width:36px;
+    height:36px;
+}
+
+.logo-text{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.logo-text span{
+    color:#00d9ff;
+}
+
+.nav-links{
+    display:flex;
+    gap:18px;
+}
+
+.nav-links a{
+    color:#ddd;
+    text-decoration:none;
+
+    padding:9px 13px;
+
+    border-radius:9px;
+
+    transition:.25s;
+}
+
+.nav-links a:hover{
+    color:#00d9ff;
+    background:rgba(0,217,255,.08);
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    text-align:center;
+
+    padding:50px 20px 30px;
+}
+
+.badge{
+    display:inline-block;
+
+    padding:8px 16px;
+
+    border:1px solid rgba(0,217,255,.4);
+
+    border-radius:30px;
+
+    color:#00d9ff;
+
+    background:rgba(0,217,255,.06);
+
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:44px;
+    margin-bottom:12px;
+}
+
+.hero h1 span{
+    background:
+    linear-gradient(
+        90deg,
+        #00d9ff,
+        #8b5cf6
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    color:#929caf;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+.container{
+    width:92%;
+    max-width:1250px;
+
+    margin:auto;
+
+    padding-bottom:60px;
+}
+
+.map-layout{
+    display:grid;
+
+    grid-template-columns:
+    1fr 300px;
+
+    gap:20px;
+}
+
+
+/* =========================
+   MAP CARD
+========================= */
+
+.map-card{
+    background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,.06),
+        rgba(255,255,255,.02)
+    );
+
+    border:1px solid
+    rgba(255,255,255,.08);
+
+    border-radius:22px;
+
+    padding:18px;
+
+    overflow:hidden;
+}
+
+.map-header{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:15px;
+}
+
+.map-header h2{
+    font-size:22px;
+}
+
+.map-header span{
+    color:#00d9ff;
+    font-size:14px;
+}
+
+#map{
+    width:100%;
+    height:650px;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    background:#02050b;
+}
+
+
+/* =========================
+   LEAFLET CUSTOM
+========================= */
+
+.leaflet-container{
+    background:#02050b;
+}
+
+.leaflet-control-zoom a{
+    background:#0b1020 !important;
+    color:#00d9ff !important;
+
+    border-color:
+    rgba(0,217,255,.3) !important;
+}
+
+.leaflet-control-attribution{
+    background:rgba(5,8,22,.8) !important;
+    color:#8d97aa !important;
+}
+
+.leaflet-control-attribution a{
+    color:#00d9ff !important;
+}
+
+
+/* =========================
+   INFO PANEL
+========================= */
+
+.info-panel{
+    background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,.06),
+        rgba(255,255,255,.02)
+    );
+
+    border:1px solid
+    rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+    padding:22px;
+
+    height:max-content;
+}
+
+.info-panel h2{
+    font-size:23px;
+
+    margin-bottom:18px;
+}
+
+.search-box{
+    display:flex;
+
+    gap:8px;
+
+    margin-bottom:20px;
+}
+
+.search-box input{
+    width:100%;
+
+    padding:11px;
+
+    border-radius:9px;
+
+    border:1px solid
+    rgba(255,255,255,.12);
+
+    background:#080d1c;
+
+    color:white;
+
+    outline:none;
+}
+
+.search-box input:focus{
+    border-color:#00d9ff;
+}
+
+.search-box button{
+    padding:10px 13px;
+
+    border:none;
+
+    border-radius:9px;
+
+    background:#00d9ff;
+
+    color:#061018;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+.selected-state{
+    padding:18px;
+
+    border-radius:14px;
+
+    background:
+    rgba(0,217,255,.05);
+
+    border:1px solid
+    rgba(0,217,255,.18);
+
+    margin-bottom:18px;
+}
+
+.selected-state .emoji{
+    font-size:40px;
+
+    margin-bottom:10px;
+}
+
+.selected-state h3{
+    color:#00d9ff;
+
+    font-size:22px;
+
+    margin-bottom:12px;
+}
+
+.detail{
+    margin-top:10px;
+
+    padding-top:10px;
+
+    border-top:1px solid
+    rgba(255,255,255,.08);
+}
+
+.detail strong{
+    color:#ddd;
+}
+
+.detail span{
+    color:#9da7bb;
+}
+
+.instruction{
+    color:#8993a8;
+
+    font-size:14px;
+
+    line-height:1.6;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    text-align:center;
+
+    padding:30px 20px;
+
+    border-top:
+    1px solid
+    rgba(255,255,255,.08);
+
+    color:#7f899e;
+}
+
+footer strong{
+    color:#00d9ff;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px){
+
+    .navbar{
+        padding:0 20px;
+    }
+
+    .nav-links a{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:35px;
+    }
+
+    .map-layout{
+        grid-template-columns:1fr;
+    }
+
+    #map{
+        height:520px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+    <div class="logo-area">
+
+        <div class="academix-logo">
+
+            <svg
+                viewBox="0 0 64 64"
+                class="logo-svg">
+
+                <defs>
+
+                    <linearGradient
+                        id="logoGradient"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="100%">
+
+                        <stop
+                            offset="0%"
+                            stop-color="#00d9ff"/>
+
+                        <stop
+                            offset="100%"
+                            stop-color="#8b5cf6"/>
+
+                    </linearGradient>
+
+                </defs>
+
+                <path
+                    d="M10 18 L32 8 L54 18 L32 28 Z"
+                    fill="none"
+                    stroke="url(#logoGradient)"
+                    stroke-width="4"/>
+
+                <path
+                    d="M16 23 V42 L32 51 L48 42 V23"
+                    fill="none"
+                    stroke="url(#logoGradient)"
+                    stroke-width="4"/>
+
+                <path
+                    d="M32 28 V50"
+                    stroke="url(#logoGradient)"
+                    stroke-width="4"/>
+
+            </svg>
+
+        </div>
+
+        <div class="logo-text">
+
+            Academix
+            <span>by Tiwari</span>
+
+        </div>
+
+    </div>
+
+
+    <div class="nav-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="sst.html">
+            SST
+        </a>
+
+        <a href="dashboard.html">
+            📊 Dashboard
+        </a>
+
+        <a href="search.html">
+            🔎 Search
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="badge">
+        🗺️ Class 9 • Geography
+    </div>
+
+    <h1>
+        Interactive
+        <span>India Map</span>
+    </h1>
+
+    <p>
+        Click any state or Union Territory
+        to explore it.
+    </p>
+
+</section>
+
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<div class="container">
+
+    <div class="map-layout">
+
+
+        <!-- MAP -->
+
+        <div class="map-card">
+
+            <div class="map-header">
+
+                <h2>
+                    🇮🇳 India
+                </h2>
+
+                <span>
+                    Interactive State Map
+                </span>
+
+            </div>
+
+
+            <div id="map"></div>
+
+        </div>
+
+
+
+        <!-- INFO -->
+
+        <div class="info-panel">
+
+            <h2>
+                🔎 Explore State
+            </h2>
+
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="stateSearch"
+                    placeholder="Search state..."
+                >
+
+                <button
+                    onclick="searchState()">
+
+                    Go
+
+                </button>
+
+            </div>
+
+
+            <div class="selected-state">
+
+                <div class="emoji">
+                    🇮🇳
+                </div>
+
+                <h3 id="stateName">
+                    Select a State
+                </h3>
+
+
+                <div class="detail">
+
+                    <strong>
+                        Capital:
+                    </strong>
+
+                    <span id="capital">
+                        Click a state on the map
+                    </span>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <strong>
+                        Type:
+                    </strong>
+
+                    <span id="stateType">
+                        —
+                    </span>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <strong>
+                        Code:
+                    </strong>
+
+                    <span id="stateCode">
+                        —
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <p class="instruction">
+
+                💡 <b>Tip:</b>
+
+                Hover over a state to highlight it.
+
+                Click it to see its details.
+
+                Use the + and − buttons or your
+                mouse wheel to zoom.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <p>
+        © 2026
+        <strong>Academix by Tiwari</strong>
+    </p>
+
+    <p style="margin-top:8px;">
+        Developed with ❤️ by ANSHU TIWARI
+    </p>
+
+</footer>
+
+
+
+<!-- LEAFLET JS -->
+
+<script
+src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+</script>
+
+
+<script>
+
+
+/* =========================
+   STATE DATA
+========================= */
+
+const stateData = {
+
+"Jammu & Kashmir":{
+    capital:"Srinagar / Jammu",
+    type:"Union Territory",
+    code:"IN-JK"
+},
+
+"Ladakh":{
+    capital:"Leh",
+    type:"Union Territory",
+    code:"IN-LA"
+},
+
+"Himachal Pradesh":{
+    capital:"Shimla",
+    type:"State",
+    code:"IN-HP"
+},
+
+"Punjab":{
+    capital:"Chandigarh",
+    type:"State",
+    code:"IN-PB"
+},
+
+"Haryana":{
+    capital:"Chandigarh",
+    type:"State",
+    code:"IN-HR"
+},
+
+"Rajasthan":{
+    capital:"Jaipur",
+    type:"State",
+    code:"IN-RJ"
+},
+
+"Uttar Pradesh":{
+    capital:"Lucknow",
+    type:"State",
+    code:"IN-UP"
+},
+
+"Uttarakhand":{
+    capital:"Dehradun",
+    type:"State",
+    code:"IN-UT"
+},
+
+"Bihar":{
+    capital:"Patna",
+    type:"State",
+    code:"IN-BR"
+},
+
+"Jharkhand":{
+    capital:"Ranchi",
+    type:"State",
+    code:"IN-JH"
+},
+
+"West Bengal":{
+    capital:"Kolkata",
+    type:"State",
+    code:"IN-WB"
+},
+
+"Sikkim":{
+    capital:"Gangtok",
+    type:"State",
+    code:"IN-SK"
+},
+
+"Assam":{
+    capital:"Dispur",
+    type:"State",
+    code:"IN-AS"
+},
+
+"Arunachal Pradesh":{
+    capital:"Itanagar",
+    type:"State",
+    code:"IN-AR"
+},
+
+"Nagaland":{
+    capital:"Kohima",
+    type:"State",
+    code:"IN-NL"
+},
+
+"Manipur":{
+    capital:"Imphal",
+    type:"State",
+    code:"IN-MN"
+},
+
+"Mizoram":{
+    capital:"Aizawl",
+    type:"State",
+    code:"IN-MZ"
+},
+
+"Tripura":{
+    capital:"Agartala",
+    type:"State",
+    code:"IN-TR"
+},
+
+"Meghalaya":{
+    capital:"Shillong",
+    type:"State",
+    code:"IN-ML"
+},
+
+"Odisha":{
+    capital:"Bhubaneswar",
+    type:"State",
+    code:"IN-OD"
+},
+
+"Chhattisgarh":{
+    capital:"Raipur",
+    type:"State",
+    code:"IN-CG"
+},
+
+"Madhya Pradesh":{
+    capital:"Bhopal",
+    type:"State",
+    code:"IN-MP"
+},
+
+"Gujarat":{
+    capital:"Gandhinagar",
+    type:"State",
+    code:"IN-GJ"
+},
+
+"Maharashtra":{
+    capital:"Mumbai",
+    type:"State",
+    code:"IN-MH"
+},
+
+"Goa":{
+    capital:"Panaji",
+    type:"State",
+    code:"IN-GA"
+},
+
+"Karnataka":{
+    capital:"Bengaluru",
+    type:"State",
+    code:"IN-KA"
+},
+
+"Kerala":{
+    capital:"Thiruvananthapuram",
+    type:"State",
+    code:"IN-KL"
+},
+
+"Tamil Nadu":{
+    capital:"Chennai",
+    type:"State",
+    code:"IN-TN"
+},
+
+"Andhra Pradesh":{
+    capital:"Amaravati",
+    type:"State",
+    code:"IN-AP"
+},
+
+"Telangana":{
+    capital:"Hyderabad",
+    type:"State",
+    code:"IN-TG"
+},
+
+"Delhi":{
+    capital:"New Delhi",
+    type:"Union Territory",
+    code:"IN-DL"
+},
+
+"Chandigarh":{
+    capital:"Chandigarh",
+    type:"Union Territory",
+    code:"IN-CH"
+},
+
+"Puducherry":{
+    capital:"Puducherry",
+    type:"Union Territory",
+    code:"IN-PY"
+},
+
+"Andaman & Nicobar":{
+    capital:"Port Blair",
+    type:"Union Territory",
+    code:"IN-AN"
+},
+
+"Lakshadweep":{
+    capital:"Kavaratti",
+    type:"Union Territory",
+    code:"IN-LD"
+},
+
+"Dadra & Nagar Haveli and Daman & Diu":{
+    capital:"Daman",
+    type:"Union Territory",
+    code:"IN-DH"
+
+}
+
+};
+
+
+/* =========================
+   MAP
+========================= */
+
+const map =
+L.map("map",{
+
+    zoomControl:true,
+
+    minZoom:4,
+
+    maxZoom:9,
+
+    scrollWheelZoom:true
+
+});
+
+
+map.setView(
+    [22.5,80],
+    5
+);
+
+
+/* =========================
+   GEOJSON SOURCE
+========================= */
+
+const geojsonURL =
+"https://raw.githubusercontent.com/india-in-data/india-states-2019/master/india_states.geojson";
+
+
+let indiaLayer;
+
+
+
+/* =========================
+   NORMAL STYLE
+========================= */
+
+function normalStyle(){
+
+    return {
+
+        fillColor:"#087f9c",
+
+        fillOpacity:.55,
+
+        color:"#00d9ff",
+
+        weight:1.2,
+
+        opacity:.9
+
+    };
+
+}
+
+
+
+/* =========================
+   HOVER
+========================= */
+
+function highlightFeature(e){
+
+    const layer =
+        e.target;
+
+    layer.setStyle({
+
+        fillColor:"#8b5cf6",
+
+        fillOpacity:.85,
+
+        color:"#ffffff",
+
+        weight:2.5
+
+    });
+
+    layer.bringToFront();
+
+}
+
+
+
+/* =========================
+   RESET
+========================= */
+
+function resetHighlight(e){
+
+    indiaLayer
+        .resetStyle(e.target);
+
+}
+
+
+
+/* =========================
+   CLICK
+========================= */
+
+function stateClicked(e){
+
+    const layer =
+        e.target;
+
+    const name =
+        layer.feature.properties.ST_NM;
+
+    showState(name);
+
+    map.fitBounds(
+        layer.getBounds(),
+        {
+            padding:[40,40],
+            maxZoom:7
+        }
+    );
+
+}
+
+
+
+/* =========================
+   EACH STATE
+========================= */
+
+function onEachState(
+    feature,
+    layer
+){
+
+    const name =
+        feature.properties.ST_NM;
+
+
+    const info =
+        stateData[name];
+
+
+    layer.bindTooltip(
+        name,
+        {
+            sticky:true,
+            direction:"top"
+        }
+    );
+
+
+    layer.on({
+
+        mouseover:
+        highlightFeature,
+
+        mouseout:
+        resetHighlight,
+
+        click:
+        stateClicked
+
+    });
+
+
+    layer.bindPopup(
+
+        "<b>"+name+"</b><br>" +
+
+        (
+            info
+            ?
+            "Capital: "+
+            info.capital
+            :
+            "State information available"
+        )
+
+    );
+
+}
+
+
+
+/* =========================
+   LOAD MAP
+========================= */
+
+fetch(geojsonURL)
+
+.then(response=>{
+
+    if(!response.ok){
+
+        throw new Error(
+            "Map data could not load."
+        );
+
+    }
+
+    return response.json();
+
+})
+
+.then(data=>{
+
+    indiaLayer =
+    L.geoJSON(
+        data,
+        {
+
+            style:
+            normalStyle,
+
+            onEachFeature:
+            onEachState
+
+        }
+    ).addTo(map);
+
+
+    map.fitBounds(
+        indiaLayer.getBounds(),
+        {
+            padding:[20,20]
+        }
+    );
+
+})
+
+.catch(error=>{
+
+    console.error(error);
+
+    document.getElementById("map")
+        .innerHTML =
+
+        "<div style='padding:40px;text-align:center;color:#00d9ff'>" +
+
+        "⚠️ India map could not load.<br><br>" +
+
+        "Please check your internet connection and refresh the page." +
+
+        "</div>";
+
+});
+
+
+
+/* =========================
+   SHOW STATE
+========================= */
+
+function showState(name){
+
+    const info =
+        stateData[name];
+
+
+    document.getElementById(
+        "stateName"
+    ).textContent =
+        name;
+
+
+    if(info){
+
+        document.getElementById(
+            "capital"
+        ).textContent =
+            info.capital;
+
+
+        document.getElementById(
+            "stateType"
+        ).textContent =
+            info.type;
+
+
+        document.getElementById(
+            "stateCode"
+        ).textContent =
+            info.code;
+
+    }
+
+    else{
+
+        document.getElementById(
+            "capital"
+        ).textContent =
+            "Information not available";
+
+
+        document.getElementById(
+            "stateType"
+        ).textContent =
+            "—";
+
+
+        document.getElementById(
+            "stateCode"
+        ).textContent =
+            "—";
+
+    }
+
+}
+
+
+
+/* =========================
+   SEARCH STATE
+========================= */
+
+function searchState(){
+
+    const query =
+        document.getElementById(
+            "stateSearch"
+        )
+        .value
+        .trim()
+        .toLowerCase();
+
+
+    if(!query){
+
+        return;
+
+    }
+
+
+    let found = null;
+
+
+    Object.keys(stateData)
+        .forEach(name=>{
+
+            if(
+                name
+                .toLowerCase()
+                .includes(query)
+            ){
+
+                found = name;
+
+            }
+
+        });
+
+
+    if(!found){
+
+        alert(
+            "State or Union Territory not found."
+        );
+
+        return;
+
+    }
+
+
+    showState(found);
+
+
+    if(indiaLayer){
+
+        indiaLayer.eachLayer(
+            layer=>{
+
+                const name =
+                    layer.feature
+                    .properties
+                    .ST_NM;
+
+
+                if(name === found){
+
+                    map.fitBounds(
+                        layer.getBounds(),
+                        {
+                            padding:[40,40],
+                            maxZoom:7
+                        }
+                    );
+
+
+                    layer.openPopup();
+
+                    layer.setStyle({
+
+                        fillColor:"#8b5cf6",
+
+                        fillOpacity:.9,
+
+                        color:"#ffffff",
+
+                        weight:3
+
+                    });
+
+                }
+
+            }
+        );
+
+    }
+
+}
+
+
+
+/* ENTER SEARCH */
+
+document
+.getElementById("stateSearch")
+.addEventListener(
+    "keydown",
+    function(e){
+
+        if(e.key === "Enter"){
+
+            searchState();
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>

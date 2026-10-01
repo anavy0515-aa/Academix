@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SST Quiz | Academix by Tiwari</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#050816;
+    color:white;
+    min-height:100vh;
+}
+
+/* NAVBAR */
+
+.navbar{
+    height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 7%;
+    background:rgba(5,8,22,0.95);
+    border-bottom:1px solid rgba(0,217,255,0.2);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.academix-logo{
+    width:44px;
+    height:44px;
+    border-radius:12px;
+    border:1px solid #00d9ff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 0 15px rgba(0,217,255,0.35);
+}
+
+.logo-svg{
+    width:36px;
+    height:36px;
+}
+
+.logo-text{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.logo-text span{
+    color:#00d9ff;
+}
+
+.nav-links{
+    display:flex;
+    gap:18px;
+    align-items:center;
+}
+
+.nav-links a{
+    color:#ddd;
+    text-decoration:none;
+    padding:9px 13px;
+    border-radius:9px;
+    transition:0.25s;
+}
+
+.nav-links a:hover{
+    color:#00d9ff;
+    background:rgba(0,217,255,0.08);
+}
+
+/* HERO */
+
+.hero{
+    text-align:center;
+    padding:55px 20px 30px;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 16px;
+    border:1px solid rgba(0,217,255,0.4);
+    border-radius:30px;
+    color:#00d9ff;
+    background:rgba(0,217,255,0.06);
+    font-size:14px;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.hero h1 span{
+    background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    color:#929caf;
+}
+
+/* QUIZ */
+
+.quiz-container{
+    width:90%;
+    max-width:850px;
+    margin:30px auto 70px;
+}
+
+.quiz-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.progress-text{
+    color:#aeb7ca;
+}
+
+.score-box{
+    padding:10px 18px;
+    border:1px solid rgba(0,217,255,0.3);
+    border-radius:10px;
+    color:#00d9ff;
+    background:rgba(0,217,255,0.05);
+    font-weight:bold;
+}
+
+.progress{
+    width:100%;
+    height:7px;
+    background:#151b2d;
+    border-radius:10px;
+    overflow:hidden;
+    margin-bottom:25px;
+}
+
+.progress-bar{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+    transition:0.3s;
+}
+
+.quiz-card{
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,0.06),
+        rgba(255,255,255,0.02)
+    );
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    border-radius:22px;
+
+    padding:35px;
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:0 20px 60px rgba(0,0,0,0.25);
+}
+
+.subject-tag{
+    display:inline-block;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:13px;
+    color:#00d9ff;
+    border:1px solid rgba(0,217,255,0.3);
+    margin-bottom:20px;
+}
+
+.question{
+    font-size:23px;
+    line-height:1.5;
+    margin-bottom:25px;
+}
+
+.options{
+    display:grid;
+    gap:13px;
+}
+
+.option{
+    width:100%;
+    padding:15px 18px;
+    text-align:left;
+    background:#0b1020;
+    color:white;
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:12px;
+    cursor:pointer;
+    font-size:16px;
+    transition:0.25s;
+}
+
+.option:hover{
+    border-color:#00d9ff;
+    transform:translateX(3px);
+}
+
+.option.correct{
+    border-color:#22c55e;
+    background:rgba(34,197,94,0.12);
+}
+
+.option.wrong{
+    border-color:#ef4444;
+    background:rgba(239,68,68,0.12);
+}
+
+.option:disabled{
+    cursor:not-allowed;
+}
+
+.feedback{
+    margin-top:20px;
+    padding:14px;
+    border-radius:10px;
+    display:none;
+    line-height:1.5;
+}
+
+.feedback.correct-feedback{
+    display:block;
+    color:#86efac;
+    background:rgba(34,197,94,0.08);
+    border:1px solid rgba(34,197,94,0.25);
+}
+
+.feedback.wrong-feedback{
+    display:block;
+    color:#fca5a5;
+    background:rgba(239,68,68,0.08);
+    border:1px solid rgba(239,68,68,0.25);
+}
+
+.next-button{
+    margin-top:25px;
+    padding:12px 24px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+    color:#061018;
+    font-weight:bold;
+    cursor:pointer;
+    font-size:15px;
+    display:none;
+}
+
+.next-button:hover{
+    transform:translateY(-2px);
+}
+
+/* RESULT */
+
+.result{
+    display:none;
+    text-align:center;
+    padding:45px 25px;
+}
+
+.result-icon{
+    font-size:65px;
+    margin-bottom:15px;
+}
+
+.result h2{
+    font-size:32px;
+    margin-bottom:12px;
+}
+
+.final-score{
+    font-size:45px;
+    color:#00d9ff;
+    font-weight:bold;
+    margin:15px 0;
+}
+
+.result p{
+    color:#a2acbf;
+    margin-bottom:25px;
+}
+
+.result-buttons{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.result-button{
+    display:inline-block;
+    padding:12px 20px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:bold;
+    cursor:pointer;
+    border:1px solid #00d9ff;
+    color:#00d9ff;
+    background:transparent;
+}
+
+.result-button.primary{
+    background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+    color:#061018;
+    border:none;
+}
+
+.result-button:hover{
+    transform:translateY(-2px);
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:30px 20px;
+    border-top:1px solid rgba(255,255,255,0.08);
+    color:#7f899e;
+}
+
+footer strong{
+    color:#00d9ff;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .navbar{
+        padding:0 20px;
+    }
+
+    .nav-links a{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    .quiz-card{
+        padding:23px;
+    }
+
+    .question{
+        font-size:20px;
+    }
+
+    .quiz-header{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo-area">
+
+        <div class="academix-logo">
+
+            <svg viewBox="0 0 64 64" class="logo-svg">
+
+                <defs>
+
+                    <linearGradient
+                        id="logoGradient"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="100%">
+
+                        <stop
+                            offset="0%"
+                            stop-color="#00d9ff"/>
+
+                        <stop
+                            offset="100%"
+                            stop-color="#8b5cf6"/>
+
+                    </linearGradient>
+
+                </defs>
+
+                <path
+                    d="M10 18 L32 8 L54 18 L32 28 Z"
+                    fill="none"
+                    stroke="url(#logoGradient)"
+                    stroke-width="4"/>
+
+                <path
+                    d="M16 23 V42 L32 51 L48 42 V23"
+                    fill="none"
+                    stroke="url(#logoGradient)"
+                    stroke-width="4"/>
+
+                <path
+                    d="M32 28 V50"
+                    stroke="url(#logoGradient)"
+                    stroke-width="4"/>
+
+            </svg>
+
+        </div>
+
+        <div class="logo-text">
+            Academix <span>by Tiwari</span>
+        </div>
+
+    </div>
+
+
+    <div class="nav-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="sst.html">
+            SST
+        </a>
+
+        <a href="dashboard.html">
+            📊 Dashboard
+        </a>
+
+        <a href="search.html">
+            🔎 Search
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="badge">
+        🧠 Social Science Practice
+    </div>
+
+    <h1>
+        SST <span>Unlimited Quiz</span>
+    </h1>
+
+    <p>
+        History • Geography • Civics • Economics
+    </p>
+
+</section>
+
+
+
+<!-- QUIZ -->
+
+<div class="quiz-container">
+
+
+    <div class="quiz-header">
+
+        <div class="progress-text">
+
+            Question
+            <span id="questionNumber">1</span>
+            / 15
+
+        </div>
+
+        <div class="score-box">
+
+            Score:
+            <span id="score">0</span>
+
+        </div>
+
+    </div>
+
+
+    <div class="progress">
+
+        <div
+            class="progress-bar"
+            id="progressBar">
+        </div>
+
+    </div>
+
+
+
+    <div class="quiz-card" id="quizCard">
+
+
+        <div
+            class="subject-tag"
+            id="subjectTag">
+
+            History
+
+        </div>
+
+
+        <div
+            class="question"
+            id="question">
+
+            Loading question...
+
+        </div>
+
+
+        <div
+            class="options"
+            id="options">
+
+        </div>
+
+
+        <div
+            class="feedback"
+            id="feedback">
+
+        </div>
+
+
+        <button
+            class="next-button"
+            id="nextButton"
+            onclick="nextQuestion()">
+
+            Next Question →
+
+        </button>
+
+
+    </div>
+
+
+
+    <!-- RESULT -->
+
+    <div
+        class="quiz-card result"
+        id="result">
+
+        <div class="result-icon">
+            🎉
+        </div>
+
+        <h2>
+            Quiz Completed!
+        </h2>
+
+        <div
+            class="final-score"
+            id="finalScore">
+
+            0%
+
+        </div>
+
+        <p id="resultText">
+            Great effort!
+        </p>
+
+
+        <div class="result-buttons">
+
+            <button
+                class="result-button primary"
+                onclick="restartQuiz()">
+
+                🔄 New Quiz
+
+            </button>
+
+
+            <a
+                href="sst.html"
+                class="result-button">
+
+                ← Back to SST
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026
+        <strong>Academix by Tiwari</strong>
+    </p>
+
+    <p style="margin-top:8px;">
+        Developed with ❤️ by ANSHU TIWARI
+    </p>
+
+</footer>
+
+
+
+<script>
+
+
+/* =========================
+   QUESTION BANK
+========================= */
+
+const questionBank = [
+
+/* HISTORY */
+
+{
+    subject:"History",
+    question:"The French Revolution began in which year?",
+    options:[
+        "1789",
+        "1776",
+        "1815",
+        "1848"
+    ],
+    answer:0,
+    explanation:"The French Revolution began in 1789."
+},
+
+{
+    subject:"History",
+    question:"Which prison was stormed by the people of Paris on 14 July 1789?",
+    options:[
+        "Bastille",
+        "Versailles",
+        "Louvre",
+        "Tuileries"
+    ],
+    answer:0,
+    explanation:"The Bastille was stormed on 14 July 1789."
+},
+
+{
+    subject:"History",
+    question:"Who was the ruler of France at the beginning of the French Revolution?",
+    options:[
+        "Louis XVI",
+        "Napoleon Bonaparte",
+        "Louis XIV",
+        "Charles X"
+    ],
+    answer:0,
+    explanation:"Louis XVI was the king of France when the Revolution began."
+},
+
+{
+    subject:"History",
+    question:"Which estate paid most of the taxes in pre-revolutionary France?",
+    options:[
+        "Third Estate",
+        "First Estate",
+        "Second Estate",
+        "Clergy only"
+    ],
+    answer:0,
+    explanation:"The Third Estate carried most of the tax burden."
+},
+
+
+/* GEOGRAPHY */
+
+{
+    subject:"Geography",
+    question:"Which is the southernmost point of the Indian mainland?",
+    options:[
+        "Kanyakumari",
+        "Indira Point",
+        "Port Blair",
+        "Rameswaram"
+    ],
+    answer:0,
+    explanation:"Kanyakumari is the southernmost point of the Indian mainland. Indira Point is the southernmost point of India."
+},
+
+{
+    subject:"Geography",
+    question:"Which imaginary line divides India into almost two equal parts?",
+    options:[
+        "Tropic of Cancer",
+        "Equator",
+        "Prime Meridian",
+        "Arctic Circle"
+    ],
+    answer:0,
+    explanation:"The Tropic of Cancer passes through India and divides the country into nearly two equal parts."
+},
+
+{
+    subject:"Geography",
+    question:"Which mountain range forms India's northern boundary?",
+    options:[
+        "Himalayas",
+        "Aravallis",
+        "Western Ghats",
+        "Vindhyas"
+    ],
+    answer:0,
+    explanation:"The Himalayas form India's northern mountain boundary."
+},
+
+{
+    subject:"Geography",
+    question:"Which is the largest state of India by area?",
+    options:[
+        "Rajasthan",
+        "Madhya Pradesh",
+        "Maharashtra",
+        "Uttar Pradesh"
+    ],
+    answer:0,
+    explanation:"Rajasthan is India's largest state by geographical area."
+},
+
+
+/* CIVICS */
+
+{
+    subject:"Civics",
+    question:"What is democracy?",
+    options:[
+        "Government by elected representatives",
+        "Government by a hereditary king",
+        "Government by the military",
+        "Government by judges"
+    ],
+    answer:0,
+    explanation:"Democracy is a form of government in which rulers are elected by the people."
+},
+
+{
+    subject:"Civics",
+    question:"Which body makes laws for the whole country in India?",
+    options:[
+        "Parliament",
+        "Supreme Court",
+        "Election Commission",
+        "President alone"
+    ],
+    answer:0,
+    explanation:"The Parliament is India's national legislature and makes laws on subjects within its constitutional powers."
+},
+
+{
+    subject:"Civics",
+    question:"Who is the constitutional head of India?",
+    options:[
+        "President",
+        "Prime Minister",
+        "Chief Justice",
+        "Speaker"
+    ],
+    answer:0,
+    explanation:"The President is the constitutional head of the Union."
+},
+
+{
+    subject:"Civics",
+    question:"Which institution conducts elections in India?",
+    options:[
+        "Election Commission of India",
+        "Parliament",
+        "Supreme Court",
+        "Reserve Bank of India"
+    ],
+    answer:0,
+    explanation:"The Election Commission of India conducts and supervises elections under the Constitution."
+},
+
+
+/* ECONOMICS */
+
+{
+    subject:"Economics",
+    question:"What is the main production activity in Palampur discussed in Class 9 Economics?",
+    options:[
+        "Farming",
+        "Mining",
+        "Fishing",
+        "Software development"
+    ],
+    answer:0,
+    explanation:"Farming is the main production activity in Palampur."
+},
+
+{
+    subject:"Economics",
+    question:"Which factor of production refers to physical tools and machinery?",
+    options:[
+        "Capital",
+        "Labour",
+        "Land",
+        "Entrepreneurship"
+    ],
+    answer:0,
+    explanation:"Tools, machines and other productive assets are forms of physical capital."
+},
+
+{
+    subject:"Economics",
+    question:"Human capital mainly refers to the value created by people's:",
+    options:[
+        "Education and skills",
+        "Land holdings",
+        "Buildings",
+        "Natural resources"
+    ],
+    answer:0,
+    explanation:"Education, skills and knowledge improve people's productivity and form an important part of human capital."
+}
+
+];
+
+
+
+/* =========================
+   VARIABLES
+========================= */
+
+let questions = [];
+
+let currentQuestion = 0;
+
+let score = 0;
+
+let answered = false;
+
+const totalQuestions = 15;
+
+
+
+/* =========================
+   SHUFFLE
+========================= */
+
+function shuffle(array){
+
+    return array.sort(
+        () => Math.random() - 0.5
+    );
+
+}
+
+
+
+/* =========================
+   START QUIZ
+========================= */
+
+function startQuiz(){
+
+    questions =
+        shuffle([...questionBank])
+        .slice(0,totalQuestions);
+
+    currentQuestion = 0;
+
+    score = 0;
+
+    answered = false;
+
+    document.getElementById("score")
+        .textContent = score;
+
+    document.getElementById("quizCard")
+        .style.display = "block";
+
+    document.getElementById("result")
+        .style.display = "none";
+
+    showQuestion();
+
+}
+
+
+
+/* =========================
+   SHOW QUESTION
+========================= */
+
+function showQuestion(){
+
+    answered = false;
+
+    const q =
+        questions[currentQuestion];
+
+    document.getElementById("questionNumber")
+        .textContent =
+        currentQuestion + 1;
+
+    document.getElementById("subjectTag")
+        .textContent =
+        q.subject;
+
+    document.getElementById("question")
+        .textContent =
+        q.question;
+
+
+    const options =
+        document.getElementById("options");
+
+    options.innerHTML = "";
+
+
+    q.options.forEach(
+        (option,index) => {
+
+            const button =
+                document.createElement("button");
+
+            button.className =
+                "option";
+
+            button.textContent =
+                option;
+
+            button.onclick =
+                () => checkAnswer(index);
+
+            options.appendChild(button);
+
+        }
+    );
+
+
+    const feedback =
+        document.getElementById("feedback");
+
+    feedback.className =
+        "feedback";
+
+    feedback.style.display =
+        "none";
+
+    feedback.textContent = "";
+
+
+    document.getElementById("nextButton")
+        .style.display = "none";
+
+
+    const progress =
+        ((currentQuestion) /
+        totalQuestions) * 100;
+
+    document.getElementById("progressBar")
+        .style.width =
+        progress + "%";
+
+}
+
+
+
+/* =========================
+   CHECK ANSWER
+========================= */
+
+function checkAnswer(selected){
+
+    if(answered) return;
+
+    answered = true;
+
+    const q =
+        questions[currentQuestion];
+
+    const buttons =
+        document.querySelectorAll(".option");
+
+    buttons.forEach(
+        (button,index) => {
+
+            button.disabled = true;
+
+            if(index === q.answer){
+
+                button.classList.add("correct");
+
+            }
+
+        }
+    );
+
+
+    const feedback =
+        document.getElementById("feedback");
+
+
+    if(selected === q.answer){
+
+        score++;
+
+        document.getElementById("score")
+            .textContent =
+            score;
+
+        feedback.textContent =
+            "✓ Correct! " +
+            q.explanation;
+
+        feedback.className =
+            "feedback correct-feedback";
+
+    }
+
+    else{
+
+        buttons[selected]
+            .classList.add("wrong");
+
+        feedback.textContent =
+            "✗ Wrong. " +
+            q.explanation;
+
+        feedback.className =
+            "feedback wrong-feedback";
+
+    }
+
+
+    feedback.style.display =
+        "block";
+
+
+    document.getElementById("nextButton")
+        .style.display =
+        "inline-block";
+
+}
+
+
+
+/* =========================
+   NEXT QUESTION
+========================= */
+
+function nextQuestion(){
+
+    currentQuestion++;
+
+    if(currentQuestion >= totalQuestions){
+
+        finishQuiz();
+
+    }
+
+    else{
+
+        showQuestion();
+
+    }
+
+}
+
+
+
+/* =========================
+   FINISH
+========================= */
+
+function finishQuiz(){
+
+    document.getElementById("quizCard")
+        .style.display =
+        "none";
+
+    document.getElementById("result")
+        .style.display =
+        "block";
+
+
+    const percentage =
+        Math.round(
+            (score / totalQuestions) * 100
+        );
+
+
+    document.getElementById("finalScore")
+        .textContent =
+        percentage + "%";
+
+
+    let message = "";
+
+    if(percentage >= 80){
+
+        message =
+            "Excellent work! Your SST preparation is going strong.";
+
+    }
+
+    else if(percentage >= 60){
+
+        message =
+            "Good job! Keep revising the topics you missed.";
+
+    }
+
+    else{
+
+        message =
+            "Keep practising! Revision will improve your score.";
+
+    }
+
+
+    document.getElementById("resultText")
+        .textContent =
+        "You scored " +
+        score +
+        " out of " +
+        totalQuestions +
+        ". " +
+        message;
+
+
+    /* SAVE SCORE */
+
+    localStorage.setItem(
+        "sstQuizScore",
+        percentage
+    );
+
+}
+
+
+
+/* =========================
+   RESTART
+========================= */
+
+function restartQuiz(){
+
+    startQuiz();
+
+}
+
+
+
+/* START */
+
+startQuiz();
+
+
+</script>
+
+
+</body>
+
+</html>

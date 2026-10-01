@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>IT Test | Academix by Tiwari</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#060b16;
+    color:white;
+    min-height:100vh;
+}
+
+header{
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid rgba(0,217,255,.15);
+    background:rgba(5,10,22,.95);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-size:21px;
+    font-weight:bold;
+}
+
+.logo-icon{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#00d9ff,#8b5cf6);
+    box-shadow:0 0 20px rgba(0,217,255,.3);
+}
+
+.back{
+    text-decoration:none;
+    color:#00d9ff;
+    border:1px solid rgba(0,217,255,.5);
+    padding:9px 16px;
+    border-radius:9px;
+    transition:.25s;
+}
+
+.back:hover{
+    background:#00d9ff;
+    color:#06101b;
+}
+
+.container{
+    width:90%;
+    max-width:1050px;
+    margin:35px auto;
+}
+
+.hero{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.badge{
+    display:inline-block;
+    padding:7px 15px;
+    border-radius:20px;
+    color:#c4b5fd;
+    background:rgba(139,92,246,.12);
+    border:1px solid rgba(139,92,246,.4);
+    font-size:13px;
+    margin-bottom:14px;
+}
+
+h1{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.hero p{
+    color:#9ca3af;
+}
+
+.test-info{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+    margin-bottom:20px;
+}
+
+.info{
+    padding:15px;
+    text-align:center;
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:13px;
+}
+
+.info small{
+    color:#9ca3af;
+}
+
+.info strong{
+    display:block;
+    margin-top:6px;
+    color:#00d9ff;
+    font-size:21px;
+}
+
+.timer-danger{
+    color:#ef4444 !important;
+}
+
+.progress-container{
+    height:8px;
+    background:#111827;
+    border-radius:20px;
+    overflow:hidden;
+    margin-bottom:22px;
+}
+
+.progress{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+    transition:.3s;
+}
+
+.test-layout{
+    display:grid;
+    grid-template-columns:1fr 210px;
+    gap:20px;
+}
+
+.question-card{
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:20px;
+    padding:30px;
+}
+
+.question-number{
+    color:#00d9ff;
+    font-size:14px;
+    margin-bottom:12px;
+}
+
+.question{
+    font-size:23px;
+    line-height:1.5;
+    margin-bottom:25px;
+}
+
+.options{
+    display:grid;
+    gap:12px;
+}
+
+.option{
+    padding:15px 17px;
+    border-radius:11px;
+    border:1px solid rgba(255,255,255,.12);
+    background:rgba(255,255,255,.03);
+    cursor:pointer;
+    transition:.2s;
+}
+
+.option:hover{
+    border-color:#00d9ff;
+    transform:translateY(-2px);
+}
+
+.option.selected{
+    border-color:#00d9ff;
+    background:rgba(0,217,255,.1);
+}
+
+.navigation{
+    display:flex;
+    justify-content:space-between;
+    margin-top:25px;
+    gap:12px;
+}
+
+.nav-btn{
+    padding:12px 20px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+    border:1px solid rgba(0,217,255,.4);
+    background:#101827;
+    color:#00d9ff;
+}
+
+.submit-btn{
+    background:linear-gradient(135deg,#00d9ff,#8b5cf6);
+    border:none;
+    color:white;
+}
+
+.palette-card{
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:18px;
+    padding:20px;
+    height:max-content;
+}
+
+.palette-title{
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.palette{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:8px;
+}
+
+.palette button{
+    height:38px;
+    border-radius:8px;
+    border:1px solid rgba(255,255,255,.12);
+    background:#111827;
+    color:white;
+    cursor:pointer;
+}
+
+.palette button.active{
+    border-color:#00d9ff;
+}
+
+.palette button.answered{
+    background:rgba(0,217,255,.15);
+    color:#00d9ff;
+}
+
+.legend{
+    margin-top:18px;
+    color:#9ca3af;
+    font-size:12px;
+    line-height:1.8;
+}
+
+.result{
+    display:none;
+    text-align:center;
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:20px;
+    padding:40px 25px;
+}
+
+.result-icon{
+    font-size:60px;
+    margin-bottom:15px;
+}
+
+.result h2{
+    font-size:34px;
+}
+
+.final-score{
+    font-size:55px;
+    color:#00d9ff;
+    font-weight:bold;
+    margin:20px;
+}
+
+.result-grid{
+    max-width:650px;
+    margin:25px auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+}
+
+.result-box{
+    padding:18px;
+    background:#101827;
+    border-radius:12px;
+}
+
+.result-box span{
+    display:block;
+    font-size:24px;
+    color:#00d9ff;
+    margin-top:6px;
+}
+
+.result-message{
+    color:#9ca3af;
+    margin-bottom:25px;
+}
+
+.actions{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.actions button,
+.actions a{
+    padding:12px 20px;
+    border-radius:10px;
+    text-decoration:none;
+    border:none;
+    cursor:pointer;
+    color:white;
+    background:linear-gradient(135deg,#00d9ff,#8b5cf6);
+}
+
+.actions .secondary{
+    background:#101827;
+    border:1px solid rgba(0,217,255,.4);
+    color:#00d9ff;
+}
+
+.best{
+    margin-top:18px;
+    color:#a5b4fc;
+}
+
+@media(max-width:800px){
+
+    .test-layout{
+        grid-template-columns:1fr;
+    }
+
+    .palette{
+        grid-template-columns:repeat(6,1fr);
+    }
+
+}
+
+@media(max-width:600px){
+
+    header{
+        padding:14px 5%;
+    }
+
+    .logo{
+        font-size:16px;
+    }
+
+    h1{
+        font-size:31px;
+    }
+
+    .test-info{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .question-card{
+        padding:20px;
+    }
+
+    .question{
+        font-size:19px;
+    }
+
+    .result-grid{
+        grid-template-columns:1fr;
+    }
+
+    .palette{
+        grid-template-columns:repeat(5,1fr);
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<header>
+
+<div class="logo">
+    <div class="logo-icon">✦</div>
+    Academix by Tiwari
+</div>
+
+<a href="computer.html" class="back">
+    ← Computer Hub
+</a>
+
+</header>
+
+
+<div class="container">
+
+
+<div class="hero">
+
+<div class="badge">
+    🎯 IT ASSESSMENT
+</div>
+
+<h1>Computer & IT Test</h1>
+
+<p>
+Challenge yourself with a complete technology assessment.
+</p>
+
+</div>
+
+
+<div class="test-info">
+
+<div class="info">
+    <small>Questions</small>
+    <strong>30</strong>
+</div>
+
+<div class="info">
+    <small>Total Marks</small>
+    <strong>30</strong>
+</div>
+
+<div class="info">
+    <small>Time</small>
+    <strong id="timer">20:00</strong>
+</div>
+
+<div class="info">
+    <small>Attempted</small>
+    <strong id="attempted">0</strong>
+</div>
+
+</div>
+
+
+<div class="progress-container">
+    <div class="progress" id="progress"></div>
+</div>
+
+
+<div id="testArea">
+
+<div class="test-layout">
+
+
+<div class="question-card">
+
+<div class="question-number" id="questionNumber">
+    Question 1 of 30
+</div>
+
+<div class="question" id="question">
+    Loading...
+</div>
+
+<div class="options" id="options"></div>
+
+
+<div class="navigation">
+
+<button class="nav-btn" onclick="previousQuestion()">
+    ← Previous
+</button>
+
+<button class="nav-btn" onclick="nextQuestion()">
+    Next →
+</button>
+
+<button class="nav-btn submit-btn" onclick="submitTest()">
+    Submit Test
+</button>
+
+</div>
+
+</div>
+
+
+<div class="palette-card">
+
+<div class="palette-title">
+    Question Palette
+</div>
+
+<div class="palette" id="palette"></div>
+
+<div class="legend">
+    <div>⬜ Not Attempted</div>
+    <div>🔵 Answered</div>
+    <div>🔷 Current</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="result" id="result">
+
+<div class="result-icon">
+    🏆
+</div>
+
+<h2>Test Completed!</h2>
+
+<div class="final-score" id="finalScore">
+    0%
+</div>
+
+<div class="result-grid">
+
+<div class="result-box">
+    Correct
+    <span id="correctCount">0</span>
+</div>
+
+<div class="result-box">
+    Wrong
+    <span id="wrongCount">0</span>
+</div>
+
+<div class="result-box">
+    Unanswered
+    <span id="unansweredCount">0</span>
+</div>
+
+</div>
+
+<p class="result-message" id="resultMessage"></p>
+
+<div class="actions">
+
+<button onclick="restartTest()">
+    🔄 Retake Test
+</button>
+
+<a href="computer-practice.html" class="secondary">
+    ⌨️ IT Practice Lab
+</a>
+
+<a href="computer.html" class="secondary">
+    💻 Computer Hub
+</a>
+
+</div>
+
+<div class="best" id="bestScore"></div>
+
+</div>
+
+
+</div>
+
+
+<script>
+
+
+const questions = [
+
+{
+q:"What is the main function of the CPU?",
+o:[
+"Execute instructions and process data",
+"Store files permanently",
+"Display images",
+"Connect the computer to Wi-Fi"
+],
+a:0
+},
+
+{
+q:"Which memory is generally volatile?",
+o:[
+"RAM",
+"SSD",
+"ROM",
+"Hard disk"
+],
+a:0
+},
+
+{
+q:"Which language is used to structure web pages?",
+o:[
+"HTML",
+"CSS",
+"Python",
+"SQL"
+],
+a:0
+},
+
+{
+q:"Which technology is mainly responsible for the visual styling of a webpage?",
+o:[
+"CSS",
+"HTML",
+"Python",
+"SQL"
+],
+a:0
+},
+
+{
+q:"Which language is commonly used to add dynamic behavior to websites?",
+o:[
+"JavaScript",
+"HTML",
+"CSS",
+"SQL"
+],
+a:0
+},
+
+{
+q:"Which symbol begins a single-line comment in Python?",
+o:[
+"#",
+"//",
+"<!--",
+"**"
+],
+a:0
+},
+
+{
+q:"Which Python function displays information on the screen?",
+o:[
+"print()",
+"show()",
+"display()",
+"write()"
+],
+a:0
+},
+
+{
+q:"Which Python data type stores True or False?",
+o:[
+"Boolean",
+"String",
+"Float",
+"List"
+],
+a:0
+},
+
+{
+q:"What does an algorithm represent?",
+o:[
+"A sequence of steps used to solve a problem",
+"A physical computer component",
+"A type of database",
+"A network cable"
+],
+a:0
+},
+
+{
+q:"What is debugging?",
+o:[
+"Finding and fixing errors in a program",
+"Installing a monitor",
+"Creating a password",
+"Connecting two printers"
+],
+a:0
+},
+
+{
+q:"What does IP stand for?",
+o:[
+"Internet Protocol",
+"Internet Program",
+"Internal Process",
+"Information Provider"
+],
+a:0
+},
+
+{
+q:"What does DNS mainly translate?",
+o:[
+"Domain names into IP addresses",
+"Passwords into usernames",
+"Files into folders",
+"Images into text"
+],
+a:0
+},
+
+{
+q:"Which protocol is used for secure web communication?",
+o:[
+"HTTPS",
+"FTP",
+"SMTP",
+"POP3"
+],
+a:0
+},
+
+{
+q:"Which device commonly forwards packets between networks?",
+o:[
+"Router",
+"Keyboard",
+"Monitor",
+"Scanner"
+],
+a:0
+},
+
+{
+q:"What does URL stand for?",
+o:[
+"Uniform Resource Locator",
+"Universal Routing Language",
+"User Resource Link",
+"Unified Reference Location"
+],
+a:0
+},
+
+{
+q:"What does AI stand for?",
+o:[
+"Artificial Intelligence",
+"Automated Internet",
+"Advanced Information",
+"Artificial Interface"
+],
+a:0
+},
+
+{
+q:"What is machine learning?",
+o:[
+"A method where systems learn patterns from data",
+"A method of repairing hardware",
+"A type of monitor",
+"A network cable"
+],
+a:0
+},
+
+{
+q:"Which is an example of an AI application?",
+o:[
+"Speech recognition",
+"Keyboard cleaning",
+"Screen brightness control",
+"USB charging"
+],
+a:0
+},
+
+{
+q:"What is a database?",
+o:[
+"An organized collection of data",
+"A type of processor",
+"A display device",
+"A network cable"
+],
+a:0
+},
+
+{
+q:"Which language is widely used to query relational databases?",
+o:[
+"SQL",
+"HTML",
+"CSS",
+"XML"
+],
+a:0
+},
+
+{
+q:"Which SQL command retrieves records?",
+o:[
+"SELECT",
+"DELETE",
+"REMOVE",
+"DISPLAY"
+],
+a:0
+},
+
+{
+q:"Which SQL command adds new records?",
+o:[
+"INSERT",
+"SELECT",
+"FETCH",
+"READ"
+],
+a:0
+},
+
+{
+q:"What is phishing?",
+o:[
+"A deceptive attempt to obtain sensitive information",
+"A method of compressing files",
+"A programming language",
+"A cloud storage system"
+],
+a:0
+},
+
+{
+q:"Which password is generally more secure?",
+o:[
+"A long unique password",
+"12345678",
+"Your name",
+"Your birth year"
+],
+a:0
+},
+
+{
+q:"What does MFA provide?",
+o:[
+"An additional verification factor",
+"More RAM",
+"Faster CPU speed",
+"More storage"
+],
+a:0
+},
+
+{
+q:"What is cloud computing?",
+o:[
+"Using computing resources through a network such as the internet",
+"Using only offline computers",
+"Repairing cloud servers manually",
+"Storing information only on paper"
+],
+a:0
+},
+
+{
+q:"Which is a cloud storage service?",
+o:[
+"Google Drive",
+"CPU",
+"RAM",
+"Keyboard"
+],
+a:0
+},
+
+{
+q:"What is an operating system?",
+o:[
+"Software that manages computer hardware and applications",
+"A programming cable",
+"A database table",
+"A type of processor"
+],
+a:0
+},
+
+{
+q:"Which of these is an operating system?",
+o:[
+"Linux",
+"HTML",
+"SQL",
+"Wi-Fi"
+],
+a:0
+},
+
+{
+q:"What is the purpose of version control?",
+o:[
+"Track and manage changes to files or code",
+"Increase monitor brightness",
+"Clean computer hardware",
+"Improve Wi-Fi signal automatically"
+],
+a:0
+}
+
+];
+
+
+let current=0;
+
+let answers=new Array(questions.length).fill(null);
+
+let timeLeft=1200;
+
+let timerInterval;
+
+
+function loadQuestion(){
+
+    const q=questions[current];
+
+    document.getElementById("questionNumber").textContent=
+        "Question "+(current+1)+" of "+questions.length;
+
+    document.getElementById("question").textContent=q.q;
+
+    const options=document.getElementById("options");
+
+    options.innerHTML="";
+
+    q.o.forEach((option,index)=>{
+
+        const div=document.createElement("div");
+
+        div.className="option";
+
+        if(answers[current]===index){
+            div.classList.add("selected");
+        }
+
+        div.textContent=option;
+
+        div.onclick=function(){
+
+            answers[current]=index;
+
+            loadQuestion();
+
+            updateAttempted();
+
+        };
+
+        options.appendChild(div);
+
+    });
+
+    updateProgress();
+
+    updatePalette();
+
+}
+
+
+function updateProgress(){
+
+    const answered=
+        answers.filter(a=>a!==null).length;
+
+    const percent=
+        (answered/questions.length)*100;
+
+    document.getElementById("progress").style.width=
+        percent+"%";
+
+}
+
+
+function updateAttempted(){
+
+    const count=
+        answers.filter(a=>a!==null).length;
+
+    document.getElementById("attempted").textContent=count;
+
+}
+
+
+function updatePalette(){
+
+    const palette=document.getElementById("palette");
+
+    palette.innerHTML="";
+
+    questions.forEach((q,index)=>{
+
+        const button=document.createElement("button");
+
+        button.textContent=index+1;
+
+        if(index===current){
+            button.classList.add("active");
+        }
+
+        if(answers[index]!==null){
+            button.classList.add("answered");
+        }
+
+        button.onclick=function(){
+
+            current=index;
+            loadQuestion();
+
+        };
+
+        palette.appendChild(button);
+
+    });
+
+}
+
+
+function nextQuestion(){
+
+    if(current<questions.length-1){
+
+        current++;
+
+        loadQuestion();
+
+    }
+
+}
+
+
+function previousQuestion(){
+
+    if(current>0){
+
+        current--;
+
+        loadQuestion();
+
+    }
+
+}
+
+
+function updateTimer(){
+
+    const minutes=
+        Math.floor(timeLeft/60);
+
+    const seconds=
+        timeLeft%60;
+
+    const timer=
+        document.getElementById("timer");
+
+    timer.textContent=
+        String(minutes).padStart(2,"0")
+        +":"
+        +String(seconds).padStart(2,"0");
+
+    if(timeLeft<=60){
+
+        timer.classList.add("timer-danger");
+
+    }
+
+    if(timeLeft<=0){
+
+        clearInterval(timerInterval);
+
+        submitTest();
+
+        return;
+
+    }
+
+    timeLeft--;
+
+}
+
+
+function submitTest(){
+
+    const answered=
+        answers.filter(a=>a!==null).length;
+
+    const unanswered=
+        questions.length-answered;
+
+    const correct=
+        questions.reduce((total,q,index)=>{
+
+            if(answers[index]===q.a){
+                return total+1;
+            }
+
+            return total;
+
+        },0);
+
+    const wrong=
+        answered-correct;
+
+    const percentage=
+        Math.round((correct/questions.length)*100);
+
+    clearInterval(timerInterval);
+
+    document.getElementById("testArea").style.display="none";
+
+    document.getElementById("result").style.display="block";
+
+    document.getElementById("finalScore").textContent=
+        percentage+"%";
+
+    document.getElementById("correctCount").textContent=
+        correct;
+
+    document.getElementById("wrongCount").textContent=
+        wrong;
+
+    document.getElementById("unansweredCount").textContent=
+        unanswered;
+
+    let message="";
+
+    if(percentage>=90){
+
+        message=
+        "Excellent performance! Your technology fundamentals are very strong. 🚀";
+
+    }
+    else if(percentage>=75){
+
+        message=
+        "Great performance! Keep practicing to strengthen your IT skills. 💻";
+
+    }
+    else if(percentage>=50){
+
+        message=
+        "Good attempt. Review your weak areas and try the test again. 📚";
+
+    }
+    else{
+
+        message=
+        "Keep learning and practicing. Use the IT Knowledge Hub and Practice Lab before your next attempt. 🔥";
+
+    }
+
+    document.getElementById("resultMessage").textContent=
+        message;
+
+    const previousBest=
+        Number(localStorage.getItem("academixITTestBest")) || 0;
+
+    if(percentage>previousBest){
+
+        localStorage.setItem(
+            "academixITTestBest",
+            percentage
+        );
+
+    }
+
+    localStorage.setItem(
+        "academixITTestLastScore",
+        percentage
+    );
+
+    const best=
+        Number(localStorage.getItem("academixITTestBest")) || percentage;
+
+    document.getElementById("bestScore").textContent=
+        "🏆 Best Score: "+best+"%";
+
+}
+
+
+function restartTest(){
+
+    current=0;
+
+    answers=new Array(questions.length).fill(null);
+
+    timeLeft=1200;
+
+    document.getElementById("testArea").style.display="block";
+
+    document.getElementById("result").style.display="none";
+
+    document.getElementById("timer").classList.remove("timer-danger");
+
+    document.getElementById("attempted").textContent="0";
+
+    clearInterval(timerInterval);
+
+    timerInterval=setInterval(updateTimer,1000);
+
+    loadQuestion();
+
+}
+
+
+timerInterval=setInterval(updateTimer,1000);
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>

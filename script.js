@@ -115,4 +115,9 @@ revealItems.forEach(
 
     }
 );
+function openAcharya(){
+
+    window.location.href="acharya.html";
+
+}
 ```

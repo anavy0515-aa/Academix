@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Science Quiz | Academix by Tiwari</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#050914;
+    color:white;
+    min-height:100vh;
+}
+
+/* NAVBAR */
+
+.navbar{
+    height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 6%;
+    background:rgba(5,9,20,0.95);
+    border-bottom:1px solid rgba(0,217,255,0.15);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.logo-icon{
+    width:38px;
+    height:38px;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#00d9ff,#8b5cf6);
+}
+
+.nav-links{
+    display:flex;
+    gap:22px;
+}
+
+.nav-links a{
+    color:#b9c7d8;
+    text-decoration:none;
+}
+
+.nav-links a:hover{
+    color:#00d9ff;
+}
+
+/* MAIN */
+
+.container{
+    width:90%;
+    max-width:850px;
+    margin:50px auto;
+}
+
+/* HEADER */
+
+.header{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.header h1{
+    font-size:42px;
+    background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+    -webkit-background-clip:text;
+    color:transparent;
+    margin-bottom:12px;
+}
+
+.header p{
+    color:#9eabba;
+}
+
+/* QUIZ CARD */
+
+.quiz-card{
+    background:#0f172a;
+    border:1px solid rgba(0,217,255,0.18);
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 10px 40px rgba(0,0,0,0.25);
+}
+
+/* TOP */
+
+.quiz-top{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:25px;
+    color:#9eabba;
+}
+
+.question-number{
+    color:#00d9ff;
+    font-weight:bold;
+}
+
+/* QUESTION */
+
+.question{
+    font-size:23px;
+    line-height:1.5;
+    margin-bottom:25px;
+}
+
+/* OPTIONS */
+
+.options{
+    display:grid;
+    gap:14px;
+}
+
+.option{
+    width:100%;
+    padding:15px;
+    background:#111c31;
+    color:white;
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:12px;
+    text-align:left;
+    cursor:pointer;
+    font-size:16px;
+    transition:0.2s;
+}
+
+.option:hover{
+    border-color:#00d9ff;
+    transform:translateX(3px);
+}
+
+.option.selected{
+    border-color:#00d9ff;
+    background:rgba(0,217,255,0.12);
+}
+
+/* BUTTONS */
+
+.controls{
+    display:flex;
+    justify-content:space-between;
+    margin-top:30px;
+    gap:15px;
+}
+
+button{
+    border:none;
+    cursor:pointer;
+}
+
+.next-btn,
+.restart-btn{
+    padding:12px 25px;
+    border-radius:10px;
+    background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+    color:white;
+    font-weight:bold;
+}
+
+.back-btn{
+    padding:12px 20px;
+    border-radius:10px;
+    background:#182337;
+    color:#cbd5e1;
+}
+
+/* RESULT */
+
+.result{
+    display:none;
+    text-align:center;
+}
+
+.result-icon{
+    font-size:70px;
+    margin-bottom:15px;
+}
+
+.result h2{
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+.score{
+    font-size:50px;
+    font-weight:bold;
+    color:#00d9ff;
+    margin:20px 0;
+}
+
+.result p{
+    color:#9eabba;
+    margin-bottom:25px;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .header h1{
+        font-size:34px;
+    }
+
+    .quiz-card{
+        padding:20px;
+    }
+
+    .question{
+        font-size:20px;
+    }
+
+    .controls{
+        flex-direction:column;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        <div class="logo-icon">✦</div>
+        <span>Academix by Tiwari</span>
+    </div>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="science.html">Science</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="exam.html">Exam Simulator</a>
+        <a href="login.html">Login</a>
+    </div>
+
+</nav>
+
+
+<!-- MAIN -->
+
+<div class="container">
+
+    <div class="header">
+
+        <h1>🧠 Unlimited Science Quiz</h1>
+
+        <p>
+            Test your Science knowledge with randomly selected questions.
+        </p>
+
+    </div>
+
+
+    <!-- QUIZ -->
+
+    <div class="quiz-card" id="quizBox">
+
+        <div class="quiz-top">
+
+            <span class="question-number" id="questionNumber">
+                Question 1
+            </span>
+
+            <span id="scoreText">
+                Score: 0
+            </span>
+
+        </div>
+
+
+        <div class="question" id="question">
+            Question loading...
+        </div>
+
+
+        <div class="options" id="options"></div>
+
+
+        <div class="controls">
+
+            <button class="back-btn"
+                    onclick="window.location.href='science.html'">
+                ← Back
+            </button>
+
+            <button class="next-btn"
+                    onclick="nextQuestion()">
+                Next →
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- RESULT -->
+
+    <div class="quiz-card result" id="resultBox">
+
+        <div class="result-icon">
+            🎉
+        </div>
+
+        <h2>Quiz Completed!</h2>
+
+        <div class="score" id="finalScore">
+            0/10
+        </div>
+
+        <p id="resultMessage">
+            Great work!
+        </p>
+
+        <button class="restart-btn"
+                onclick="restartQuiz()">
+            🔄 Try Again
+        </button>
+
+        <br><br>
+
+        <button class="back-btn"
+                onclick="window.location.href='science.html'">
+            ← Back to Science
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* QUESTION DATABASE */
+
+const questions = [
+
+{
+question:"Which organelle is known as the powerhouse of the cell?",
+options:[
+"Mitochondria",
+"Nucleus",
+"Ribosome",
+"Vacuole"
+],
+answer:0
+},
+
+{
+question:"What is the basic unit of life?",
+options:[
+"Tissue",
+"Cell",
+"Organ",
+"Atom"
+],
+answer:1
+},
+
+{
+question:"Which gas is essential for respiration?",
+options:[
+"Carbon dioxide",
+"Nitrogen",
+"Oxygen",
+"Hydrogen"
+],
+answer:2
+},
+
+{
+question:"What is the SI unit of force?",
+options:[
+"Joule",
+"Watt",
+"Pascal",
+"Newton"
+],
+answer:3
+},
+
+{
+question:"Which part of the plant performs photosynthesis?",
+options:[
+"Root",
+"Stem",
+"Leaf",
+"Flower"
+],
+answer:2
+},
+
+{
+question:"Which particle has a negative charge?",
+options:[
+"Proton",
+"Neutron",
+"Electron",
+"Nucleus"
+],
+answer:2
+},
+
+{
+question:"What is the boiling point of water at normal atmospheric pressure?",
+options:[
+"50°C",
+"75°C",
+"100°C",
+"150°C"
+],
+answer:2
+},
+
+{
+question:"Which tissue transports water in plants?",
+options:[
+"Phloem",
+"Xylem",
+"Parenchyma",
+"Collenchyma"
+],
+answer:0
+},
+
+{
+question:"Which planet is known as the Red Planet?",
+options:[
+"Earth",
+"Mars",
+"Jupiter",
+"Venus"
+],
+answer:1
+},
+
+{
+question:"Which component of blood helps in clotting?",
+options:[
+"Red blood cells",
+"White blood cells",
+"Platelets",
+"Plasma"
+],
+answer:2
+},
+
+{
+question:"Which acid is present in the stomach?",
+options:[
+"Hydrochloric acid",
+"Sulphuric acid",
+"Nitric acid",
+"Acetic acid"
+],
+answer:0
+},
+
+{
+question:"Which mirror is commonly used as a rear-view mirror in vehicles?",
+options:[
+"Plane mirror",
+"Concave mirror",
+"Convex mirror",
+"None"
+],
+answer:2
+},
+
+{
+question:"Which vitamin is mainly produced in the skin in sunlight?",
+options:[
+"Vitamin A",
+"Vitamin B",
+"Vitamin C",
+"Vitamin D"
+],
+answer:3
+},
+
+{
+question:"What is the chemical formula of water?",
+options:[
+"CO₂",
+"H₂O",
+"O₂",
+"H₂"
+],
+answer:1
+},
+
+{
+question:"Which force pulls objects towards Earth?",
+options:[
+"Friction",
+"Magnetic force",
+"Gravitational force",
+"Muscular force"
+],
+answer:2
+}
+
+];
+
+
+/* VARIABLES */
+
+let currentQuestion = 0;
+let score = 0;
+let selected = false;
+
+
+/* SHUFFLE */
+
+function shuffle(array){
+
+    return array.sort(() => Math.random() - 0.5);
+
+}
+
+
+/* START */
+
+shuffle(questions);
+
+loadQuestion();
+
+
+/* LOAD QUESTION */
+
+function loadQuestion(){
+
+    selected = false;
+
+    const q = questions[currentQuestion];
+
+    document.getElementById("questionNumber").innerText =
+        "Question " + (currentQuestion + 1);
+
+    document.getElementById("scoreText").innerText =
+        "Score: " + score;
+
+    document.getElementById("question").innerText =
+        q.question;
+
+    const optionsBox =
+        document.getElementById("options");
+
+    optionsBox.innerHTML = "";
+
+    q.options.forEach((option,index)=>{
+
+        const button = document.createElement("button");
+
+        button.className = "option";
+
+        button.innerText =
+            String.fromCharCode(65 + index) + ". " + option;
+
+        button.onclick = function(){
+
+            selectOption(button,index);
+
+        };
+
+        optionsBox.appendChild(button);
+
+    });
+
+}
+
+
+/* SELECT */
+
+function selectOption(button,index){
+
+    if(selected) return;
+
+    selected = true;
+
+    const q = questions[currentQuestion];
+
+    const allOptions =
+        document.querySelectorAll(".option");
+
+    allOptions.forEach(btn=>{
+        btn.style.pointerEvents = "none";
+    });
+
+    button.classList.add("selected");
+
+    if(index === q.answer){
+
+        score++;
+
+        button.style.borderColor = "#22c55e";
+        button.style.background = "rgba(34,197,94,0.15)";
+
+    }else{
+
+        button.style.borderColor = "#ef4444";
+        button.style.background = "rgba(239,68,68,0.15)";
+
+        allOptions[q.answer].style.borderColor = "#22c55e";
+        allOptions[q.answer].style.background =
+            "rgba(34,197,94,0.15)";
+
+    }
+
+    document.getElementById("scoreText").innerText =
+        "Score: " + score;
+
+}
+
+
+/* NEXT */
+
+function nextQuestion(){
+
+    if(!selected){
+
+        alert("Please select an answer first!");
+
+        return;
+
+    }
+
+    currentQuestion++;
+
+    if(currentQuestion >= questions.length){
+
+        showResult();
+
+        return;
+
+    }
+
+    loadQuestion();
+
+}
+
+
+/* RESULT */
+
+function showResult(){
+
+    document.getElementById("quizBox").style.display = "none";
+
+    document.getElementById("resultBox").style.display = "block";
+
+    document.getElementById("finalScore").innerText =
+        score + "/" + questions.length;
+
+    let percentage =
+        (score / questions.length) * 100;
+
+    let message;
+
+    if(percentage >= 80){
+
+        message = "Excellent! 🔥 Your Science knowledge is strong.";
+
+    }
+    else if(percentage >= 60){
+
+        message = "Good job! 💪 Keep practising.";
+
+    }
+    else{
+
+        message = "Keep learning! 📚 Try the quiz again.";
+
+    }
+
+    document.getElementById("resultMessage").innerText =
+        message;
+
+    localStorage.setItem(
+        "scienceQuizScore",
+        score
+    );
+
+}
+
+
+/* RESTART */
+
+function restartQuiz(){
+
+    currentQuestion = 0;
+
+    score = 0;
+
+    shuffle(questions);
+
+    document.getElementById("quizBox").style.display =
+        "block";
+
+    document.getElementById("resultBox").style.display =
+        "none";
+
+    loadQuestion();
+
+}
+
+</script>
+
+</body>
+</html>

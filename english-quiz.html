@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>English Grammar Quiz | Academix by Tiwari</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#071018;
+    color:white;
+    min-height:100vh;
+}
+
+header{
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#09131d;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.logo{
+    color:#00d9ff;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.back{
+    color:#00d9ff;
+    text-decoration:none;
+    border:1px solid #00d9ff;
+    padding:9px 16px;
+    border-radius:9px;
+}
+
+.back:hover{
+    background:#00d9ff;
+    color:#071018;
+}
+
+.container{
+    width:90%;
+    max-width:850px;
+    margin:40px auto;
+}
+
+.hero{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.hero h1{
+    font-size:40px;
+    margin-bottom:10px;
+    background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    color:#9eabb8;
+}
+
+.quiz-info{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.info-box{
+    flex:1;
+    text-align:center;
+    padding:15px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:12px;
+}
+
+.info-box span{
+    display:block;
+    color:#00d9ff;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.progress-container{
+    width:100%;
+    height:8px;
+    background:#17232e;
+    border-radius:20px;
+    margin-bottom:25px;
+    overflow:hidden;
+}
+
+.progress{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+    transition:0.3s;
+}
+
+.quiz-card{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:18px;
+    padding:28px;
+}
+
+.question-number{
+    color:#8b5cf6;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+.question{
+    font-size:23px;
+    line-height:1.5;
+    margin-bottom:25px;
+}
+
+.options{
+    display:grid;
+    gap:13px;
+}
+
+.option{
+    width:100%;
+    padding:15px;
+    border-radius:11px;
+    border:1px solid rgba(255,255,255,0.15);
+    background:#0c1822;
+    color:white;
+    text-align:left;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.25s;
+}
+
+.option:hover{
+    border-color:#00d9ff;
+    transform:translateX(3px);
+}
+
+.option.correct{
+    background:rgba(0,200,100,0.15);
+    border-color:#00e676;
+}
+
+.option.wrong{
+    background:rgba(255,70,70,0.15);
+    border-color:#ff5252;
+}
+
+.option:disabled{
+    cursor:not-allowed;
+}
+
+.feedback{
+    margin-top:18px;
+    padding:13px;
+    border-radius:9px;
+    display:none;
+    color:#dbe7ef;
+}
+
+.feedback.show{
+    display:block;
+}
+
+.next-btn,
+.restart-btn{
+    margin-top:22px;
+    padding:12px 25px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.next-btn:hover,
+.restart-btn:hover{
+    transform:translateY(-2px);
+}
+
+.result{
+    display:none;
+    text-align:center;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:20px;
+    padding:40px 25px;
+}
+
+.result h2{
+    font-size:32px;
+    color:#00d9ff;
+    margin-bottom:20px;
+}
+
+.score{
+    font-size:50px;
+    font-weight:bold;
+    margin:15px 0;
+    color:#8b5cf6;
+}
+
+.result p{
+    color:#aab7c4;
+    margin:8px 0;
+}
+
+.best-score{
+    color:#00d9ff !important;
+    font-weight:bold;
+}
+
+@media(max-width:600px){
+
+    .hero h1{
+        font-size:31px;
+    }
+
+    .quiz-info{
+        flex-direction:column;
+    }
+
+    .quiz-card{
+        padding:20px;
+    }
+
+    .question{
+        font-size:19px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="logo">
+    Academix by Tiwari
+</div>
+
+<a href="english.html" class="back">
+    ← English
+</a>
+
+</header>
+
+
+<div class="container">
+
+
+<div class="hero">
+
+<h1>🧠 English Grammar Quiz</h1>
+
+<p>
+Test your Class 9 Grammar knowledge
+</p>
+
+</div>
+
+
+<div id="quizArea">
+
+
+<div class="quiz-info">
+
+<div class="info-box">
+Question
+<span id="questionCount">1/30</span>
+</div>
+
+<div class="info-box">
+Score
+<span id="score">0</span>
+</div>
+
+<div class="info-box">
+Time
+<span id="timer">15:00</span>
+</div>
+
+</div>
+
+
+<div class="progress-container">
+<div class="progress" id="progress"></div>
+</div>
+
+
+<div class="quiz-card">
+
+<div class="question-number" id="questionNumber">
+Question 1
+</div>
+
+<div class="question" id="question">
+Loading question...
+</div>
+
+
+<div class="options" id="options">
+</div>
+
+
+<div class="feedback" id="feedback">
+</div>
+
+
+<button class="next-btn" id="nextBtn" onclick="nextQuestion()" style="display:none;">
+Next Question →
+</button>
+
+</div>
+
+</div>
+
+
+<div class="result" id="result">
+
+<h2>🎉 Quiz Completed!</h2>
+
+<div class="score" id="finalScore">
+0%
+</div>
+
+<p id="finalMessage">
+</p>
+
+<p id="correctText">
+</p>
+
+<p id="wrongText">
+</p>
+
+<p id="bestScore" class="best-score">
+</p>
+
+<button class="restart-btn" onclick="restartQuiz()">
+🔄 Restart Quiz
+</button>
+
+<br><br>
+
+<a href="english.html" class="back">
+← Back to English
+</a>
+
+</div>
+
+
+</div>
+
+
+
+<script>
+
+
+const questions = [
+
+{
+q:"Choose the correct form: She _____ to school every day.",
+options:["go","goes","going","gone"],
+answer:1
+},
+
+{
+q:"Which sentence is in the Past Continuous tense?",
+options:[
+"They played cricket.",
+"They were playing cricket.",
+"They have played cricket.",
+"They will play cricket."
+],
+answer:1
+},
+
+{
+q:"Choose the correct modal: You _____ obey your parents.",
+options:["may","might","should","can"],
+answer:2
+},
+
+{
+q:"There are _____ apples in the basket.",
+options:["much","many","little","any"],
+answer:1
+},
+
+{
+q:"Neither Rohan nor his friends _____ present.",
+options:["was","is","were","has"],
+answer:2
+},
+
+{
+q:"He said, 'I am tired.' Choose the correct reported speech.",
+options:[
+"He said that I am tired.",
+"He said that he was tired.",
+"He says that he was tired.",
+"He said that he is tired."
+],
+answer:1
+},
+
+{
+q:"Choose the correct preposition: The book is _____ the table.",
+options:["in","on","at","by"],
+answer:1
+},
+
+{
+q:"Choose the correct article: He is _____ honest man.",
+options:["a","an","the","no article"],
+answer:1
+},
+
+{
+q:"Identify the conjunction: I wanted to go, but it was raining.",
+options:["wanted","go","but","raining"],
+answer:2
+},
+
+{
+q:"Choose the correct passive voice: The teacher praised Rahul.",
+options:[
+"Rahul praised the teacher.",
+"Rahul was praised by the teacher.",
+"Rahul is praised by the teacher.",
+"Rahul had praised the teacher."
+],
+answer:1
+},
+
+{
+q:"If you work hard, you _____ succeed.",
+options:["would","will","might have","had"],
+answer:1
+},
+
+{
+q:"Choose the correct form: I _____ my homework already.",
+options:["finish","finished","have finished","finishing"],
+answer:2
+},
+
+{
+q:"Which word is a determiner?",
+options:["beautiful","quickly","some","run"],
+answer:2
+},
+
+{
+q:"Choose the correct sentence.",
+options:[
+"He don't like milk.",
+"He doesn't likes milk.",
+"He doesn't like milk.",
+"He not like milk."
+],
+answer:2
+},
+
+{
+q:"She has been studying _____ two hours.",
+options:["since","for","from","at"],
+answer:1
+},
+
+{
+q:"Choose the correct modal: _____ I come in, sir?",
+options:["Must","May","Should","Would"],
+answer:1
+},
+
+{
+q:"Identify the adverb: She sang beautifully.",
+options:["She","sang","beautifully","song"],
+answer:2
+},
+
+{
+q:"Choose the correct tense: They _____ football when it started raining.",
+options:[
+"play",
+"played",
+"were playing",
+"have played"
+],
+answer:2
+},
+
+{
+q:"Choose the correct reported speech: He said, 'I will help you.'",
+options:[
+"He said that he would help me.",
+"He said that I would help him.",
+"He says that he will help me.",
+"He said that he will help you."
+],
+answer:0
+},
+
+{
+q:"Choose the correct preposition: He is good _____ mathematics.",
+options:["in","at","on","with"],
+answer:1
+},
+
+{
+q:"Which sentence is in the Future Continuous tense?",
+options:[
+"I will study.",
+"I will have studied.",
+"I will be studying.",
+"I studied."
+],
+answer:2
+},
+
+{
+q:"Choose the correct article: _____ sun rises in the east.",
+options:["A","An","The","No article"],
+answer:2
+},
+
+{
+q:"Identify the adjective: She wore a beautiful dress.",
+options:["She","wore","beautiful","dress"],
+answer:2
+},
+
+{
+q:"Choose the correct conjunction: Hurry up _____ you will miss the bus.",
+options:["and","or","because","although"],
+answer:1
+},
+
+{
+q:"Choose the correct form: Each of the boys _____ a book.",
+options:["have","has","are having","were"],
+answer:1
+},
+
+{
+q:"Choose the correct passive voice: They built the bridge.",
+options:[
+"The bridge built them.",
+"The bridge was built by them.",
+"The bridge is built by them.",
+"The bridge has built them."
+],
+answer:1
+},
+
+{
+q:"Choose the correct word: There isn't _____ water in the bottle.",
+options:["many","few","much","several"],
+answer:2
+},
+
+{
+q:"Which sentence is grammatically correct?",
+options:[
+"She is senior than me.",
+"She is senior to me.",
+"She is senior from me.",
+"She is senior with me."
+],
+answer:1
+},
+
+{
+q:"Choose the correct form: By next year, I _____ this course.",
+options:[
+"complete",
+"completed",
+"will have completed",
+"am completing"
+],
+answer:2
+},
+
+{
+q:"Identify the conjunction: Although he was tired, he continued working.",
+options:["tired","although","continued","working"],
+answer:1
+}
+
+];
+
+
+let quizQuestions = [];
+let currentQuestion = 0;
+let score = 0;
+let answered = false;
+let timeLeft = 15 * 60;
+let timerInterval;
+
+
+/* SHUFFLE */
+
+function shuffle(array){
+
+    let arr = [...array];
+
+    for(let i = arr.length - 1; i > 0; i--){
+
+        let j = Math.floor(Math.random() * (i + 1));
+
+        [arr[i],arr[j]] = [arr[j],arr[i]];
+
+    }
+
+    return arr;
+
+}
+
+
+/* START QUIZ */
+
+function startQuiz(){
+
+    quizQuestions = shuffle(questions);
+
+    currentQuestion = 0;
+    score = 0;
+    answered = false;
+    timeLeft = 15 * 60;
+
+    document.getElementById("score").textContent = "0";
+
+    document.getElementById("quizArea").style.display = "block";
+    document.getElementById("result").style.display = "none";
+
+    clearInterval(timerInterval);
+
+    timerInterval = setInterval(updateTimer,1000);
+
+    showQuestion();
+
+}
+
+
+/* TIMER */
+
+function updateTimer(){
+
+    let minutes = Math.floor(timeLeft / 60);
+    let seconds = timeLeft % 60;
+
+    document.getElementById("timer").textContent =
+        String(minutes).padStart(2,"0") + ":" +
+        String(seconds).padStart(2,"0");
+
+    if(timeLeft <= 0){
+
+        clearInterval(timerInterval);
+
+        finishQuiz();
+
+        return;
+
+    }
+
+    timeLeft--;
+
+}
+
+
+/* SHOW QUESTION */
+
+function showQuestion(){
+
+    answered = false;
+
+    let q = quizQuestions[currentQuestion];
+
+    document.getElementById("questionNumber").textContent =
+        "Question " + (currentQuestion + 1);
+
+    document.getElementById("questionCount").textContent =
+        (currentQuestion + 1) + "/" + quizQuestions.length;
+
+    document.getElementById("question").textContent = q.q;
+
+    document.getElementById("progress").style.width =
+        ((currentQuestion + 1) / quizQuestions.length * 100) + "%";
+
+    document.getElementById("feedback").classList.remove("show");
+
+    document.getElementById("feedback").textContent = "";
+
+    document.getElementById("nextBtn").style.display = "none";
+
+    const optionsBox = document.getElementById("options");
+
+    optionsBox.innerHTML = "";
+
+    q.options.forEach((option,index)=>{
+
+        const button = document.createElement("button");
+
+        button.className = "option";
+
+        button.textContent = option;
+
+        button.onclick = () => selectAnswer(index,button);
+
+        optionsBox.appendChild(button);
+
+    });
+
+}
+
+
+/* SELECT ANSWER */
+
+function selectAnswer(index,button){
+
+    if(answered) return;
+
+    answered = true;
+
+    let q = quizQuestions[currentQuestion];
+
+    const allOptions =
+        document.querySelectorAll(".option");
+
+    allOptions.forEach(btn=>{
+        btn.disabled = true;
+    });
+
+
+    if(index === q.answer){
+
+        button.classList.add("correct");
+
+        score++;
+
+        document.getElementById("score").textContent = score;
+
+        document.getElementById("feedback").textContent =
+            "✅ Correct! Great work.";
+
+    }else{
+
+        button.classList.add("wrong");
+
+        allOptions[q.answer].classList.add("correct");
+
+        document.getElementById("feedback").textContent =
+            "❌ Incorrect. The correct answer is: " +
+            q.options[q.answer];
+
+    }
+
+
+    document.getElementById("feedback")
+        .classList.add("show");
+
+    document.getElementById("nextBtn").style.display =
+        "inline-block";
+
+}
+
+
+/* NEXT */
+
+function nextQuestion(){
+
+    currentQuestion++;
+
+    if(currentQuestion >= quizQuestions.length){
+
+        finishQuiz();
+
+    }else{
+
+        showQuestion();
+
+    }
+
+}
+
+
+/* FINISH */
+
+function finishQuiz(){
+
+    clearInterval(timerInterval);
+
+    document.getElementById("quizArea").style.display = "none";
+
+    document.getElementById("result").style.display = "block";
+
+    let total = quizQuestions.length;
+
+    let percentage = Math.round((score / total) * 100);
+
+    document.getElementById("finalScore").textContent =
+        percentage + "%";
+
+    document.getElementById("correctText").textContent =
+        "Correct Answers: " + score;
+
+    document.getElementById("wrongText").textContent =
+        "Wrong Answers: " + (total - score);
+
+
+    let message = "";
+
+    if(percentage >= 90){
+
+        message = "🔥 Excellent! Your grammar is very strong.";
+
+    }else if(percentage >= 75){
+
+        message = "👏 Great job! Keep practising.";
+
+    }else if(percentage >= 50){
+
+        message = "👍 Good attempt. Revise your weak topics.";
+
+    }else{
+
+        message = "📚 Keep practising. Your grammar will improve.";
+
+    }
+
+
+    document.getElementById("finalMessage").textContent =
+        message;
+
+
+    let oldBest =
+        Number(localStorage.getItem("englishGrammarBest")) || 0;
+
+
+    if(percentage > oldBest){
+
+        localStorage.setItem(
+            "englishGrammarBest",
+            percentage
+        );
+
+        oldBest = percentage;
+
+    }
+
+
+    document.getElementById("bestScore").textContent =
+        "🏆 Best Score: " + oldBest + "%";
+
+
+    localStorage.setItem(
+        "englishGrammarLastScore",
+        percentage
+    );
+
+}
+
+
+/* RESTART */
+
+function restartQuiz(){
+
+    startQuiz();
+
+}
+
+
+/* START */
+
+startQuiz();
+
+</script>
+
+</body>
+
+</html>

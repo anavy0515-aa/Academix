@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Acharya AI | Academix by Tiwari</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:
+    radial-gradient(circle at 20% 20%,rgba(0,217,255,.12),transparent 30%),
+    radial-gradient(circle at 80% 80%,rgba(139,92,246,.15),transparent 30%),
+    #060b12;
+    color:white;
+}
+
+/* NAVBAR */
+
+.navbar{
+    height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 7%;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    background:rgba(5,10,18,.85);
+    backdrop-filter:blur(15px);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.logo-icon{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#00d9ff,#8b5cf6);
+    box-shadow:0 0 25px rgba(0,217,255,.35);
+    font-size:22px;
+}
+
+.back{
+    text-decoration:none;
+    color:#00d9ff;
+    border:1px solid rgba(0,217,255,.5);
+    padding:9px 16px;
+    border-radius:10px;
+    transition:.25s;
+}
+
+.back:hover{
+    background:#00d9ff;
+    color:#061018;
+}
+
+/* MAIN */
+
+.container{
+    width:min(1000px,92%);
+    margin:35px auto;
+}
+
+/* HERO */
+
+.hero{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.badge{
+    display:inline-block;
+    padding:7px 14px;
+    border-radius:30px;
+    background:rgba(0,217,255,.08);
+    border:1px solid rgba(0,217,255,.25);
+    color:#00d9ff;
+    font-size:12px;
+    letter-spacing:1px;
+    margin-bottom:15px;
+}
+
+.hero h1{
+    font-size:44px;
+    margin-bottom:10px;
+}
+
+.hero h1 span{
+    background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    color:#aab4c3;
+    font-size:16px;
+}
+
+/* CHAT */
+
+.chat-box{
+    background:rgba(12,19,30,.88);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:0 20px 70px rgba(0,0,0,.4);
+}
+
+.chat-header{
+    padding:18px 22px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.status{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:#8d99a8;
+    font-size:13px;
+}
+
+.dot{
+    width:9px;
+    height:9px;
+    background:#22c55e;
+    border-radius:50%;
+    box-shadow:0 0 10px #22c55e;
+}
+
+.clear-btn{
+    background:transparent;
+    border:1px solid rgba(255,255,255,.12);
+    color:#9ca8b7;
+    padding:7px 12px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.clear-btn:hover{
+    border-color:#00d9ff;
+    color:#00d9ff;
+}
+
+/* MESSAGES */
+
+.chat-messages{
+    height:450px;
+    overflow-y:auto;
+    padding:22px;
+}
+
+.message{
+    display:flex;
+    margin-bottom:18px;
+}
+
+.message.user{
+    justify-content:flex-end;
+}
+
+.bubble{
+    max-width:78%;
+    padding:13px 16px;
+    border-radius:15px;
+    line-height:1.55;
+    font-size:15px;
+}
+
+.bot .bubble{
+    background:rgba(0,217,255,.08);
+    border:1px solid rgba(0,217,255,.15);
+    color:#e8f7ff;
+}
+
+.user .bubble{
+    background:linear-gradient(135deg,#00a9d4,#7250d8);
+    color:white;
+}
+
+/* SUGGESTIONS */
+
+.suggestions{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    padding:0 22px 15px;
+}
+
+.suggestion{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.1);
+    color:#c9d3df;
+    padding:8px 12px;
+    border-radius:20px;
+    cursor:pointer;
+    font-size:13px;
+    transition:.2s;
+}
+
+.suggestion:hover{
+    border-color:#00d9ff;
+    color:#00d9ff;
+    transform:translateY(-2px);
+}
+
+/* INPUT */
+
+.input-area{
+    display:flex;
+    gap:10px;
+    padding:18px;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+#userInput{
+    flex:1;
+    resize:none;
+    height:52px;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,.12);
+    background:#080f18;
+    color:white;
+    padding:15px;
+    outline:none;
+}
+
+#userInput:focus{
+    border-color:#00d9ff;
+}
+
+.send-btn{
+    width:110px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#00d9ff,#8b5cf6);
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.send-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 25px rgba(0,217,255,.25);
+}
+
+/* INFO */
+
+.info{
+    margin-top:20px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.info-card{
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    padding:18px;
+    border-radius:15px;
+}
+
+.info-card h3{
+    color:#00d9ff;
+    font-size:15px;
+    margin-bottom:7px;
+}
+
+.info-card p{
+    color:#8995a5;
+    font-size:13px;
+    line-height:1.5;
+}
+
+/* DEVELOPER */
+
+.developer{
+    text-align:center;
+    margin:35px 0 10px;
+    padding:20px;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.developer small{
+    color:#7f8b9a;
+    font-size:12px;
+    letter-spacing:.5px;
+}
+
+.developer strong{
+    display:block;
+    margin-top:6px;
+    font-size:18px;
+    background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .navbar{
+        padding:0 4%;
+    }
+
+    .logo{
+        font-size:16px;
+    }
+
+    .hero h1{
+        font-size:32px;
+    }
+
+    .chat-messages{
+        height:420px;
+    }
+
+    .info{
+        grid-template-columns:1fr;
+    }
+
+    .bubble{
+        max-width:88%;
+    }
+
+    .send-btn{
+        width:80px;
+    }
+
+}
+</style>
+</head>
+
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            ✦
+        </div>
+
+        <span>Acharya AI by Tiwari</span>
+
+    </div>
+
+    <a href="index.html" class="back">
+        ← Home
+    </a>
+
+</nav>
+
+
+<!-- MAIN -->
+
+<div class="container">
+
+
+    <!-- HERO -->
+
+    <div class="hero">
+
+        <div class="badge">
+            ACADEMIX AI ASSISTANT
+        </div>
+
+        <h1>
+            Ask <span>Acharya</span>
+        </h1>
+
+        <p>
+            Your smart study companion for Academix by Tiwari.
+        </p>
+
+    </div>
+
+
+    <!-- CHAT -->
+
+    <div class="chat-box">
+
+
+        <div class="chat-header">
+
+            <div class="status">
+
+                <div class="dot"></div>
+
+                Acharya is ready
+
+            </div>
+
+
+            <button
+            class="clear-btn"
+            onclick="clearChat()">
+
+                Clear
+
+            </button>
+
+        </div>
+
+
+        <div
+        class="chat-messages"
+        id="chatMessages">
+
+
+            <div class="message bot">
+
+                <div class="bubble">
+
+                    Namaste! 👋<br><br>
+
+                    Main <b>Acharya</b> hoon —
+                    Academix by Tiwari ka study assistant. 🤖<br><br>
+
+                    Tum mujhse Maths, Science, SST,
+                    English Grammar aur Computer ke topics
+                    ke baare mein pooch sakte ho.
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- SUGGESTIONS -->
+
+        <div class="suggestions">
+
+
+            <button
+            class="suggestion"
+            onclick="askSuggestion('Science mein Motion samjhao')">
+
+                🧪 Motion
+
+            </button>
+
+
+            <button
+            class="suggestion"
+            onclick="askSuggestion('Maths ka quiz do')">
+
+                🧠 Maths Quiz
+
+            </button>
+
+
+            <button
+            class="suggestion"
+            onclick="askSuggestion('English grammar mein Tenses samjhao')">
+
+                📖 Tenses
+
+            </button>
+
+
+            <button
+            class="suggestion"
+            onclick="askSuggestion('Computer mein Python kya hai?')">
+
+                💻 Python
+
+            </button>
+
+
+        </div>
+
+
+        <!-- INPUT -->
+
+        <div class="input-area">
+
+
+            <textarea
+            id="userInput"
+            placeholder="Ask Acharya anything about your studies..."
+            onkeydown="handleEnter(event)"></textarea>
+
+
+            <button
+            class="send-btn"
+            onclick="sendMessage()">
+
+                Send
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+    <!-- INFO CARDS -->
+
+    <div class="info">
+
+
+        <div class="info-card">
+
+            <h3>
+                📚 Subjects
+            </h3>
+
+            <p>
+                Maths, Science, SST, English Grammar
+                and Computer.
+            </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <h3>
+                🧠 Study Help
+            </h3>
+
+            <p>
+                Concepts, revision, formulas,
+                practice questions and quizzes.
+            </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <h3>
+                ⚡ ₹0 Version
+            </h3>
+
+            <p>
+                Works without an external AI API
+                using Academix's built-in knowledge system.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- DEVELOPER -->
+
+    <div class="developer">
+
+        <small>
+            Developed with ❤️ by
+        </small>
+
+        <strong>
+            ANSHU TIWARI
+        </strong>
+
+        <small>
+            Academix by Tiwari • 2026
+        </small>
+
+    </div>
+
+
+</div>
+
+
+<script>
+
+/* SEND MESSAGE */
+
+function sendMessage(){
+
+    const input =
+    document.getElementById("userInput");
+
+    const message =
+    input.value.trim();
+
+    if(message === "") return;
+
+
+    addMessage(
+        escapeHTML(message),
+        "user"
+    );
+
+
+    input.value = "";
+
+
+    showTyping();
+
+
+    setTimeout(function(){
+
+        removeTyping();
+
+        const reply =
+        getAcharyaReply(message);
+
+        addMessage(reply,"bot");
+
+    },500);
+
+}
+
+
+/* SUGGESTION */
+
+function askSuggestion(text){
+
+    document.getElementById("userInput").value = text;
+
+    sendMessage();
+
+}
+
+
+/* ENTER */
+
+function handleEnter(event){
+
+    if(
+        event.key === "Enter" &&
+        !event.shiftKey
+    ){
+
+        event.preventDefault();
+
+        sendMessage();
+
+    }
+
+}
+
+
+/* ADD MESSAGE */
+
+function addMessage(text,type){
+
+    const messages =
+    document.getElementById("chatMessages");
+
+    const message =
+    document.createElement("div");
+
+    message.className =
+    "message " + type;
+
+
+    const bubble =
+    document.createElement("div");
+
+    bubble.className =
+    "bubble";
+
+
+    bubble.innerHTML = text;
+
+
+    message.appendChild(bubble);
+
+    messages.appendChild(message);
+
+
+    messages.scrollTop =
+    messages.scrollHeight;
+
+}
+
+
+/* TYPING */
+
+function showTyping(){
+
+    const messages =
+    document.getElementById("chatMessages");
+
+    const typing =
+    document.createElement("div");
+
+    typing.className =
+    "message bot";
+
+    typing.id =
+    "typing";
+
+    typing.innerHTML =
+    '<div class="bubble">Acharya is thinking... 🤔</div>';
+
+
+    messages.appendChild(typing);
+
+    messages.scrollTop =
+    messages.scrollHeight;
+
+}
+
+
+/* REMOVE TYPING */
+
+function removeTyping(){
+
+    const typing =
+    document.getElementById("typing");
+
+    if(typing){
+
+        typing.remove();
+
+    }
+
+}
+
+
+/* CLEAR */
+
+function clearChat(){
+
+    document.getElementById("chatMessages").innerHTML =
+
+    `
+    <div class="message bot">
+
+        <div class="bubble">
+
+            Chat cleared. 👋<br><br>
+
+            Namaste! Main Acharya hoon.
+            Tum kya padhna chahte ho?
+
+        </div>
+
+    </div>
+    `;
+
+}
+
+
+/* SECURITY */
+
+function escapeHTML(text){
+
+    return text
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* ACHARYA KNOWLEDGE SYSTEM */
+
+function getAcharyaReply(message){
+
+    const q =
+    message.toLowerCase();
+
+
+    /* GREETING */
+
+    if(
+        q.includes("hello") ||
+        q.includes("hi") ||
+        q.includes("hey") ||
+        q.includes("namaste")
+    ){
+
+        return `
+        Namaste! 👋<br><br>
+
+        Main <b>Acharya</b> hoon. 🤖<br><br>
+
+        Batao aaj kya padhna hai?
+        `;
+
+    }
+
+
+    /* MATHS */
+
+    if(
+        q.includes("math") ||
+        q.includes("polynomial") ||
+        q.includes("number system") ||
+        q.includes("coordinate") ||
+        q.includes("linear equation") ||
+        q.includes("statistics")
+    ){
+
+        if(q.includes("polynomial")){
+
+            return `
+            <b>Polynomials 📐</b><br><br>
+
+            Polynomial ek algebraic expression hota hai
+            jisme variables ki non-negative integer powers hoti hain.<br><br>
+
+            Example: x² + 3x + 2<br><br>
+
+            Isme x ki highest power 2 hai,
+            isliye degree <b>2</b> hai.
+            `;
+
+        }
+
+
+        if(q.includes("number system")){
+
+            return `
+            <b>Number System 🔢</b><br><br>
+
+            Important number types:<br><br>
+
+            • Natural Numbers → 1, 2, 3...<br>
+            • Whole Numbers → 0, 1, 2, 3...<br>
+            • Integers → ..., -2, -1, 0, 1, 2...<br>
+            • Rational Numbers → p/q, q ≠ 0<br>
+            • Irrational Numbers → non-terminating,
+              non-repeating decimals<br><br>
+
+            Inka relation exam mein important hai.
+            `;
+
+        }
+
+
+        return `
+        <b>Maths Mode 📐</b><br><br>
+
+        Main Academix ke Maths topics mein
+        help kar sakta hoon.<br><br>
+
+        Try asking:<br><br>
+
+        • Polynomials samjhao<br>
+        • Number Systems samjhao<br>
+        • Coordinate Geometry kya hai?<br>
+        • Linear Equations samjhao<br>
+        • Statistics ka formula batao
+        `;
+
+    }
+
+
+    /* SCIENCE */
+
+    if(
+        q.includes("science") ||
+        q.includes("motion") ||
+        q.includes("force") ||
+        q.includes("gravitation") ||
+        q.includes("matter") ||
+        q.includes("cell") ||
+        q.includes("tissue") ||
+        q.includes("atom")
+    ){
+
+        if(q.includes("motion")){
+
+            return `
+            <b>Motion 🧪</b><br><br>
+
+            Jab koi object time ke saath
+            apni position change karta hai,
+            to object motion mein hai.<br><br>
+
+            <b>Distance:</b>
+            Total path covered.<br>
+
+            <b>Displacement:</b>
+            Initial aur final position ke beech
+            shortest directed distance.<br>
+
+            <b>Speed:</b>
+            Distance per unit time.<br>
+
+            <b>Velocity:</b>
+            Displacement per unit time.
+            `;
+
+        }
+
+
+        if(q.includes("force")){
+
+            return `
+            <b>Force ⚡</b><br><br>
+
+            Force ek push ya pull hai jo object ki
+            motion ya shape ko change kar sakta hai.<br><br>
+
+            Newton's Second Law:<br><br>
+
+            <b>F = ma</b><br><br>
+
+            F = force<br>
+            m = mass<br>
+            a = acceleration
+            `;
+
+        }
+
+
+        if(q.includes("atom")){
+
+            return `
+            <b>Atom ⚛️</b><br><br>
+
+            Atom matter ki basic structural unit hai.<br><br>
+
+            • Proton → positive charge<br>
+            • Electron → negative charge<br>
+            • Neutron → no charge<br><br>
+
+            Protons aur neutrons nucleus mein hote hain.
+            `;
+
+        }
+
+
+        return `
+        <b>Science Mode 🔬</b><br><br>
+
+        Try asking:<br><br>
+
+        • Motion samjhao<br>
+        • Force kya hai?<br>
+        • Gravitation samjhao<br>
+        • Atom kya hai?<br>
+        • Cell samjhao<br>
+        • Matter ke states batao
+        `;
+
+    }
+
+
+    /* SST */
+
+    if(
+        q.includes("sst") ||
+        q.includes("history") ||
+        q.includes("geography") ||
+        q.includes("civics") ||
+        q.includes("economics") ||
+        q.includes("democracy") ||
+        q.includes("french revolution")
+    ){
+
+        if(q.includes("democracy")){
+
+            return `
+            <b>Democracy 🗳️</b><br><br>
+
+            Democracy ek system of government hai
+            jisme people apne representatives ko
+            choose karte hain.<br><br>
+
+            Important ideas include participation,
+            elections, accountability and rule of law.
+            `;
+
+        }
+
+
+        if(q.includes("french revolution")){
+
+            return `
+            <b>French Revolution 📜</b><br><br>
+
+            French Revolution 1789 mein shuru hui
+            aur France ki political aur social
+            structure ko deeply change kiya.<br><br>
+
+            Class 9 mein causes, events aur
+            consequences ko timeline ke saath padhna useful hai.
+            `;
+
+        }
+
+
+        return `
+        <b>SST Mode 🌍</b><br><br>
+
+        Main History, Geography, Civics aur Economics
+        ke selected Class 9 topics mein help kar sakta hoon.
+        `;
+
+    }
+
+
+    /* ENGLISH */
+
+    if(
+        q.includes("english") ||
+        q.includes("grammar") ||
+        q.includes("tense") ||
+        q.includes("modal") ||
+        q.includes("determiner") ||
+        q.includes("preposition") ||
+        q.includes("active voice") ||
+        q.includes("passive voice") ||
+        q.includes("reported speech")
+    ){
+
+        if(q.includes("tense")){
+
+            return `
+            <b>Tenses 📖</b><br><br>
+
+            Tense action ke time ko show karta hai.<br><br>
+
+            Main categories:<br>
+
+            • Present<br>
+            • Past<br>
+            • Future<br><br>
+
+            Har category mein Simple, Continuous,
+            Perfect aur Perfect Continuous forms ho sakte hain.
+            `;
+
+        }
+
+
+        if(
+            q.includes("active") ||
+            q.includes("passive")
+        ){
+
+            return `
+            <b>Active & Passive Voice ✍️</b><br><br>
+
+            <b>Active:</b>
+            Subject action perform karta hai.<br><br>
+
+            Example:
+            Rahul wrote a letter.<br><br>
+
+            <b>Passive:</b>
+            Object ko focus mein laya jata hai.<br><br>
+
+            Example:
+            A letter was written by Rahul.
+            `;
+
+        }
+
+
+        return `
+        <b>English Grammar Mode 📖</b><br><br>
+
+        Topics:<br><br>
+
+        • Tenses<br>
+        • Modals<br>
+        • Determiners<br>
+        • Subject-Verb Agreement<br>
+        • Reported Speech<br>
+        • Active & Passive Voice<br>
+        • Prepositions<br>
+        • Clauses
+        `;
+
+    }
+
+
+    /* COMPUTER */
+
+    if(
+        q.includes("computer") ||
+        q.includes("python") ||
+        q.includes("html") ||
+        q.includes("css") ||
+        q.includes("javascript") ||
+        q.includes("network") ||
+        q.includes("cyber") ||
+        q.includes("ai")
+    ){
+
+        if(q.includes("python")){
+
+            return `
+            <b>Python 💻</b><br><br>
+
+            Python ek high-level programming language hai
+            jo readable syntax ke liye famous hai.<br><br>
+
+            Example:<br><br>
+
+            print("Hello World")<br><br>
+
+            Python programming, automation,
+            data analysis aur AI mein use hota hai.
+            `;
+
+        }
+
+
+        if(q.includes("html")){
+
+            return `
+            <b>HTML 🌐</b><br><br>
+
+            HTML ka full form
+            <b>HyperText Markup Language</b> hai.<br><br>
+
+            Ye webpage ki structure banane ke
+            liye use hota hai.
+            `;
+
+        }
+
+
+        return `
+        <b>Computer Mode 💻</b><br><br>
+
+        Main Computer ke topics mein help kar sakta hoon:<br><br>
+
+        • Python<br>
+        • HTML<br>
+        • CSS<br>
+        • JavaScript<br>
+        • Networks<br>
+        • Cyber Security<br>
+        • AI Fundamentals
+        `;
+
+    }
+
+
+    /* QUIZ */
+
+    if(q.includes("quiz")){
+
+        return `
+        <b>Quiz Mode 🧠</b><br><br>
+
+        Bilkul! Subject aur topic batao.<br><br>
+
+        Example:<br>
+
+        <b>Science Motion ka quiz do</b><br>
+        <b>Maths Polynomials ka quiz do</b><br>
+        <b>English Tenses ka quiz do</b>
+        `;
+
+    }
+
+
+    /* FORMULA */
+
+    if(q.includes("formula")){
+
+        return `
+        <b>Formula Mode 📐</b><br><br>
+
+        Subject aur chapter ka naam batao.<br><br>
+
+        Example:<br>
+
+        <b>Science Motion ke formulas</b><br>
+        <b>Maths Statistics ka formula</b>
+        `;
+
+    }
+
+
+    /* HELP */
+
+    if(
+        q.includes("help") ||
+        q.includes("what can you do") ||
+        q.includes("kya kar")
+    ){
+
+        return `
+        <b>Acharya kya kar sakta hai? 🤖</b><br><br>
+
+        📐 Maths concepts<br>
+        🔬 Science explanations<br>
+        🌍 SST revision<br>
+        📖 English Grammar<br>
+        💻 Computer concepts<br>
+        🧠 Quiz guidance<br>
+        📝 Formula revision<br><br>
+
+        Bas apna <b>subject + topic</b> likho.
+        `;
+
+    }
+
+
+    /* DEFAULT */
+
+    return `
+    <b>Acharya 🤖</b><br><br>
+
+    Main abhi Academix ke selected Class 9
+    knowledge base par trained hoon.<br><br>
+
+    Mujhe is format mein poochho:<br><br>
+
+    <b>Science Motion samjhao</b><br>
+    <b>Maths Polynomials samjhao</b><br>
+    <b>English Tenses samjhao</b><br>
+    <b>Computer Python kya hai?</b><br>
+    <b>Science ka quiz do</b><br><br>
+
+    Jaise-jaise Academix ka knowledge base expand hoga,
+    Acharya bhi aur powerful hota jayega. 🚀
+    `;
+
+}
+
+</script>
+
+</body>
+</html>

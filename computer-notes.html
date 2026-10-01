@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>IT Knowledge Base | Academix by Tiwari</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#060a12;
+    color:#fff;
+    min-height:100vh;
+}
+
+/* HEADER */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    padding:16px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(6,10,18,.94);
+    border-bottom:1px solid rgba(0,217,255,.18);
+    backdrop-filter:blur(14px);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:#00d9ff;
+    font-weight:bold;
+    font-size:20px;
+}
+
+.logo-icon{
+    width:38px;
+    height:38px;
+    border-radius:10px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#00d9ff,#8b5cf6);
+    color:#071018;
+    font-weight:bold;
+}
+
+.back{
+    text-decoration:none;
+    color:#00d9ff;
+    border:1px solid #00d9ff;
+    padding:9px 16px;
+    border-radius:9px;
+    transition:.25s;
+}
+
+.back:hover{
+    background:#00d9ff;
+    color:#071018;
+}
+
+
+/* MAIN */
+
+.container{
+    width:92%;
+    max-width:1250px;
+    margin:auto;
+}
+
+
+/* HERO */
+
+.hero{
+    text-align:center;
+    padding:65px 10px 35px;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 15px;
+    border:1px solid rgba(0,217,255,.35);
+    border-radius:30px;
+    color:#00d9ff;
+    font-size:13px;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:48px;
+    background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    margin-bottom:15px;
+}
+
+.hero p{
+    max-width:760px;
+    margin:auto;
+    color:#9ca8ba;
+    line-height:1.7;
+}
+
+
+/* SEARCH */
+
+.search-box{
+    max-width:700px;
+    margin:20px auto 45px;
+    display:flex;
+    gap:10px;
+}
+
+.search-box input{
+    flex:1;
+    padding:14px 17px;
+    background:#0d1421;
+    border:1px solid #29364d;
+    border-radius:10px;
+    color:white;
+    outline:none;
+    font-size:15px;
+}
+
+.search-box input:focus{
+    border-color:#00d9ff;
+}
+
+.search-box button{
+    border:none;
+    padding:14px 22px;
+    border-radius:10px;
+    background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+
+/* TOPIC NAV */
+
+.topic-nav{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:9px;
+    margin-bottom:50px;
+}
+
+.topic-nav button{
+    background:#0d1421;
+    color:#aeb9c9;
+    border:1px solid #263248;
+    padding:9px 13px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.topic-nav button:hover,
+.topic-nav button.active{
+    background:#00d9ff;
+    color:#071018;
+    border-color:#00d9ff;
+}
+
+
+/* NOTE GRID */
+
+.notes-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+    margin-bottom:65px;
+}
+
+.note-card{
+    background:#101827;
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:18px;
+    padding:27px;
+    transition:.3s;
+}
+
+.note-card:hover{
+    transform:translateY(-5px);
+    border-color:rgba(0,217,255,.35);
+    box-shadow:0 15px 35px rgba(0,217,255,.06);
+}
+
+.note-icon{
+    font-size:34px;
+    margin-bottom:14px;
+}
+
+.note-card h2{
+    margin-bottom:12px;
+}
+
+.note-card p{
+    color:#9ca8ba;
+    line-height:1.65;
+    font-size:14px;
+}
+
+.note-card h3{
+    margin-top:20px;
+    margin-bottom:8px;
+    color:#00d9ff;
+    font-size:16px;
+}
+
+.note-list{
+    padding-left:20px;
+    color:#b9c4d3;
+    line-height:1.8;
+    font-size:14px;
+}
+
+.code{
+    margin-top:15px;
+    padding:14px;
+    border-radius:9px;
+    background:#060a12;
+    border:1px solid #263248;
+    color:#bcefff;
+    font-family:Consolas,monospace;
+    font-size:13px;
+    overflow-x:auto;
+}
+
+
+/* QUICK CARDS */
+
+.quick-section{
+    margin-bottom:65px;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:28px;
+}
+
+.section-title h2{
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+.section-title p{
+    color:#8f9bad;
+}
+
+.quick-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+}
+
+.quick-card{
+    background:#101827;
+    border:1px solid rgba(255,255,255,.07);
+    padding:20px;
+    border-radius:15px;
+}
+
+.quick-card strong{
+    display:block;
+    color:#00d9ff;
+    margin-bottom:8px;
+}
+
+.quick-card span{
+    color:#9ca8ba;
+    font-size:13px;
+    line-height:1.5;
+}
+
+
+/* TERMINOLOGY */
+
+.terms{
+    margin-bottom:65px;
+}
+
+.term-table{
+    width:100%;
+    border-collapse:collapse;
+    background:#101827;
+    border-radius:15px;
+    overflow:hidden;
+}
+
+.term-table th,
+.term-table td{
+    padding:15px;
+    text-align:left;
+    border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+.term-table th{
+    color:#00d9ff;
+    background:#0d1421;
+}
+
+.term-table td{
+    color:#b5c0cf;
+    font-size:14px;
+}
+
+
+/* CTA */
+
+.cta{
+    text-align:center;
+    padding:45px 20px;
+    border-radius:20px;
+    background:
+    linear-gradient(
+        135deg,
+        rgba(0,217,255,.07),
+        rgba(139,92,246,.09)
+    );
+    border:1px solid rgba(139,92,246,.22);
+    margin-bottom:60px;
+}
+
+.cta h2{
+    margin-bottom:10px;
+}
+
+.cta p{
+    color:#9ca8ba;
+    margin-bottom:22px;
+}
+
+.cta a{
+    display:inline-block;
+    text-decoration:none;
+    background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+    color:white;
+    padding:12px 24px;
+    border-radius:9px;
+    font-weight:bold;
+}
+
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid rgba(255,255,255,.08);
+    text-align:center;
+    padding:28px;
+    color:#718096;
+    font-size:13px;
+}
+
+footer strong{
+    color:#00d9ff;
+}
+
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .notes-grid{
+        grid-template-columns:1fr;
+    }
+
+    .quick-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:600px){
+
+    .hero h1{
+        font-size:35px;
+    }
+
+    .search-box{
+        flex-direction:column;
+    }
+
+    .quick-grid{
+        grid-template-columns:1fr;
+    }
+
+    .term-table{
+        font-size:12px;
+    }
+
+    .term-table th,
+    .term-table td{
+        padding:10px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            &lt;/&gt;
+        </div>
+
+        Academix IT Knowledge
+
+    </div>
+
+    <a href="computer.html" class="back">
+        ← Computer
+    </a>
+
+</header>
+
+
+
+<div class="container">
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="badge">
+        📚 TECHNOLOGY KNOWLEDGE BASE
+    </div>
+
+    <h1>
+        IT Knowledge Hub
+    </h1>
+
+    <p>
+        Understand the concepts behind computers, programming,
+        websites, networks, cybersecurity, AI and modern technology.
+    </p>
+
+</section>
+
+
+
+<!-- SEARCH -->
+
+<div class="search-box">
+
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="🔎 Search IT topics..."
+        onkeyup="searchNotes()"
+    >
+
+    <button onclick="searchNotes()">
+        Search
+    </button>
+
+</div>
+
+
+
+<!-- TOPIC FILTER -->
+
+<div class="topic-nav">
+
+    <button class="active" onclick="filterNotes('all',this)">
+        All
+    </button>
+
+    <button onclick="filterNotes('fundamentals',this)">
+        💻 Fundamentals
+    </button>
+
+    <button onclick="filterNotes('programming',this)">
+        🐍 Programming
+    </button>
+
+    <button onclick="filterNotes('web',this)">
+        🌐 Web
+    </button>
+
+    <button onclick="filterNotes('network',this)">
+        🌍 Networking
+    </button>
+
+    <button onclick="filterNotes('security',this)">
+        🔐 Security
+    </button>
+
+    <button onclick="filterNotes('ai',this)">
+        🤖 AI
+    </button>
+
+    <button onclick="filterNotes('database',this)">
+        🗄️ Database
+    </button>
+
+    <button onclick="filterNotes('cloud',this)">
+        ☁️ Cloud
+    </button>
+
+</div>
+
+
+
+<!-- NOTES -->
+
+<div class="notes-grid" id="notesGrid">
+
+
+<!-- FUNDAMENTALS -->
+
+<div class="note-card" data-topic="fundamentals">
+
+    <div class="note-icon">💻</div>
+
+    <h2>Computer Fundamentals</h2>
+
+    <p>
+        A computer is an electronic system that accepts
+        input, processes data, stores information and
+        produces output.
+    </p>
+
+    <h3>Basic Cycle</h3>
+
+    <ul class="note-list">
+        <li>Input</li>
+        <li>Processing</li>
+        <li>Storage</li>
+        <li>Output</li>
+    </ul>
+
+    <h3>Important Components</h3>
+
+    <ul class="note-list">
+        <li>CPU — Central Processing Unit</li>
+        <li>RAM — temporary working memory</li>
+        <li>Storage — HDD / SSD</li>
+        <li>Motherboard — connects major components</li>
+    </ul>
+
+</div>
+
+
+
+<!-- PROGRAMMING -->
+
+<div class="note-card" data-topic="programming">
+
+    <div class="note-icon">🐍</div>
+
+    <h2>Programming Fundamentals</h2>
+
+    <p>
+        Programming is the process of giving instructions
+        to a computer to perform a task.
+    </p>
+
+    <h3>Core Concepts</h3>
+
+    <ul class="note-list">
+        <li>Variables</li>
+        <li>Data types</li>
+        <li>Conditions</li>
+        <li>Loops</li>
+        <li>Functions</li>
+        <li>Algorithms</li>
+    </ul>
+
+    <h3>Python Example</h3>
+
+    <div class="code">
+name = "Anshu"<br>
+print("Hello", name)
+    </div>
+
+</div>
+
+
+
+<!-- WEB -->
+
+<div class="note-card" data-topic="web">
+
+    <div class="note-icon">🌐</div>
+
+    <h2>Web Development</h2>
+
+    <p>
+        Web development involves creating websites and
+        web applications that run through browsers.
+    </p>
+
+    <h3>The Three Core Technologies</h3>
+
+    <ul class="note-list">
+        <li>HTML → structure</li>
+        <li>CSS → design and appearance</li>
+        <li>JavaScript → behaviour and interaction</li>
+    </ul>
+
+    <h3>Simple HTML</h3>
+
+    <div class="code">
+&lt;h1&gt;Hello World&lt;/h1&gt;<br>
+&lt;p&gt;My website&lt;/p&gt;
+    </div>
+
+</div>
+
+
+
+<!-- NETWORK -->
+
+<div class="note-card" data-topic="network">
+
+    <div class="note-icon">🌍</div>
+
+    <h2>Computer Networking</h2>
+
+    <p>
+        A computer network allows devices to communicate
+        and share information.
+    </p>
+
+    <h3>Important Terms</h3>
+
+    <ul class="note-list">
+        <li>IP Address → identifies a device on a network</li>
+        <li>DNS → translates domain names to IP addresses</li>
+        <li>Router → forwards network traffic</li>
+        <li>HTTP/HTTPS → web communication protocols</li>
+    </ul>
+
+    <h3>Example</h3>
+
+    <p>
+        When you type a website address, DNS can help
+        find the corresponding server address.
+    </p>
+
+</div>
+
+
+
+<!-- SECURITY -->
+
+<div class="note-card" data-topic="security">
+
+    <div class="note-icon">🔐</div>
+
+    <h2>Cyber Security</h2>
+
+    <p>
+        Cybersecurity protects devices, networks,
+        applications and information from unauthorized
+        access or harmful activity.
+    </p>
+
+    <h3>Common Threats</h3>
+
+    <ul class="note-list">
+        <li>Phishing</li>
+        <li>Malware</li>
+        <li>Weak passwords</li>
+        <li>Social engineering</li>
+    </ul>
+
+    <h3>Basic Safety</h3>
+
+    <ul class="note-list">
+        <li>Use strong unique passwords</li>
+        <li>Enable multi-factor authentication where available</li>
+        <li>Keep software updated</li>
+        <li>Check suspicious links before opening them</li>
+    </ul>
+
+</div>
+
+
+
+<!-- AI -->
+
+<div class="note-card" data-topic="ai">
+
+    <div class="note-icon">🤖</div>
+
+    <h2>Artificial Intelligence</h2>
+
+    <p>
+        Artificial Intelligence refers to computer systems
+        designed to perform tasks that normally require
+        aspects of human intelligence.
+    </p>
+
+    <h3>Related Areas</h3>
+
+    <ul class="note-list">
+        <li>Machine Learning</li>
+        <li>Natural Language Processing</li>
+        <li>Computer Vision</li>
+        <li>Generative AI</li>
+    </ul>
+
+    <h3>Machine Learning</h3>
+
+    <p>
+        Machine learning uses data to train models that
+        can identify patterns and make predictions or
+        classifications.
+    </p>
+
+</div>
+
+
+
+<!-- DATABASE -->
+
+<div class="note-card" data-topic="database">
+
+    <div class="note-icon">🗄️</div>
+
+    <h2>Databases & SQL</h2>
+
+    <p>
+        A database is an organised collection of information
+        that can be stored, managed and retrieved.
+    </p>
+
+    <h3>Database Concepts</h3>
+
+    <ul class="note-list">
+        <li>Table</li>
+        <li>Row</li>
+        <li>Column</li>
+        <li>Primary Key</li>
+        <li>Query</li>
+    </ul>
+
+    <h3>SQL Example</h3>
+
+    <div class="code">
+SELECT * FROM students;
+    </div>
+
+</div>
+
+
+
+<!-- CLOUD -->
+
+<div class="note-card" data-topic="cloud">
+
+    <div class="note-icon">☁️</div>
+
+    <h2>Cloud Computing</h2>
+
+    <p>
+        Cloud computing provides computing resources
+        such as storage, servers and applications over
+        a network, commonly the internet.
+    </p>
+
+    <h3>Examples of Cloud Services</h3>
+
+    <ul class="note-list">
+        <li>Cloud storage</li>
+        <li>Cloud databases</li>
+        <li>Virtual servers</li>
+        <li>Web applications</li>
+    </ul>
+
+</div>
+
+
+
+<!-- OPERATING SYSTEM -->
+
+<div class="note-card" data-topic="fundamentals">
+
+    <div class="note-icon">⚙️</div>
+
+    <h2>Operating Systems</h2>
+
+    <p>
+        An operating system manages computer hardware
+        and provides services for applications and users.
+    </p>
+
+    <h3>Examples</h3>
+
+    <ul class="note-list">
+        <li>Windows</li>
+        <li>Linux</li>
+        <li>Android</li>
+        <li>macOS</li>
+    </ul>
+
+    <h3>Main Responsibilities</h3>
+
+    <ul class="note-list">
+        <li>File management</li>
+        <li>Memory management</li>
+        <li>Process management</li>
+        <li>Device management</li>
+    </ul>
+
+</div>
+
+</div>
+
+
+
+<!-- QUICK REVISION -->
+
+<section class="quick-section">
+
+    <div class="section-title">
+
+        <h2>⚡ Quick Revision</h2>
+
+        <p>
+            Important concepts to remember
+        </p>
+
+    </div>
+
+
+    <div class="quick-grid">
+
+        <div class="quick-card">
+            <strong>CPU</strong>
+            <span>
+                Processes instructions and performs
+                calculations.
+            </span>
+        </div>
+
+        <div class="quick-card">
+            <strong>RAM</strong>
+            <span>
+                Provides temporary working memory
+                for active programs.
+            </span>
+        </div>
+
+        <div class="quick-card">
+            <strong>HTML</strong>
+            <span>
+                Defines the structure of web pages.
+            </span>
+        </div>
+
+        <div class="quick-card">
+            <strong>CSS</strong>
+            <span>
+                Controls the appearance and layout
+                of webpages.
+            </span>
+        </div>
+
+        <div class="quick-card">
+            <strong>JavaScript</strong>
+            <span>
+                Adds programming behaviour and
+                interaction to webpages.
+            </span>
+        </div>
+
+        <div class="quick-card">
+            <strong>DNS</strong>
+            <span>
+                Helps translate domain names into
+                network addresses.
+            </span>
+        </div>
+
+        <div class="quick-card">
+            <strong>AI</strong>
+            <span>
+                Enables computer systems to perform
+                tasks involving aspects of intelligence.
+            </span>
+        </div>
+
+        <div class="quick-card">
+            <strong>SQL</strong>
+            <span>
+                A language commonly used to work
+                with relational databases.
+            </span>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- TERMINOLOGY -->
+
+<section class="terms">
+
+    <div class="section-title">
+
+        <h2>📖 IT Terminology</h2>
+
+        <p>
+            Common terms every technology learner should know
+        </p>
+
+    </div>
+
+
+    <table class="term-table">
+
+        <tr>
+            <th>Term</th>
+            <th>Meaning</th>
+        </tr>
+
+        <tr>
+            <td>Algorithm</td>
+            <td>A step-by-step method for solving a problem.</td>
+        </tr>
+
+        <tr>
+            <td>API</td>
+            <td>A defined way for software systems to communicate.</td>
+        </tr>
+
+        <tr>
+            <td>Browser</td>
+            <td>Software used to access and interact with websites.</td>
+        </tr>
+
+        <tr>
+            <td>Database</td>
+            <td>An organised collection of data.</td>
+        </tr>
+
+        <tr>
+            <td>IP Address</td>
+            <td>A network address associated with a device or interface.</td>
+        </tr>
+
+        <tr>
+            <td>Server</td>
+            <td>A system that provides resources or services to clients.</td>
+        </tr>
+
+        <tr>
+            <td>Source Code</td>
+            <td>Human-readable instructions written by programmers.</td>
+        </tr>
+
+        <tr>
+            <td>Cloud Computing</td>
+            <td>Using remote computing resources through a network.</td>
+        </tr>
+
+    </table>
+
+</section>
+
+
+
+<!-- CTA -->
+
+<div class="cta">
+
+    <h2>Ready to Practice?</h2>
+
+    <p>
+        Reading is only the first step. Build something,
+        solve problems and experiment in the IT Practice Lab.
+    </p>
+
+    <a href="computer-practice.html">
+        Open IT Practice Lab →
+    </a>
+
+</div>
+
+
+</div>
+
+
+
+<footer>
+
+    © 2026 <strong>Academix by Tiwari</strong>
+    <br><br>
+    Developed with ❤️ by ANSHU TIWARI
+
+</footer>
+
+
+
+<script>
+
+
+let currentFilter = "all";
+
+
+function filterNotes(topic,button){
+
+    currentFilter = topic;
+
+    document
+    .querySelectorAll(".topic-nav button")
+    .forEach(function(btn){
+
+        btn.classList.remove("active");
+
+    });
+
+    button.classList.add("active");
+
+    applyFilters();
+
+}
+
+
+function searchNotes(){
+
+    applyFilters();
+
+}
+
+
+function applyFilters(){
+
+    const search =
+        document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+
+    const cards =
+        document.querySelectorAll(".note-card");
+
+
+    cards.forEach(function(card){
+
+        const topic =
+            card.getAttribute("data-topic");
+
+        const text =
+            card.innerText.toLowerCase();
+
+
+        const matchesTopic =
+            currentFilter === "all" ||
+            topic === currentFilter;
+
+
+        const matchesSearch =
+            search === "" ||
+            text.includes(search);
+
+
+        if(matchesTopic && matchesSearch){
+
+            card.style.display = "block";
+
+        }
+
+        else{
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+}
+
+</script>
+
+
+</body>
+</html>

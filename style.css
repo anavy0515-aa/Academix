@@ -1052,3 +1052,273 @@ height: 36px;
     background: #8b5cf6;
     color: white;
 }
+/* ============================= */
+/* ACHARYA FLOATING AI */
+/* ============================= */
+
+.acharya-floating{
+
+    position:fixed;
+
+    right:25px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    z-index:9999;
+
+    animation:acharyaFloat 3s ease-in-out infinite;
+
+}
+
+.acharya-message{
+
+    width:260px;
+
+    padding:17px;
+
+    border-radius:18px;
+
+    background:rgba(8,15,30,.94);
+
+    border:1px solid rgba(0,217,255,.35);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.45),
+        0 0 25px rgba(0,217,255,.08);
+
+    backdrop-filter:blur(15px);
+
+}
+
+.acharya-top{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:12px;
+
+}
+
+.acharya-mini-logo{
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:12px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00d9ff,
+            #8b5cf6
+        );
+
+    color:white;
+
+    font-size:21px;
+
+    box-shadow:
+        0 0 15px rgba(0,217,255,.3);
+
+}
+
+.acharya-name{
+
+    font-weight:bold;
+
+    color:white;
+
+    font-size:15px;
+
+}
+
+.acharya-status{
+
+    color:#22c55e;
+
+    font-size:11px;
+
+    margin-top:2px;
+
+}
+
+.acharya-text{
+
+    color:#cbd5e1;
+
+    font-size:13px;
+
+    line-height:1.5;
+
+    margin-bottom:13px;
+
+}
+
+.acharya-message button{
+
+    width:100%;
+
+    padding:10px;
+
+    border:none;
+
+    border-radius:9px;
+
+    cursor:pointer;
+
+    color:white;
+
+    font-weight:bold;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00d9ff,
+            #8b5cf6
+        );
+
+    transition:.25s;
+
+}
+
+.acharya-message button:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 5px 18px rgba(0,217,255,.25);
+
+}
+
+@keyframes acharyaFloat{
+
+    0%,100%{
+
+        transform:
+            translateY(-50%);
+
+    }
+
+    50%{
+
+        transform:
+            translateY(
+                calc(-50% - 6px)
+            );
+
+    }
+
+}
+
+
+/* ========================= */
+/* ACHARYA AI LOGO */
+/* ========================= */
+
+.acharya-logo {
+    position: fixed;
+
+    right: 25px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 68px;
+    height: 68px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(7, 15, 30, 0.95);
+
+    border: 2px solid rgba(0, 217, 255, 0.5);
+
+    cursor: pointer;
+
+    z-index: 99999;
+
+    box-shadow:
+        0 0 18px rgba(0, 217, 255, 0.35),
+        0 0 35px rgba(139, 92, 246, 0.25);
+
+    animation: acharyaGlow 3s ease-in-out infinite;
+
+    transition: 0.3s ease;
+}
+
+.acharya-svg {
+    width: 52px;
+    height: 52px;
+}
+
+.acharya-logo:hover {
+    transform: translateY(-50%) scale(1.12);
+
+    border-color: #00d9ff;
+
+    box-shadow:
+        0 0 25px rgba(0, 217, 255, 0.65),
+        0 0 50px rgba(139, 92, 246, 0.45);
+}
+
+@keyframes acharyaGlow {
+
+    0% {
+        box-shadow:
+            0 0 18px rgba(0, 217, 255, 0.3),
+            0 0 35px rgba(139, 92, 246, 0.2);
+    }
+
+    50% {
+        box-shadow:
+            0 0 28px rgba(0, 217, 255, 0.55),
+            0 0 45px rgba(139, 92, 246, 0.35);
+    }
+
+    100% {
+        box-shadow:
+            0 0 18px rgba(0, 217, 255, 0.3),
+            0 0 35px rgba(139, 92, 246, 0.2);
+    }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .acharya-logo {
+        right: 18px;
+        bottom: 20px;
+        top: auto;
+
+        transform: none;
+
+        width: 60px;
+        height: 60px;
+    }
+
+    .acharya-svg {
+        width: 46px;
+        height: 46px;
+    }
+
+    .acharya-logo:hover {
+        transform: scale(1.1);
+    }
+}

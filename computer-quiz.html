@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IT Quiz | Academix by Tiwari</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#060b16;
+    color:#fff;
+    min-height:100vh;
+}
+
+header{
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid rgba(0,217,255,.15);
+    background:rgba(5,10,22,.9);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.logo-icon{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#00d9ff,#8b5cf6);
+    color:#fff;
+    font-size:22px;
+    box-shadow:0 0 20px rgba(0,217,255,.3);
+}
+
+.back{
+    color:#00d9ff;
+    text-decoration:none;
+    border:1px solid rgba(0,217,255,.5);
+    padding:9px 16px;
+    border-radius:9px;
+    transition:.25s;
+}
+
+.back:hover{
+    background:#00d9ff;
+    color:#06101b;
+}
+
+.container{
+    width:90%;
+    max-width:1000px;
+    margin:40px auto;
+}
+
+.hero{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.badge{
+    display:inline-block;
+    padding:7px 14px;
+    border-radius:20px;
+    background:rgba(139,92,246,.12);
+    border:1px solid rgba(139,92,246,.4);
+    color:#c4b5fd;
+    font-size:13px;
+    margin-bottom:15px;
+}
+
+h1{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.hero p{
+    color:#9ca3af;
+    font-size:16px;
+}
+
+.quiz-info{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.info-card{
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    padding:16px;
+    border-radius:14px;
+    text-align:center;
+}
+
+.info-card span{
+    display:block;
+    color:#00d9ff;
+    font-size:23px;
+    font-weight:bold;
+    margin-top:5px;
+}
+
+.progress-box{
+    background:#111827;
+    height:9px;
+    border-radius:20px;
+    overflow:hidden;
+    margin-bottom:25px;
+}
+
+.progress{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+    transition:.3s;
+}
+
+.quiz-card{
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+}
+
+.question-number{
+    color:#00d9ff;
+    font-size:14px;
+    margin-bottom:12px;
+}
+
+.question{
+    font-size:24px;
+    line-height:1.4;
+    margin-bottom:25px;
+}
+
+.options{
+    display:grid;
+    gap:13px;
+}
+
+.option{
+    padding:16px 18px;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:12px;
+    background:rgba(255,255,255,.035);
+    cursor:pointer;
+    transition:.2s;
+    font-size:16px;
+}
+
+.option:hover{
+    border-color:#00d9ff;
+    transform:translateY(-2px);
+}
+
+.option.correct{
+    background:rgba(34,197,94,.15);
+    border-color:#22c55e;
+}
+
+.option.wrong{
+    background:rgba(239,68,68,.15);
+    border-color:#ef4444;
+}
+
+.option.disabled{
+    cursor:default;
+}
+
+.feedback{
+    display:none;
+    margin-top:20px;
+    padding:14px;
+    border-radius:10px;
+    background:rgba(0,217,255,.07);
+    border-left:3px solid #00d9ff;
+    color:#d1d5db;
+    line-height:1.5;
+}
+
+.controls{
+    display:flex;
+    justify-content:space-between;
+    margin-top:25px;
+    gap:15px;
+}
+
+button{
+    border:none;
+    cursor:pointer;
+    padding:12px 22px;
+    border-radius:10px;
+    font-size:15px;
+    font-weight:bold;
+}
+
+.next-btn{
+    background:linear-gradient(135deg,#00d9ff,#8b5cf6);
+    color:white;
+}
+
+.next-btn:disabled{
+    opacity:.4;
+    cursor:not-allowed;
+}
+
+.restart-btn{
+    background:#111827;
+    color:#00d9ff;
+    border:1px solid rgba(0,217,255,.4);
+}
+
+.result{
+    display:none;
+    text-align:center;
+    padding:40px 20px;
+}
+
+.result-icon{
+    font-size:60px;
+    margin-bottom:15px;
+}
+
+.result h2{
+    font-size:35px;
+    margin-bottom:10px;
+}
+
+.score{
+    font-size:50px;
+    font-weight:bold;
+    color:#00d9ff;
+    margin:20px;
+}
+
+.result p{
+    color:#9ca3af;
+    margin-bottom:25px;
+}
+
+.result-buttons{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.result-buttons a{
+    text-decoration:none;
+    color:white;
+    padding:12px 20px;
+    border-radius:10px;
+    background:linear-gradient(135deg,#00d9ff,#8b5cf6);
+}
+
+.best-score{
+    margin-top:18px;
+    color:#a5b4fc;
+}
+
+@media(max-width:700px){
+    h1{
+        font-size:32px;
+    }
+
+    .quiz-info{
+        grid-template-columns:1fr;
+    }
+
+    .quiz-card{
+        padding:20px;
+    }
+
+    .question{
+        font-size:20px;
+    }
+
+    header{
+        padding:15px 5%;
+    }
+
+    .logo{
+        font-size:17px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+    <div class="logo-icon">✦</div>
+    Academix by Tiwari
+</div>
+
+<a href="computer.html" class="back">← Back to Computer</a>
+
+</header>
+
+
+<div class="container">
+
+<div class="hero">
+
+<div class="badge">💻 COMPUTER & IT QUIZ</div>
+
+<h1>IT Knowledge Challenge</h1>
+
+<p>
+Test your knowledge of computers, programming, web development,
+networking, AI, databases and cyber safety.
+</p>
+
+</div>
+
+
+<div class="quiz-info">
+
+<div class="info-card">
+Question
+<span id="questionCount">1 / 30</span>
+</div>
+
+<div class="info-card">
+Score
+<span id="score">0</span>
+</div>
+
+<div class="info-card">
+Time
+<span id="timer">15:00</span>
+</div>
+
+</div>
+
+
+<div class="progress-box">
+<div class="progress" id="progress"></div>
+</div>
+
+
+<div class="quiz-card" id="quizCard">
+
+<div class="question-number" id="questionNumber">
+Question 1
+</div>
+
+<div class="question" id="question">
+Loading question...
+</div>
+
+<div class="options" id="options"></div>
+
+<div class="feedback" id="feedback"></div>
+
+<div class="controls">
+
+<button class="restart-btn" onclick="restartQuiz()">
+Restart
+</button>
+
+<button class="next-btn" id="nextBtn" onclick="nextQuestion()" disabled>
+Next →
+</button>
+
+</div>
+
+</div>
+
+
+<div class="result" id="result">
+
+<div class="result-icon">🏆</div>
+
+<h2>Quiz Completed!</h2>
+
+<div class="score" id="finalScore">0%</div>
+
+<p id="resultMessage"></p>
+
+<div class="result-buttons">
+
+<button class="next-btn" onclick="restartQuiz()">
+🔄 Try Again
+</button>
+
+<a href="computer.html">
+💻 Computer Hub
+</a>
+
+</div>
+
+<div class="best-score" id="bestScore"></div>
+
+</div>
+
+</div>
+
+
+<script>
+
+const questions = [
+
+{
+q:"What does CPU stand for?",
+options:[
+"Central Processing Unit",
+"Computer Processing Utility",
+"Central Program Unit",
+"Computer Power Unit"
+],
+answer:0,
+category:"Fundamentals"
+},
+
+{
+q:"Which language is mainly used to structure a web page?",
+options:[
+"HTML",
+"Python",
+"SQL",
+"C++"
+],
+answer:0,
+category:"Web"
+},
+
+{
+q:"Which language is commonly used to style HTML pages?",
+options:[
+"CSS",
+"Python",
+"SQL",
+"Java"
+],
+answer:0,
+category:"Web"
+},
+
+{
+q:"Which language can be used to add interactive behavior to a web page?",
+options:[
+"JavaScript",
+"HTML",
+"SQL",
+"XML"
+],
+answer:0,
+category:"Web"
+},
+
+{
+q:"Which symbol is commonly used to start a comment in Python?",
+options:[
+"#",
+"//",
+"<!--",
+"/*"
+],
+answer:0,
+category:"Python"
+},
+
+{
+q:"What is the output type of 10 / 2 in Python 3?",
+options:[
+"float",
+"integer only",
+"string",
+"boolean"
+],
+answer:0,
+category:"Python"
+},
+
+{
+q:"Which Python function is used to display output?",
+options:[
+"print()",
+"display()",
+"show()",
+"output()"
+],
+answer:0,
+category:"Python"
+},
+
+{
+q:"Which data type stores True or False?",
+options:[
+"Boolean",
+"String",
+"Float",
+"List"
+],
+answer:0,
+category:"Programming"
+},
+
+{
+q:"What does URL stand for?",
+options:[
+"Uniform Resource Locator",
+"Universal Routing Link",
+"Unified Resource Link",
+"User Reference Locator"
+],
+answer:0,
+category:"Internet"
+},
+
+{
+q:"Which device connects different networks together?",
+options:[
+"Router",
+"Keyboard",
+"Monitor",
+"Printer"
+],
+answer:0,
+category:"Networking"
+},
+
+{
+q:"What does IP stand for in networking?",
+options:[
+"Internet Protocol",
+"Internal Program",
+"Internet Provider",
+"Information Port"
+],
+answer:0,
+category:"Networking"
+},
+
+{
+q:"Which protocol is commonly used for secure websites?",
+options:[
+"HTTPS",
+"HTTP",
+"FTP",
+"SMTP"
+],
+answer:0,
+category:"Networking"
+},
+
+{
+q:"What does DNS mainly do?",
+options:[
+"Converts domain names into IP addresses",
+"Stores computer passwords",
+"Creates websites",
+"Encrypts every file"
+],
+answer:0,
+category:"Networking"
+},
+
+{
+q:"Which of these is an operating system?",
+options:[
+"Windows",
+"Google",
+"HTML",
+"Wi-Fi"
+],
+answer:0,
+category:"Operating Systems"
+},
+
+{
+q:"What is RAM mainly used for?",
+options:[
+"Temporary working memory",
+"Permanent file storage",
+"Internet connection",
+"Printing documents"
+],
+answer:0,
+category:"Hardware"
+},
+
+{
+q:"Which storage device has no moving mechanical parts?",
+options:[
+"SSD",
+"HDD",
+"Floppy disk",
+"Optical drive"
+],
+answer:0,
+category:"Hardware"
+},
+
+{
+q:"What does AI stand for?",
+options:[
+"Artificial Intelligence",
+"Automated Internet",
+"Advanced Information",
+"Artificial Internet"
+],
+answer:0,
+category:"AI"
+},
+
+{
+q:"Which is an example of machine learning?",
+options:[
+"A system learning patterns from data",
+"A keyboard typing letters",
+"A monitor displaying pixels",
+"A printer printing a page"
+],
+answer:0,
+category:"AI"
+},
+
+{
+q:"What is a database used for?",
+options:[
+"Organizing and storing data",
+"Cooling a computer",
+"Displaying graphics only",
+"Connecting a keyboard"
+],
+answer:0,
+category:"Database"
+},
+
+{
+q:"Which language is widely used for managing relational databases?",
+options:[
+"SQL",
+"HTML",
+"CSS",
+"Python only"
+],
+answer:0,
+category:"Database"
+},
+
+{
+q:"What does SQL stand for?",
+options:[
+"Structured Query Language",
+"System Question Language",
+"Simple Query Logic",
+"Structured Question Link"
+],
+answer:0,
+category:"Database"
+},
+
+{
+q:"Which command is commonly used to retrieve data from a SQL table?",
+options:[
+"SELECT",
+"PRINT",
+"GETDATA",
+"SHOWALL"
+],
+answer:0,
+category:"Database"
+},
+
+{
+q:"What is phishing?",
+options:[
+"A scam designed to trick people into revealing information",
+"A method of compressing files",
+"A programming language",
+"A database structure"
+],
+answer:0,
+category:"Cyber Safety"
+},
+
+{
+q:"Which is the safest password practice?",
+options:[
+"Use a long unique password",
+"Use your name and birthday",
+"Use 123456",
+"Use the same password everywhere"
+],
+answer:0,
+category:"Cyber Safety"
+},
+
+{
+q:"What does MFA add to an account?",
+options:[
+"An additional verification step",
+"More storage",
+"Faster internet",
+"Extra screen brightness"
+],
+answer:0,
+category:"Cyber Safety"
+},
+
+{
+q:"Which technology is used to encrypt HTTPS connections?",
+options:[
+"TLS",
+"HTML",
+"CSS",
+"RAM"
+],
+answer:0,
+category:"Cyber Safety"
+},
+
+{
+q:"What does cloud computing generally mean?",
+options:[
+"Using computing resources over the internet",
+"Using only offline computers",
+"Storing data only on paper",
+"Repairing computer hardware"
+],
+answer:0,
+category:"Cloud"
+},
+
+{
+q:"Which is an example of cloud storage?",
+options:[
+"Google Drive",
+"Keyboard",
+"CPU",
+"Monitor"
+],
+answer:0,
+category:"Cloud"
+},
+
+{
+q:"What is an algorithm?",
+options:[
+"A step-by-step procedure for solving a problem",
+"A computer screen",
+"A type of cable",
+"A storage device"
+],
+answer:0,
+category:"Programming"
+},
+
+{
+q:"What is debugging?",
+options:[
+"Finding and fixing errors in a program",
+"Deleting the operating system",
+"Designing a keyboard",
+"Connecting to Wi-Fi"
+],
+answer:0,
+category:"Programming"
+}
+
+];
+
+
+let quizQuestions = [];
+let currentQuestion = 0;
+let score = 0;
+let answered = false;
+let timeLeft = 900;
+let timerInterval;
+
+
+function shuffle(array){
+
+    return array.sort(() => Math.random() - 0.5);
+
+}
+
+
+function startQuiz(){
+
+    quizQuestions = shuffle([...questions]);
+
+    currentQuestion = 0;
+    score = 0;
+    answered = false;
+    timeLeft = 900;
+
+    document.getElementById("quizCard").style.display="block";
+    document.getElementById("result").style.display="none";
+
+    document.getElementById("score").textContent="0";
+
+    clearInterval(timerInterval);
+
+    timerInterval=setInterval(updateTimer,1000);
+
+    loadQuestion();
+
+}
+
+
+function updateTimer(){
+
+    let minutes=Math.floor(timeLeft/60);
+    let seconds=timeLeft%60;
+
+    document.getElementById("timer").textContent =
+        String(minutes).padStart(2,"0") + ":" +
+        String(seconds).padStart(2,"0");
+
+    if(timeLeft<=0){
+
+        clearInterval(timerInterval);
+        finishQuiz();
+
+    }
+
+    timeLeft--;
+
+}
+
+
+function loadQuestion(){
+
+    answered=false;
+
+    const q=quizQuestions[currentQuestion];
+
+    document.getElementById("questionNumber").textContent =
+        "Question " + (currentQuestion+1);
+
+    document.getElementById("questionCount").textContent =
+        (currentQuestion+1) + " / " + quizQuestions.length;
+
+    document.getElementById("question").textContent=q.q;
+
+    document.getElementById("feedback").style.display="none";
+
+    document.getElementById("nextBtn").disabled=true;
+
+    let progress=((currentQuestion)/quizQuestions.length)*100;
+
+    document.getElementById("progress").style.width=progress+"%";
+
+    const optionsBox=document.getElementById("options");
+
+    optionsBox.innerHTML="";
+
+    q.options.forEach((option,index)=>{
+
+        const div=document.createElement("div");
+
+        div.className="option";
+
+        div.textContent=option;
+
+        div.onclick=()=>selectAnswer(index,div);
+
+        optionsBox.appendChild(div);
+
+    });
+
+}
+
+
+function selectAnswer(index,element){
+
+    if(answered) return;
+
+    answered=true;
+
+    const q=quizQuestions[currentQuestion];
+
+    const options=document.querySelectorAll(".option");
+
+    options.forEach(opt=>{
+        opt.classList.add("disabled");
+    });
+
+    if(index===q.answer){
+
+        element.classList.add("correct");
+
+        score++;
+
+        document.getElementById("score").textContent=score;
+
+        document.getElementById("feedback").textContent=
+            "✅ Correct! This is the right answer.";
+
+    }else{
+
+        element.classList.add("wrong");
+
+        options[q.answer].classList.add("correct");
+
+        document.getElementById("feedback").textContent=
+            "❌ Not quite. The correct answer is: " +
+            q.options[q.answer];
+
+    }
+
+    document.getElementById("feedback").style.display="block";
+
+    document.getElementById("nextBtn").disabled=false;
+
+}
+
+
+function nextQuestion(){
+
+    if(!answered) return;
+
+    currentQuestion++;
+
+    if(currentQuestion>=quizQuestions.length){
+
+        finishQuiz();
+
+    }else{
+
+        loadQuestion();
+
+    }
+
+}
+
+
+function finishQuiz(){
+
+    clearInterval(timerInterval);
+
+    document.getElementById("quizCard").style.display="none";
+
+    document.getElementById("result").style.display="block";
+
+    document.getElementById("progress").style.width="100%";
+
+    const percentage=Math.round(
+        (score/quizQuestions.length)*100
+    );
+
+    document.getElementById("finalScore").textContent=
+        percentage+"%";
+
+    let message="";
+
+    if(percentage>=90){
+
+        message="Outstanding! Your IT knowledge is excellent. 🚀";
+
+    }else if(percentage>=75){
+
+        message="Great work! You have a strong technology foundation. 💻";
+
+    }else if(percentage>=50){
+
+        message="Good attempt! Keep practicing and strengthen your concepts. 📚";
+
+    }else{
+
+        message="Keep learning! Review the IT Notes and try again. 🔥";
+
+    }
+
+    document.getElementById("resultMessage").textContent=message;
+
+    let best=
+        Number(localStorage.getItem("academixITQuizBest")) || 0;
+
+    if(percentage>best){
+
+        best=percentage;
+
+        localStorage.setItem(
+            "academixITQuizBest",
+            best
+        );
+
+    }
+
+    document.getElementById("bestScore").textContent=
+        "🏆 Best Score: "+best+"%";
+
+    localStorage.setItem(
+        "academixITQuizLastScore",
+        percentage
+    );
+
+}
+
+
+function restartQuiz(){
+
+    startQuiz();
+
+}
+
+
+startQuiz();
+
+</script>
+
+</body>
+</html>

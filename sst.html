@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Social Science | Academix by Tiwari</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#050816;
+    color:white;
+    min-height:100vh;
+}
+
+/* NAVBAR */
+
+.navbar{
+    height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 7%;
+    background:rgba(5,8,22,0.92);
+    border-bottom:1px solid rgba(0,217,255,0.2);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.academix-logo{
+    width:44px;
+    height:44px;
+    border-radius:12px;
+    border:1px solid #00d9ff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 0 15px rgba(0,217,255,0.35);
+}
+
+.logo-svg{
+    width:36px;
+    height:36px;
+}
+
+.logo-text{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.logo-text span{
+    color:#00d9ff;
+}
+
+.nav-links{
+    display:flex;
+    gap:20px;
+    align-items:center;
+}
+
+.nav-links a{
+    color:#ddd;
+    text-decoration:none;
+    padding:9px 14px;
+    border-radius:9px;
+    transition:0.25s;
+}
+
+.nav-links a:hover{
+    color:#00d9ff;
+    background:rgba(0,217,255,0.08);
+}
+
+.login-button{
+    padding:10px 18px;
+    border:1px solid #00d9ff;
+    border-radius:10px;
+    color:#00d9ff !important;
+    font-weight:bold;
+}
+
+.login-button:hover{
+    background:#00d9ff !important;
+    color:#071018 !important;
+}
+
+/* HERO */
+
+.hero{
+    text-align:center;
+    padding:75px 20px 50px;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 16px;
+    border:1px solid rgba(0,217,255,0.4);
+    border-radius:30px;
+    color:#00d9ff;
+    background:rgba(0,217,255,0.06);
+    font-size:14px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+.hero h1 span{
+    background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    max-width:650px;
+    margin:auto;
+    color:#aab2c8;
+    font-size:17px;
+    line-height:1.7;
+}
+
+/* MAIN GRID */
+
+.container{
+    width:86%;
+    max-width:1200px;
+    margin:auto;
+    padding-bottom:70px;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.section-title h2{
+    font-size:30px;
+}
+
+.section-title p{
+    color:#8e98ae;
+    margin-top:8px;
+}
+
+.options{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
+
+/* CARDS */
+
+.card{
+    position:relative;
+    padding:32px;
+    min-height:230px;
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:20px;
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,0.055),
+        rgba(255,255,255,0.015)
+    );
+    backdrop-filter:blur(10px);
+    transition:0.3s;
+    overflow:hidden;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    width:120px;
+    height:120px;
+    background:#00d9ff;
+    filter:blur(80px);
+    opacity:0.08;
+    right:-30px;
+    top:-30px;
+}
+
+.card:hover{
+    transform:translateY(-7px);
+    border-color:rgba(0,217,255,0.5);
+    box-shadow:0 15px 40px rgba(0,217,255,0.08);
+}
+
+.icon{
+    font-size:42px;
+    margin-bottom:18px;
+}
+
+.card h3{
+    font-size:23px;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#9da7bb;
+    line-height:1.6;
+    margin-bottom:22px;
+}
+
+.card-button{
+    display:inline-block;
+    padding:10px 17px;
+    border-radius:10px;
+    border:1px solid #00d9ff;
+    color:#00d9ff;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.25s;
+}
+
+.card-button:hover{
+    background:#00d9ff;
+    color:#061018;
+}
+
+/* VIDEO SECTION */
+
+.video-section{
+    margin-top:60px;
+}
+
+.video-card{
+    max-width:700px;
+    margin:auto;
+    padding:30px;
+    text-align:center;
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:20px;
+    background:rgba(255,255,255,0.035);
+}
+
+.video-icon{
+    font-size:50px;
+    margin-bottom:15px;
+}
+
+.video-card h3{
+    font-size:23px;
+    margin-bottom:10px;
+}
+
+.video-card p{
+    color:#9da7bb;
+    line-height:1.6;
+    margin-bottom:20px;
+}
+
+.youtube-button{
+    display:inline-block;
+    padding:12px 22px;
+    border-radius:10px;
+    background:#ff0033;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.25s;
+}
+
+.youtube-button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 25px rgba(255,0,51,0.25);
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid rgba(255,255,255,0.08);
+    padding:30px 20px;
+    text-align:center;
+    color:#7f899e;
+}
+
+footer strong{
+    color:#00d9ff;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    .navbar{
+        padding:0 20px;
+    }
+
+    .nav-links a:not(.login-button){
+        display:none;
+    }
+
+    .hero{
+        padding-top:55px;
+    }
+
+    .hero h1{
+        font-size:36px;
+    }
+
+    .options{
+        grid-template-columns:1fr;
+    }
+
+    .container{
+        width:92%;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo-area">
+
+        <div class="academix-logo">
+
+            <svg viewBox="0 0 64 64" class="logo-svg">
+
+                <defs>
+                    <linearGradient
+                        id="logoGradient"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="100%">
+                        <stop offset="0%" stop-color="#00d9ff"/>
+                        <stop offset="100%" stop-color="#8b5cf6"/>
+                    </linearGradient>
+                </defs>
+
+                <path
+                    d="M10 18 L32 8 L54 18 L32 28 Z"
+                    fill="none"
+                    stroke="url(#logoGradient)"
+                    stroke-width="4"/>
+
+                <path
+                    d="M16 23 V42 L32 51 L48 42 V23"
+                    fill="none"
+                    stroke="url(#logoGradient)"
+                    stroke-width="4"/>
+
+                <path
+                    d="M32 28 V50"
+                    stroke="url(#logoGradient)"
+                    stroke-width="4"/>
+
+            </svg>
+
+        </div>
+
+        <div class="logo-text">
+            Academix <span>by Tiwari</span>
+        </div>
+
+    </div>
+
+
+    <div class="nav-links">
+
+        <a href="index.html">Home</a>
+
+        <a href="index.html#subjects">Subjects</a>
+
+        <a href="dashboard.html">📊 Dashboard</a>
+
+        <a href="search.html">🔎 Search</a>
+
+        <a href="login.html" class="login-button">
+            🔐 Login
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="badge">
+        📘 Class 9 • Social Science
+    </div>
+
+    <h1>
+        Explore <span>Social Science</span>
+    </h1>
+
+    <p>
+        Learn History, Geography, Civics and Economics
+        through interactive quizzes, maps, videos and
+        exam-focused notes.
+    </p>
+
+</section>
+
+
+
+<!-- MAIN -->
+
+<div class="container">
+
+    <div class="section-title">
+
+        <h2>Social Science Learning Hub</h2>
+
+        <p>
+            Choose how you want to learn today.
+        </p>
+
+    </div>
+
+
+    <div class="options">
+
+
+        <!-- QUIZ -->
+
+        <div class="card">
+
+            <div class="icon">🧠</div>
+
+            <h3>Unlimited Quiz</h3>
+
+            <p>
+                Practice History, Geography, Civics
+                and Economics questions with random
+                questions and instant results.
+            </p>
+
+            <a
+                href="sst-quiz.html"
+                class="card-button">
+
+                Start Quiz →
+
+            </a>
+
+        </div>
+
+
+
+        <!-- MAP -->
+
+        <div class="card">
+
+            <div class="icon">🗺️</div>
+
+            <h3>Interactive Maps</h3>
+
+            <p>
+                Explore India's geography, states,
+                rivers, mountains and important
+                locations through interactive maps.
+            </p>
+
+            <a
+                href="sst-maps.html"
+                class="card-button">
+
+                Explore Maps →
+
+            </a>
+
+        </div>
+
+
+
+        <!-- VIDEOS -->
+
+        <div class="card">
+
+            <div class="icon">🎥</div>
+
+            <h3>Video Resources</h3>
+
+            <p>
+                Learn Social Science concepts through
+                detailed video lectures and visual
+                explanations.
+            </p>
+
+            <a
+                href="#videos"
+                class="card-button">
+
+                Watch Videos →
+
+            </a>
+
+        </div>
+
+
+
+        <!-- NOTES -->
+
+        <div class="card">
+
+            <div class="icon">📚</div>
+
+            <h3>Important Notes</h3>
+
+            <p>
+                Revise important definitions, dates,
+                concepts, facts and exam-focused
+                points in one place.
+            </p>
+
+            <a
+                href="sst-notes.html"
+                class="card-button">
+
+                Open Notes →
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- VIDEO -->
+
+    <section
+        class="video-section"
+        id="videos">
+
+        <div class="section-title">
+
+            <h2>🎥 SST Video Resources</h2>
+
+            <p>
+                Recommended Social Science learning resource
+            </p>
+
+        </div>
+
+
+        <div class="video-card">
+
+            <div class="video-icon">
+                📺
+            </div>
+
+            <h3>
+                Digraj Singh Rajput
+            </h3>
+
+            <p>
+                Social Science lectures, revision,
+                concepts and exam preparation.
+            </p>
+
+            <a
+                href="https://www.youtube.com/@DigrajSinghRajput214"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="youtube-button">
+
+                ▶ Open YouTube Channel
+
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 <strong>Academix by Tiwari</strong>
+    </p>
+
+    <p style="margin-top:8px;">
+        Developed with ❤️ by ANSHU TIWARI
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>

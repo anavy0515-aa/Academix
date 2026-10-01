@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>English Grammar | Academix by Tiwari</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#071018;
+    color:white;
+    line-height:1.6;
+}
+
+/* HEADER */
+
+header{
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#09131d;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+    color:#00d9ff;
+}
+
+.back{
+    text-decoration:none;
+    color:#00d9ff;
+    border:1px solid #00d9ff;
+    padding:9px 16px;
+    border-radius:9px;
+    transition:0.3s;
+}
+
+.back:hover{
+    background:#00d9ff;
+    color:#071018;
+}
+
+
+/* HERO */
+
+.hero{
+    text-align:center;
+    padding:65px 20px 45px;
+}
+
+.hero h1{
+    font-size:46px;
+    margin-bottom:12px;
+    background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    color:#aab7c4;
+    font-size:18px;
+    max-width:700px;
+    margin:auto;
+}
+
+
+/* CONTAINER */
+
+.container{
+    width:90%;
+    max-width:1150px;
+    margin:auto;
+}
+
+
+/* MAIN OPTIONS */
+
+.options{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:22px;
+    margin:25px 0 60px;
+}
+
+.option{
+    text-decoration:none;
+    color:white;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:18px;
+    padding:30px 22px;
+    text-align:center;
+    transition:0.3s;
+}
+
+.option:hover{
+    transform:translateY(-7px);
+    border-color:#00d9ff;
+    box-shadow:0 0 28px rgba(0,217,255,0.15);
+}
+
+.icon{
+    font-size:42px;
+    margin-bottom:14px;
+}
+
+.option h2{
+    color:#00d9ff;
+    margin-bottom:10px;
+}
+
+.option p{
+    color:#aab7c4;
+}
+
+
+/* SECTION */
+
+.section{
+    margin-bottom:60px;
+}
+
+.section-title{
+    color:#8b5cf6;
+    font-size:30px;
+    margin-bottom:22px;
+}
+
+
+/* TOPICS */
+
+.topic-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+    gap:16px;
+}
+
+.topic{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:14px;
+    padding:20px;
+    transition:0.3s;
+}
+
+.topic:hover{
+    transform:translateY(-4px);
+    border-color:#8b5cf6;
+}
+
+.topic h3{
+    color:#00d9ff;
+    margin-bottom:8px;
+}
+
+.topic p{
+    color:#aab7c4;
+    font-size:14px;
+}
+
+
+/* VIDEO */
+
+.video-card{
+    background:linear-gradient(
+        135deg,
+        rgba(0,217,255,0.08),
+        rgba(139,92,246,0.08)
+    );
+
+    border:1px solid rgba(0,217,255,0.25);
+    border-radius:18px;
+    padding:28px;
+    text-align:center;
+}
+
+.video-icon{
+    font-size:50px;
+    margin-bottom:12px;
+}
+
+.video-card h3{
+    font-size:24px;
+    color:#00d9ff;
+    margin-bottom:10px;
+}
+
+.video-card p{
+    color:#aab7c4;
+    max-width:650px;
+    margin:0 auto 20px;
+}
+
+.video-button{
+    display:inline-block;
+    text-decoration:none;
+    color:white;
+    background:linear-gradient(90deg,#00d9ff,#8b5cf6);
+    padding:12px 22px;
+    border-radius:10px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.video-button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 25px rgba(0,217,255,0.2);
+}
+
+
+/* FEATURES */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:18px;
+}
+
+.feature{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.1);
+    padding:22px;
+    border-radius:15px;
+}
+
+.feature h3{
+    color:#00d9ff;
+    margin-bottom:8px;
+}
+
+.feature p{
+    color:#aab7c4;
+}
+
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    margin-top:70px;
+    padding:28px;
+    border-top:1px solid rgba(255,255,255,0.1);
+    color:#8795a3;
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    header{
+        padding:15px 5%;
+    }
+
+    .logo{
+        font-size:18px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+<div class="logo">
+    Academix by Tiwari
+</div>
+
+<a href="index.html" class="back">
+    ← Home
+</a>
+
+</header>
+
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<h1>📖 English Grammar</h1>
+
+<p>
+Master English Grammar with clear concepts,
+practice questions, quizzes and exam-focused preparation.
+</p>
+
+</section>
+
+
+
+<div class="container">
+
+
+<!-- MAIN OPTIONS -->
+
+<section class="options">
+
+
+<a href="english-quiz.html" class="option">
+
+<div class="icon">🧠</div>
+
+<h2>Grammar Quiz</h2>
+
+<p>
+Test your grammar knowledge with
+interactive MCQs and instant results.
+</p>
+
+</a>
+
+
+
+<a href="english-notes.html" class="option">
+
+<div class="icon">📚</div>
+
+<h2>Grammar Notes</h2>
+
+<p>
+Learn important grammar rules,
+examples and common mistakes.
+</p>
+
+</a>
+
+
+
+<a href="english-practice.html" class="option">
+
+<div class="icon">✍️</div>
+
+<h2>Practice Zone</h2>
+
+<p>
+Practice grammar through
+questions, editing and gap filling.
+</p>
+
+</a>
+
+
+
+<a href="english-test.html" class="option">
+
+<div class="icon">🎯</div>
+
+<h2>Grammar Test</h2>
+
+<p>
+Take a complete grammar test
+and check your performance.
+</p>
+
+</a>
+
+
+</section>
+
+
+
+<!-- TOPICS -->
+
+<section class="section">
+
+<h2 class="section-title">
+📚 Grammar Topics
+</h2>
+
+
+<div class="topic-grid">
+
+
+<div class="topic">
+
+<h3>⏳ Tenses</h3>
+
+<p>
+Present, Past and Future Tenses with
+their forms, rules and usage.
+</p>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>🔧 Modals</h3>
+
+<p>
+Can, could, may, might, must,
+should, would and other modals.
+</p>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>📌 Determiners</h3>
+
+<p>
+Articles, quantifiers and other
+determiners used with nouns.
+</p>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>👥 Subject-Verb Agreement</h3>
+
+<p>
+Learn how subjects and verbs
+agree correctly in sentences.
+</p>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>🔄 Reported Speech</h3>
+
+<p>
+Rules for changing direct speech
+into indirect speech.
+</p>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>🔀 Active & Passive Voice</h3>
+
+<p>
+Understand how sentences change
+between active and passive voice.
+</p>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>🔗 Prepositions</h3>
+
+<p>
+Learn the correct use of
+in, on, at, by, for and more.
+</p>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>🔗 Conjunctions</h3>
+
+<p>
+Connect words, phrases and
+sentences correctly.
+</p>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>🧩 Clauses</h3>
+
+<p>
+Understand independent,
+dependent and different types of clauses.
+</p>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>📝 Editing</h3>
+
+<p>
+Find and correct grammatical
+errors in sentences.
+</p>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>🚫 Omission</h3>
+
+<p>
+Identify missing words and
+complete sentences correctly.
+</p>
+
+</div>
+
+
+
+<div class="topic">
+
+<h3>📖 Articles</h3>
+
+<p>
+Correct usage of A, An and The
+in different situations.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- VIDEO RESOURCE -->
+
+<section class="section">
+
+<h2 class="section-title">
+🎥 Video Resources
+</h2>
+
+
+<div class="video-card">
+
+<div class="video-icon">
+📺
+</div>
+
+<h3>Dear Sir English Speaking</h3>
+
+<p>
+Learn English grammar, concepts,
+spoken English and useful language skills
+through video lessons.
+</p>
+
+<a
+href="https://youtube.com/@dearsirenglishspeaking"
+target="_blank"
+class="video-button">
+
+Watch on YouTube →
+
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- FEATURES -->
+
+<section class="section">
+
+<h2 class="section-title">
+⚡ Academix Grammar Tools
+</h2>
+
+
+<div class="features">
+
+
+<div class="feature">
+
+<h3>🧠 Smart Quizzes</h3>
+
+<p>
+Practice grammar questions and
+get instant feedback.
+</p>
+
+</div>
+
+
+
+<div class="feature">
+
+<h3>📊 Progress Tracking</h3>
+
+<p>
+Track your quiz performance
+and improve weak areas.
+</p>
+
+</div>
+
+
+
+<div class="feature">
+
+<h3>🎯 Exam Practice</h3>
+
+<p>
+Focus on the grammar patterns
+commonly used in school exams.
+</p>
+
+</div>
+
+
+
+<div class="feature">
+
+<h3>⚡ Quick Revision</h3>
+
+<p>
+Revise important rules and
+examples whenever you need.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+</div>
+
+
+
+<footer>
+
+© 2026 Academix by Tiwari<br>
+Developed with ❤️ by ANSHU TIWARI
+
+</footer>
+
+
+</body>
+
+</html>
