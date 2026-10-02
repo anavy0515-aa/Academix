@@ -63,6 +63,9 @@ body {
     background: #050b16;
     color: white;
     line-height: 1.6;
+
+    position: relative;
+    overflow-x: hidden;
 }
 
 a {
@@ -75,74 +78,369 @@ button {
 }
 
 
+/* ==================================================
+   ANIMATED ACADEMIX BACKGROUND
+================================================== */
+
+.animated-bg {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -1;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(0, 217, 255, 0.07),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 70%,
+            rgba(139, 92, 246, 0.08),
+            transparent 30%
+        );
+}
+
+
+/* =========================
+   GLOWING ORBS
+========================= */
+
+.bg-orb {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(80px);
+
+    opacity: 0.25;
+
+    animation:
+        backgroundOrb
+        14s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+
+.orb-a {
+
+    width: 320px;
+    height: 320px;
+
+    background: #00d9ff;
+
+    top: -120px;
+    left: -100px;
+}
+
+
+.orb-b {
+
+    width: 380px;
+    height: 380px;
+
+    background: #8b5cf6;
+
+    right: -150px;
+    top: 35%;
+
+    animation-delay: -5s;
+}
+
+
+.orb-c {
+
+    width: 280px;
+    height: 280px;
+
+    background: #00aaff;
+
+    bottom: -130px;
+    left: 40%;
+
+    animation-delay: -9s;
+}
+
+
+/* =========================
+   FLOATING SYMBOLS
+========================= */
+
+.floating-symbols {
+
+    position: absolute;
+
+    inset: 0;
+}
+
+
+.floating-symbols span {
+
+    position: absolute;
+
+    left: var(--x);
+    top: var(--y);
+
+    color:
+        rgba(0, 217, 255, 0.10);
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    user-select: none;
+
+    text-shadow:
+        0 0 18px
+        rgba(0, 217, 255, 0.25);
+
+    animation:
+        symbolFloat
+        9s
+        ease-in-out
+        infinite;
+
+    animation-delay: var(--delay);
+}
+
+
+/* =========================
+   TECHNOLOGY GRID
+========================= */
+
+.grid-lines {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+
+        linear-gradient(
+            rgba(255,255,255,0.018) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.018) 1px,
+            transparent 1px
+        );
+
+    background-size: 70px 70px;
+
+    animation:
+        gridMove
+        25s
+        linear
+        infinite;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 95%
+        );
+}
+
+
+/* =========================
+   BACKGROUND ANIMATIONS
+========================= */
+
+@keyframes backgroundOrb {
+
+    0% {
+
+        transform:
+            translate(0, 0)
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            translate(80px, 50px)
+            scale(1.15);
+
+    }
+
+    100% {
+
+        transform:
+            translate(-40px, 90px)
+            scale(0.95);
+
+    }
+
+}
+
+
+@keyframes symbolFloat {
+
+    0% {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 0.06;
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-35px)
+            rotate(8deg);
+
+        opacity: 0.16;
+
+    }
+
+    100% {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 0.06;
+
+    }
+
+}
+
+
+@keyframes gridMove {
+
+    from {
+
+        transform:
+            translateY(0);
+
+    }
+
+    to {
+
+        transform:
+            translateY(70px);
+
+    }
+
+}
+
+
 /* =========================
    NAVBAR
 ========================= */
 
 .navbar {
+
     position: sticky;
+
     top: 0;
+
     z-index: 9999;
 
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
 
     padding: 14px 6%;
 
-    background: rgba(5, 11, 22, 0.88);
+    background:
+        rgba(5, 11, 22, 0.88);
 
-    border-bottom: 1px solid rgba(0, 217, 255, 0.12);
+    border-bottom:
+        1px solid
+        rgba(0, 217, 255, 0.12);
 
     backdrop-filter: blur(15px);
 }
 
+
 .logo-area {
+
     display: flex;
+
     align-items: center;
+
     gap: 10px;
 }
 
+
 .academix-logo {
+
     width: 44px;
     height: 44px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
     border-radius: 12px;
 
-    border: 1px solid rgba(0, 217, 255, 0.6);
+    border:
+        1px solid
+        rgba(0, 217, 255, 0.6);
 
-    background: rgba(0, 217, 255, 0.05);
+    background:
+        rgba(0, 217, 255, 0.05);
 
     box-shadow:
-        0 0 15px rgba(0, 217, 255, 0.18);
+        0 0 15px
+        rgba(0, 217, 255, 0.18);
 }
 
+
 .logo-svg {
+
     width: 36px;
     height: 36px;
 }
 
+
 .logo-text {
+
     font-size: 20px;
+
     font-weight: 800;
+
     letter-spacing: 0.3px;
 }
 
+
 .logo-text span {
+
     color: #00d9ff;
 }
 
+
 .nav-links {
+
     display: flex;
+
     align-items: center;
+
     gap: 12px;
 }
 
+
 .nav-links a {
+
     padding: 9px 13px;
 
     color: #dbeafe;
@@ -154,15 +452,22 @@ button {
     transition: 0.25s;
 }
 
+
 .nav-links a:hover {
+
     color: #00d9ff;
-    background: rgba(0, 217, 255, 0.08);
+
+    background:
+        rgba(0, 217, 255, 0.08);
 }
 
+
 .login-button {
+
     padding: 10px 18px !important;
 
-    border: 1px solid #00d9ff;
+    border:
+        1px solid #00d9ff;
 
     border-radius: 10px;
 
@@ -171,28 +476,40 @@ button {
     font-weight: bold;
 }
 
+
 .login-button:hover {
+
     background: #00d9ff !important;
+
     color: #071018 !important;
 
-    transform: translateY(-2px);
+    transform:
+        translateY(-2px);
 }
 
+
 .search-nav {
+
     padding: 10px 16px !important;
 
-    border: 1px solid rgba(0, 217, 255, 0.5);
+    border:
+        1px solid
+        rgba(0, 217, 255, 0.5);
 
     border-radius: 10px;
 
     color: #00d9ff !important;
 }
 
+
 .search-nav:hover {
+
     background: #00d9ff !important;
+
     color: #071018 !important;
 
-    transform: translateY(-2px);
+    transform:
+        translateY(-2px);
 }
 
 
@@ -201,10 +518,13 @@ button {
 ========================= */
 
 .hero {
+
     min-height: 88vh;
 
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
 
     gap: 50px;
@@ -224,49 +544,66 @@ button {
         );
 }
 
+
 .hero-content {
+
     max-width: 650px;
 }
 
+
 .hero-badge {
+
     display: inline-block;
 
     padding: 7px 14px;
 
     margin-bottom: 20px;
 
-    border: 1px solid rgba(0, 217, 255, 0.3);
+    border:
+        1px solid
+        rgba(0, 217, 255, 0.3);
 
     border-radius: 20px;
 
     color: #00d9ff;
 
     font-size: 12px;
+
     font-weight: bold;
 
-    background: rgba(0, 217, 255, 0.06);
+    background:
+        rgba(0, 217, 255, 0.06);
 }
 
+
 .hero h1 {
-    font-size: clamp(42px, 6vw, 72px);
+
+    font-size:
+        clamp(42px, 6vw, 72px);
 
     line-height: 1.05;
 
     margin-bottom: 22px;
 }
 
+
 .hero h1 span {
-    background: linear-gradient(
-        90deg,
-        #00d9ff,
-        #8b5cf6
-    );
+
+    background:
+        linear-gradient(
+            90deg,
+            #00d9ff,
+            #8b5cf6
+        );
 
     -webkit-background-clip: text;
+
     -webkit-text-fill-color: transparent;
 }
 
+
 .hero p {
+
     color: #a9b7cc;
 
     font-size: 18px;
@@ -276,23 +613,29 @@ button {
     margin-bottom: 30px;
 }
 
+
 .hero-buttons {
+
     display: flex;
+
     gap: 14px;
 
     flex-wrap: wrap;
 }
 
+
 .primary-button {
+
     padding: 13px 22px;
 
     border-radius: 11px;
 
-    background: linear-gradient(
-        135deg,
-        #00d9ff,
-        #8b5cf6
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #00d9ff,
+            #8b5cf6
+        );
 
     color: white;
 
@@ -301,33 +644,45 @@ button {
     transition: 0.25s;
 }
 
+
 .primary-button:hover {
-    transform: translateY(-3px);
+
+    transform:
+        translateY(-3px);
 
     box-shadow:
-        0 10px 25px rgba(0, 217, 255, 0.2);
+        0 10px 25px
+        rgba(0, 217, 255, 0.2);
 }
 
+
 .secondary-button {
+
     padding: 13px 22px;
 
     border-radius: 11px;
 
-    border: 1px solid rgba(255,255,255,0.15);
+    border:
+        1px solid
+        rgba(255,255,255,0.15);
 
     color: #dbeafe;
 
-    background: rgba(255,255,255,0.04);
+    background:
+        rgba(255,255,255,0.04);
 
     transition: 0.25s;
 }
 
+
 .secondary-button:hover {
+
     border-color: #00d9ff;
 
     color: #00d9ff;
 
-    transform: translateY(-3px);
+    transform:
+        translateY(-3px);
 }
 
 
@@ -336,27 +691,34 @@ button {
 ========================= */
 
 .hero-search {
+
     display: flex;
 
     max-width: 580px;
 
     margin-top: 25px;
 
-    background: rgba(255,255,255,0.04);
+    background:
+        rgba(255,255,255,0.04);
 
-    border: 1px solid rgba(0,217,255,0.2);
+    border:
+        1px solid
+        rgba(0,217,255,0.2);
 
     border-radius: 12px;
 
     overflow: hidden;
 }
 
+
 .hero-search input {
+
     flex: 1;
 
     padding: 14px 16px;
 
     border: none;
+
     outline: none;
 
     background: transparent;
@@ -366,20 +728,25 @@ button {
     font-size: 14px;
 }
 
+
 .hero-search input::placeholder {
+
     color: #7d8da5;
 }
 
+
 .hero-search button {
+
     padding: 0 20px;
 
     border: none;
 
-    background: linear-gradient(
-        135deg,
-        #00d9ff,
-        #8b5cf6
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #00d9ff,
+            #8b5cf6
+        );
 
     color: white;
 
@@ -390,62 +757,83 @@ button {
 
 
 /* =========================
-   HERO DASHBOARD PREVIEW
+   HERO PREVIEW
 ========================= */
 
 .hero-preview {
+
     width: 420px;
 
     padding: 22px;
 
     border-radius: 22px;
 
-    background: rgba(10, 20, 38, 0.8);
+    background:
+        rgba(10, 20, 38, 0.8);
 
-    border: 1px solid rgba(0,217,255,0.2);
+    border:
+        1px solid
+        rgba(0,217,255,0.2);
 
     box-shadow:
-        0 0 50px rgba(0,217,255,0.08);
+        0 0 50px
+        rgba(0,217,255,0.08);
 
     backdrop-filter: blur(15px);
 }
 
+
 .preview-top {
+
     display: flex;
+
     justify-content: space-between;
 
     margin-bottom: 20px;
 }
 
+
 .preview-title {
+
     font-weight: bold;
 }
 
+
 .preview-status {
+
     color: #22c55e;
 
     font-size: 12px;
 }
 
+
 .preview-card {
+
     padding: 18px;
 
     margin-bottom: 12px;
 
     border-radius: 14px;
 
-    background: rgba(255,255,255,0.04);
+    background:
+        rgba(255,255,255,0.04);
 
-    border: 1px solid rgba(255,255,255,0.06);
+    border:
+        1px solid
+        rgba(255,255,255,0.06);
 }
 
+
 .preview-card strong {
+
     display: block;
 
     margin-bottom: 5px;
 }
 
+
 .progress {
+
     height: 7px;
 
     margin-top: 10px;
@@ -457,19 +845,23 @@ button {
     overflow: hidden;
 }
 
+
 .progress span {
+
     display: block;
 
     width: 72%;
+
     height: 100%;
 
     border-radius: 20px;
 
-    background: linear-gradient(
-        90deg,
-        #00d9ff,
-        #8b5cf6
-    );
+    background:
+        linear-gradient(
+            90deg,
+            #00d9ff,
+            #8b5cf6
+        );
 }
 
 
@@ -478,6 +870,7 @@ button {
 ========================= */
 
 .stats {
+
     display: grid;
 
     grid-template-columns:
@@ -488,25 +881,34 @@ button {
     padding: 30px 8%;
 }
 
+
 .stat-card {
+
     padding: 24px;
 
     text-align: center;
 
     border-radius: 16px;
 
-    background: rgba(255,255,255,0.03);
+    background:
+        rgba(255,255,255,0.03);
 
-    border: 1px solid rgba(255,255,255,0.07);
+    border:
+        1px solid
+        rgba(255,255,255,0.07);
 }
 
+
 .stat-card h2 {
+
     color: #00d9ff;
 
     font-size: 30px;
 }
 
+
 .stat-card p {
+
     color: #8998ae;
 
     font-size: 13px;
@@ -518,22 +920,29 @@ button {
 ========================= */
 
 .section {
+
     padding: 80px 8%;
 }
 
+
 .section-heading {
+
     text-align: center;
 
     margin-bottom: 45px;
 }
 
+
 .section-heading h2 {
+
     font-size: 38px;
 
     margin-bottom: 10px;
 }
 
+
 .section-heading p {
+
     color: #8e9bb0;
 }
 
@@ -543,6 +952,7 @@ button {
 ========================= */
 
 .subject-grid {
+
     display: grid;
 
     grid-template-columns:
@@ -551,40 +961,56 @@ button {
     gap: 18px;
 }
 
+
 .subject-card {
+
     padding: 25px 20px;
 
     min-height: 180px;
 
     border-radius: 18px;
 
-    background: rgba(255,255,255,0.035);
+    background:
+        rgba(255,255,255,0.035);
 
-    border: 1px solid rgba(255,255,255,0.07);
+    border:
+        1px solid
+        rgba(255,255,255,0.07);
 
     transition: 0.3s;
 }
 
-.subject-card:hover {
-    transform: translateY(-7px);
 
-    border-color: rgba(0,217,255,0.35);
+.subject-card:hover {
+
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(0,217,255,0.35);
 
     box-shadow:
-        0 15px 35px rgba(0,217,255,0.08);
+        0 15px 35px
+        rgba(0,217,255,0.08);
 }
 
+
 .subject-icon {
+
     font-size: 32px;
 
     margin-bottom: 15px;
 }
 
+
 .subject-card h3 {
+
     margin-bottom: 7px;
 }
 
+
 .subject-card p {
+
     color: #8998ae;
 
     font-size: 13px;
@@ -596,6 +1022,7 @@ button {
 ========================= */
 
 .tools-grid {
+
     display: grid;
 
     grid-template-columns:
@@ -604,7 +1031,9 @@ button {
     gap: 18px;
 }
 
+
 .tool-card {
+
     padding: 28px;
 
     border-radius: 18px;
@@ -616,24 +1045,34 @@ button {
             rgba(139,92,246,0.04)
         );
 
-    border: 1px solid rgba(255,255,255,0.07);
+    border:
+        1px solid
+        rgba(255,255,255,0.07);
 
     transition: 0.3s;
 }
 
-.tool-card:hover {
-    transform: translateY(-6px);
 
-    border-color: rgba(139,92,246,0.35);
+.tool-card:hover {
+
+    transform:
+        translateY(-6px);
+
+    border-color:
+        rgba(139,92,246,0.35);
 }
 
+
 .tool-card .icon {
+
     font-size: 34px;
 
     margin-bottom: 14px;
 }
 
+
 .tool-card p {
+
     color: #8998ae;
 
     font-size: 13px;
@@ -641,7 +1080,9 @@ button {
     margin: 8px 0 18px;
 }
 
+
 .tool-link {
+
     color: #00d9ff;
 
     font-size: 13px;
@@ -656,7 +1097,8 @@ button {
 
 .academix-lab-home {
 
-    margin: 40px 8% 80px;
+    margin:
+        40px 8% 80px;
 
     min-height: 430px;
 
@@ -689,10 +1131,13 @@ button {
         ),
         rgba(255,255,255,0.025);
 
-    border: 1px solid rgba(0,217,255,0.18);
+    border:
+        1px solid
+        rgba(0,217,255,0.18);
 
     box-shadow:
-        0 0 60px rgba(0,217,255,0.06);
+        0 0 60px
+        rgba(0,217,255,0.06);
 }
 
 
@@ -722,15 +1167,19 @@ button {
 
     font-weight: bold;
 
-    border: 1px solid rgba(0,217,255,0.3);
+    border:
+        1px solid
+        rgba(0,217,255,0.3);
 
-    background: rgba(0,217,255,0.06);
+    background:
+        rgba(0,217,255,0.06);
 }
 
 
 .lab-home-content h2 {
 
-    font-size: clamp(32px, 4vw, 48px);
+    font-size:
+        clamp(32px, 4vw, 48px);
 
     line-height: 1.1;
 
@@ -790,10 +1239,12 @@ button {
 
 .lab-home-btn:hover {
 
-    transform: translateY(-4px);
+    transform:
+        translateY(-4px);
 
     box-shadow:
-        0 12px 30px rgba(0,217,255,0.22);
+        0 12px 30px
+        rgba(0,217,255,0.22);
 }
 
 
@@ -839,18 +1290,24 @@ button {
         rgba(7,15,30,0.95);
 
     border:
-        2px solid rgba(0,217,255,0.55);
+        2px solid
+        rgba(0,217,255,0.55);
 
     box-shadow:
-        0 0 25px rgba(0,217,255,0.35),
-        0 0 55px rgba(139,92,246,0.2);
+        0 0 25px
+        rgba(0,217,255,0.35),
+        0 0 55px
+        rgba(139,92,246,0.2);
 
     position: relative;
 
     z-index: 3;
 
     animation:
-        labFloat 3s ease-in-out infinite;
+        labFloat
+        3s
+        ease-in-out
+        infinite;
 }
 
 
@@ -861,9 +1318,11 @@ button {
     border-radius: 50%;
 
     border:
-        1px solid rgba(0,217,255,0.18);
+        1px solid
+        rgba(0,217,255,0.18);
 
-    transform: rotate(-20deg);
+    transform:
+        rotate(-20deg);
 }
 
 
@@ -874,7 +1333,10 @@ button {
     height: 115px;
 
     animation:
-        rotateOrbit 8s linear infinite;
+        rotateOrbit
+        8s
+        linear
+        infinite;
 }
 
 
@@ -885,7 +1347,11 @@ button {
     height: 285px;
 
     animation:
-        rotateOrbit 10s linear infinite reverse;
+        rotateOrbit
+        10s
+        linear
+        infinite
+        reverse;
 }
 
 
@@ -909,17 +1375,22 @@ button {
         rgba(8,17,32,0.95);
 
     border:
-        1px solid rgba(255,255,255,0.15);
+        1px solid
+        rgba(255,255,255,0.15);
 
     font-size: 23px;
 
     box-shadow:
-        0 0 20px rgba(0,217,255,0.15);
+        0 0 20px
+        rgba(0,217,255,0.15);
 
     z-index: 4;
 
     animation:
-        labFloat 3.5s ease-in-out infinite;
+        labFloat
+        3.5s
+        ease-in-out
+        infinite;
 }
 
 
@@ -1006,13 +1477,17 @@ button {
 
 .cta {
 
-    margin: 30px 8% 80px;
+    margin:
+        30px 8% 80px;
 
-    padding: 55px 30px;
+    padding:
+        55px 30px;
 
-    text-align: center;
+    text-align:
+        center;
 
-    border-radius: 25px;
+    border-radius:
+        25px;
 
     background:
         radial-gradient(
@@ -1022,19 +1497,29 @@ button {
             rgba(255,255,255,0.02)
         );
 
-    border: 1px solid rgba(0,217,255,0.15);
+    border:
+        1px solid
+        rgba(0,217,255,0.15);
 }
+
 
 .cta h2 {
-    font-size: 34px;
 
-    margin-bottom: 12px;
+    font-size:
+        34px;
+
+    margin-bottom:
+        12px;
 }
 
-.cta p {
-    color: #94a3b8;
 
-    margin-bottom: 25px;
+.cta p {
+
+    color:
+        #94a3b8;
+
+    margin-bottom:
+        25px;
 }
 
 
@@ -1044,20 +1529,27 @@ button {
 
 .about-developer {
 
-    padding: 20px 8% 80px;
+    padding:
+        20px 8% 80px;
 }
+
 
 .developer-card {
 
-    max-width: 850px;
+    max-width:
+        850px;
 
-    margin: auto;
+    margin:
+        auto;
 
-    padding: 45px 40px;
+    padding:
+        45px 40px;
 
-    text-align: center;
+    text-align:
+        center;
 
-    border-radius: 24px;
+    border-radius:
+        24px;
 
     background:
         linear-gradient(
@@ -1066,13 +1558,18 @@ button {
             rgba(139,92,246,0.06)
         );
 
-    border: 1px solid rgba(0,217,255,0.16);
+    border:
+        1px solid
+        rgba(0,217,255,0.16);
 
     box-shadow:
-        0 0 45px rgba(0,217,255,0.06);
+        0 0 45px
+        rgba(0,217,255,0.06);
 
-    transition: 0.3s;
+    transition:
+        0.3s;
 }
+
 
 .developer-card:hover {
 
@@ -1083,27 +1580,36 @@ button {
         rgba(0,217,255,0.35);
 
     box-shadow:
-        0 15px 45px rgba(0,217,255,0.08);
+        0 15px 45px
+        rgba(0,217,255,0.08);
 }
+
 
 .developer-icon {
 
-    width: 82px;
+    width:
+        82px;
 
-    height: 82px;
+    height:
+        82px;
 
     margin:
         0 auto 20px;
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    border-radius: 50%;
+    border-radius:
+        50%;
 
-    font-size: 38px;
+    font-size:
+        38px;
 
     background:
         linear-gradient(
@@ -1113,17 +1619,22 @@ button {
         );
 
     border:
-        1px solid rgba(0,217,255,0.3);
+        1px solid
+        rgba(0,217,255,0.3);
 
     box-shadow:
-        0 0 25px rgba(0,217,255,0.12);
+        0 0 25px
+        rgba(0,217,255,0.12);
 }
+
 
 .developer-card h3 {
 
-    font-size: 28px;
+    font-size:
+        28px;
 
-    margin-bottom: 8px;
+    margin-bottom:
+        8px;
 
     background:
         linear-gradient(
@@ -1132,33 +1643,46 @@ button {
             #8b5cf6
         );
 
-    -webkit-background-clip: text;
+    -webkit-background-clip:
+        text;
 
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color:
+        transparent;
 }
+
 
 .developer-role {
 
-    color: #dbeafe;
+    color:
+        #dbeafe;
 
-    font-size: 14px;
+    font-size:
+        14px;
 
-    font-weight: bold;
+    font-weight:
+        bold;
 
-    margin-bottom: 18px;
+    margin-bottom:
+        18px;
 }
+
 
 .developer-card p {
 
-    max-width: 680px;
+    max-width:
+        680px;
 
-    margin: auto;
+    margin:
+        auto;
 
-    color: #94a3b8;
+    color:
+        #94a3b8;
 
-    font-size: 15px;
+    font-size:
+        15px;
 
-    line-height: 1.8;
+    line-height:
+        1.8;
 }
 
 
@@ -1168,44 +1692,60 @@ button {
 
 .x-profile {
 
-    display: inline-flex;
+    display:
+        inline-flex;
 
-    width: 48px;
+    width:
+        48px;
 
-    height: 48px;
+    height:
+        48px;
 
-    margin-top: 25px;
+    margin-top:
+        25px;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    border-radius: 50%;
+    border-radius:
+        50%;
 
-    background: #000;
+    background:
+        #000;
 
     border:
-        1px solid rgba(255,255,255,0.25);
+        1px solid
+        rgba(255,255,255,0.25);
 
-    color: white;
+    color:
+        white;
 
-    font-size: 25px;
+    font-size:
+        25px;
 
-    font-weight: bold;
+    font-weight:
+        bold;
 
-    transition: 0.3s;
+    transition:
+        0.3s;
 }
+
 
 .x-profile:hover {
 
     transform:
-        translateY(-4px) scale(1.08);
+        translateY(-4px)
+        scale(1.08);
 
     border-color:
         #00d9ff;
 
     box-shadow:
-        0 0 20px rgba(0,217,255,0.35);
+        0 0 20px
+        rgba(0,217,255,0.35);
 }
 
 
@@ -1215,89 +1755,121 @@ button {
 
 footer {
 
-    padding: 35px 8%;
+    padding:
+        35px 8%;
 
-    text-align: center;
+    text-align:
+        center;
 
     border-top:
-        1px solid rgba(255,255,255,0.06);
+        1px solid
+        rgba(255,255,255,0.06);
 
-    color: #718096;
+    color:
+        #718096;
 
-    font-size: 13px;
+    font-size:
+        13px;
 }
 
+
 footer strong {
-    color: #00d9ff;
+
+    color:
+        #00d9ff;
 }
 
 
 /* =========================
-   ACHARYA AI FLOATING LOGO
+   ACHARYA AI
 ========================= */
 
 .acharya-logo {
 
-    position: fixed;
+    position:
+        fixed;
 
-    right: 25px;
+    right:
+        25px;
 
-    top: 50%;
+    top:
+        50%;
 
     transform:
         translateY(-50%);
 
-    width: 68px;
+    width:
+        68px;
 
-    height: 68px;
+    height:
+        68px;
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    border-radius: 50%;
+    border-radius:
+        50%;
 
     background:
         rgba(7, 15, 30, 0.96);
 
     border:
-        2px solid rgba(0, 217, 255, 0.5);
+        2px solid
+        rgba(0, 217, 255, 0.5);
 
-    cursor: pointer;
+    cursor:
+        pointer;
 
-    z-index: 99999;
+    z-index:
+        99999;
 
     box-shadow:
-        0 0 18px rgba(0, 217, 255, 0.35),
-        0 0 35px rgba(139, 92, 246, 0.25);
+        0 0 18px
+        rgba(0, 217, 255, 0.35),
+        0 0 35px
+        rgba(139, 92, 246, 0.25);
 
     animation:
-        acharyaGlow 3s ease-in-out infinite;
+        acharyaGlow
+        3s
+        ease-in-out
+        infinite;
 
     transition:
         0.3s ease;
 }
 
+
 .acharya-svg {
 
-    width: 52px;
+    width:
+        52px;
 
-    height: 52px;
+    height:
+        52px;
 }
+
 
 .acharya-logo:hover {
 
     transform:
-        translateY(-50%) scale(1.12);
+        translateY(-50%)
+        scale(1.12);
 
     border-color:
         #00d9ff;
 
     box-shadow:
-        0 0 25px rgba(0, 217, 255, 0.65),
-        0 0 50px rgba(139, 92, 246, 0.45);
+        0 0 25px
+        rgba(0, 217, 255, 0.65),
+        0 0 50px
+        rgba(139, 92, 246, 0.45);
 }
 
 
@@ -1306,69 +1878,88 @@ footer strong {
     0% {
 
         box-shadow:
-            0 0 18px rgba(0, 217, 255, 0.3),
-            0 0 35px rgba(139, 92, 246, 0.2);
+            0 0 18px
+            rgba(0, 217, 255, 0.3),
+
+            0 0 35px
+            rgba(139, 92, 246, 0.2);
     }
 
     50% {
 
         box-shadow:
-            0 0 28px rgba(0, 217, 255, 0.55),
-            0 0 45px rgba(139, 92, 246, 0.35);
+            0 0 28px
+            rgba(0, 217, 255, 0.55),
+
+            0 0 45px
+            rgba(139, 92, 246, 0.35);
     }
 
     100% {
 
         box-shadow:
-            0 0 18px rgba(0, 217, 255, 0.3),
-            0 0 35px rgba(139, 92, 246, 0.2);
+            0 0 18px
+            rgba(0, 217, 255, 0.3),
+
+            0 0 35px
+            rgba(139, 92, 246, 0.2);
     }
 
 }
 
 
 /* =========================
-   MOBILE
+   RESPONSIVE
 ========================= */
 
 @media (max-width: 1000px) {
 
     .hero {
 
-        flex-direction: column;
+        flex-direction:
+            column;
 
-        text-align: center;
+        text-align:
+            center;
     }
 
     .hero-content {
 
-        max-width: 750px;
+        max-width:
+            750px;
     }
 
     .hero p {
 
-        margin-left: auto;
+        margin-left:
+            auto;
 
-        margin-right: auto;
+        margin-right:
+            auto;
     }
 
     .hero-buttons {
 
-        justify-content: center;
+        justify-content:
+            center;
     }
 
     .hero-search {
 
-        margin-left: auto;
+        margin-left:
+            auto;
 
-        margin-right: auto;
+        margin-right:
+            auto;
     }
 
     .hero-preview {
 
-        width: 100%;
+        width:
+            100%;
 
-        max-width: 500px;
+        max-width:
+            500px;
     }
 
     .subject-grid {
@@ -1391,7 +1982,8 @@ footer strong {
 
     .nav-links {
 
-        gap: 4px;
+        gap:
+            4px;
     }
 
 }
@@ -1460,6 +2052,28 @@ footer strong {
 
 
 @media (max-width: 700px) {
+
+    .bg-orb {
+
+        filter:
+            blur(65px);
+
+        opacity:
+            0.20;
+    }
+
+    .floating-symbols span {
+
+        font-size:
+            17px;
+    }
+
+    .grid-lines {
+
+        background-size:
+            50px 50px;
+    }
+
 
     .navbar {
 
@@ -1606,9 +2220,57 @@ footer strong {
 <body>
 
 
-<!-- =========================
+<!-- ==================================================
+     ANIMATED BACKGROUND
+================================================== -->
+
+<div class="animated-bg">
+
+    <div class="bg-orb orb-a"></div>
+
+    <div class="bg-orb orb-b"></div>
+
+    <div class="bg-orb orb-c"></div>
+
+
+    <div class="floating-symbols">
+
+        <span style="--x:5%; --y:15%; --delay:0s;">∫</span>
+
+        <span style="--x:14%; --y:70%; --delay:2s;">π</span>
+
+        <span style="--x:27%; --y:25%; --delay:4s;">⚛</span>
+
+        <span style="--x:40%; --y:82%; --delay:1s;">Σ</span>
+
+        <span style="--x:55%; --y:18%; --delay:3s;">λ</span>
+
+        <span style="--x:68%; --y:72%; --delay:5s;">{ }</span>
+
+        <span style="--x:78%; --y:28%; --delay:2s;">∞</span>
+
+        <span style="--x:91%; --y:65%; --delay:4s;">AI</span>
+
+        <span style="--x:85%; --y:12%; --delay:1s;">01</span>
+
+        <span style="--x:32%; --y:55%; --delay:5s;">H₂O</span>
+
+        <span style="--x:62%; --y:42%; --delay:3s;">f(x)</span>
+
+        <span style="--x:10%; --y:40%; --delay:6s;">λ</span>
+
+    </div>
+
+
+    <div class="grid-lines"></div>
+
+</div>
+
+
+
+<!-- ==================================================
      NAVBAR
-========================= -->
+================================================== -->
 
 <nav class="navbar">
 
@@ -1676,7 +2338,12 @@ footer strong {
 
 
         <div class="logo-text">
-            Academix <span>by Tiwari</span>
+
+            Academix
+            <span>
+                by Tiwari
+            </span>
+
         </div>
 
     </a>
@@ -1720,9 +2387,9 @@ footer strong {
 
 
 
-<!-- =========================
+<!-- ==================================================
      HERO
-========================= -->
+================================================== -->
 
 <section class="hero">
 
@@ -1860,9 +2527,9 @@ footer strong {
 
 
 
-<!-- =========================
+<!-- ==================================================
      STATS
-========================= -->
+================================================== -->
 
 <section class="stats">
 
@@ -1921,9 +2588,9 @@ footer strong {
 
 
 
-<!-- =========================
+<!-- ==================================================
      SUBJECTS
-========================= -->
+================================================== -->
 
 <section
     class="section"
@@ -2057,9 +2724,9 @@ footer strong {
 
 
 
-<!-- =========================
+<!-- ==================================================
      TOOLS
-========================= -->
+================================================== -->
 
 <section
     class="section"
@@ -2204,10 +2871,13 @@ footer strong {
 
 
         <h2>
+
             Welcome to
+
             <span>
                 Academix Lab
             </span>
+
         </h2>
 
 
@@ -2271,9 +2941,9 @@ footer strong {
 
 
 
-<!-- =========================
+<!-- ==================================================
      CTA
-========================= -->
+================================================== -->
 
 <section class="cta">
 
@@ -2297,9 +2967,9 @@ footer strong {
 
 
 
-<!-- =========================
+<!-- ==================================================
      ABOUT DEVELOPER
-========================= -->
+================================================== -->
 
 <section
     class="about-developer"
@@ -2348,8 +3018,6 @@ footer strong {
         </p>
 
 
-        <!-- X / TWITTER -->
-
         <a
             href="https://x.com/Avy0515"
             target="_blank"
@@ -2368,32 +3036,37 @@ footer strong {
 
 
 
-<!-- =========================
+<!-- ==================================================
      FOOTER
-========================= -->
+================================================== -->
 
 <footer>
 
     <p>
+
         © 2026
+
         <strong>
             Academix by Tiwari
         </strong>
+
     </p>
 
 
     <p>
+
         Developed with ❤️ by:
         ANSHU TIWARI
+
     </p>
 
 </footer>
 
 
 
-<!-- =========================
+<!-- ==================================================
      ACHARYA AI FLOATING LOGO
-========================= -->
+================================================== -->
 
 <div
     class="acharya-logo"
@@ -2434,8 +3107,6 @@ footer strong {
 
 
 
-        <!-- Outer Ring -->
-
         <circle
             cx="50"
             cy="50"
@@ -2445,9 +3116,6 @@ footer strong {
             stroke-width="4"
         />
 
-
-
-        <!-- AI Brain -->
 
         <path
             d="
@@ -2465,9 +3133,6 @@ footer strong {
             stroke-linecap="round"
         />
 
-
-
-        <!-- Neural Nodes -->
 
         <circle
             cx="42"
@@ -2491,9 +3156,6 @@ footer strong {
         />
 
 
-
-        <!-- Neural Connections -->
-
         <line
             x1="42"
             y1="45"
@@ -2512,9 +3174,6 @@ footer strong {
             stroke-width="2"
         />
 
-
-
-        <!-- Knowledge Rays -->
 
         <line
             x1="50"
@@ -2553,9 +3212,9 @@ footer strong {
 
 
 
-<!-- =========================
+<!-- ==================================================
      JAVASCRIPT
-========================= -->
+================================================== -->
 
 <script>
 
@@ -2566,7 +3225,6 @@ function openAcharya() {
         "acharya.html";
 
 }
-
 
 
 function homeSearch() {
