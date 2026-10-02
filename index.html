@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,8 +10,11 @@
 <meta name="description" content="Academix by Tiwari is a Class 9 learning platform with study notes, quizzes, practice resources, exams, study tools and Acharya AI.">
 
 <meta name="robots" content="index, follow">
+
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
 <link rel="canonical" href="https://anavy0515-aa.github.io/Academix/">
+
 <meta property="og:site_name" content="Academix by Tiwari">
 <meta property="og:title" content="Academix by Tiwari | Class 9 Learning Platform">
 <meta property="og:description" content="Class 9 notes, quizzes, practice, exams, study tools and Acharya AI by Academix by Tiwari.">
@@ -32,13 +33,15 @@
   "name": "Academix by Tiwari",
   "alternateName": "Academix",
   "url": "https://anavy0515-aa.github.io/Academix/",
-  "description": "Academix by Tiwari is a Class 9 learning platform with notes, quizzes, practice, exams, study tools and Acharya AI.",
+  "description": "Academix by Tiwari is a Class 9 learning platform with study notes, quizzes, practice resources, exams, study tools and Acharya AI.",
   "publisher": {
     "@type": "Person",
     "name": "Anshu Tiwari"
   }
 }
 </script>
+
+
 <style>
 
 /* =========================
@@ -88,6 +91,7 @@ button {
     padding: 14px 6%;
 
     background: rgba(5, 11, 22, 0.88);
+
     border-bottom: 1px solid rgba(0, 217, 255, 0.12);
 
     backdrop-filter: blur(15px);
@@ -646,11 +650,362 @@ button {
 }
 
 
+/* ==================================================
+   ACADEMIX LAB
+================================================== */
+
+.academix-lab-home {
+
+    margin: 40px 8% 80px;
+
+    min-height: 430px;
+
+    padding: 55px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 50px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+
+    background:
+        radial-gradient(
+            circle at 15% 50%,
+            rgba(0,217,255,0.12),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 50%,
+            rgba(139,92,246,0.13),
+            transparent 35%
+        ),
+        rgba(255,255,255,0.025);
+
+    border: 1px solid rgba(0,217,255,0.18);
+
+    box-shadow:
+        0 0 60px rgba(0,217,255,0.06);
+}
+
+
+.lab-home-content {
+
+    max-width: 580px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.lab-home-badge {
+
+    display: inline-block;
+
+    padding: 7px 14px;
+
+    margin-bottom: 18px;
+
+    border-radius: 20px;
+
+    color: #00d9ff;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    border: 1px solid rgba(0,217,255,0.3);
+
+    background: rgba(0,217,255,0.06);
+}
+
+
+.lab-home-content h2 {
+
+    font-size: clamp(32px, 4vw, 48px);
+
+    line-height: 1.1;
+
+    margin-bottom: 18px;
+}
+
+
+.lab-home-content h2 span {
+
+    background:
+        linear-gradient(
+            90deg,
+            #00d9ff,
+            #8b5cf6
+        );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+
+.lab-home-content p {
+
+    color: #94a3b8;
+
+    font-size: 16px;
+
+    max-width: 520px;
+
+    margin-bottom: 28px;
+}
+
+
+.lab-home-btn {
+
+    display: inline-block;
+
+    padding: 14px 24px;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00d9ff,
+            #8b5cf6
+        );
+
+    color: white;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+
+.lab-home-btn:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 12px 30px rgba(0,217,255,0.22);
+}
+
+
+/* =========================
+   LAB VISUAL
+========================= */
+
+.lab-home-visual {
+
+    width: 330px;
+
+    height: 330px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+
+.lab-core {
+
+    width: 105px;
+
+    height: 105px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    font-size: 48px;
+
+    background:
+        rgba(7,15,30,0.95);
+
+    border:
+        2px solid rgba(0,217,255,0.55);
+
+    box-shadow:
+        0 0 25px rgba(0,217,255,0.35),
+        0 0 55px rgba(139,92,246,0.2);
+
+    position: relative;
+
+    z-index: 3;
+
+    animation:
+        labFloat 3s ease-in-out infinite;
+}
+
+
+.orbit {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    border:
+        1px solid rgba(0,217,255,0.18);
+
+    transform: rotate(-20deg);
+}
+
+
+.orbit1 {
+
+    width: 245px;
+
+    height: 115px;
+
+    animation:
+        rotateOrbit 8s linear infinite;
+}
+
+
+.orbit2 {
+
+    width: 180px;
+
+    height: 285px;
+
+    animation:
+        rotateOrbit 10s linear infinite reverse;
+}
+
+
+.lab-orb {
+
+    width: 52px;
+
+    height: 52px;
+
+    position: absolute;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(8,17,32,0.95);
+
+    border:
+        1px solid rgba(255,255,255,0.15);
+
+    font-size: 23px;
+
+    box-shadow:
+        0 0 20px rgba(0,217,255,0.15);
+
+    z-index: 4;
+
+    animation:
+        labFloat 3.5s ease-in-out infinite;
+}
+
+
+.orb1 {
+
+    top: 20px;
+
+    left: 135px;
+}
+
+
+.orb2 {
+
+    right: 10px;
+
+    top: 130px;
+
+    animation-delay: 0.5s;
+}
+
+
+.orb3 {
+
+    bottom: 25px;
+
+    left: 130px;
+
+    animation-delay: 1s;
+}
+
+
+.orb4 {
+
+    left: 5px;
+
+    top: 130px;
+
+    animation-delay: 1.5s;
+}
+
+
+@keyframes labFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-10px);
+
+    }
+
+}
+
+
+@keyframes rotateOrbit {
+
+    from {
+
+        transform:
+            rotate(0deg);
+
+    }
+
+    to {
+
+        transform:
+            rotate(360deg);
+
+    }
+
+}
+
+
 /* =========================
    CTA
 ========================= */
 
 .cta {
+
     margin: 30px 8% 80px;
 
     padding: 55px 30px;
@@ -688,11 +1043,14 @@ button {
 ========================= */
 
 .about-developer {
+
     padding: 20px 8% 80px;
 }
 
 .developer-card {
+
     max-width: 850px;
+
     margin: auto;
 
     padding: 45px 40px;
@@ -717,22 +1075,30 @@ button {
 }
 
 .developer-card:hover {
-    transform: translateY(-5px);
 
-    border-color: rgba(0,217,255,0.35);
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(0,217,255,0.35);
 
     box-shadow:
         0 15px 45px rgba(0,217,255,0.08);
 }
 
 .developer-icon {
+
     width: 82px;
+
     height: 82px;
 
-    margin: 0 auto 20px;
+    margin:
+        0 auto 20px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     border-radius: 50%;
@@ -746,13 +1112,15 @@ button {
             rgba(139,92,246,0.12)
         );
 
-    border: 1px solid rgba(0,217,255,0.3);
+    border:
+        1px solid rgba(0,217,255,0.3);
 
     box-shadow:
         0 0 25px rgba(0,217,255,0.12);
 }
 
 .developer-card h3 {
+
     font-size: 28px;
 
     margin-bottom: 8px;
@@ -765,10 +1133,12 @@ button {
         );
 
     -webkit-background-clip: text;
+
     -webkit-text-fill-color: transparent;
 }
 
 .developer-role {
+
     color: #dbeafe;
 
     font-size: 14px;
@@ -779,6 +1149,7 @@ button {
 }
 
 .developer-card p {
+
     max-width: 680px;
 
     margin: auto;
@@ -796,21 +1167,25 @@ button {
 ========================= */
 
 .x-profile {
+
     display: inline-flex;
 
     width: 48px;
+
     height: 48px;
 
     margin-top: 25px;
 
     align-items: center;
+
     justify-content: center;
 
     border-radius: 50%;
 
     background: #000;
 
-    border: 1px solid rgba(255,255,255,0.25);
+    border:
+        1px solid rgba(255,255,255,0.25);
 
     color: white;
 
@@ -822,9 +1197,12 @@ button {
 }
 
 .x-profile:hover {
-    transform: translateY(-4px) scale(1.08);
 
-    border-color: #00d9ff;
+    transform:
+        translateY(-4px) scale(1.08);
+
+    border-color:
+        #00d9ff;
 
     box-shadow:
         0 0 20px rgba(0,217,255,0.35);
@@ -836,11 +1214,13 @@ button {
 ========================= */
 
 footer {
+
     padding: 35px 8%;
 
     text-align: center;
 
-    border-top: 1px solid rgba(255,255,255,0.06);
+    border-top:
+        1px solid rgba(255,255,255,0.06);
 
     color: #718096;
 
@@ -857,25 +1237,33 @@ footer strong {
 ========================= */
 
 .acharya-logo {
+
     position: fixed;
 
     right: 25px;
+
     top: 50%;
 
-    transform: translateY(-50%);
+    transform:
+        translateY(-50%);
 
     width: 68px;
+
     height: 68px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     border-radius: 50%;
 
-    background: rgba(7, 15, 30, 0.96);
+    background:
+        rgba(7, 15, 30, 0.96);
 
-    border: 2px solid rgba(0, 217, 255, 0.5);
+    border:
+        2px solid rgba(0, 217, 255, 0.5);
 
     cursor: pointer;
 
@@ -885,45 +1273,57 @@ footer strong {
         0 0 18px rgba(0, 217, 255, 0.35),
         0 0 35px rgba(139, 92, 246, 0.25);
 
-    animation: acharyaGlow 3s ease-in-out infinite;
+    animation:
+        acharyaGlow 3s ease-in-out infinite;
 
-    transition: 0.3s ease;
+    transition:
+        0.3s ease;
 }
 
 .acharya-svg {
+
     width: 52px;
+
     height: 52px;
 }
 
 .acharya-logo:hover {
-    transform: translateY(-50%) scale(1.12);
 
-    border-color: #00d9ff;
+    transform:
+        translateY(-50%) scale(1.12);
+
+    border-color:
+        #00d9ff;
 
     box-shadow:
         0 0 25px rgba(0, 217, 255, 0.65),
         0 0 50px rgba(139, 92, 246, 0.45);
 }
 
+
 @keyframes acharyaGlow {
 
     0% {
+
         box-shadow:
             0 0 18px rgba(0, 217, 255, 0.3),
             0 0 35px rgba(139, 92, 246, 0.2);
     }
 
     50% {
+
         box-shadow:
             0 0 28px rgba(0, 217, 255, 0.55),
             0 0 45px rgba(139, 92, 246, 0.35);
     }
 
     100% {
+
         box-shadow:
             0 0 18px rgba(0, 217, 255, 0.3),
             0 0 35px rgba(139, 92, 246, 0.2);
     }
+
 }
 
 
@@ -934,146 +1334,270 @@ footer strong {
 @media (max-width: 1000px) {
 
     .hero {
+
         flex-direction: column;
 
         text-align: center;
     }
 
     .hero-content {
+
         max-width: 750px;
     }
 
     .hero p {
+
         margin-left: auto;
+
         margin-right: auto;
     }
 
     .hero-buttons {
+
         justify-content: center;
     }
 
     .hero-search {
+
         margin-left: auto;
+
         margin-right: auto;
     }
 
     .hero-preview {
+
         width: 100%;
+
         max-width: 500px;
     }
 
     .subject-grid {
+
         grid-template-columns:
             repeat(3, 1fr);
     }
 
     .tools-grid {
+
         grid-template-columns:
             repeat(2, 1fr);
     }
 
     .stats {
+
         grid-template-columns:
             repeat(2, 1fr);
     }
 
     .nav-links {
+
         gap: 4px;
     }
+
 }
+
+
+@media (max-width: 800px) {
+
+    .academix-lab-home {
+
+        margin:
+            30px 5% 60px;
+
+        padding:
+            40px 25px;
+
+        flex-direction:
+            column;
+
+        text-align:
+            center;
+    }
+
+    .lab-home-content {
+
+        max-width:
+            100%;
+    }
+
+    .lab-home-content p {
+
+        margin-left:
+            auto;
+
+        margin-right:
+            auto;
+    }
+
+    .lab-home-visual {
+
+        width:
+            280px;
+
+        height:
+            280px;
+    }
+
+    .orbit1 {
+
+        width:
+            210px;
+
+        height:
+            100px;
+    }
+
+    .orbit2 {
+
+        width:
+            155px;
+
+        height:
+            240px;
+    }
+
+}
+
 
 @media (max-width: 700px) {
 
     .navbar {
-        padding: 12px 4%;
+
+        padding:
+            12px 4%;
     }
 
     .nav-links a {
-        display: none;
+
+        display:
+            none;
     }
 
     .logo-text {
-        font-size: 17px;
+
+        font-size:
+            17px;
     }
 
     .hero {
-        padding: 60px 5%;
+
+        padding:
+            60px 5%;
     }
 
     .hero h1 {
-        font-size: 42px;
+
+        font-size:
+            42px;
     }
 
     .hero p {
-        font-size: 15px;
+
+        font-size:
+            15px;
     }
 
     .hero-search {
-        width: 100%;
+
+        width:
+            100%;
     }
 
     .stats {
+
         grid-template-columns:
             repeat(2, 1fr);
 
-        padding: 20px 5%;
+        padding:
+            20px 5%;
     }
 
     .subject-grid {
+
         grid-template-columns:
             repeat(2, 1fr);
     }
 
     .tools-grid {
+
         grid-template-columns:
             1fr;
     }
 
     .section {
-        padding: 60px 5%;
+
+        padding:
+            60px 5%;
     }
 
     .section-heading h2 {
-        font-size: 30px;
+
+        font-size:
+            30px;
     }
 
     .acharya-logo {
-        right: 18px;
-        bottom: 20px;
-        top: auto;
 
-        transform: none;
+        right:
+            18px;
 
-        width: 60px;
-        height: 60px;
+        bottom:
+            20px;
+
+        top:
+            auto;
+
+        transform:
+            none;
+
+        width:
+            60px;
+
+        height:
+            60px;
     }
 
     .acharya-svg {
-        width: 46px;
-        height: 46px;
+
+        width:
+            46px;
+
+        height:
+            46px;
     }
 
     .acharya-logo:hover {
-        transform: scale(1.1);
+
+        transform:
+            scale(1.1);
     }
 
     .about-developer {
-        padding: 20px 5% 60px;
+
+        padding:
+            20px 5% 60px;
     }
 
     .developer-card {
-        padding: 35px 22px;
+
+        padding:
+            35px 22px;
     }
 
     .developer-card h3 {
-        font-size: 24px;
+
+        font-size:
+            24px;
     }
 
     .developer-card p {
-        font-size: 14px;
+
+        font-size:
+            14px;
     }
 
 }
+
 
 </style>
 </head>
@@ -1092,9 +1616,13 @@ footer strong {
 
         <div class="academix-logo">
 
-            <svg viewBox="0 0 64 64" class="logo-svg">
+            <svg
+                viewBox="0 0 64 64"
+                class="logo-svg"
+            >
 
                 <defs>
+
                     <linearGradient
                         id="logoGradient"
                         x1="0%"
@@ -1102,10 +1630,21 @@ footer strong {
                         x2="100%"
                         y2="100%"
                     >
-                        <stop offset="0%" stop-color="#00d9ff"/>
-                        <stop offset="100%" stop-color="#8b5cf6"/>
+
+                        <stop
+                            offset="0%"
+                            stop-color="#00d9ff"
+                        />
+
+                        <stop
+                            offset="100%"
+                            stop-color="#8b5cf6"
+                        />
+
                     </linearGradient>
+
                 </defs>
+
 
                 <path
                     d="M10 20 L32 10 L54 20 L32 30 Z"
@@ -1115,6 +1654,7 @@ footer strong {
                     stroke-linejoin="round"
                 />
 
+
                 <path
                     d="M16 27 V42 L32 51 L48 42 V27"
                     fill="none"
@@ -1122,6 +1662,7 @@ footer strong {
                     stroke-width="4"
                     stroke-linejoin="round"
                 />
+
 
                 <path
                     d="M32 30 V50"
@@ -1133,6 +1674,7 @@ footer strong {
 
         </div>
 
+
         <div class="logo-text">
             Academix <span>by Tiwari</span>
         </div>
@@ -1142,19 +1684,33 @@ footer strong {
 
     <div class="nav-links">
 
-        <a href="index.html">Home</a>
+        <a href="index.html">
+            Home
+        </a>
 
-        <a href="#subjects">Subjects</a>
+        <a href="#subjects">
+            Subjects
+        </a>
 
-        <a href="dashboard.html">📊 Dashboard</a>
+        <a href="dashboard.html">
+            📊 Dashboard
+        </a>
 
-        <a href="#tools">Tools</a>
+        <a href="#tools">
+            Tools
+        </a>
 
-        <a href="search.html" class="search-nav">
+        <a
+            href="search.html"
+            class="search-nav"
+        >
             🔎 Search
         </a>
 
-        <a href="login.html" class="login-button">
+        <a
+            href="login.html"
+            class="login-button"
+        >
             🔐 Login
         </a>
 
@@ -1176,25 +1732,41 @@ footer strong {
             🚀 SMART LEARNING PLATFORM
         </div>
 
+
         <h1>
+
             Learn Smarter.<br>
-            <span>Build Your Future.</span>
+
+            <span>
+                Build Your Future.
+            </span>
+
         </h1>
 
+
         <p>
+
             Academix by Tiwari is your modern learning platform
             for notes, quizzes, practice, exams, study tools
             and AI-powered learning.
+
         </p>
 
 
         <div class="hero-buttons">
 
-            <a href="#subjects" class="primary-button">
+            <a
+                href="#subjects"
+                class="primary-button"
+            >
                 Start Learning →
             </a>
 
-            <a href="dashboard.html" class="secondary-button">
+
+            <a
+                href="dashboard.html"
+                class="secondary-button"
+            >
                 Open Dashboard
             </a>
 
@@ -1210,7 +1782,10 @@ footer strong {
                 onkeydown="if(event.key==='Enter') homeSearch()"
             >
 
-            <button onclick="homeSearch()">
+
+            <button
+                onclick="homeSearch()"
+            >
                 Search
             </button>
 
@@ -1292,23 +1867,54 @@ footer strong {
 <section class="stats">
 
     <div class="stat-card">
-        <h2>5</h2>
-        <p>Core Subjects</p>
+
+        <h2>
+            5
+        </h2>
+
+        <p>
+            Core Subjects
+        </p>
+
     </div>
 
-    <div class="stat-card">
-        <h2>100+</h2>
-        <p>Learning Topics</p>
-    </div>
 
     <div class="stat-card">
-        <h2>4+</h2>
-        <p>Study Tools</p>
+
+        <h2>
+            100+
+        </h2>
+
+        <p>
+            Learning Topics
+        </p>
+
     </div>
 
+
     <div class="stat-card">
-        <h2>24/7</h2>
-        <p>Learn Anytime</p>
+
+        <h2>
+            4+
+        </h2>
+
+        <p>
+            Study Tools
+        </p>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <h2>
+            24/7
+        </h2>
+
+        <p>
+            Learn Anytime
+        </p>
+
     </div>
 
 </section>
@@ -1319,11 +1925,16 @@ footer strong {
      SUBJECTS
 ========================= -->
 
-<section class="section" id="subjects">
+<section
+    class="section"
+    id="subjects"
+>
 
     <div class="section-heading">
 
-        <h2>Explore Subjects</h2>
+        <h2>
+            Explore Subjects
+        </h2>
 
         <p>
             Choose a subject and start learning.
@@ -1335,11 +1946,18 @@ footer strong {
     <div class="subject-grid">
 
 
-        <a href="math.html" class="subject-card">
+        <a
+            href="math.html"
+            class="subject-card"
+        >
 
-            <div class="subject-icon">📐</div>
+            <div class="subject-icon">
+                📐
+            </div>
 
-            <h3>Mathematics</h3>
+            <h3>
+                Mathematics
+            </h3>
 
             <p>
                 Concepts, formulas, chapters,
@@ -1349,11 +1967,18 @@ footer strong {
         </a>
 
 
-        <a href="science.html" class="subject-card">
+        <a
+            href="science.html"
+            class="subject-card"
+        >
 
-            <div class="subject-icon">🔬</div>
+            <div class="subject-icon">
+                🔬
+            </div>
 
-            <h3>Science</h3>
+            <h3>
+                Science
+            </h3>
 
             <p>
                 Physics, Chemistry, Biology,
@@ -1363,11 +1988,18 @@ footer strong {
         </a>
 
 
-        <a href="sst.html" class="subject-card">
+        <a
+            href="sst.html"
+            class="subject-card"
+        >
 
-            <div class="subject-icon">🌍</div>
+            <div class="subject-icon">
+                🌍
+            </div>
 
-            <h3>Social Science</h3>
+            <h3>
+                Social Science
+            </h3>
 
             <p>
                 History, Geography, Civics
@@ -1377,11 +2009,18 @@ footer strong {
         </a>
 
 
-        <a href="english.html" class="subject-card">
+        <a
+            href="english.html"
+            class="subject-card"
+        >
 
-            <div class="subject-icon">📖</div>
+            <div class="subject-icon">
+                📖
+            </div>
 
-            <h3>English</h3>
+            <h3>
+                English
+            </h3>
 
             <p>
                 Grammar, practice,
@@ -1391,11 +2030,18 @@ footer strong {
         </a>
 
 
-        <a href="computer.html" class="subject-card">
+        <a
+            href="computer.html"
+            class="subject-card"
+        >
 
-            <div class="subject-icon">💻</div>
+            <div class="subject-icon">
+                💻
+            </div>
 
-            <h3>Computer</h3>
+            <h3>
+                Computer
+            </h3>
 
             <p>
                 Programming, web development,
@@ -1415,11 +2061,16 @@ footer strong {
      TOOLS
 ========================= -->
 
-<section class="section" id="tools">
+<section
+    class="section"
+    id="tools"
+>
 
     <div class="section-heading">
 
-        <h2>Powerful Study Tools</h2>
+        <h2>
+            Powerful Study Tools
+        </h2>
 
         <p>
             Everything you need to study smarter.
@@ -1431,11 +2082,18 @@ footer strong {
     <div class="tools-grid">
 
 
-        <a href="focus.html" class="tool-card">
+        <a
+            href="focus.html"
+            class="tool-card"
+        >
 
-            <div class="icon">⏱️</div>
+            <div class="icon">
+                ⏱️
+            </div>
 
-            <h3>Focus Timer</h3>
+            <h3>
+                Focus Timer
+            </h3>
 
             <p>
                 Improve concentration with
@@ -1449,11 +2107,18 @@ footer strong {
         </a>
 
 
-        <a href="calculator.html" class="tool-card">
+        <a
+            href="calculator.html"
+            class="tool-card"
+        >
 
-            <div class="icon">🧮</div>
+            <div class="icon">
+                🧮
+            </div>
 
-            <h3>Scientific Calculator</h3>
+            <h3>
+                Scientific Calculator
+            </h3>
 
             <p>
                 Solve mathematical calculations
@@ -1467,11 +2132,18 @@ footer strong {
         </a>
 
 
-        <a href="dashboard.html" class="tool-card">
+        <a
+            href="dashboard.html"
+            class="tool-card"
+        >
 
-            <div class="icon">📊</div>
+            <div class="icon">
+                📊
+            </div>
 
-            <h3>Student Dashboard</h3>
+            <h3>
+                Student Dashboard
+            </h3>
 
             <p>
                 Track your study time,
@@ -1485,11 +2157,18 @@ footer strong {
         </a>
 
 
-        <a href="exam.html" class="tool-card">
+        <a
+            href="exam.html"
+            class="tool-card"
+        >
 
-            <div class="icon">🎯</div>
+            <div class="icon">
+                🎯
+            </div>
 
-            <h3>Exam Simulator</h3>
+            <h3>
+                Exam Simulator
+            </h3>
 
             <p>
                 Practice timed exams and
@@ -1504,6 +2183,89 @@ footer strong {
 
 
     </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     ACADEMIX LAB
+================================================== -->
+
+<section class="academix-lab-home">
+
+
+    <div class="lab-home-content">
+
+
+        <div class="lab-home-badge">
+            ✦ INTERACTIVE LEARNING
+        </div>
+
+
+        <h2>
+            Welcome to
+            <span>
+                Academix Lab
+            </span>
+        </h2>
+
+
+        <p>
+
+            Don't just read concepts.
+            Experiment with them, change variables
+            and discover what happens.
+
+        </p>
+
+
+        <a
+            href="lab.html"
+            class="lab-home-btn"
+        >
+            🧪 Enter Academix Lab →
+        </a>
+
+    </div>
+
+
+
+    <div class="lab-home-visual">
+
+
+        <div class="orbit orbit1"></div>
+
+        <div class="orbit orbit2"></div>
+
+
+        <div class="lab-core">
+            🧪
+        </div>
+
+
+        <div class="lab-orb orb1">
+            ⚡
+        </div>
+
+
+        <div class="lab-orb orb2">
+            🧬
+        </div>
+
+
+        <div class="lab-orb orb3">
+            📐
+        </div>
+
+
+        <div class="lab-orb orb4">
+            💻
+        </div>
+
+
+    </div>
+
 
 </section>
 
@@ -1524,7 +2286,10 @@ footer strong {
         one topic at a time.
     </p>
 
-    <a href="#subjects" class="primary-button">
+    <a
+        href="#subjects"
+        class="primary-button"
+    >
         Start Learning →
     </a>
 
@@ -1536,7 +2301,10 @@ footer strong {
      ABOUT DEVELOPER
 ========================= -->
 
-<section class="about-developer" id="developer">
+<section
+    class="about-developer"
+    id="developer"
+>
 
     <div class="section-heading">
 
@@ -1552,6 +2320,7 @@ footer strong {
 
 
     <div class="developer-card">
+
 
         <div class="developer-icon">
             👨‍💻
@@ -1569,11 +2338,13 @@ footer strong {
 
 
         <p>
+
             Academix by Tiwari is created with the vision
             of making learning simple, organized and
             accessible for students. The platform brings
             learning resources, practice, study tools and
             AI-powered learning together in one place.
+
         </p>
 
 
@@ -1590,6 +2361,7 @@ footer strong {
             𝕏
         </a>
 
+
     </div>
 
 </section>
@@ -1603,11 +2375,16 @@ footer strong {
 <footer>
 
     <p>
-        © 2026 <strong>Academix by Tiwari</strong>
+        © 2026
+        <strong>
+            Academix by Tiwari
+        </strong>
     </p>
 
+
     <p>
-        Developed with ❤️ by: ANSHU TIWARI
+        Developed with ❤️ by:
+        ANSHU TIWARI
     </p>
 
 </footer>
@@ -1624,10 +2401,12 @@ footer strong {
     title="Acharya AI"
 >
 
+
     <svg
         viewBox="0 0 100 100"
         class="acharya-svg"
     >
+
 
         <defs>
 
@@ -1654,6 +2433,7 @@ footer strong {
         </defs>
 
 
+
         <!-- Outer Ring -->
 
         <circle
@@ -1664,6 +2444,7 @@ footer strong {
             stroke="url(#acharyaGradient)"
             stroke-width="4"
         />
+
 
 
         <!-- AI Brain -->
@@ -1683,6 +2464,7 @@ footer strong {
             stroke-width="4"
             stroke-linecap="round"
         />
+
 
 
         <!-- Neural Nodes -->
@@ -1709,6 +2491,7 @@ footer strong {
         />
 
 
+
         <!-- Neural Connections -->
 
         <line
@@ -1728,6 +2511,7 @@ footer strong {
             stroke="#8b5cf6"
             stroke-width="2"
         />
+
 
 
         <!-- Knowledge Rays -->
@@ -1762,6 +2546,7 @@ footer strong {
             stroke-linecap="round"
         />
 
+
     </svg>
 
 </div>
@@ -1774,32 +2559,41 @@ footer strong {
 
 <script>
 
+
 function openAcharya() {
 
-    window.location.href = "acharya.html";
+    window.location.href =
+        "acharya.html";
 
 }
+
 
 
 function homeSearch() {
 
     const query =
-        document.getElementById("homeSearch")
+        document
+        .getElementById("homeSearch")
         .value
         .trim();
 
+
     if (query === "") {
 
-        window.location.href = "search.html";
+        window.location.href =
+            "search.html";
 
         return;
+
     }
+
 
     window.location.href =
         "search.html?query=" +
         encodeURIComponent(query);
 
 }
+
 
 </script>
 
