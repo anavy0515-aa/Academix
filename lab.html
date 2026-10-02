@@ -1,0 +1,3214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Academix Lab | Academix by Tiwari</title>
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    min-height:100vh;
+
+    color:white;
+
+    background:
+    radial-gradient(
+        circle at 15% 15%,
+        rgba(0,220,255,.13),
+        transparent 30%
+    ),
+
+    radial-gradient(
+        circle at 85% 75%,
+        rgba(130,80,255,.14),
+        transparent 32%
+    ),
+
+    #050914;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+
+    height:70px;
+
+    padding:0 6%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+    background:rgba(5,9,20,.82);
+
+    backdrop-filter:blur(15px);
+
+    border-bottom:
+    1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+
+    font-size:21px;
+
+    font-weight:bold;
+}
+
+.logo span{
+
+    background:
+    linear-gradient(
+        90deg,
+        #00e5ff,
+        #9b6cff
+    );
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+}
+
+.home{
+
+    text-decoration:none;
+
+    color:#b9c4d7;
+
+    padding:10px 18px;
+
+    border-radius:25px;
+
+    transition:.3s;
+}
+
+.home:hover{
+
+    color:white;
+
+    background:
+    rgba(255,255,255,.08);
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+
+    text-align:center;
+
+    padding:
+    70px 20px 45px;
+}
+
+.badge{
+
+    display:inline-block;
+
+    padding:8px 16px;
+
+    border-radius:30px;
+
+    background:
+    rgba(255,255,255,.05);
+
+    border:
+    1px solid rgba(255,255,255,.1);
+
+    color:#7deaff;
+
+    font-size:12px;
+
+    letter-spacing:1.5px;
+
+    margin-bottom:20px;
+}
+
+.hero h1{
+
+    font-size:
+    clamp(40px,7vw,68px);
+
+    margin-bottom:15px;
+}
+
+.hero h1 span{
+
+    background:
+    linear-gradient(
+        90deg,
+        #00e5ff,
+        #9b6cff
+    );
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+}
+
+.hero p{
+
+    max-width:650px;
+
+    margin:auto;
+
+    color:#9ca9bd;
+
+    font-size:17px;
+
+    line-height:1.7;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+
+    width:92%;
+
+    max-width:1200px;
+
+    margin:auto;
+}
+
+
+/* =========================
+   LAB NAV
+========================= */
+
+.lab-nav{
+
+    display:flex;
+
+    gap:10px;
+
+    overflow-x:auto;
+
+    padding:
+    5px 0 25px;
+
+    scrollbar-width:none;
+}
+
+.lab-nav::-webkit-scrollbar{
+    display:none;
+}
+
+.nav-btn{
+
+    white-space:nowrap;
+
+    padding:
+    12px 19px;
+
+    border-radius:25px;
+
+    border:
+    1px solid rgba(255,255,255,.09);
+
+    background:
+    rgba(255,255,255,.045);
+
+    color:#aeb9cc;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.nav-btn:hover,
+.nav-btn.active{
+
+    color:white;
+
+    border-color:transparent;
+
+    background:
+    linear-gradient(
+        90deg,
+        #00aeca,
+        #7655e8
+    );
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+.lab-section{
+
+    display:none;
+
+    animation:
+    sectionIn .35s ease;
+}
+
+.lab-section.active{
+
+    display:block;
+}
+
+@keyframes sectionIn{
+
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+
+/* =========================
+   SECTION HEADER
+========================= */
+
+.section-header{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:20px;
+}
+
+.section-header h2{
+
+    font-size:28px;
+}
+
+.section-header p{
+
+    color:#7f8da3;
+
+    margin-top:5px;
+
+    font-size:14px;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.card-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:16px;
+}
+
+.card{
+
+    min-height:175px;
+
+    padding:25px;
+
+    border-radius:22px;
+
+    background:
+    rgba(255,255,255,.045);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
+    transition:.3s;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+
+    height:120px;
+
+    background:
+    rgba(0,220,255,.09);
+
+    filter:blur(35px);
+
+    top:-50px;
+
+    right:-50px;
+}
+
+.card:hover{
+
+    transform:
+    translateY(-6px);
+
+    border-color:
+    rgba(255,255,255,.18);
+
+    background:
+    rgba(255,255,255,.07);
+}
+
+.card-icon{
+
+    font-size:40px;
+
+    margin-bottom:15px;
+}
+
+.card h3{
+
+    margin-bottom:8px;
+
+    font-size:20px;
+}
+
+.card p{
+
+    color:#929fb4;
+
+    font-size:14px;
+
+    line-height:1.6;
+}
+
+.card button{
+
+    margin-top:16px;
+
+    padding:9px 15px;
+
+    border:0;
+
+    border-radius:20px;
+
+    color:white;
+
+    background:
+    rgba(255,255,255,.08);
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.card button:hover{
+
+    background:
+    #00aeca;
+}
+
+
+/* =========================
+   MOTION LAB
+========================= */
+
+.simulator{
+
+    padding:24px;
+
+    border-radius:25px;
+
+    background:
+    rgba(255,255,255,.045);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+}
+
+.sim-title{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:18px;
+}
+
+.live{
+
+    color:#62efad;
+
+    font-size:12px;
+}
+
+
+/* TRACK */
+
+.track{
+
+    height:260px;
+
+    border-radius:20px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+
+    linear-gradient(
+        rgba(255,255,255,.04) 1px,
+        transparent 1px
+    ),
+
+    linear-gradient(
+        90deg,
+        rgba(255,255,255,.04) 1px,
+        transparent 1px
+    ),
+
+    #070d1a;
+
+    background-size:
+    40px 40px;
+}
+
+.road{
+
+    position:absolute;
+
+    left:0;
+
+    right:0;
+
+    bottom:45px;
+
+    height:3px;
+
+    background:#43516a;
+}
+
+.car{
+
+    position:absolute;
+
+    left:20px;
+
+    bottom:60px;
+
+    font-size:54px;
+
+    transition:
+    left .05s linear;
+
+    filter:
+    drop-shadow(
+        0 0 14px
+        rgba(0,220,255,.45)
+    );
+}
+
+
+/* CONTROLS */
+
+.controls{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:15px;
+
+    margin-top:18px;
+}
+
+.control{
+
+    padding:18px;
+
+    border-radius:17px;
+
+    background:
+    rgba(255,255,255,.04);
+}
+
+.control-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:10px;
+}
+
+.control-top span:last-child{
+
+    color:#6eeaff;
+
+    font-weight:bold;
+}
+
+input[type="range"]{
+
+    width:100%;
+
+    accent-color:#00d9ff;
+}
+
+
+/* BUTTONS */
+
+.action-buttons{
+
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    margin-top:18px;
+}
+
+.action-buttons button{
+
+    border:0;
+
+    padding:
+    12px 19px;
+
+    border-radius:25px;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-weight:bold;
+}
+
+.start{
+
+    background:
+    linear-gradient(
+        90deg,
+        #00bcd4,
+        #4169e1
+    );
+}
+
+.pause{
+
+    background:
+    rgba(255,255,255,.08);
+}
+
+.reset{
+
+    background:
+    rgba(255,80,100,.13);
+}
+
+
+/* STATS */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:12px;
+
+    margin-top:18px;
+}
+
+.stat{
+
+    padding:17px;
+
+    border-radius:17px;
+
+    background:
+    rgba(255,255,255,.04);
+}
+
+.stat small{
+
+    color:#77859b;
+}
+
+.stat strong{
+
+    display:block;
+
+    font-size:22px;
+
+    margin-top:7px;
+}
+
+
+/* =========================
+   GRAPH
+========================= */
+
+.graph-box{
+
+    margin-top:18px;
+
+    height:200px;
+
+    padding:15px;
+
+    border-radius:18px;
+
+    background:#070d18;
+}
+
+canvas{
+
+    width:100%;
+
+    height:100%;
+}
+
+
+/* =========================
+   TOOLS
+========================= */
+
+.tool-box{
+
+    margin-top:20px;
+
+    padding:25px;
+
+    border-radius:22px;
+
+    background:
+    rgba(255,255,255,.045);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+}
+
+.tool-box h3{
+
+    margin-bottom:15px;
+}
+
+.tool-row{
+
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+}
+
+.tool-row input{
+
+    flex:1;
+
+    min-width:150px;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    border:
+    1px solid rgba(255,255,255,.1);
+
+    background:#080e1b;
+
+    color:white;
+
+    outline:none;
+}
+
+.tool-row button{
+
+    padding:12px 18px;
+
+    border:0;
+
+    border-radius:10px;
+
+    background:#00aeca;
+
+    color:white;
+
+    cursor:pointer;
+}
+
+.result{
+
+    margin-top:15px;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    background:#080e1b;
+
+    color:#9ceeff;
+
+    min-height:48px;
+}
+
+
+/* =========================
+   CHEMISTRY
+========================= */
+
+.atom{
+
+    width:180px;
+
+    height:180px;
+
+    margin:
+    25px auto;
+
+    position:relative;
+}
+
+.nucleus{
+
+    position:absolute;
+
+    width:55px;
+
+    height:55px;
+
+    top:62px;
+
+    left:62px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:50%;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ff6b6b,
+        #9b5de5
+    );
+
+    z-index:2;
+
+    box-shadow:
+    0 0 30px rgba(255,100,150,.4);
+}
+
+.ring{
+
+    position:absolute;
+
+    border:
+    1px solid rgba(0,220,255,.4);
+
+    border-radius:50%;
+
+}
+
+.ring1{
+
+    width:120px;
+
+    height:120px;
+
+    top:30px;
+
+    left:30px;
+}
+
+.ring2{
+
+    width:175px;
+
+    height:90px;
+
+    top:45px;
+
+    left:2px;
+
+    transform:rotate(60deg);
+}
+
+.electron{
+
+    position:absolute;
+
+    width:12px;
+
+    height:12px;
+
+    border-radius:50%;
+
+    background:#00e5ff;
+
+    box-shadow:
+    0 0 12px #00e5ff;
+}
+
+.e1{
+    top:28px;
+    left:84px;
+}
+
+.e2{
+    bottom:27px;
+    left:45px;
+}
+
+.e3{
+    top:82px;
+    right:0;
+}
+
+
+/* =========================
+   BIOLOGY
+========================= */
+
+.cell{
+
+    width:230px;
+
+    height:170px;
+
+    margin:25px auto;
+
+    border-radius:
+    48% 52% 50% 45%;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(100,255,180,.4),
+        rgba(30,120,100,.12)
+    );
+
+    border:
+    3px solid #55e6ad;
+
+    position:relative;
+
+    box-shadow:
+    0 0 35px
+    rgba(50,230,160,.15);
+}
+
+.cell-nucleus{
+
+    position:absolute;
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    top:55px;
+
+    left:85px;
+
+    background:
+    radial-gradient(
+        circle,
+        #d78cff,
+        #6936a5
+    );
+
+    border:
+    2px solid #e3b8ff;
+}
+
+
+/* =========================
+   MATH
+========================= */
+
+.math-graph{
+
+    height:270px;
+
+    padding:15px;
+
+    border-radius:20px;
+
+    background:#070d18;
+}
+
+.math-graph canvas{
+
+    width:100%;
+
+    height:100%;
+}
+
+
+/* =========================
+   COMPUTER
+========================= */
+
+.code-editor{
+
+    width:100%;
+
+    min-height:230px;
+
+    resize:vertical;
+
+    padding:18px;
+
+    border-radius:16px;
+
+    border:
+    1px solid rgba(255,255,255,.1);
+
+    background:#050a13;
+
+    color:#b9f6ff;
+
+    font-family:
+    Consolas,
+    monospace;
+
+    outline:none;
+}
+
+.preview{
+
+    margin-top:15px;
+
+    min-height:120px;
+
+    padding:20px;
+
+    border-radius:16px;
+
+    background:white;
+
+    color:#111;
+
+}
+
+
+/* =========================
+   SST
+========================= */
+
+.timeline{
+
+    display:flex;
+
+    gap:12px;
+
+    overflow-x:auto;
+
+    padding:
+    20px 5px;
+}
+
+.timeline-item{
+
+    min-width:190px;
+
+    padding:20px;
+
+    border-radius:18px;
+
+    background:
+    rgba(255,255,255,.05);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+}
+
+.timeline-item strong{
+
+    display:block;
+
+    color:#74eaff;
+
+    margin-bottom:10px;
+}
+
+
+/* =========================
+   INFO BOX
+========================= */
+
+.info{
+
+    margin-top:20px;
+
+    padding:20px;
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+        90deg,
+        rgba(0,220,255,.08),
+        rgba(130,80,255,.08)
+    );
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
+    color:#aeb9cc;
+
+    line-height:1.7;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+
+    text-align:center;
+
+    padding:
+    55px 20px;
+
+    color:#627087;
+
+    font-size:13px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:850px){
+
+    .card-grid{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .controls{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:550px){
+
+    .card-grid{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .hero{
+        padding-top:50px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        Academix <span>Lab</span>
+    </div>
+
+    <a
+        href="index.html"
+        class="home"
+    >
+        ← Home
+    </a>
+
+</nav>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="badge">
+        ✦ ACADEMIX INTERACTIVE LAB
+    </div>
+
+    <h1>
+        Don't Just
+        <span>Learn.</span>
+    </h1>
+
+    <p>
+        Experiment with concepts, change variables,
+        visualize results and discover what happens.
+    </p>
+
+</section>
+
+
+
+<div class="container">
+
+
+<!-- =========================
+     LAB NAVIGATION
+========================= -->
+
+<div class="lab-nav">
+
+    <button
+        class="nav-btn active"
+        onclick="openLab('physics',this)"
+    >
+        ⚡ Physics
+    </button>
+
+    <button
+        class="nav-btn"
+        onclick="openLab('chemistry',this)"
+    >
+        ⚗️ Chemistry
+    </button>
+
+    <button
+        class="nav-btn"
+        onclick="openLab('biology',this)"
+    >
+        🧬 Biology
+    </button>
+
+    <button
+        class="nav-btn"
+        onclick="openLab('maths',this)"
+    >
+        📐 Maths
+    </button>
+
+    <button
+        class="nav-btn"
+        onclick="openLab('computer',this)"
+    >
+        💻 Computer
+    </button>
+
+    <button
+        class="nav-btn"
+        onclick="openLab('sst',this)"
+    >
+        🌍 SST
+    </button>
+
+</div>
+
+
+
+<!-- =====================================================
+     PHYSICS LAB
+===================================================== -->
+
+<section
+    id="physics"
+    class="lab-section active"
+>
+
+    <div class="section-header">
+
+        <div>
+
+            <h2>
+                ⚡ Physics Laboratory
+            </h2>
+
+            <p>
+                Change the variables and watch physics happen.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="simulator">
+
+        <div class="sim-title">
+
+            <h3>
+                🚗 Motion Simulator
+            </h3>
+
+            <span class="live">
+                ● LIVE
+            </span>
+
+        </div>
+
+
+        <div class="track">
+
+            <div class="road"></div>
+
+            <div
+                class="car"
+                id="car"
+            >
+                🚗
+            </div>
+
+        </div>
+
+
+        <div class="controls">
+
+
+            <div class="control">
+
+                <div class="control-top">
+
+                    <span>
+                        ⚡ Force
+                    </span>
+
+                    <span id="forceValue">
+                        20 N
+                    </span>
+
+                </div>
+
+                <input
+                    id="force"
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="20"
+                >
+
+            </div>
+
+
+
+            <div class="control">
+
+                <div class="control-top">
+
+                    <span>
+                        ⚖️ Mass
+                    </span>
+
+                    <span id="massValue">
+                        5 kg
+                    </span>
+
+                </div>
+
+                <input
+                    id="mass"
+                    type="range"
+                    min="1"
+                    max="50"
+                    value="5"
+                >
+
+            </div>
+
+
+
+            <div class="control">
+
+                <div class="control-top">
+
+                    <span>
+                        🛞 Friction
+                    </span>
+
+                    <span id="frictionValue">
+                        10%
+                    </span>
+
+                </div>
+
+                <input
+                    id="friction"
+                    type="range"
+                    min="0"
+                    max="80"
+                    value="10"
+                >
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="action-buttons">
+
+            <button
+                class="start"
+                onclick="startMotion()"
+            >
+                ▶ Start
+            </button>
+
+            <button
+                class="pause"
+                onclick="pauseMotion()"
+            >
+                ⏸ Pause
+            </button>
+
+            <button
+                class="reset"
+                onclick="resetMotion()"
+            >
+                ↻ Reset
+            </button>
+
+        </div>
+
+
+
+        <div class="stats">
+
+            <div class="stat">
+
+                <small>
+                    Acceleration
+                </small>
+
+                <strong id="acceleration">
+                    0 m/s²
+                </strong>
+
+            </div>
+
+
+            <div class="stat">
+
+                <small>
+                    Velocity
+                </small>
+
+                <strong id="velocity">
+                    0 m/s
+                </strong>
+
+            </div>
+
+
+            <div class="stat">
+
+                <small>
+                    Distance
+                </small>
+
+                <strong id="distance">
+                    0 m
+                </strong>
+
+            </div>
+
+
+            <div class="stat">
+
+                <small>
+                    Kinetic Energy
+                </small>
+
+                <strong id="energy">
+                    0 J
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="graph-box">
+
+            <canvas id="velocityGraph"></canvas>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="card-grid" style="margin-top:20px;">
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                🌍
+            </div>
+
+            <h3>
+                Gravity
+            </h3>
+
+            <p>
+                Explore how gravity affects
+                falling objects.
+            </p>
+
+            <button onclick="physicsMessage('Gravity')">
+                Explore
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                💥
+            </div>
+
+            <h3>
+                Force
+            </h3>
+
+            <p>
+                Understand force, mass
+                and acceleration.
+            </p>
+
+            <button onclick="physicsMessage('Force')">
+                Explore
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                🔊
+            </div>
+
+            <h3>
+                Sound
+            </h3>
+
+            <p>
+                Explore frequency,
+                amplitude and waves.
+            </p>
+
+            <button onclick="physicsMessage('Sound')">
+                Explore
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="info">
+
+        💡 <strong>Experiment idea:</strong>
+        Increase the mass while keeping force
+        constant. Notice how acceleration changes.
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CHEMISTRY
+===================================================== -->
+
+<section
+    id="chemistry"
+    class="lab-section"
+>
+
+    <div class="section-header">
+
+        <div>
+
+            <h2>
+                ⚗️ Chemistry Laboratory
+            </h2>
+
+            <p>
+                Explore atoms, particles and matter.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="tool-box">
+
+        <h3>
+            ⚛️ Interactive Atom
+        </h3>
+
+
+        <div class="atom">
+
+            <div class="ring ring1"></div>
+
+            <div class="ring ring2"></div>
+
+            <div class="nucleus">
+                +
+            </div>
+
+            <div class="electron e1"></div>
+            <div class="electron e2"></div>
+            <div class="electron e3"></div>
+
+        </div>
+
+
+        <div class="card-grid">
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    🔴
+                </div>
+
+                <h3>
+                    Proton
+                </h3>
+
+                <p>
+                    Positive charge.
+                    Found inside the nucleus.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    🔵
+                </div>
+
+                <h3>
+                    Neutron
+                </h3>
+
+                <p>
+                    No electric charge.
+                    Found inside the nucleus.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    🔷
+                </div>
+
+                <h3>
+                    Electron
+                </h3>
+
+                <p>
+                    Negative charge.
+                    Found around the nucleus.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <div class="tool-box">
+
+        <h3>
+            💧 States of Matter
+        </h3>
+
+        <div class="card-grid">
+
+            <div
+                class="card"
+                onclick="matter('Solid')"
+            >
+
+                <div class="card-icon">
+                    🧊
+                </div>
+
+                <h3>
+                    Solid
+                </h3>
+
+                <p>
+                    Particles stay closely packed.
+                </p>
+
+            </div>
+
+
+            <div
+                class="card"
+                onclick="matter('Liquid')"
+            >
+
+                <div class="card-icon">
+                    💧
+                </div>
+
+                <h3>
+                    Liquid
+                </h3>
+
+                <p>
+                    Particles can move around.
+                </p>
+
+            </div>
+
+
+            <div
+                class="card"
+                onclick="matter('Gas')"
+            >
+
+                <div class="card-icon">
+                    💨
+                </div>
+
+                <h3>
+                    Gas
+                </h3>
+
+                <p>
+                    Particles move freely.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     BIOLOGY
+===================================================== -->
+
+<section
+    id="biology"
+    class="lab-section"
+>
+
+    <div class="section-header">
+
+        <div>
+
+            <h2>
+                🧬 Biology Laboratory
+            </h2>
+
+            <p>
+                Explore the microscopic world of life.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="tool-box">
+
+        <h3>
+            🔬 Interactive Cell
+        </h3>
+
+
+        <div class="cell">
+
+            <div class="cell-nucleus"></div>
+
+        </div>
+
+
+        <div class="card-grid">
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    🟣
+                </div>
+
+                <h3>
+                    Nucleus
+                </h3>
+
+                <p>
+                    Contains genetic material
+                    and controls cell activities.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    🧫
+                </div>
+
+                <h3>
+                    Cell Membrane
+                </h3>
+
+                <p>
+                    Controls what enters
+                    and leaves the cell.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    ⚡
+                </div>
+
+                <h3>
+                    Mitochondria
+                </h3>
+
+                <p>
+                    Produces energy for
+                    many cellular activities.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <div class="tool-box">
+
+        <h3>
+            🌱 Plant Explorer
+        </h3>
+
+        <div class="card-grid">
+
+
+            <div
+                class="card"
+                onclick="bioMessage('Root')"
+            >
+
+                <div class="card-icon">
+                    🌱
+                </div>
+
+                <h3>
+                    Root
+                </h3>
+
+                <p>
+                    Helps anchor the plant
+                    and absorb water.
+                </p>
+
+            </div>
+
+
+            <div
+                class="card"
+                onclick="bioMessage('Leaf')"
+            >
+
+                <div class="card-icon">
+                    🍃
+                </div>
+
+                <h3>
+                    Leaf
+                </h3>
+
+                <p>
+                    Major site of photosynthesis.
+                </p>
+
+            </div>
+
+
+            <div
+                class="card"
+                onclick="bioMessage('Flower')"
+            >
+
+                <div class="card-icon">
+                    🌸
+                </div>
+
+                <h3>
+                    Flower
+                </h3>
+
+                <p>
+                    Important in reproduction
+                    of flowering plants.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MATHS
+===================================================== -->
+
+<section
+    id="maths"
+    class="lab-section"
+>
+
+    <div class="section-header">
+
+        <div>
+
+            <h2>
+                📐 Mathematics Laboratory
+            </h2>
+
+            <p>
+                Turn equations into visual experiments.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="tool-box">
+
+        <h3>
+            📈 Live Linear Graph
+        </h3>
+
+
+        <div class="tool-row">
+
+            <input
+                id="slope"
+                type="number"
+                value="2"
+                placeholder="Slope"
+            >
+
+            <input
+                id="intercept"
+                type="number"
+                value="1"
+                placeholder="Intercept"
+            >
+
+            <button
+                onclick="drawMathGraph()"
+            >
+                Draw Graph
+            </button>
+
+        </div>
+
+
+        <div class="math-graph">
+
+            <canvas id="mathCanvas"></canvas>
+
+        </div>
+
+
+        <div
+            class="result"
+            id="mathResult"
+        >
+            Equation:
+            y = 2x + 1
+        </div>
+
+    </div>
+
+
+    <div class="card-grid" style="margin-top:20px;">
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                🔺
+            </div>
+
+            <h3>
+                Geometry Explorer
+            </h3>
+
+            <p>
+                Explore shapes, angles
+                and properties.
+            </p>
+
+            <button onclick="mathMessage('Geometry')">
+                Explore
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                🎲
+            </div>
+
+            <h3>
+                Probability
+            </h3>
+
+            <p>
+                Experiment with
+                random events.
+            </p>
+
+            <button onclick="mathMessage('Probability')">
+                Explore
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                📊
+            </div>
+
+            <h3>
+                Statistics
+            </h3>
+
+            <p>
+                Understand data
+                through visualization.
+            </p>
+
+            <button onclick="mathMessage('Statistics')">
+                Explore
+            </button>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     COMPUTER
+===================================================== -->
+
+<section
+    id="computer"
+    class="lab-section"
+>
+
+    <div class="section-header">
+
+        <div>
+
+            <h2>
+                💻 Computer Laboratory
+            </h2>
+
+            <p>
+                Write code and see the result instantly.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="tool-box">
+
+        <h3>
+            🌐 Mini HTML Playground
+        </h3>
+
+
+        <textarea
+            id="codeEditor"
+            class="code-editor"
+        ><h1>Hello Academix!</h1>
+<p>Welcome to my mini webpage.</p>
+<button>Click Me</button></textarea>
+
+
+        <button
+            onclick="runCode()"
+            style="
+            margin-top:12px;
+            padding:12px 20px;
+            border:0;
+            border-radius:20px;
+            background:#00aeca;
+            color:white;
+            cursor:pointer;
+            "
+        >
+            ▶ Run Code
+        </button>
+
+
+        <div
+            id="codePreview"
+            class="preview"
+        >
+
+            <h1>
+                Hello Academix!
+            </h1>
+
+            <p>
+                Welcome to my mini webpage.
+            </p>
+
+            <button>
+                Click Me
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="card-grid" style="margin-top:20px;">
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                🧱
+            </div>
+
+            <h3>
+                HTML
+            </h3>
+
+            <p>
+                Build the structure
+                of webpages.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                🎨
+            </div>
+
+            <h3>
+                CSS
+            </h3>
+
+            <p>
+                Design and style
+                your webpages.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                ⚡
+            </div>
+
+            <h3>
+                JavaScript
+            </h3>
+
+            <p>
+                Add interaction
+                and logic.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SST
+===================================================== -->
+
+<section
+    id="sst"
+    class="lab-section"
+>
+
+    <div class="section-header">
+
+        <div>
+
+            <h2>
+                🌍 Social Science Explorer
+            </h2>
+
+            <p>
+                Explore history, geography and society visually.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="tool-box">
+
+        <h3>
+            🕰️ History Timeline
+        </h3>
+
+
+        <div class="timeline">
+
+
+            <div class="timeline-item">
+
+                <strong>
+                    1757
+                </strong>
+
+                Battle of Plassey
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <strong>
+                    1789
+                </strong>
+
+                French Revolution
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <strong>
+                    1857
+                </strong>
+
+                Revolt of 1857
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <strong>
+                    1947
+                </strong>
+
+                Independence of India
+
+            </div>
+
+
+        </div>
+
+
+        <div class="info">
+
+            💡 Later this section can become
+            a fully interactive map + historical
+            timeline where students can explore
+            events visually.
+
+        </div>
+
+    </div>
+
+
+    <div class="card-grid" style="margin-top:20px;">
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                🗺️
+            </div>
+
+            <h3>
+                Geography Explorer
+            </h3>
+
+            <p>
+                Explore maps, climate,
+                rivers and physical features.
+            </p>
+
+            <button onclick="sstMessage('Geography')">
+                Explore
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                🏛️
+            </div>
+
+            <h3>
+                Civics
+            </h3>
+
+            <p>
+                Explore democracy,
+                government and institutions.
+            </p>
+
+            <button onclick="sstMessage('Civics')">
+                Explore
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                💰
+            </div>
+
+            <h3>
+                Economics
+            </h3>
+
+            <p>
+                Understand markets,
+                resources and development.
+            </p>
+
+            <button onclick="sstMessage('Economics')">
+                Explore
+            </button>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+</div>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    🧪 Academix Lab
+
+    <br><br>
+
+    Academix by Tiwari • 2026
+
+</footer>
+
+
+
+<script>
+
+/* =====================================================
+   LAB SWITCHING
+===================================================== */
+
+function openLab(id,button){
+
+    document
+        .querySelectorAll(".lab-section")
+        .forEach(section => {
+
+            section.classList.remove("active");
+
+        });
+
+
+    document
+        .getElementById(id)
+        .classList.add("active");
+
+
+    document
+        .querySelectorAll(".nav-btn")
+        .forEach(btn => {
+
+            btn.classList.remove("active");
+
+        });
+
+
+    button.classList.add("active");
+
+
+    window.scrollTo({
+        top:250,
+        behavior:"smooth"
+    });
+
+}
+
+
+
+/* =====================================================
+   MOTION LAB
+===================================================== */
+
+const force =
+document.getElementById("force");
+
+const mass =
+document.getElementById("mass");
+
+const friction =
+document.getElementById("friction");
+
+const car =
+document.getElementById("car");
+
+
+let running=false;
+
+let velocity=0;
+
+let distance=0;
+
+let lastTime=0;
+
+let motionAnimation;
+
+let graphData=[];
+
+
+
+function updateMotionValues(){
+
+    document.getElementById("forceValue")
+        .textContent =
+        force.value+" N";
+
+    document.getElementById("massValue")
+        .textContent =
+        mass.value+" kg";
+
+    document.getElementById("frictionValue")
+        .textContent =
+        friction.value+"%";
+
+    calculateMotion();
+
+}
+
+
+force.addEventListener(
+    "input",
+    updateMotionValues
+);
+
+mass.addEventListener(
+    "input",
+    updateMotionValues
+);
+
+friction.addEventListener(
+    "input",
+    updateMotionValues
+);
+
+
+
+function calculateMotion(){
+
+    const F =
+        Number(force.value);
+
+    const M =
+        Number(mass.value);
+
+    const FR =
+        Number(friction.value)/100;
+
+
+    const effectiveForce =
+        Math.max(
+            0,
+            F-(F*FR)
+        );
+
+
+    const acceleration =
+        effectiveForce/M;
+
+
+    document.getElementById(
+        "acceleration"
+    ).textContent =
+        acceleration.toFixed(2)
+        +" m/s²";
+
+
+    document.getElementById(
+        "velocity"
+    ).textContent =
+        velocity.toFixed(2)
+        +" m/s";
+
+
+    document.getElementById(
+        "distance"
+    ).textContent =
+        distance.toFixed(2)
+        +" m";
+
+
+    const energy =
+        .5*M*velocity*velocity;
+
+
+    document.getElementById(
+        "energy"
+    ).textContent =
+        energy.toFixed(1)
+        +" J";
+
+}
+
+
+
+function startMotion(){
+
+    if(running)
+        return;
+
+    running=true;
+
+    lastTime =
+        performance.now();
+
+
+    function animate(now){
+
+        if(!running)
+            return;
+
+
+        const dt =
+            Math.min(
+                (now-lastTime)/1000,
+                .05
+            );
+
+
+        lastTime=now;
+
+
+        const F =
+            Number(force.value);
+
+        const M =
+            Number(mass.value);
+
+        const FR =
+            Number(friction.value)/100;
+
+
+        const effectiveForce =
+            Math.max(
+                0,
+                F-(F*FR)
+            );
+
+
+        const acceleration =
+            effectiveForce/M;
+
+
+        velocity +=
+            acceleration*dt;
+
+
+        distance +=
+            velocity*dt;
+
+
+        graphData.push(
+            velocity
+        );
+
+
+        if(graphData.length>100)
+            graphData.shift();
+
+
+        const trackWidth =
+            document
+            .querySelector(".track")
+            .clientWidth;
+
+
+        const maxDistance=100;
+
+
+        let position =
+            20+
+            (distance/maxDistance)*
+            (trackWidth-100);
+
+
+        if(position >
+            trackWidth-80){
+
+            position=20;
+
+            distance=0;
+
+        }
+
+
+        car.style.left =
+            position+"px";
+
+
+        car.innerHTML =
+            velocity>2
+            ? "💨🚗"
+            : "🚗";
+
+
+        calculateMotion();
+
+        drawVelocityGraph();
+
+
+        motionAnimation =
+            requestAnimationFrame(
+                animate
+            );
+
+    }
+
+
+    motionAnimation =
+        requestAnimationFrame(
+            animate
+        );
+
+}
+
+
+
+function pauseMotion(){
+
+    running=false;
+
+    cancelAnimationFrame(
+        motionAnimation
+    );
+
+}
+
+
+
+function resetMotion(){
+
+    running=false;
+
+    cancelAnimationFrame(
+        motionAnimation
+    );
+
+    velocity=0;
+
+    distance=0;
+
+    graphData=[];
+
+    car.style.left="20px";
+
+    car.innerHTML="🚗";
+
+    calculateMotion();
+
+    drawVelocityGraph();
+
+}
+
+
+
+updateMotionValues();
+
+
+
+/* =====================================================
+   VELOCITY GRAPH
+===================================================== */
+
+const velocityCanvas =
+document.getElementById(
+    "velocityGraph"
+);
+
+const velocityCtx =
+velocityCanvas.getContext("2d");
+
+
+function resizeVelocityCanvas(){
+
+    velocityCanvas.width =
+        velocityCanvas.clientWidth;
+
+    velocityCanvas.height =
+        velocityCanvas.clientHeight;
+
+    drawVelocityGraph();
+
+}
+
+
+window.addEventListener(
+    "resize",
+    resizeVelocityCanvas
+);
+
+
+function drawVelocityGraph(){
+
+    const width =
+        velocityCanvas.width;
+
+    const height =
+        velocityCanvas.height;
+
+
+    velocityCtx.clearRect(
+        0,
+        0,
+        width,
+        height
+    );
+
+
+    velocityCtx.strokeStyle =
+        "rgba(255,255,255,.08)";
+
+
+    for(
+        let x=0;
+        x<width;
+        x+=40
+    ){
+
+        velocityCtx.beginPath();
+
+        velocityCtx.moveTo(x,0);
+
+        velocityCtx.lineTo(
+            x,height
+        );
+
+        velocityCtx.stroke();
+
+    }
+
+
+    for(
+        let y=0;
+        y<height;
+        y+=40
+    ){
+
+        velocityCtx.beginPath();
+
+        velocityCtx.moveTo(0,y);
+
+        velocityCtx.lineTo(
+            width,y
+        );
+
+        velocityCtx.stroke();
+
+    }
+
+
+    if(graphData.length<2)
+        return;
+
+
+    const max =
+        Math.max(
+            5,
+            ...graphData
+        );
+
+
+    velocityCtx.beginPath();
+
+
+    graphData.forEach(
+        (value,index)=>{
+
+            const x =
+                index/
+                (graphData.length-1)
+                *width;
+
+
+            const y =
+                height-
+                (value/max)*
+                (height-15);
+
+
+            if(index===0)
+                velocityCtx.moveTo(x,y);
+
+            else
+                velocityCtx.lineTo(x,y);
+
+        }
+    );
+
+
+    velocityCtx.strokeStyle =
+        "#00d9ff";
+
+    velocityCtx.lineWidth=3;
+
+    velocityCtx.stroke();
+
+}
+
+
+setTimeout(
+    resizeVelocityCanvas,
+    100
+);
+
+
+
+/* =====================================================
+   MATH GRAPH
+===================================================== */
+
+const mathCanvas =
+document.getElementById(
+    "mathCanvas"
+);
+
+const mathCtx =
+mathCanvas.getContext("2d");
+
+
+function resizeMathCanvas(){
+
+    mathCanvas.width =
+        mathCanvas.clientWidth;
+
+    mathCanvas.height =
+        mathCanvas.clientHeight;
+
+    drawMathGraph();
+
+}
+
+
+window.addEventListener(
+    "resize",
+    resizeMathCanvas
+);
+
+
+function drawMathGraph(){
+
+    const width =
+        mathCanvas.width;
+
+    const height =
+        mathCanvas.height;
+
+
+    mathCtx.clearRect(
+        0,
+        0,
+        width,
+        height
+    );
+
+
+    const slope =
+        Number(
+            document.getElementById(
+                "slope"
+            ).value
+        );
+
+
+    const intercept =
+        Number(
+            document.getElementById(
+                "intercept"
+            ).value
+        );
+
+
+    /* GRID */
+
+    mathCtx.strokeStyle =
+        "rgba(255,255,255,.08)";
+
+
+    for(
+        let x=0;
+        x<width;
+        x+=30
+    ){
+
+        mathCtx.beginPath();
+
+        mathCtx.moveTo(x,0);
+
+        mathCtx.lineTo(
+            x,height
+        );
+
+        mathCtx.stroke();
+
+    }
+
+
+    for(
+        let y=0;
+        y<height;
+        y+=30
+    ){
+
+        mathCtx.beginPath();
+
+        mathCtx.moveTo(0,y);
+
+        mathCtx.lineTo(
+            width,y
+        );
+
+        mathCtx.stroke();
+
+    }
+
+
+    /* AXES */
+
+    mathCtx.strokeStyle =
+        "#718096";
+
+    mathCtx.lineWidth=2;
+
+
+    mathCtx.beginPath();
+
+    mathCtx.moveTo(
+        width/2,
+        0
+    );
+
+    mathCtx.lineTo(
+        width/2,
+        height
+    );
+
+    mathCtx.stroke();
+
+
+    mathCtx.beginPath();
+
+    mathCtx.moveTo(
+        0,
+        height/2
+    );
+
+    mathCtx.lineTo(
+        width,
+        height/2
+    );
+
+    mathCtx.stroke();
+
+
+    /* LINE */
+
+    mathCtx.beginPath();
+
+
+    for(
+        let px=0;
+        px<width;
+        px++
+    ){
+
+        const x =
+            (px-width/2)/20;
+
+
+        const y =
+            slope*x+intercept;
+
+
+        const py =
+            height/2-y*20;
+
+
+        if(px===0)
+            mathCtx.moveTo(
+                px,
+                py
+            );
+
+        else
+            mathCtx.lineTo(
+                px,
+                py
+            );
+
+    }
+
+
+    mathCtx.strokeStyle =
+        "#00e5ff";
+
+    mathCtx.lineWidth=3;
+
+    mathCtx.stroke();
+
+
+    document.getElementById(
+        "mathResult"
+    ).textContent =
+        "Equation: y = "
+        +slope+
+        "x + "
+        +intercept;
+
+}
+
+
+setTimeout(
+    resizeMathCanvas,
+    100
+);
+
+
+
+/* =====================================================
+   COMPUTER PLAYGROUND
+===================================================== */
+
+function runCode(){
+
+    const code =
+        document.getElementById(
+            "codeEditor"
+        ).value;
+
+
+    document.getElementById(
+        "codePreview"
+    ).innerHTML =
+        code;
+
+}
+
+
+
+/* =====================================================
+   SMALL INTERACTIVE MESSAGES
+===================================================== */
+
+function physicsMessage(name){
+
+    alert(
+        name+
+        " Lab is part of the Academix interactive laboratory.\n\n"+
+        "More interactive experiments can be added here."
+    );
+
+}
+
+
+function matter(name){
+
+    alert(
+        name+
+        "\n\nExplore how particle arrangement and movement differ in this state of matter."
+    );
+
+}
+
+
+function bioMessage(name){
+
+    alert(
+        name+
+        "\n\nClicking this part can later open a detailed interactive biology experiment."
+    );
+
+}
+
+
+function mathMessage(name){
+
+    alert(
+        name+
+        "\n\nThis section can later become a full interactive mathematics simulator."
+    );
+
+}
+
+
+function sstMessage(name){
+
+    alert(
+        name+
+        "\n\nThis explorer can later contain interactive maps and visual learning."
+    );
+
+}
+
+</script>
+
+
+</body>
+
+</html>
