@@ -12,19 +12,18 @@
 <meta name="description" content="Academix by Tiwari is a Class 9 learning platform with study notes, quizzes, practice resources, exams, study tools and Acharya AI.">
 
 <meta name="robots" content="index, follow">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://anavy0515-aa.github.io/Academix/">
-
+<meta property="og:site_name" content="Academix by Tiwari">
 <meta property="og:title" content="Academix by Tiwari | Class 9 Learning Platform">
 <meta property="og:description" content="Class 9 notes, quizzes, practice, exams, study tools and Acharya AI by Academix by Tiwari.">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Academix by Tiwari">
 <meta property="og:url" content="https://anavy0515-aa.github.io/Academix/">
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Academix by Tiwari">
 <meta name="twitter:description" content="Class 9 learning platform with notes, quizzes, practice, exams, study tools and Acharya AI.">
+
 
 <script type="application/ld+json">
 {
@@ -685,6 +684,154 @@ button {
 
 
 /* =========================
+   ABOUT DEVELOPER
+========================= */
+
+.about-developer {
+    padding: 20px 8% 80px;
+}
+
+.developer-card {
+    max-width: 850px;
+    margin: auto;
+
+    padding: 45px 40px;
+
+    text-align: center;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0,217,255,0.06),
+            rgba(139,92,246,0.06)
+        );
+
+    border: 1px solid rgba(0,217,255,0.16);
+
+    box-shadow:
+        0 0 45px rgba(0,217,255,0.06);
+
+    transition: 0.3s;
+}
+
+.developer-card:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(0,217,255,0.35);
+
+    box-shadow:
+        0 15px 45px rgba(0,217,255,0.08);
+}
+
+.developer-icon {
+    width: 82px;
+    height: 82px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    font-size: 38px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,217,255,0.12),
+            rgba(139,92,246,0.12)
+        );
+
+    border: 1px solid rgba(0,217,255,0.3);
+
+    box-shadow:
+        0 0 25px rgba(0,217,255,0.12);
+}
+
+.developer-card h3 {
+    font-size: 28px;
+
+    margin-bottom: 8px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #00d9ff,
+            #8b5cf6
+        );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.developer-role {
+    color: #dbeafe;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    margin-bottom: 18px;
+}
+
+.developer-card p {
+    max-width: 680px;
+
+    margin: auto;
+
+    color: #94a3b8;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================
+   X / TWITTER
+========================= */
+
+.x-profile {
+    display: inline-flex;
+
+    width: 48px;
+    height: 48px;
+
+    margin-top: 25px;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #000;
+
+    border: 1px solid rgba(255,255,255,0.25);
+
+    color: white;
+
+    font-size: 25px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.x-profile:hover {
+    transform: translateY(-4px) scale(1.08);
+
+    border-color: #00d9ff;
+
+    box-shadow:
+        0 0 20px rgba(0,217,255,0.35);
+}
+
+
+/* =========================
    FOOTER
 ========================= */
 
@@ -909,6 +1056,23 @@ footer strong {
     .acharya-logo:hover {
         transform: scale(1.1);
     }
+
+    .about-developer {
+        padding: 20px 5% 60px;
+    }
+
+    .developer-card {
+        padding: 35px 22px;
+    }
+
+    .developer-card h3 {
+        font-size: 24px;
+    }
+
+    .developer-card p {
+        font-size: 14px;
+    }
+
 }
 
 </style>
@@ -1363,6 +1527,70 @@ footer strong {
     <a href="#subjects" class="primary-button">
         Start Learning →
     </a>
+
+</section>
+
+
+
+<!-- =========================
+     ABOUT DEVELOPER
+========================= -->
+
+<section class="about-developer" id="developer">
+
+    <div class="section-heading">
+
+        <h2>
+            About Developer
+        </h2>
+
+        <p>
+            The person behind Academix by Tiwari.
+        </p>
+
+    </div>
+
+
+    <div class="developer-card">
+
+        <div class="developer-icon">
+            👨‍💻
+        </div>
+
+
+        <h3>
+            Anshu Tiwari
+        </h3>
+
+
+        <div class="developer-role">
+            Founder & Developer of Academix
+        </div>
+
+
+        <p>
+            Academix by Tiwari is created with the vision
+            of making learning simple, organized and
+            accessible for students. The platform brings
+            learning resources, practice, study tools and
+            AI-powered learning together in one place.
+        </p>
+
+
+        <!-- X / TWITTER -->
+
+        <a
+            href="https://x.com/Avy0515"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="x-profile"
+            title="Follow Anshu Tiwari on X"
+            aria-label="X / Twitter"
+        >
+            𝕏
+        </a>
+
+    </div>
 
 </section>
 
