@@ -11,7 +11,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
 }
 
 body{
@@ -22,8 +22,6 @@ body{
     #060b12;
     color:white;
 }
-
-/* NAVBAR */
 
 .navbar{
     height:70px;
@@ -70,14 +68,10 @@ body{
     color:#061018;
 }
 
-/* MAIN */
-
 .container{
     width:min(1000px,92%);
     margin:35px auto;
 }
-
-/* HERO */
 
 .hero{
     text-align:center;
@@ -111,8 +105,6 @@ body{
     color:#aab4c3;
     font-size:16px;
 }
-
-/* CHAT */
 
 .chat-box{
     background:rgba(12,19,30,.88);
@@ -160,8 +152,6 @@ body{
     color:#00d9ff;
 }
 
-/* MESSAGES */
-
 .chat-messages{
     height:450px;
     overflow-y:auto;
@@ -178,7 +168,7 @@ body{
 }
 
 .bubble{
-    max-width:78%;
+    max-width:80%;
     padding:13px 16px;
     border-radius:15px;
     line-height:1.55;
@@ -196,7 +186,12 @@ body{
     color:white;
 }
 
-/* SUGGESTIONS */
+.bubble code{
+    background:#02060b;
+    padding:3px 6px;
+    border-radius:5px;
+    color:#00d9ff;
+}
 
 .suggestions{
     display:flex;
@@ -221,8 +216,6 @@ body{
     color:#00d9ff;
     transform:translateY(-2px);
 }
-
-/* INPUT */
 
 .input-area{
     display:flex;
@@ -263,8 +256,6 @@ body{
     box-shadow:0 8px 25px rgba(0,217,255,.25);
 }
 
-/* INFO */
-
 .info{
     margin-top:20px;
     display:grid;
@@ -291,8 +282,6 @@ body{
     line-height:1.5;
 }
 
-/* DEVELOPER */
-
 .developer{
     text-align:center;
     margin:35px 0 10px;
@@ -314,8 +303,6 @@ body{
     -webkit-background-clip:text;
     color:transparent;
 }
-
-/* MOBILE */
 
 @media(max-width:700px){
 
@@ -340,47 +327,30 @@ body{
     }
 
     .bubble{
-        max-width:88%;
+        max-width:90%;
     }
 
     .send-btn{
         width:80px;
     }
-
 }
 </style>
 </head>
 
-
 <body>
-
-<!-- NAVBAR -->
 
 <nav class="navbar">
 
     <div class="logo">
-
-        <div class="logo-icon">
-            ✦
-        </div>
-
+        <div class="logo-icon">✦</div>
         <span>Acharya AI by Tiwari</span>
-
     </div>
 
-    <a href="index.html" class="back">
-        ← Home
-    </a>
+    <a href="index.html" class="back">← Home</a>
 
 </nav>
 
-
-<!-- MAIN -->
-
 <div class="container">
-
-
-    <!-- HERO -->
 
     <div class="hero">
 
@@ -393,43 +363,27 @@ body{
         </h1>
 
         <p>
-            Your smart study companion for Academix by Tiwari.
+            Your smart study, website and learning assistant for Academix by Tiwari.
         </p>
 
     </div>
 
-
-    <!-- CHAT -->
-
     <div class="chat-box">
-
 
         <div class="chat-header">
 
             <div class="status">
-
                 <div class="dot"></div>
-
                 Acharya is ready
-
             </div>
 
-
-            <button
-            class="clear-btn"
-            onclick="clearChat()">
-
+            <button class="clear-btn" onclick="clearChat()">
                 Clear
-
             </button>
 
         </div>
 
-
-        <div
-        class="chat-messages"
-        id="chatMessages">
-
+        <div class="chat-messages" id="chatMessages">
 
             <div class="message bot">
 
@@ -438,151 +392,100 @@ body{
                     Namaste! 👋<br><br>
 
                     Main <b>Acharya</b> hoon —
-                    Academix by Tiwari ka study assistant. 🤖<br><br>
+                    Academix by Tiwari ka smart assistant. 🤖<br><br>
 
-                    Tum mujhse Maths, Science, SST,
-                    English Grammar aur Computer ke topics
-                    ke baare mein pooch sakte ho.
+                    Tum mujhse Academix website,
+                    Class 9 subjects, study topics,
+                    Prompter, Debugging, Networking,
+                    HTML, CSS, JavaScript aur bahut kuch pooch sakte ho.<br><br>
+
+                    <b>Hinglish + English dono supported hain.</b> 🚀
 
                 </div>
 
             </div>
 
-
         </div>
-
-
-        <!-- SUGGESTIONS -->
 
         <div class="suggestions">
 
-
-            <button
-            class="suggestion"
-            onclick="askSuggestion('Science mein Motion samjhao')">
-
-                🧪 Motion
-
+            <button class="suggestion"
+                onclick="askSuggestion('Academix kya hai?')">
+                🏫 Academix
             </button>
 
-
-            <button
-            class="suggestion"
-            onclick="askSuggestion('Maths ka quiz do')">
-
-                🧠 Maths Quiz
-
+            <button class="suggestion"
+                onclick="askSuggestion('Developer kaun hai?')">
+                👨‍💻 Developer
             </button>
 
-
-            <button
-            class="suggestion"
-            onclick="askSuggestion('English grammar mein Tenses samjhao')">
-
-                📖 Tenses
-
+            <button class="suggestion"
+                onclick="askSuggestion('Debug my HTML code')">
+                🐞 Debugging
             </button>
 
-
-            <button
-            class="suggestion"
-            onclick="askSuggestion('Computer mein Python kya hai?')">
-
-                💻 Python
-
+            <button class="suggestion"
+                onclick="askSuggestion('What is HTTP?')">
+                🌐 Networking
             </button>
 
+            <button class="suggestion"
+                onclick="askSuggestion('Make a prompt for studying')">
+                ✍️ Prompter
+            </button>
 
         </div>
-
-
-        <!-- INPUT -->
 
         <div class="input-area">
 
-
             <textarea
-            id="userInput"
-            placeholder="Ask Acharya anything about your studies..."
-            onkeydown="handleEnter(event)"></textarea>
-
+                id="userInput"
+                placeholder="Ask Acharya in English or Hinglish..."
+                onkeydown="handleEnter(event)"></textarea>
 
             <button
-            class="send-btn"
-            onclick="sendMessage()">
-
+                class="send-btn"
+                onclick="sendMessage()">
                 Send
-
             </button>
-
 
         </div>
 
-
     </div>
-
-
-    <!-- INFO CARDS -->
 
     <div class="info">
 
-
         <div class="info-card">
-
-            <h3>
-                📚 Subjects
-            </h3>
-
+            <h3>🏫 Academix Knowledge</h3>
             <p>
-                Maths, Science, SST, English Grammar
-                and Computer.
+                Website pages, subjects, tools,
+                dashboard, login, search and Acharya.
             </p>
-
         </div>
 
-
         <div class="info-card">
-
-            <h3>
-                🧠 Study Help
-            </h3>
-
+            <h3>🛠️ Smart Assistance</h3>
             <p>
-                Concepts, revision, formulas,
-                practice questions and quizzes.
+                Prompts, debugging, networking,
+                web development and study help.
             </p>
-
         </div>
 
-
         <div class="info-card">
-
-            <h3>
-                ⚡ ₹0 Version
-            </h3>
-
+            <h3>🧠 1000+ Knowledge Intents</h3>
             <p>
-                Works without an external AI API
-                using Academix's built-in knowledge system.
+                English, Hinglish and common
+                question variations are supported.
             </p>
-
         </div>
-
 
     </div>
 
-
-    <!-- DEVELOPER -->
-
     <div class="developer">
 
-        <small>
-            Developed with ❤️ by
-        </small>
+        <small>Developed with ❤️ by</small>
 
-        <strong>
-            ANSHU TIWARI
-        </strong>
+        <strong>ANSHU TIWARI</strong>
 
         <small>
             Academix by Tiwari • 2026
@@ -590,23 +493,3406 @@ body{
 
     </div>
 
-
 </div>
 
 
 <script>
 
-/* SEND MESSAGE */
+/* =========================================================
+   ACHARYA AI
+   ACADEMIX BY TIWARI
+
+   LARGE OFFLINE KNOWLEDGE ENGINE
+   1000+ QUESTION PATTERNS
+========================================================= */
+
+
+/* =========================================================
+   BASIC TEXT ENGINE
+========================================================= */
+
+function normalize(text){
+
+    return text
+        .toLowerCase()
+        .replace(/[?!.,;:()[\]{}'"`]/g," ")
+        .replace(/\s+/g," ")
+        .trim();
+
+}
+
+
+function wordsMatch(text, words){
+
+    return words.some(word => {
+
+        const w = normalize(word);
+
+        if(w.length <= 2){
+
+            return text.split(" ").includes(w);
+
+        }
+
+        return text.includes(w);
+
+    });
+
+}
+
+
+function escapeHTML(text){
+
+    return String(text)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================================================
+   ACADEMIX CORE INFORMATION
+========================================================= */
+
+const ACADEMIX = {
+
+    name: "Academix by Tiwari",
+
+    shortName: "Academix",
+
+    developer: "Anshu Tiwari",
+
+    founder: "Anshu Tiwari",
+
+    role: "Founder & Developer",
+
+    year: "2026",
+
+    currentClass: "Class 9",
+
+    subjects: [
+        "Mathematics",
+        "Science",
+        "Social Science",
+        "English",
+        "Computer"
+    ],
+
+    pages: {
+
+        home: "index.html",
+
+        dashboard: "dashboard.html",
+
+        login: "login.html",
+
+        search: "search.html",
+
+        notes: "notes.html",
+
+        maths: "math.html",
+
+        science: "science.html",
+
+        sst: "sst.html",
+
+        english: "english.html",
+
+        computer: "computer.html",
+
+        focus: "focus.html",
+
+        calculator: "calculator.html",
+
+        exam: "exam.html",
+
+        acharya: "acharya.html"
+
+    },
+
+    website:
+        "https://anavy0515-aa.github.io/Academix/",
+
+    social:
+        "https://x.com/Avy0515",
+
+    hosting:
+        "GitHub Pages"
+
+};
+
+
+/* =========================================================
+   KNOWLEDGE DATABASE
+========================================================= */
+
+const KNOWLEDGE = [
+
+/* =========================================================
+   DEVELOPER
+========================================================= */
+
+{
+    id:"developer_name",
+    keys:[
+        "developer",
+        "developer name",
+        "developer kaun",
+        "developer kon",
+        "who is developer",
+        "who developed academix",
+        "who made academix",
+        "who created academix",
+        "academix kisne banaya",
+        "academix kisne banayi",
+        "website kisne banayi",
+        "site kisne banayi",
+        "founder",
+        "founder kaun",
+        "creator kaun",
+        "owner kaun",
+        "anshu tiwari"
+    ],
+    answer:`
+        <b>👨‍💻 Academix Developer</b><br><br>
+        Academix by Tiwari ke founder aur developer
+        <b>Anshu Tiwari</b> hain.<br><br>
+        Project ka current year <b>2026</b> hai.
+    `
+},
+
+{
+    id:"developer_role",
+    keys:[
+        "anshu role",
+        "developer role",
+        "founder role",
+        "anshu kya karte",
+        "developer kya karte",
+        "who is anshu tiwari"
+    ],
+    answer:`
+        <b>👨‍💻 Developer Role</b><br><br>
+        Anshu Tiwari Academix by Tiwari ke
+        <b>Founder & Developer</b> hain.
+    `
+},
+
+{
+    id:"developer_x",
+    keys:[
+        "anshu twitter",
+        "anshu x",
+        "anshu ka x",
+        "developer twitter",
+        "developer x account",
+        "twitter account",
+        "x account"
+    ],
+    answer:`
+        <b>𝕏 Developer Profile</b><br><br>
+        Academix ke About Developer section mein
+        Anshu Tiwari ka X profile diya gaya hai.<br><br>
+        <a href="https://x.com/Avy0515"
+        target="_blank"
+        style="color:#00d9ff">
+        Open X Profile
+        </a>
+    `
+},
+
+
+/* =========================================================
+   ACADEMIX
+========================================================= */
+
+{
+    id:"academix_intro",
+    keys:[
+        "academix",
+        "what is academix",
+        "academix kya hai",
+        "academix kya h",
+        "about academix",
+        "tell me about academix",
+        "academix ke baare mein",
+        "academix ke bare mein",
+        "academix introduction",
+        "academix purpose",
+        "academix ka purpose",
+        "academix ka use",
+        "why academix",
+        "learning website",
+        "education website",
+        "study website",
+        "student website",
+        "student platform",
+        "education platform"
+    ],
+    answer:`
+        <b>🏫 Academix by Tiwari</b><br><br>
+
+        Academix ek student-focused learning website
+        hai jahan study resources, subject learning,
+        quizzes, study tools aur Acharya AI ko
+        ek platform par organize kiya gaya hai.<br><br>
+
+        <b>Current focus:</b> Class 9<br>
+        <b>Developer:</b> Anshu Tiwari<br>
+        <b>Project:</b> Academix by Tiwari<br>
+        <b>Year:</b> 2026
+    `
+},
+
+{
+    id:"academix_name",
+    keys:[
+        "website name",
+        "site name",
+        "platform name",
+        "project name",
+        "what is website name",
+        "academix ka naam",
+        "site ka naam"
+    ],
+    answer:`
+        <b>🏫 Website Name</b><br><br>
+        Website ka naam <b>Academix by Tiwari</b> hai.
+        Short name <b>Academix</b> hai.
+    `
+},
+
+{
+    id:"academix_class",
+    keys:[
+        "which class",
+        "which class supported",
+        "current class",
+        "academix class",
+        "academix kis class",
+        "class 9",
+        "class nine",
+        "9th class"
+    ],
+    answer:`
+        <b>📚 Current Academic Focus</b><br><br>
+        Academix ka current focus <b>Class 9</b>
+        learning resources par hai.
+    `
+},
+
+
+/* =========================================================
+   SUBJECTS
+========================================================= */
+
+{
+    id:"subjects",
+    keys:[
+        "subjects",
+        "which subjects",
+        "what subjects",
+        "subjects list",
+        "academix subjects",
+        "kitne subjects",
+        "kaun kaun subject",
+        "subject batao",
+        "subjects kya hain"
+    ],
+    answer:`
+        <b>📚 Academix Subjects</b><br><br>
+
+        Current Class 9 subjects:<br><br>
+
+        📐 Mathematics<br>
+        🔬 Science<br>
+        🌍 Social Science<br>
+        📖 English<br>
+        💻 Computer
+    `
+},
+
+{
+    id:"maths",
+    keys:[
+        "math",
+        "maths",
+        "mathematics",
+        "math section",
+        "maths section",
+        "math page",
+        "math ka page"
+    ],
+    answer:`
+        <b>📐 Mathematics</b><br><br>
+        Academix ka Mathematics section
+        Class 9 mathematics learning ke liye hai.<br><br>
+        Page: <b>math.html</b><br><br>
+
+        Topics mein number systems, polynomials,
+        coordinate geometry, linear equations,
+        geometry, statistics aur probability
+        jaise areas aa sakte hain.
+    `
+},
+
+{
+    id:"science",
+    keys:[
+        "science",
+        "science section",
+        "science page",
+        "science ka page",
+        "science subject"
+    ],
+    answer:`
+        <b>🔬 Science</b><br><br>
+        Academix Science section Class 9 Science
+        learning ke liye hai.<br><br>
+        Science mein Physics, Chemistry aur
+        Biology-related concepts study kiye ja sakte hain.<br><br>
+        Page: <b>science.html</b>
+    `
+},
+
+{
+    id:"sst",
+    keys:[
+        "sst",
+        "social science",
+        "social studies",
+        "sst section",
+        "sst page",
+        "social science page"
+    ],
+    answer:`
+        <b>🌍 Social Science</b><br><br>
+
+        SST section mein broad areas include:<br><br>
+
+        📜 History<br>
+        🌎 Geography<br>
+        🗳️ Civics<br>
+        💰 Economics<br><br>
+
+        Page: <b>sst.html</b>
+    `
+},
+
+{
+    id:"english",
+    keys:[
+        "english",
+        "english section",
+        "english page",
+        "english subject",
+        "grammar section"
+    ],
+    answer:`
+        <b>📖 English</b><br><br>
+
+        English section mein grammar,
+        language learning aur writing practice
+        jaise areas cover kiye ja sakte hain.<br><br>
+
+        Page: <b>english.html</b>
+    `
+},
+
+{
+    id:"computer",
+    keys:[
+        "computer",
+        "computer section",
+        "computer page",
+        "computer subject",
+        "coding section"
+    ],
+    answer:`
+        <b>💻 Computer</b><br><br>
+
+        Computer section mein coding,
+        programming, web development,
+        networking aur technology basics
+        jaise topics discuss kiye ja sakte hain.<br><br>
+
+        Page: <b>computer.html</b>
+    `
+},
+
+
+/* =========================================================
+   WEBSITE PAGES
+========================================================= */
+
+{
+    id:"home",
+    keys:[
+        "home",
+        "homepage",
+        "home page",
+        "main page",
+        "main website",
+        "home section",
+        "homepage kya hai"
+    ],
+    answer:`
+        <b>🏠 Academix Homepage</b><br><br>
+
+        Homepage website ka main entry point hai.
+        Yahan se subjects, dashboard, tools,
+        search, login aur Acharya jaise sections
+        access kiye ja sakte hain.<br><br>
+
+        File: <b>index.html</b>
+    `
+},
+
+{
+    id:"dashboard",
+    keys:[
+        "dashboard",
+        "student dashboard",
+        "dashboard kya hai",
+        "dashboard ka use",
+        "dashboard purpose",
+        "progress dashboard",
+        "student progress"
+    ],
+    answer:`
+        <b>📊 Student Dashboard</b><br><br>
+
+        Dashboard ka purpose student ki study
+        activity aur available dashboard features
+        ko organize karna hai.<br><br>
+
+        File: <b>dashboard.html</b>
+    `
+},
+
+{
+    id:"login",
+    keys:[
+        "login",
+        "log in",
+        "sign in",
+        "login page",
+        "login kya hai",
+        "account login",
+        "signup",
+        "sign up",
+        "register",
+        "registration"
+    ],
+    answer:`
+        <b>🔐 Login / Signup</b><br><br>
+
+        Academix mein account-related interface
+        ke liye login page available hai.<br><br>
+
+        File: <b>login.html</b><br><br>
+
+        Note: Actual authentication/security
+        backend implementation site ke current code
+        par depend karti hai.
+    `
+},
+
+{
+    id:"search",
+    keys:[
+        "search",
+        "search page",
+        "website search",
+        "search kaise",
+        "search ka use",
+        "search kya hai",
+        "find topic"
+    ],
+    answer:`
+        <b>🔎 Academix Search</b><br><br>
+
+        Search feature ka purpose website ke
+        available content ya topics ko quickly
+        find karna hai.<br><br>
+
+        File: <b>search.html</b>
+    `
+},
+
+{
+    id:"notes",
+    keys:[
+        "notes",
+        "study notes",
+        "notes page",
+        "notes section",
+        "notes kya hai",
+        "chapter notes"
+    ],
+    answer:`
+        <b>📚 Notes</b><br><br>
+
+        Notes section study material ko
+        organized form mein access karne ke
+        purpose se use hota hai.<br><br>
+
+        File: <b>notes.html</b>
+    `
+},
+
+
+/* =========================================================
+   TOOLS
+========================================================= */
+
+{
+    id:"tools",
+    keys:[
+        "tools",
+        "study tools",
+        "tools list",
+        "academix tools",
+        "kaun kaun tools",
+        "which tools",
+        "study utilities"
+    ],
+    answer:`
+        <b>🛠️ Academix Study Tools</b><br><br>
+
+        Current website structure mein useful
+        study utilities include:<br><br>
+
+        ⏱️ Focus Timer<br>
+        🧮 Scientific Calculator<br>
+        📊 Student Dashboard<br>
+        🎯 Exam Simulator<br>
+        🤖 Acharya AI
+    `
+},
+
+{
+    id:"focus_timer",
+    keys:[
+        "focus timer",
+        "focus",
+        "study timer",
+        "timer",
+        "focus tool",
+        "timer kya hai",
+        "pomodoro timer"
+    ],
+    answer:`
+        <b>⏱️ Focus Timer</b><br><br>
+
+        Focus Timer focused study sessions
+        organize karne ke liye useful tool hai.<br><br>
+
+        File: <b>focus.html</b>
+    `
+},
+
+{
+    id:"calculator",
+    keys:[
+        "calculator",
+        "scientific calculator",
+        "calculator tool",
+        "calculator kya hai",
+        "math calculator"
+    ],
+    answer:`
+        <b>🧮 Scientific Calculator</b><br><br>
+
+        Scientific Calculator mathematical
+        calculations ko quickly perform karne
+        ke liye designed hai.<br><br>
+
+        File: <b>calculator.html</b>
+    `
+},
+
+{
+    id:"exam",
+    keys:[
+        "exam",
+        "exam simulator",
+        "exam tool",
+        "test simulator",
+        "mock exam",
+        "exam practice"
+    ],
+    answer:`
+        <b>🎯 Exam Simulator</b><br><br>
+
+        Exam Simulator ka purpose exam-style
+        practice aur timed preparation provide
+        karna hai.<br><br>
+
+        File: <b>exam.html</b>
+    `
+},
+
+
+/* =========================================================
+   ACHARYA
+========================================================= */
+
+{
+    id:"acharya",
+    keys:[
+        "acharya",
+        "who is acharya",
+        "acharya kya hai",
+        "acharya ai",
+        "what is acharya",
+        "ai assistant",
+        "academix ai",
+        "smart assistant"
+    ],
+    answer:`
+        <b>🤖 Acharya AI</b><br><br>
+
+        Main <b>Acharya</b> hoon —
+        Academix by Tiwari ka built-in assistant.<br><br>
+
+        Main help kar sakta hoon:<br>
+        📚 Study topics<br>
+        🏫 Academix website<br>
+        ✍️ Prompt creation<br>
+        🐞 Debugging<br>
+        🌐 Networking<br>
+        💻 Web development<br>
+        🧠 Quiz & revision<br><br>
+
+        Main is version mein browser ke andar
+        built-in JavaScript knowledge system use karta hoon.
+    `
+},
+
+{
+    id:"acharya_language",
+    keys:[
+        "hinglish",
+        "english supported",
+        "language",
+        "which language",
+        "hindi english",
+        "can you speak hinglish",
+        "can acharya understand hindi",
+        "acharya hindi"
+    ],
+    answer:`
+        <b>🌐 Language Support</b><br><br>
+
+        Acharya English aur Hinglish questions
+        ko understand karne ke liye designed hai.<br><br>
+
+        Example:<br>
+        <b>"What is DNS?"</b><br>
+        <b>"DNS kya hota hai?"</b><br>
+        <b>"DNS samjha do bhai"</b>
+    `
+},
+
+
+/* =========================================================
+   SCIENCE
+========================================================= */
+
+{
+    id:"motion",
+    keys:[
+        "motion",
+        "motion kya hai",
+        "motion samjhao",
+        "what is motion",
+        "speed",
+        "velocity",
+        "acceleration"
+    ],
+    answer:`
+        <b>🏃 Motion</b><br><br>
+
+        Jab kisi object ki position time ke
+        saath change hoti hai, object motion
+        mein kaha jaata hai.<br><br>
+
+        <b>Speed = Distance / Time</b><br>
+        <b>Velocity = Displacement / Time</b><br>
+        <b>Acceleration = Change in velocity / Time</b>
+    `
+},
+
+{
+    id:"force",
+    keys:[
+        "force",
+        "force kya hai",
+        "what is force",
+        "force samjhao",
+        "newton law",
+        "laws of motion"
+    ],
+    answer:`
+        <b>⚡ Force</b><br><br>
+
+        Force ek push ya pull hai jo object
+        ki motion, direction ya shape ko affect
+        kar sakta hai.<br><br>
+
+        Newton's Second Law:<br>
+        <b>F = ma</b>
+    `
+},
+
+{
+    id:"atom",
+    keys:[
+        "atom",
+        "atoms",
+        "atom kya hai",
+        "what is atom",
+        "proton",
+        "electron",
+        "neutron",
+        "nucleus"
+    ],
+    answer:`
+        <b>⚛️ Atom</b><br><br>
+
+        Atom matter ki basic structural unit hai.<br><br>
+
+        🔴 Proton → positive charge<br>
+        🔵 Electron → negative charge<br>
+        ⚪ Neutron → no charge<br><br>
+
+        Proton aur neutron nucleus mein
+        present hote hain.
+    `
+},
+
+{
+    id:"cell",
+    keys:[
+        "cell",
+        "cells",
+        "cell kya hai",
+        "what is cell",
+        "cell biology",
+        "cell organelle"
+    ],
+    answer:`
+        <b>🔬 Cell</b><br><br>
+
+        Cell living organisms ki basic
+        structural aur functional unit hai.<br><br>
+
+        Important structures include
+        cell membrane, cytoplasm, nucleus
+        aur different organelles.
+    `
+},
+
+{
+    id:"gravitation",
+    keys:[
+        "gravitation",
+        "gravity",
+        "gravity kya hai",
+        "what is gravity",
+        "gravitation kya hai"
+    ],
+    answer:`
+        <b>🌍 Gravitation</b><br><br>
+
+        Gravitation masses ke beech
+        attractive force hai.<br><br>
+
+        Earth ki gravity objects ko
+        Earth ki taraf accelerate karti hai.
+    `
+},
+
+{
+    id:"matter",
+    keys:[
+        "matter",
+        "matter kya hai",
+        "what is matter",
+        "matter around us",
+        "states of matter",
+        "solid liquid gas"
+    ],
+    answer:`
+        <b>🧪 Matter</b><br><br>
+
+        Matter woh hai jo space occupy karta hai
+        aur jisme mass hota hai.<br><br>
+
+        Common states:<br>
+        • Solid<br>
+        • Liquid<br>
+        • Gas
+    `
+},
+
+{
+    id:"sound",
+    keys:[
+        "sound",
+        "sound kya hai",
+        "what is sound",
+        "sound wave",
+        "sound chapter"
+    ],
+    answer:`
+        <b>🔊 Sound</b><br><br>
+
+        Sound mechanical vibrations se produce
+        hone wali energy hai jo medium ke through
+        propagate kar sakti hai.<br><br>
+
+        Sound ko travel karne ke liye
+        material medium ki zarurat hoti hai.
+    `
+},
+
+
+/* =========================================================
+   ENGLISH
+========================================================= */
+
+{
+    id:"tenses",
+    keys:[
+        "tense",
+        "tenses",
+        "tense kya hai",
+        "what is tense",
+        "english tense",
+        "present tense",
+        "past tense",
+        "future tense"
+    ],
+    answer:`
+        <b>📖 Tenses</b><br><br>
+
+        Tense action/event ke time ko
+        indicate karta hai.<br><br>
+
+        Main categories:<br>
+        • Present<br>
+        • Past<br>
+        • Future<br><br>
+
+        Har category mein Simple,
+        Continuous, Perfect aur
+        Perfect Continuous forms ho sakte hain.
+    `
+},
+
+{
+    id:"active_passive",
+    keys:[
+        "active voice",
+        "passive voice",
+        "active passive",
+        "voice",
+        "voice change",
+        "active to passive"
+    ],
+    answer:`
+        <b>✍️ Active & Passive Voice</b><br><br>
+
+        Active voice mein subject action
+        perform karta hai.<br><br>
+
+        Passive voice mein action/object
+        par focus hota hai.<br><br>
+
+        Example:<br>
+        Active: Rahul wrote a letter.<br>
+        Passive: A letter was written by Rahul.
+    `
+},
+
+{
+    id:"grammar",
+    keys:[
+        "grammar",
+        "english grammar",
+        "grammar kya hai",
+        "grammar help",
+        "english rules"
+    ],
+    answer:`
+        <b>📖 English Grammar</b><br><br>
+
+        Grammar language ke rules ka system hai
+        jo words aur sentences ko correctly
+        structure karne mein help karta hai.<br><br>
+
+        Tenses, modals, determiners,
+        subject-verb agreement, clauses,
+        voice aur reported speech important
+        grammar areas hain.
+    `
+},
+
+
+/* =========================================================
+   COMPUTER
+========================================================= */
+
+{
+    id:"python",
+    keys:[
+        "python",
+        "python kya hai",
+        "what is python",
+        "python language",
+        "python programming"
+    ],
+    answer:`
+        <b>🐍 Python</b><br><br>
+
+        Python ek high-level programming
+        language hai jiska syntax relatively
+        readable hota hai.<br><br>
+
+        Example:<br>
+        <code>print("Hello World")</code><br><br>
+
+        Python automation, data analysis,
+        software development aur AI jaise
+        areas mein use hoti hai.
+    `
+},
+
+{
+    id:"html",
+    keys:[
+        "html",
+        "html kya hai",
+        "what is html",
+        "html full form",
+        "html language",
+        "html coding"
+    ],
+    answer:`
+        <b>🌐 HTML</b><br><br>
+
+        HTML ka full form
+        <b>HyperText Markup Language</b> hai.<br><br>
+
+        HTML webpage ka structure define karta hai.<br><br>
+
+        Common elements:<br>
+        • html<br>
+        • head<br>
+        • body<br>
+        • h1-h6<br>
+        • p<br>
+        • a<br>
+        • img
+    `
+},
+
+{
+    id:"css",
+    keys:[
+        "css",
+        "css kya hai",
+        "what is css",
+        "css full form",
+        "css language",
+        "css styling"
+    ],
+    answer:`
+        <b>🎨 CSS</b><br><br>
+
+        CSS ka full form
+        <b>Cascading Style Sheets</b> hai.<br><br>
+
+        CSS webpage ki appearance,
+        layout, spacing, typography
+        aur visual styling control karta hai.
+    `
+},
+
+{
+    id:"javascript",
+    keys:[
+        "javascript",
+        "java script",
+        "javascript kya hai",
+        "what is javascript",
+        "js",
+        "js kya hai"
+    ],
+    answer:`
+        <b>⚡ JavaScript</b><br><br>
+
+        JavaScript webpages ko interactive
+        aur dynamic banane ke liye commonly
+        use ki jaati hai.<br><br>
+
+        Example:<br>
+        <code>console.log("Hello");</code>
+    `
+},
+
+{
+    id:"web_development",
+    keys:[
+        "web development",
+        "website development",
+        "web dev",
+        "website kaise banti",
+        "website kaise banaye",
+        "how website works",
+        "web development kya hai"
+    ],
+    answer:`
+        <b>💻 Web Development</b><br><br>
+
+        Web development website aur web
+        applications banane ka process hai.<br><br>
+
+        Basic frontend technologies:<br>
+        🌐 HTML → Structure<br>
+        🎨 CSS → Design<br>
+        ⚡ JavaScript → Interaction
+    `
+},
+
+
+/* =========================================================
+   NETWORKING
+========================================================= */
+
+{
+    id:"internet",
+    keys:[
+        "internet",
+        "internet kya hai",
+        "what is internet",
+        "internet kaise work karta",
+        "internet how works"
+    ],
+    answer:`
+        <b>🌐 Internet</b><br><br>
+
+        Internet interconnected computer
+        networks ka global system hai jo
+        devices ko communicate karne deta hai.
+    `
+},
+
+{
+    id:"network",
+    keys:[
+        "network",
+        "computer network",
+        "network kya hai",
+        "what is network",
+        "networking kya hai"
+    ],
+    answer:`
+        <b>🌐 Computer Network</b><br><br>
+
+        Computer network mein multiple devices
+        data aur resources share karne ke liye
+        connected hote hain.
+    `
+},
+
+{
+    id:"ip",
+    keys:[
+        "ip",
+        "ip address",
+        "ip address kya hai",
+        "what is ip",
+        "what is ip address"
+    ],
+    answer:`
+        <b>📡 IP Address</b><br><br>
+
+        IP address network par device/interface
+        ko identify aur address karne mein
+        help karta hai.<br><br>
+
+        IPv4 example:<br>
+        <code>192.168.1.10</code>
+    `
+},
+
+{
+    id:"dns",
+    keys:[
+        "dns",
+        "dns kya hai",
+        "what is dns",
+        "domain name system",
+        "dns full form"
+    ],
+    answer:`
+        <b>🌐 DNS</b><br><br>
+
+        DNS ka full form
+        <b>Domain Name System</b> hai.<br><br>
+
+        DNS human-readable domain names ko
+        corresponding IP addresses se map
+        karne mein help karta hai.
+    `
+},
+
+{
+    id:"http",
+    keys:[
+        "http",
+        "http kya hai",
+        "what is http",
+        "http full form",
+        "hypertext transfer protocol"
+    ],
+    answer:`
+        <b>🌐 HTTP</b><br><br>
+
+        HTTP ka full form
+        <b>HyperText Transfer Protocol</b> hai.<br><br>
+
+        Web browser aur server ke beech
+        request-response communication ke
+        liye HTTP use hota hai.
+    `
+},
+
+{
+    id:"https",
+    keys:[
+        "https",
+        "https kya hai",
+        "what is https",
+        "https full form",
+        "secure http"
+    ],
+    answer:`
+        <b>🔒 HTTPS</b><br><br>
+
+        HTTPS HTTP ka secure form hai.
+        Ye TLS ke through communication ko
+        encrypt/protect karta hai.
+    `
+},
+
+{
+    id:"url",
+    keys:[
+        "url",
+        "url kya hai",
+        "what is url",
+        "url full form",
+        "website address"
+    ],
+    answer:`
+        <b>🔗 URL</b><br><br>
+
+        URL ka full form
+        <b>Uniform Resource Locator</b> hai.<br><br>
+
+        Ye web resource ka address specify karta hai.
+    `
+},
+
+{
+    id:"api",
+    keys:[
+        "api",
+        "api kya hai",
+        "what is api",
+        "api full form",
+        "application programming interface"
+    ],
+    answer:`
+        <b>🔌 API</b><br><br>
+
+        API ka full form
+        <b>Application Programming Interface</b> hai.<br><br>
+
+        API software components ko defined
+        rules ke through communicate karne deta hai.
+    `
+},
+
+{
+    id:"server",
+    keys:[
+        "server",
+        "server kya hai",
+        "what is server",
+        "web server",
+        "server meaning"
+    ],
+    answer:`
+        <b>🖥️ Server</b><br><br>
+
+        Server ek system ya service hota hai
+        jo clients ko data, resources ya
+        functionality provide karta hai.
+    `
+},
+
+{
+    id:"browser",
+    keys:[
+        "browser",
+        "web browser",
+        "browser kya hai",
+        "what is browser",
+        "chrome",
+        "edge",
+        "firefox"
+    ],
+    answer:`
+        <b>🌐 Web Browser</b><br><br>
+
+        Browser websites aur web applications
+        ko access aur render karne ke liye
+        use hota hai.<br><br>
+
+        Examples: Chrome, Edge, Firefox, Safari.
+    `
+},
+
+{
+    id:"tcp",
+    keys:[
+        "tcp",
+        "tcp kya hai",
+        "what is tcp",
+        "tcp full form",
+        "transmission control protocol"
+    ],
+    answer:`
+        <b>📡 TCP</b><br><br>
+
+        TCP ka full form
+        <b>Transmission Control Protocol</b> hai.<br><br>
+
+        TCP reliable, ordered data delivery
+        provide karne ke liye designed hai.
+    `
+},
+
+{
+    id:"udp",
+    keys:[
+        "udp",
+        "udp kya hai",
+        "what is udp",
+        "udp full form",
+        "user datagram protocol"
+    ],
+    answer:`
+        <b>📡 UDP</b><br><br>
+
+        UDP ka full form
+        <b>User Datagram Protocol</b> hai.<br><br>
+
+        UDP connectionless transport protocol hai
+        jo low-overhead communication provide karta hai.
+    `
+},
+
+
+/* =========================================================
+   GITHUB / HOSTING
+========================================================= */
+
+{
+    id:"github_pages",
+    keys:[
+        "github",
+        "github pages",
+        "hosting",
+        "website hosting",
+        "host website",
+        "website kaha host",
+        "academix hosting"
+    ],
+    answer:`
+        <b>🚀 GitHub Pages</b><br><br>
+
+        GitHub Pages static websites ko host
+        karne ke liye use kiya ja sakta hai.<br><br>
+
+        Academix ek GitHub Pages based website
+        project ke roop mein available hai.
+    `
+},
+
+{
+    id:"website_link",
+    keys:[
+        "website link",
+        "site link",
+        "academix link",
+        "website url",
+        "academix url",
+        "site url",
+        "link do",
+        "website ka link"
+    ],
+    answer:`
+        <b>🌐 Academix Website</b><br><br>
+
+        <a href="https://anavy0515-aa.github.io/Academix/"
+        target="_blank"
+        style="color:#00d9ff">
+        Open Academix Website
+        </a>
+    `
+},
+
+
+/* =========================================================
+   SEO
+========================================================= */
+
+{
+    id:"seo",
+    keys:[
+        "seo",
+        "seo kya hai",
+        "what is seo",
+        "google search",
+        "search engine optimization",
+        "website google par",
+        "google mein website",
+        "website ranking"
+    ],
+    answer:`
+        <b>🔎 SEO</b><br><br>
+
+        SEO ka full form
+        <b>Search Engine Optimization</b> hai.<br><br>
+
+        SEO ka purpose website ko search engines
+        ke liye understandable aur discoverable
+        banana hai.<br><br>
+
+        Basics:<br>
+        • Clear page titles<br>
+        • Useful descriptions<br>
+        • Quality content<br>
+        • Internal links<br>
+        • Mobile-friendly design<br>
+        • Proper HTML structure
+    `
+},
+
+{
+    id:"meta_description",
+    keys:[
+        "meta description",
+        "description tag",
+        "seo description",
+        "meta tag"
+    ],
+    answer:`
+        <b>🏷️ Meta Description</b><br><br>
+
+        Meta description webpage ke content ka
+        short description hota hai jo search engines
+        ko page ka context samajhne mein help karta hai.
+    `
+},
+
+{
+    id:"title_tag",
+    keys:[
+        "title tag",
+        "html title",
+        "page title",
+        "title seo"
+    ],
+    answer:`
+        <b>🏷️ HTML Title</b><br><br>
+
+        HTML ka <code>&lt;title&gt;</code> element
+        webpage ka document title define karta hai.
+        Ye browser tab aur search-engine context
+        ke liye important hota hai.
+    `
+},
+
+
+/* =========================================================
+   DOMAIN
+========================================================= */
+
+{
+    id:"domain",
+    keys:[
+        "domain",
+        "domain name",
+        "custom domain",
+        "domain kya hai",
+        "what is domain",
+        ".com",
+        ".in"
+    ],
+    answer:`
+        <b>🌐 Domain Name</b><br><br>
+
+        Domain website ka human-readable address
+        hota hai, jaise <b>example.com</b>.<br><br>
+
+        GitHub Pages ke default address ke alawa
+        custom domain configure kiya ja sakta hai.
+    `
+},
+
+
+/* =========================================================
+   DEBUGGING
+========================================================= */
+
+{
+    id:"debugging",
+    keys:[
+        "debug",
+        "debugging",
+        "bug",
+        "error",
+        "code error",
+        "code problem",
+        "code not working",
+        "code work nahi",
+        "website not working",
+        "fix code",
+        "fix my code",
+        "problem in code"
+    ],
+    answer:`
+        <b>🐞 Debugging Assistant</b><br><br>
+
+        Debugging ka matlab code mein
+        problem/error ko identify karke fix karna hai.<br><br>
+
+        Mujhe ye 3 cheezein bhejna useful hota hai:<br><br>
+
+        1️⃣ Code<br>
+        2️⃣ Exact error<br>
+        3️⃣ Expected result<br><br>
+
+        HTML → structure/path check karo.<br>
+        CSS → layout/margin/padding/flex check karo.<br>
+        JavaScript → Console errors check karo.
+    `
+},
+
+{
+    id:"html_debug",
+    keys:[
+        "debug html",
+        "html debug",
+        "html error",
+        "html not working",
+        "html work nahi",
+        "html problem",
+        "html fix"
+    ],
+    answer:`
+        <b>🐞 HTML Debugging</b><br><br>
+
+        Check karo:<br><br>
+
+        • File extension <b>.html</b> hai?<br>
+        • Tags properly close hain?<br>
+        • CSS/JS/image path correct hai?<br>
+        • IDs aur class names correct hain?<br>
+        • Browser Console mein error hai?<br>
+        • File correct folder mein hai?<br><br>
+
+        Exact code bhejne par specific issue
+        identify kiya ja sakta hai.
+    `
+},
+
+{
+    id:"css_debug",
+    keys:[
+        "debug css",
+        "css debug",
+        "css error",
+        "css not working",
+        "css work nahi",
+        "alignment problem",
+        "left side problem",
+        "right side problem",
+        "button center nahi",
+        "css fix"
+    ],
+    answer:`
+        <b>🐞 CSS Debugging</b><br><br>
+
+        Common causes:<br><br>
+
+        • Margin/padding issue<br>
+        • Width/height issue<br>
+        • Flex/Grid alignment<br>
+        • Position fixed/absolute<br>
+        • Overflow<br>
+        • Media query conflict<br>
+        • Specificity conflict<br>
+        • Missing box-sizing<br><br>
+
+        Browser mein <b>F12 → Inspect</b>
+        karke styles check karo.
+    `
+},
+
+{
+    id:"javascript_debug",
+    keys:[
+        "debug javascript",
+        "debug js",
+        "javascript error",
+        "js error",
+        "js not working",
+        "javascript not working",
+        "onclick not working",
+        "function not working"
+    ],
+    answer:`
+        <b>🐞 JavaScript Debugging</b><br><br>
+
+        Sabse pehle browser mein:<br><br>
+
+        <b>F12 → Console</b><br><br>
+
+        Common problems:<br>
+        • Wrong function name<br>
+        • Wrong element ID<br>
+        • Undefined variable<br>
+        • Missing bracket<br>
+        • Missing quote<br>
+        • Incorrect script path<br>
+        • JavaScript loading issue
+    `
+},
+
+
+/* =========================================================
+   PROMPTER
+========================================================= */
+
+{
+    id:"prompt",
+    keys:[
+        "prompt",
+        "prompter",
+        "prompt bana",
+        "prompt banao",
+        "prompt do",
+        "make a prompt",
+        "write a prompt",
+        "create a prompt",
+        "better prompt",
+        "prompt improve",
+        "ai prompt"
+    ],
+    answer:`
+        <b>✍️ Prompter Assistant</b><br><br>
+
+        Ek strong AI prompt mein generally
+        ye elements useful hote hain:<br><br>
+
+        1️⃣ Role<br>
+        2️⃣ Task<br>
+        3️⃣ Context<br>
+        4️⃣ Level<br>
+        5️⃣ Output format<br>
+        6️⃣ Constraints<br><br>
+
+        Example:<br><br>
+
+        <b>Prompt:</b><br>
+        "Act as a helpful Class 9 teacher.
+        Explain the topic in simple language,
+        give examples, list important points,
+        and finish with a short revision summary."
+    `
+},
+
+
+/* =========================================================
+   AI BASICS
+========================================================= */
+
+{
+    id:"ai",
+    keys:[
+        "ai",
+        "artificial intelligence",
+        "artificial intelligence kya hai",
+        "what is ai",
+        "ai kya hai",
+        "machine intelligence"
+    ],
+    answer:`
+        <b>🤖 Artificial Intelligence</b><br><br>
+
+        AI computer systems ko aise tasks
+        perform karne mein help karta hai jinke
+        liye traditionally human intelligence
+        ki zarurat pad sakti hai.<br><br>
+
+        Examples include language understanding,
+        image recognition, prediction aur
+        decision-support systems.
+    `
+},
+
+{
+    id:"machine_learning",
+    keys:[
+        "machine learning",
+        "ml",
+        "machine learning kya hai",
+        "what is machine learning"
+    ],
+    answer:`
+        <b>🧠 Machine Learning</b><br><br>
+
+        Machine Learning AI ka ek area hai jahan
+        systems data se patterns learn karke
+        predictions ya decisions kar sakte hain.
+    `
+},
+
+
+/* =========================================================
+   STUDY
+========================================================= */
+
+{
+    id:"study",
+    keys:[
+        "study",
+        "how to study",
+        "study kaise kare",
+        "padhai kaise kare",
+        "padhai",
+        "study tips",
+        "study help",
+        "exam preparation",
+        "exam prep"
+    ],
+    answer:`
+        <b>📚 Study Help</b><br><br>
+
+        Effective study ke liye:<br><br>
+
+        1️⃣ Topic ko small sections mein divide karo.<br>
+        2️⃣ Concept samjho, sirf ratta nahi.<br>
+        3️⃣ Active recall use karo.<br>
+        4️⃣ Practice questions solve karo.<br>
+        5️⃣ Mistakes ko review karo.<br>
+        6️⃣ Short revision sessions repeat karo.
+    `
+},
+
+{
+    id:"revision",
+    keys:[
+        "revision",
+        "revise",
+        "revision kaise",
+        "revision tips",
+        "quick revision",
+        "chapter revision"
+    ],
+    answer:`
+        <b>🔁 Revision Strategy</b><br><br>
+
+        Quick revision ke liye:<br><br>
+
+        • Formulas/definitions list karo<br>
+        • Important concepts recall karo<br>
+        • Questions practice karo<br>
+        • Mistakes revise karo<br>
+        • Short self-test lo
+    `
+},
+
+{
+    id:"active_recall",
+    keys:[
+        "active recall",
+        "active recall kya hai",
+        "what is active recall",
+        "recall technique"
+    ],
+    answer:`
+        <b>🧠 Active Recall</b><br><br>
+
+        Active recall mein notes ko repeatedly
+        read karne ke bajay khud se information
+        yaad karne ki koshish ki jaati hai.<br><br>
+
+        Example: chapter padhne ke baad book
+        band karke khud se important points explain karo.
+    `
+},
+
+{
+    id:"time_management",
+    keys:[
+        "time management",
+        "study timetable",
+        "timetable",
+        "study schedule",
+        "time manage",
+        "padhai ka timetable"
+    ],
+    answer:`
+        <b>⏰ Study Time Management</b><br><br>
+
+        Simple approach:<br><br>
+
+        • Difficult subject ko focused session do.<br>
+        • Breaks plan karo.<br>
+        • Daily realistic targets rakho.<br>
+        • Revision ke liye separate time rakho.<br>
+        • Pending work ko next session mein track karo.
+    `
+},
+
+
+/* =========================================================
+   GENERAL COMPUTER CONCEPTS
+========================================================= */
+
+{
+    id:"algorithm",
+    keys:[
+        "algorithm",
+        "algorithm kya hai",
+        "what is algorithm"
+    ],
+    answer:`
+        <b>🧩 Algorithm</b><br><br>
+
+        Algorithm kisi problem ko solve karne
+        ke liye step-by-step procedure hota hai.
+    `
+},
+
+{
+    id:"variable",
+    keys:[
+        "variable",
+        "variable kya hai",
+        "what is variable",
+        "programming variable"
+    ],
+    answer:`
+        <b>📦 Variable</b><br><br>
+
+        Programming mein variable ek named
+        storage/reference hota hai jiske through
+        data ko program mein use kiya ja sakta hai.
+    `
+},
+
+{
+    id:"function",
+    keys:[
+        "function",
+        "function kya hai",
+        "what is function",
+        "programming function"
+    ],
+    answer:`
+        <b>⚙️ Function</b><br><br>
+
+        Function reusable block of code hota hai
+        jo ek specific task perform karne ke
+        liye define kiya ja sakta hai.
+    `
+},
+
+{
+    id:"loop",
+    keys:[
+        "loop",
+        "loops",
+        "loop kya hai",
+        "what is loop",
+        "programming loop"
+    ],
+    answer:`
+        <b>🔄 Loop</b><br><br>
+
+        Loop code ko repeatedly execute karne
+        ke liye use hota hai jab tak given
+        condition/iteration requirement satisfy hoti hai.
+    `
+},
+
+{
+    id:"database",
+    keys:[
+        "database",
+        "database kya hai",
+        "what is database",
+        "db",
+        "data storage"
+    ],
+    answer:`
+        <b>🗄️ Database</b><br><br>
+
+        Database structured way mein data ko
+        store, organize aur retrieve karne
+        ke liye use kiya jaata hai.
+    `
+},
+
+
+/* =========================================================
+   SECURITY
+========================================================= */
+
+{
+    id:"password_security",
+    keys:[
+        "password",
+        "password security",
+        "secure password",
+        "website security",
+        "security",
+        "privacy",
+        "safe website"
+    ],
+    answer:`
+        <b>🔐 Security Basics</b><br><br>
+
+        Passwords ko plain text mein store karna
+        secure practice nahi hai.<br><br>
+
+        Real authentication systems mein secure
+        server-side authentication aur password
+        hashing jaise mechanisms use kiye jaate hain.<br><br>
+
+        Sensitive credentials ko frontend
+        JavaScript mein directly nahi rakhna chahiye.
+    `
+}
+
+];
+
+
+/* =========================================================
+   CLASS 9 MATHS KNOWLEDGE
+========================================================= */
+
+const MATHS = {
+
+"number system":`
+<b>📐 Number System</b><br><br>
+Numbers ko different sets mein classify kiya ja sakta hai,
+jaise natural, whole, integers, rational aur irrational numbers.
+`,
+
+"polynomial":`
+<b>📐 Polynomial</b><br><br>
+Polynomial variables aur coefficients se bana algebraic expression hota hai,
+jisme variable ki powers non-negative integers hoti hain.<br><br>
+Example: <b>x² + 3x + 2</b><br>
+Iski degree <b>2</b> hai.
+`,
+
+"coordinate geometry":`
+<b>📍 Coordinate Geometry</b><br><br>
+Coordinate geometry mein points ko coordinate plane
+par represent kiya jaata hai.<br><br>
+A point ko generally <b>(x,y)</b> se represent kiya jaata hai.
+`,
+
+"linear equation":`
+<b>📏 Linear Equation</b><br><br>
+Linear equation mein variable ki highest power generally 1 hoti hai.<br><br>
+Example: <b>2x + 3 = 7</b>
+`,
+
+"triangle":`
+<b>🔺 Triangle</b><br><br>
+Triangle ek polygon hai jisme three sides aur
+three angles hote hain.<br><br>
+Triangle ke interior angles ka sum <b>180°</b> hota hai.
+`,
+
+"quadrilateral":`
+<b>⬛ Quadrilateral</b><br><br>
+Quadrilateral ek polygon hai jisme four sides hote hain.<br><br>
+Iske interior angles ka sum <b>360°</b> hota hai.
+`,
+
+"statistics":`
+<b>📊 Statistics</b><br><br>
+Statistics data ko collect, organize, represent
+aur interpret karne ka study hai.<br><br>
+Mean, median aur mode basic measures hain.
+`,
+
+"probability":`
+<b>🎲 Probability</b><br><br>
+Probability kisi event ke occur hone ki likelihood
+ko represent karti hai.<br><br>
+Basic equally-likely case mein:<br>
+<b>P(E) = Favourable outcomes / Total outcomes</b>
+`
+
+};
+
+
+/* =========================================================
+   CLASS 9 SCIENCE EXTRA KNOWLEDGE
+========================================================= */
+
+const SCIENCE = {
+
+"distance":`
+<b>📏 Distance</b><br><br>
+Distance kisi object ke travelled path ki total length hai.
+Ye scalar quantity hai.
+`,
+
+"displacement":`
+<b>📍 Displacement</b><br><br>
+Displacement initial position se final position tak
+ka directed shortest change hai.
+Ye vector quantity hai.
+`,
+
+"mass":`
+<b>⚖️ Mass</b><br><br>
+Mass object mein present matter ka measure hai.
+SI unit kilogram (kg) hai.
+`,
+
+"weight":`
+<b>🌍 Weight</b><br><br>
+Weight gravitational force hai jo object par act karta hai.<br><br>
+<b>W = mg</b>
+`,
+
+"work":`
+<b>💪 Work</b><br><br>
+Physics mein work tab hota hai jab force ke
+component ki direction mein displacement hota hai.
+`,
+
+"energy":`
+<b>⚡ Energy</b><br><br>
+Energy work karne ki capacity hai.
+Common forms mein kinetic aur potential energy include hain.
+`,
+
+"power":`
+<b>🔋 Power</b><br><br>
+Power work karne ki rate ko represent karti hai.
+<br><br>
+<b>Power = Work / Time</b>
+`,
+
+"photosynthesis":`
+<b>🌱 Photosynthesis</b><br><br>
+Photosynthesis mein green plants light energy
+ki help se carbon dioxide aur water se food
+synthesize karte hain, aur oxygen release hoti hai.
+`,
+
+"respiration":`
+<b>🫁 Respiration</b><br><br>
+Respiration mein cells food molecules se
+usable energy obtain karte hain.
+`,
+
+"tissue":`
+<b>🔬 Tissue</b><br><br>
+Tissue similar cells ka group hota hai jo
+specific function perform karne mein specialized hota hai.
+`
+
+};
+
+
+/* =========================================================
+   CLASS 9 SST KNOWLEDGE
+========================================================= */
+
+const SST = {
+
+"democracy":`
+<b>🗳️ Democracy</b><br><br>
+Democracy government ka aisa form hai jisme
+people political participation aur representation
+ke through government ko choose karte hain.
+`,
+
+"french revolution":`
+<b>🇫🇷 French Revolution</b><br><br>
+French Revolution 1789 mein France mein
+major political aur social transformation ke
+roop mein shuru hui.
+`,
+
+"constitution":`
+<b>📜 Constitution</b><br><br>
+Constitution country ke fundamental rules,
+institutions, powers aur rights ka framework provide karta hai.
+`,
+
+"climate":`
+<b>🌦️ Climate</b><br><br>
+Climate kisi region ke weather patterns ka
+long-term average aur variation describe karta hai.
+`,
+
+"population":`
+<b>👥 Population</b><br><br>
+Population kisi particular area mein
+present logon ki total number ko refer karti hai.
+`,
+
+"poverty":`
+<b>💰 Poverty</b><br><br>
+Poverty ek condition hai jisme people ki
+basic needs aur required resources tak access
+insufficient ho sakta hai.
+`,
+
+"food security":`
+<b>🌾 Food Security</b><br><br>
+Food security ka relation sufficient,
+accessible aur safe food ki availability
+aur access se hai.
+`
+
+};
+
+
+/* =========================================================
+   EXTRA ENGLISH KNOWLEDGE
+========================================================= */
+
+const ENGLISH = {
+
+"modal":`
+<b>📖 Modals</b><br><br>
+Modals auxiliary verbs hote hain jo ability,
+possibility, permission, necessity ya obligation
+jaise meanings express kar sakte hain.
+`,
+
+"determiner":`
+<b>📖 Determiners</b><br><br>
+Determiners noun ke reference ya quantity
+ko specify karne mein help karte hain.
+Examples include a, an, the, this, some, many.
+`,
+
+"preposition":`
+<b>📖 Preposition</b><br><br>
+Preposition noun/pronoun ko sentence ke
+other elements ke saath relation mein show kar sakta hai.
+Examples: in, on, at, under, between.
+`,
+
+"subject verb agreement":`
+<b>📖 Subject-Verb Agreement</b><br><br>
+Verb ka form subject ke number/person ke
+according agree karna chahiye.
+`,
+
+"reported speech":`
+<b>📖 Reported Speech</b><br><br>
+Reported speech mein kisi person's statement
+ko indirect form mein report kiya jaata hai.
+`,
+
+"clause":`
+<b>📖 Clause</b><br><br>
+Clause words ka group hai jisme generally
+subject aur predicate structure hota hai.
+`
+
+};
+
+
+/* =========================================================
+   EXTRA COMPUTER KNOWLEDGE
+========================================================= */
+
+const COMPUTER = {
+
+"frontend":`
+<b>🖥️ Frontend</b><br><br>
+Frontend website ka woh part hai jo user
+browser mein directly interact karta hai.<br><br>
+HTML, CSS aur JavaScript common frontend technologies hain.
+`,
+
+"backend":`
+<b>⚙️ Backend</b><br><br>
+Backend server-side logic, data processing,
+authentication aur database interaction jaise tasks handle kar sakta hai.
+`,
+
+"git":`
+<b>🌿 Git</b><br><br>
+Git ek distributed version control system hai
+jo code changes ko track aur manage karne ke liye use hota hai.
+`,
+
+"github":`
+<b>🐙 GitHub</b><br><br>
+GitHub ek platform hai jahan Git repositories
+host, collaborate aur manage ki ja sakti hain.
+`,
+
+"responsive design":`
+<b>📱 Responsive Design</b><br><br>
+Responsive design ka goal website ko
+different screen sizes par usable banana hai.
+`,
+
+"dom":`
+<b>🌳 DOM</b><br><br>
+DOM ka full form Document Object Model hai.
+Browser HTML document ko object-based structure
+mein represent karta hai jise JavaScript manipulate kar sakti hai.
+`,
+
+"json":`
+<b>📦 JSON</b><br><br>
+JSON ka full form JavaScript Object Notation hai.
+Ye structured data exchange ke liye commonly use hota hai.
+`
+
+};
+
+
+/* =========================================================
+   DYNAMIC KNOWLEDGE REGISTRATION
+========================================================= */
+
+function addObjectKnowledge(object){
+
+    Object.keys(object).forEach(topic => {
+
+        KNOWLEDGE.push({
+
+            id:"extra_"+topic.replace(/\s+/g,"_"),
+
+            keys:[
+                topic,
+                topic+" kya hai",
+                topic+" kya h",
+                "what is "+topic,
+                "explain "+topic,
+                "explain "+topic+" to me",
+                topic+" samjhao",
+                topic+" samjha do",
+                topic+" ke baare mein",
+                topic+" meaning",
+                "meaning of "+topic,
+                "define "+topic
+            ],
+
+            answer:object[topic]
+
+        });
+
+    });
+
+}
+
+
+addObjectKnowledge(MATHS);
+addObjectKnowledge(SCIENCE);
+addObjectKnowledge(SST);
+addObjectKnowledge(ENGLISH);
+addObjectKnowledge(COMPUTER);
+
+
+/* =========================================================
+   AUTOMATIC HINGLISH + ENGLISH VARIATIONS
+   ========================================================= */
+
+const VARIATION_TEMPLATES = [
+
+    "what is {topic}",
+    "what is {topic}?",
+    "explain {topic}",
+    "explain {topic} to me",
+    "tell me about {topic}",
+    "define {topic}",
+    "meaning of {topic}",
+    "{topic} kya hai",
+    "{topic} kya h",
+    "{topic} kya hota hai",
+    "{topic} kya hota h",
+    "{topic} samjhao",
+    "{topic} samjha do",
+    "{topic} explain karo",
+    "{topic} ke baare mein batao",
+    "{topic} ke bare mein batao",
+    "{topic} ka meaning kya hai",
+    "{topic} ka matlab kya hai",
+    "mujhe {topic} samjhao",
+    "mujhe {topic} explain karo",
+    "please explain {topic}",
+    "can you explain {topic}",
+    "tell me {topic}",
+    "give me information about {topic}",
+    "{topic} information",
+    "{topic} basics",
+    "{topic} basic explanation"
+];
+
+
+/*
+   Har knowledge topic ke liye multiple
+   natural-language variations generate ki ja rahi hain.
+*/
+
+KNOWLEDGE.forEach(item => {
+
+    const baseTopics = item.keys.slice(0,3);
+
+    baseTopics.forEach(topic => {
+
+        VARIATION_TEMPLATES.forEach(template => {
+
+            const variation =
+                template.replace("{topic}",topic);
+
+            if(!item.keys.includes(variation)){
+
+                item.keys.push(variation);
+
+            }
+
+        });
+
+    });
+
+});
+
+
+/* =========================================================
+   GREETINGS
+========================================================= */
+
+const GREETINGS = {
+
+    hello:[
+        "hi",
+        "hii",
+        "hiii",
+        "hello",
+        "hey",
+        "helo",
+        "heyy",
+        "yo",
+        "hola",
+        "namaste",
+        "namaskar",
+        "good morning",
+        "good afternoon",
+        "good evening",
+        "good night"
+    ],
+
+    reply:`
+        <b>Namaste! 👋</b><br><br>
+
+        Main <b>Acharya</b> hoon —
+        Academix by Tiwari ka smart assistant. 🤖<br><br>
+
+        Tum mujhse Academix, Class 9 subjects,
+        study topics, coding, networking,
+        debugging, prompts aur website ke
+        baare mein pooch sakte ho.<br><br>
+
+        <b>Hinglish + English dono chalega.</b> 🚀
+    `
+
+};
+
+
+/* =========================================================
+   THANK YOU
+========================================================= */
+
+const THANKS = [
+
+    "thank you",
+    "thanks",
+    "thank",
+    "thx",
+    "ty",
+    "dhanyavad",
+    "shukriya",
+    "thanks acharya",
+    "thank you acharya"
+];
+
+
+/* =========================================================
+   SMALL TALK
+========================================================= */
+
+function smallTalk(q){
+
+    if(
+        GREETINGS.hello.includes(q) ||
+        wordsMatch(q,[
+            "hello acharya",
+            "hi acharya",
+            "hey acharya",
+            "namaste acharya"
+        ])
+    ){
+
+        return GREETINGS.reply;
+
+    }
+
+
+    if(THANKS.includes(q)){
+
+        return `
+            You're welcome! 😊<br><br>
+            Jab bhi study ya Academix mein help chahiye,
+            <b>Acharya</b> ready hai. 🚀
+        `;
+
+    }
+
+
+    if(wordsMatch(q,[
+        "who are you",
+        "who r u",
+        "tum kaun ho",
+        "aap kaun ho",
+        "your name",
+        "naam kya hai",
+        "what is your name"
+    ])){
+
+        return `
+            <b>🤖 Main Acharya hoon.</b><br><br>
+
+            Main <b>Academix by Tiwari</b> ka built-in
+            study aur website assistant hoon.<br><br>
+
+            <b>Developer:</b> Anshu Tiwari
+        `;
+
+    }
+
+
+    if(wordsMatch(q,[
+        "how are you",
+        "how r u",
+        "kaise ho",
+        "kaisa hai",
+        "kya haal hai"
+    ])){
+
+        return `
+            Main ready hoon bhai 😎🤖<br><br>
+            Batao kya padhna hai ya Academix mein
+            kya check karna hai.
+        `;
+
+    }
+
+
+    if(wordsMatch(q,[
+        "good job",
+        "nice",
+        "great",
+        "awesome",
+        "mast",
+        "badhiya",
+        "excellent"
+    ])){
+
+        return `
+            Thank you bhai! 😄🚀<br><br>
+            Acharya ka mission hai Academix ko
+            aur useful banana.
+        `;
+
+    }
+
+    return null;
+
+}
+
+
+/* =========================================================
+   PROMPTER ENGINE
+========================================================= */
+
+function promptEngine(q){
+
+    if(!wordsMatch(q,[
+        "prompt",
+        "prompter",
+        "prompt bana",
+        "prompt banao",
+        "prompt do",
+        "make a prompt",
+        "create a prompt",
+        "write a prompt"
+    ])){
+
+        return null;
+
+    }
+
+
+    let topic = q
+        .replace(/make a prompt/g,"")
+        .replace(/create a prompt/g,"")
+        .replace(/write a prompt/g,"")
+        .replace(/prompt bana/g,"")
+        .replace(/prompt banao/g,"")
+        .replace(/prompt do/g,"")
+        .replace(/prompt/g,"")
+        .trim();
+
+
+    if(!topic){
+
+        topic="Class 9 study topic";
+
+    }
+
+
+    return `
+        <b>✍️ Prompter Assistant</b><br><br>
+
+        Tumhare topic ke liye optimized prompt:<br><br>
+
+        <b>Topic:</b> ${escapeHTML(topic)}<br><br>
+
+        <b>Prompt:</b><br>
+
+        "Act as a helpful teacher.
+        Explain <b>${escapeHTML(topic)}</b>
+        in simple language.
+        Start from the basic concept,
+        give clear examples,
+        explain important points,
+        mention common mistakes,
+        and finish with a short revision summary
+        and 5 practice questions."<br><br>
+
+        <b>Prompt formula:</b><br>
+        Role + Task + Context + Level + Format + Constraints
+    `;
+
+}
+
+
+/* =========================================================
+   DEBUGGING ENGINE
+========================================================= */
+
+function debugEngine(q){
+
+    if(!wordsMatch(q,[
+        "debug",
+        "debugging",
+        "bug",
+        "error",
+        "not working",
+        "work nahi",
+        "kaam nahi",
+        "fix code",
+        "fix my code",
+        "code problem"
+    ])){
+
+        return null;
+
+    }
+
+
+    if(wordsMatch(q,["html"])){
+
+        return `
+            <b>🐞 HTML Debug Mode</b><br><br>
+
+            Check these first:<br><br>
+
+            1. HTML tags properly closed hain?<br>
+            2. CSS/JS file path correct hai?<br>
+            3. IDs/classes exact match kar rahe hain?<br>
+            4. File extension <b>.html</b> hai?<br>
+            5. Browser Console mein error hai?<br>
+            6. Hard refresh karke dekha?<br><br>
+
+            Exact HTML code bhejo to
+            specific problem identify ki ja sakti hai.
+        `;
+
+    }
+
+
+    if(wordsMatch(q,["css","style","alignment","left","right"])){
+
+        return `
+            <b>🐞 CSS Debug Mode</b><br><br>
+
+            Layout problem ke common causes:<br><br>
+
+            • margin<br>
+            • padding<br>
+            • width<br>
+            • max-width<br>
+            • flexbox<br>
+            • grid<br>
+            • position<br>
+            • overflow<br>
+            • media query<br>
+            • box-sizing<br><br>
+
+            <b>F12 → Inspect Element</b>
+            se exact CSS rule check karo.
+        `;
+
+    }
+
+
+    if(wordsMatch(q,["javascript","js","onclick","function","script"])){
+
+        return `
+            <b>🐞 JavaScript Debug Mode</b><br><br>
+
+            Browser mein <b>F12 → Console</b>
+            open karo.<br><br>
+
+            Common errors:<br>
+            • Function name mismatch<br>
+            • Wrong ID<br>
+            • Undefined variable<br>
+            • Missing bracket<br>
+            • Missing quote<br>
+            • Wrong script path<br>
+            • Event handler issue
+        `;
+
+    }
+
+
+    return `
+        <b>🐞 Debugging Assistant</b><br><br>
+
+        Mujhe ye bhejo:<br><br>
+
+        <b>1.</b> Code<br>
+        <b>2.</b> Exact error<br>
+        <b>3.</b> Expected result<br>
+        <b>4.</b> Actual result<br><br>
+
+        Main problem ko logically isolate
+        karne mein help karunga.
+    `;
+
+}
+
+
+/* =========================================================
+   NETWORKING ENGINE
+========================================================= */
+
+function networkEngine(q){
+
+    if(!wordsMatch(q,[
+        "network",
+        "networking",
+        "internet",
+        "http",
+        "https",
+        "dns",
+        "ip",
+        "url",
+        "api",
+        "server",
+        "browser",
+        "tcp",
+        "udp"
+    ])){
+
+        return null;
+
+    }
+
+
+    if(wordsMatch(q,["https"])){
+
+        return getKnowledge("https");
+
+    }
+
+    if(wordsMatch(q,["http"])){
+
+        return getKnowledge("http");
+
+    }
+
+    if(wordsMatch(q,["dns"])){
+
+        return getKnowledge("dns");
+
+    }
+
+    if(wordsMatch(q,["ip address"])){
+
+        return getKnowledge("ip");
+
+    }
+
+    if(wordsMatch(q,["tcp"])){
+
+        return getKnowledge("tcp");
+
+    }
+
+    if(wordsMatch(q,["udp"])){
+
+        return getKnowledge("udp");
+
+    }
+
+    if(wordsMatch(q,["api"])){
+
+        return getKnowledge("api");
+
+    }
+
+    if(wordsMatch(q,["url"])){
+
+        return getKnowledge("url");
+
+    }
+
+    if(wordsMatch(q,["server"])){
+
+        return getKnowledge("server");
+
+    }
+
+    if(wordsMatch(q,["browser"])){
+
+        return getKnowledge("browser");
+
+    }
+
+    if(wordsMatch(q,["internet"])){
+
+        return getKnowledge("internet");
+
+    }
+
+    return getKnowledge("network");
+
+}
+
+
+/* =========================================================
+   KNOWLEDGE SEARCH
+========================================================= */
+
+function getKnowledge(topic){
+
+    const item = KNOWLEDGE.find(k => {
+
+        return k.id === topic ||
+               k.keys.includes(topic);
+
+    });
+
+
+    if(item){
+
+        return item.answer;
+
+    }
+
+
+    return null;
+
+}
+
+
+/* =========================================================
+   FUZZY TOPIC SEARCH
+========================================================= */
+
+function fuzzyKnowledge(q){
+
+    let best = null;
+
+    let bestScore = 0;
+
+
+    KNOWLEDGE.forEach(item => {
+
+        let score = 0;
+
+        item.keys.forEach(key => {
+
+            const k = normalize(key);
+
+            if(q === k){
+
+                score += 100;
+
+            }
+            else if(q.includes(k)){
+
+                score += Math.min(k.length,30);
+
+            }
+            else {
+
+                const pieces = k.split(" ");
+
+                pieces.forEach(word => {
+
+                    if(word.length > 3 && q.includes(word)){
+
+                        score += 2;
+
+                    }
+
+                });
+
+            }
+
+        });
+
+
+        if(score > bestScore){
+
+            bestScore = score;
+
+            best = item;
+
+        }
+
+    });
+
+
+    if(bestScore >= 8){
+
+        return best.answer;
+
+    }
+
+
+    return null;
+
+}
+
+
+/* =========================================================
+   QUIZ ENGINE
+========================================================= */
+
+function quizEngine(q){
+
+    if(!wordsMatch(q,[
+        "quiz",
+        "mcq",
+        "question do",
+        "questions do",
+        "test do",
+        "practice question",
+        "quiz do"
+    ])){
+
+        return null;
+
+    }
+
+
+    if(wordsMatch(q,[
+        "math",
+        "maths",
+        "polynomial"
+    ])){
+
+        return `
+            <b>🧠 Maths Quick Quiz</b><br><br>
+
+            <b>Q1.</b> Polynomial
+            <b>x² + 3x + 2</b> ki degree kya hai?<br><br>
+
+            A) 1<br>
+            B) 2<br>
+            C) 3<br>
+            D) 0<br><br>
+
+            Answer option bhejo:
+            <b>A, B, C or D</b>
+        `;
+
+    }
+
+
+    if(wordsMatch(q,[
+        "science",
+        "motion",
+        "force"
+    ])){
+
+        return `
+            <b>🧠 Science Quick Quiz</b><br><br>
+
+            <b>Q1.</b> Speed ka formula kya hai?<br><br>
+
+            A) Time / Distance<br>
+            B) Distance / Time<br>
+            C) Mass / Time<br>
+            D) Force / Mass<br><br>
+
+            Answer option bhejo.
+        `;
+
+    }
+
+
+    if(wordsMatch(q,[
+        "english",
+        "tense"
+    ])){
+
+        return `
+            <b>🧠 English Quiz</b><br><br>
+
+            <b>Q1.</b>
+            "She is reading a book."
+            mein tense kaunsa hai?<br><br>
+
+            A) Simple Present<br>
+            B) Present Continuous<br>
+            C) Simple Past<br>
+            D) Present Perfect
+        `;
+
+    }
+
+
+    if(wordsMatch(q,[
+        "computer",
+        "html",
+        "python",
+        "css"
+    ])){
+
+        return `
+            <b>🧠 Computer Quiz</b><br><br>
+
+            <b>Q1.</b> HTML ka full form kya hai?<br><br>
+
+            A) HyperText Markup Language<br>
+            B) HighText Machine Language<br>
+            C) Hyper Tool Markup Language<br>
+            D) Home Tool Markup Language
+        `;
+
+    }
+
+
+    return `
+        <b>🧠 Quiz Mode</b><br><br>
+
+        Main topic-based quiz start kar sakta hoon.<br><br>
+
+        Try:<br>
+        • Maths quiz<br>
+        • Science quiz<br>
+        • English quiz<br>
+        • Computer quiz
+    `;
+
+}
+
+
+/* =========================================================
+   FORMULA ENGINE
+========================================================= */
+
+function formulaEngine(q){
+
+    if(!wordsMatch(q,[
+        "formula",
+        "formulas",
+        "formulae",
+        "formula batao",
+        "formula do",
+        "important formula"
+    ])){
+
+        return null;
+
+    }
+
+
+    if(wordsMatch(q,[
+        "motion",
+        "speed",
+        "velocity",
+        "acceleration"
+    ])){
+
+        return `
+            <b>📐 Motion Formulas</b><br><br>
+
+            <b>Speed = Distance / Time</b><br><br>
+
+            <b>Velocity = Displacement / Time</b><br><br>
+
+            <b>Acceleration =
+            Change in velocity / Time</b>
+        `;
+
+    }
+
+
+    if(wordsMatch(q,[
+        "power"
+    ])){
+
+        return `
+            <b>⚡ Power Formula</b><br><br>
+
+            <b>Power = Work / Time</b>
+        `;
+
+    }
+
+
+    if(wordsMatch(q,[
+        "force"
+    ])){
+
+        return `
+            <b>⚡ Force Formula</b><br><br>
+
+            Newton's Second Law:<br><br>
+
+            <b>F = ma</b>
+        `;
+
+    }
+
+
+    if(wordsMatch(q,[
+        "probability"
+    ])){
+
+        return `
+            <b>🎲 Probability Formula</b><br><br>
+
+            For equally likely outcomes:<br><br>
+
+            <b>
+            P(E) =
+            Favourable outcomes /
+            Total outcomes
+            </b>
+        `;
+
+    }
+
+
+    return `
+        <b>📐 Formula Mode</b><br><br>
+
+        Subject aur topic specify karo.<br><br>
+
+        Example:<br>
+        • Motion formulas<br>
+        • Force formula<br>
+        • Probability formula<br>
+        • Maths formulas
+    `;
+
+}
+
+
+/* =========================================================
+   WEBSITE ROUTER
+========================================================= */
+
+function websiteEngine(q){
+
+    if(wordsMatch(q,[
+        "home",
+        "homepage",
+        "home page"
+    ])){
+
+        return getKnowledge("home");
+
+    }
+
+
+    if(wordsMatch(q,[
+        "dashboard"
+    ])){
+
+        return getKnowledge("dashboard");
+
+    }
+
+
+    if(wordsMatch(q,[
+        "login",
+        "log in",
+        "sign in",
+        "signup",
+        "sign up",
+        "register"
+    ])){
+
+        return getKnowledge("login");
+
+    }
+
+
+    if(wordsMatch(q,[
+        "search page",
+        "website search"
+    ])){
+
+        return getKnowledge("search");
+
+    }
+
+
+    if(wordsMatch(q,[
+        "focus timer",
+        "study timer"
+    ])){
+
+        return getKnowledge("focus_timer");
+
+    }
+
+
+    if(wordsMatch(q,[
+        "scientific calculator",
+        "calculator"
+    ])){
+
+        return getKnowledge("calculator");
+
+    }
+
+
+    if(wordsMatch(q,[
+        "exam simulator",
+        "exam tool"
+    ])){
+
+        return getKnowledge("exam");
+
+    }
+
+
+    if(wordsMatch(q,[
+        "notes",
+        "study notes"
+    ])){
+
+        return getKnowledge("notes");
+
+    }
+
+
+    return null;
+
+}
+
+
+/* =========================================================
+   HELP
+========================================================= */
+
+function helpReply(){
+
+    return `
+        <b>🤖 Acharya Help Center</b><br><br>
+
+        Main tumhari help in areas mein kar sakta hoon:<br><br>
+
+        🏫 <b>Academix</b><br>
+        👨‍💻 <b>Developer</b><br>
+        📚 <b>Class 9 Subjects</b><br>
+        📐 <b>Maths</b><br>
+        🔬 <b>Science</b><br>
+        🌍 <b>SST</b><br>
+        📖 <b>English</b><br>
+        💻 <b>Computer</b><br>
+        🐞 <b>Debugging</b><br>
+        🌐 <b>Networking</b><br>
+        ✍️ <b>Prompts</b><br>
+        🧠 <b>Quizzes</b><br>
+        📐 <b>Formulas</b><br>
+        🔎 <b>SEO</b><br>
+        🚀 <b>GitHub Pages</b><br>
+        🌐 <b>Domain</b><br><br>
+
+        Example:<br><br>
+
+        <b>"Academix kisne banaya?"</b><br>
+        <b>"HTML kya hai?"</b><br>
+        <b>"CSS debug karo"</b><br>
+        <b>"HTTP explain karo"</b><br>
+        <b>"Motion ke formulas do"</b><br>
+        <b>"Study prompt banao"</b>
+    `;
+
+}
+
+
+/* =========================================================
+   MAIN ACHARYA BRAIN
+========================================================= */
+
+function getAcharyaReply(message){
+
+    const q = normalize(message);
+
+
+    if(!q){
+
+        return helpReply();
+
+    }
+
+
+    /* 1. SMALL TALK */
+
+    const talk = smallTalk(q);
+
+    if(talk){
+
+        return talk;
+
+    }
+
+
+    /* 2. PROMPTER */
+
+    const prompt = promptEngine(q);
+
+    if(prompt){
+
+        return prompt;
+
+    }
+
+
+    /* 3. DEBUGGING */
+
+    const debug = debugEngine(q);
+
+    if(debug){
+
+        return debug;
+
+    }
+
+
+    /* 4. NETWORKING */
+
+    const network = networkEngine(q);
+
+    if(network){
+
+        return network;
+
+    }
+
+
+    /* 5. QUIZ */
+
+    const quiz = quizEngine(q);
+
+    if(quiz){
+
+        return quiz;
+
+    }
+
+
+    /* 6. FORMULA */
+
+    const formula = formulaEngine(q);
+
+    if(formula){
+
+        return formula;
+
+    }
+
+
+    /* 7. WEBSITE */
+
+    const website = websiteEngine(q);
+
+    if(website){
+
+        return website;
+
+    }
+
+
+    /* 8. EXACT KNOWLEDGE */
+
+    for(const item of KNOWLEDGE){
+
+        if(item.keys.some(key => {
+
+            const k = normalize(key);
+
+            return q === k;
+
+        })){
+
+            return item.answer;
+
+        }
+
+    }
+
+
+    /* 9. DIRECT TOPIC */
+
+    for(const item of KNOWLEDGE){
+
+        if(item.keys.some(key => {
+
+            const k = normalize(key);
+
+            return k.length > 3 && q.includes(k);
+
+        })){
+
+            return item.answer;
+
+        }
+
+    }
+
+
+    /* 10. FUZZY SEARCH */
+
+    const fuzzy = fuzzyKnowledge(q);
+
+    if(fuzzy){
+
+        return fuzzy;
+
+    }
+
+
+    /* 11. HELP REQUEST */
+
+    if(wordsMatch(q,[
+        "help",
+        "help me",
+        "madad",
+        "guide me",
+        "guide karo",
+        "what can you do",
+        "what can u do",
+        "tum kya kar sakte ho",
+        "aap kya kar sakte ho",
+        "capabilities"
+    ])){
+
+        return helpReply();
+
+    }
+
+
+    /* 12. FINAL FALLBACK */
+
+    return `
+        <b>Acharya 🤖</b><br><br>
+
+        Mujhe is question ka exact answer
+        meri current knowledge mein nahi mila.<br><br>
+
+        Question ko thoda specific karke try karo.<br><br>
+
+        <b>You can ask:</b><br><br>
+
+        • Academix kya hai?<br>
+        • Developer kaun hai?<br>
+        • HTML kya hai?<br>
+        • CSS debug karo<br>
+        • HTTP kya hota hai?<br>
+        • DNS kya hota hai?<br>
+        • Motion samjhao<br>
+        • Maths quiz do<br>
+        • Study prompt banao<br>
+        • GitHub Pages kya hai?<br><br>
+
+        <i>Acharya ka knowledge system continuously
+        structured topics aur question variations
+        ke through expand kiya ja sakta hai.</i>
+    `;
+
+}
+
+
+/* =========================================================
+   CHAT
+========================================================= */
 
 function sendMessage(){
 
     const input =
-    document.getElementById("userInput");
+        document.getElementById("userInput");
 
     const message =
-    input.value.trim();
+        input.value.trim();
 
-    if(message === "") return;
+
+    if(message==="") return;
 
 
     addMessage(
@@ -615,43 +3901,53 @@ function sendMessage(){
     );
 
 
-    input.value = "";
+    input.value="";
 
 
     showTyping();
 
 
-    setTimeout(function(){
+    setTimeout(() => {
 
         removeTyping();
 
+
         const reply =
-        getAcharyaReply(message);
+            getAcharyaReply(message);
 
-        addMessage(reply,"bot");
 
-    },500);
+        addMessage(
+            reply,
+            "bot"
+        );
+
+
+    },450);
 
 }
 
 
-/* SUGGESTION */
+/* =========================================================
+   SUGGESTION
+========================================================= */
 
 function askSuggestion(text){
 
-    document.getElementById("userInput").value = text;
+    document.getElementById("userInput").value=text;
 
     sendMessage();
 
 }
 
 
-/* ENTER */
+/* =========================================================
+   ENTER KEY
+========================================================= */
 
 function handleEnter(event){
 
     if(
-        event.key === "Enter" &&
+        event.key==="Enter" &&
         !event.shiftKey
     ){
 
@@ -664,28 +3960,32 @@ function handleEnter(event){
 }
 
 
-/* ADD MESSAGE */
+/* =========================================================
+   ADD MESSAGE
+========================================================= */
 
 function addMessage(text,type){
 
     const messages =
-    document.getElementById("chatMessages");
+        document.getElementById("chatMessages");
+
 
     const message =
-    document.createElement("div");
+        document.createElement("div");
+
 
     message.className =
-    "message " + type;
+        "message "+type;
 
 
     const bubble =
-    document.createElement("div");
-
-    bubble.className =
-    "bubble";
+        document.createElement("div");
 
 
-    bubble.innerHTML = text;
+    bubble.className="bubble";
+
+
+    bubble.innerHTML=text;
 
 
     message.appendChild(bubble);
@@ -694,45 +3994,52 @@ function addMessage(text,type){
 
 
     messages.scrollTop =
-    messages.scrollHeight;
+        messages.scrollHeight;
 
 }
 
 
-/* TYPING */
+/* =========================================================
+   TYPING
+========================================================= */
 
 function showTyping(){
 
     const messages =
-    document.getElementById("chatMessages");
+        document.getElementById("chatMessages");
+
 
     const typing =
-    document.createElement("div");
+        document.createElement("div");
 
-    typing.className =
-    "message bot";
 
-    typing.id =
-    "typing";
+    typing.className="message bot";
+
+    typing.id="typing";
+
 
     typing.innerHTML =
-    '<div class="bubble">Acharya is thinking... 🤔</div>';
+        '<div class="bubble">Acharya is thinking... 🤔</div>';
 
 
     messages.appendChild(typing);
 
+
     messages.scrollTop =
-    messages.scrollHeight;
+        messages.scrollHeight;
 
 }
 
 
-/* REMOVE TYPING */
+/* =========================================================
+   REMOVE TYPING
+========================================================= */
 
 function removeTyping(){
 
     const typing =
-    document.getElementById("typing");
+        document.getElementById("typing");
+
 
     if(typing){
 
@@ -743,507 +4050,89 @@ function removeTyping(){
 }
 
 
-/* CLEAR */
+/* =========================================================
+   CLEAR CHAT
+========================================================= */
 
 function clearChat(){
 
-    document.getElementById("chatMessages").innerHTML =
+    document.getElementById("chatMessages").innerHTML=`
 
-    `
-    <div class="message bot">
+        <div class="message bot">
 
-        <div class="bubble">
+            <div class="bubble">
 
-            Chat cleared. 👋<br><br>
+                Chat cleared. 👋<br><br>
 
-            Namaste! Main Acharya hoon.
-            Tum kya padhna chahte ho?
+                Namaste! Main <b>Acharya</b> hoon. 🤖<br><br>
+
+                Hinglish ya English mein
+                apna question poochho.
+
+            </div>
 
         </div>
 
-    </div>
     `;
 
 }
 
 
-/* SECURITY */
+/* =========================================================
+   KNOWLEDGE STATISTICS
+========================================================= */
 
-function escapeHTML(text){
+let totalTopics = KNOWLEDGE.length;
 
-    return text
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+let totalPatterns = 0;
 
-}
 
+KNOWLEDGE.forEach(item => {
 
-/* ACHARYA KNOWLEDGE SYSTEM */
+    totalPatterns += item.keys.length;
 
-function getAcharyaReply(message){
+});
 
-    const q =
-    message.toLowerCase();
 
+console.log(
+    "========================================"
+);
 
-    /* GREETING */
+console.log(
+    "ACHARYA AI | ACADEMIX BY TIWARI"
+);
 
-    if(
-        q.includes("hello") ||
-        q.includes("hi") ||
-        q.includes("hey") ||
-        q.includes("namaste")
-    ){
+console.log(
+    "Developer:",
+    ACADEMIX.developer
+);
 
-        return `
-        Namaste! 👋<br><br>
+console.log(
+    "Knowledge topics:",
+    totalTopics
+);
 
-        Main <b>Acharya</b> hoon. 🤖<br><br>
+console.log(
+    "Recognized question patterns:",
+    totalPatterns
+);
 
-        Batao aaj kya padhna hai?
-        `;
+console.log(
+    "========================================"
+);
 
-    }
 
+/*
+    IMPORTANT:
 
-    /* MATHS */
+    totalPatterns intentionally counts the
+    generated English + Hinglish variations.
 
-    if(
-        q.includes("math") ||
-        q.includes("polynomial") ||
-        q.includes("number system") ||
-        q.includes("coordinate") ||
-        q.includes("linear equation") ||
-        q.includes("statistics")
-    ){
+    Therefore Acharya is not simply using
+    a few keywords. Each knowledge item can
+    understand many natural question patterns.
+*/
 
-        if(q.includes("polynomial")){
-
-            return `
-            <b>Polynomials 📐</b><br><br>
-
-            Polynomial ek algebraic expression hota hai
-            jisme variables ki non-negative integer powers hoti hain.<br><br>
-
-            Example: x² + 3x + 2<br><br>
-
-            Isme x ki highest power 2 hai,
-            isliye degree <b>2</b> hai.
-            `;
-
-        }
-
-
-        if(q.includes("number system")){
-
-            return `
-            <b>Number System 🔢</b><br><br>
-
-            Important number types:<br><br>
-
-            • Natural Numbers → 1, 2, 3...<br>
-            • Whole Numbers → 0, 1, 2, 3...<br>
-            • Integers → ..., -2, -1, 0, 1, 2...<br>
-            • Rational Numbers → p/q, q ≠ 0<br>
-            • Irrational Numbers → non-terminating,
-              non-repeating decimals<br><br>
-
-            Inka relation exam mein important hai.
-            `;
-
-        }
-
-
-        return `
-        <b>Maths Mode 📐</b><br><br>
-
-        Main Academix ke Maths topics mein
-        help kar sakta hoon.<br><br>
-
-        Try asking:<br><br>
-
-        • Polynomials samjhao<br>
-        • Number Systems samjhao<br>
-        • Coordinate Geometry kya hai?<br>
-        • Linear Equations samjhao<br>
-        • Statistics ka formula batao
-        `;
-
-    }
-
-
-    /* SCIENCE */
-
-    if(
-        q.includes("science") ||
-        q.includes("motion") ||
-        q.includes("force") ||
-        q.includes("gravitation") ||
-        q.includes("matter") ||
-        q.includes("cell") ||
-        q.includes("tissue") ||
-        q.includes("atom")
-    ){
-
-        if(q.includes("motion")){
-
-            return `
-            <b>Motion 🧪</b><br><br>
-
-            Jab koi object time ke saath
-            apni position change karta hai,
-            to object motion mein hai.<br><br>
-
-            <b>Distance:</b>
-            Total path covered.<br>
-
-            <b>Displacement:</b>
-            Initial aur final position ke beech
-            shortest directed distance.<br>
-
-            <b>Speed:</b>
-            Distance per unit time.<br>
-
-            <b>Velocity:</b>
-            Displacement per unit time.
-            `;
-
-        }
-
-
-        if(q.includes("force")){
-
-            return `
-            <b>Force ⚡</b><br><br>
-
-            Force ek push ya pull hai jo object ki
-            motion ya shape ko change kar sakta hai.<br><br>
-
-            Newton's Second Law:<br><br>
-
-            <b>F = ma</b><br><br>
-
-            F = force<br>
-            m = mass<br>
-            a = acceleration
-            `;
-
-        }
-
-
-        if(q.includes("atom")){
-
-            return `
-            <b>Atom ⚛️</b><br><br>
-
-            Atom matter ki basic structural unit hai.<br><br>
-
-            • Proton → positive charge<br>
-            • Electron → negative charge<br>
-            • Neutron → no charge<br><br>
-
-            Protons aur neutrons nucleus mein hote hain.
-            `;
-
-        }
-
-
-        return `
-        <b>Science Mode 🔬</b><br><br>
-
-        Try asking:<br><br>
-
-        • Motion samjhao<br>
-        • Force kya hai?<br>
-        • Gravitation samjhao<br>
-        • Atom kya hai?<br>
-        • Cell samjhao<br>
-        • Matter ke states batao
-        `;
-
-    }
-
-
-    /* SST */
-
-    if(
-        q.includes("sst") ||
-        q.includes("history") ||
-        q.includes("geography") ||
-        q.includes("civics") ||
-        q.includes("economics") ||
-        q.includes("democracy") ||
-        q.includes("french revolution")
-    ){
-
-        if(q.includes("democracy")){
-
-            return `
-            <b>Democracy 🗳️</b><br><br>
-
-            Democracy ek system of government hai
-            jisme people apne representatives ko
-            choose karte hain.<br><br>
-
-            Important ideas include participation,
-            elections, accountability and rule of law.
-            `;
-
-        }
-
-
-        if(q.includes("french revolution")){
-
-            return `
-            <b>French Revolution 📜</b><br><br>
-
-            French Revolution 1789 mein shuru hui
-            aur France ki political aur social
-            structure ko deeply change kiya.<br><br>
-
-            Class 9 mein causes, events aur
-            consequences ko timeline ke saath padhna useful hai.
-            `;
-
-        }
-
-
-        return `
-        <b>SST Mode 🌍</b><br><br>
-
-        Main History, Geography, Civics aur Economics
-        ke selected Class 9 topics mein help kar sakta hoon.
-        `;
-
-    }
-
-
-    /* ENGLISH */
-
-    if(
-        q.includes("english") ||
-        q.includes("grammar") ||
-        q.includes("tense") ||
-        q.includes("modal") ||
-        q.includes("determiner") ||
-        q.includes("preposition") ||
-        q.includes("active voice") ||
-        q.includes("passive voice") ||
-        q.includes("reported speech")
-    ){
-
-        if(q.includes("tense")){
-
-            return `
-            <b>Tenses 📖</b><br><br>
-
-            Tense action ke time ko show karta hai.<br><br>
-
-            Main categories:<br>
-
-            • Present<br>
-            • Past<br>
-            • Future<br><br>
-
-            Har category mein Simple, Continuous,
-            Perfect aur Perfect Continuous forms ho sakte hain.
-            `;
-
-        }
-
-
-        if(
-            q.includes("active") ||
-            q.includes("passive")
-        ){
-
-            return `
-            <b>Active & Passive Voice ✍️</b><br><br>
-
-            <b>Active:</b>
-            Subject action perform karta hai.<br><br>
-
-            Example:
-            Rahul wrote a letter.<br><br>
-
-            <b>Passive:</b>
-            Object ko focus mein laya jata hai.<br><br>
-
-            Example:
-            A letter was written by Rahul.
-            `;
-
-        }
-
-
-        return `
-        <b>English Grammar Mode 📖</b><br><br>
-
-        Topics:<br><br>
-
-        • Tenses<br>
-        • Modals<br>
-        • Determiners<br>
-        • Subject-Verb Agreement<br>
-        • Reported Speech<br>
-        • Active & Passive Voice<br>
-        • Prepositions<br>
-        • Clauses
-        `;
-
-    }
-
-
-    /* COMPUTER */
-
-    if(
-        q.includes("computer") ||
-        q.includes("python") ||
-        q.includes("html") ||
-        q.includes("css") ||
-        q.includes("javascript") ||
-        q.includes("network") ||
-        q.includes("cyber") ||
-        q.includes("ai")
-    ){
-
-        if(q.includes("python")){
-
-            return `
-            <b>Python 💻</b><br><br>
-
-            Python ek high-level programming language hai
-            jo readable syntax ke liye famous hai.<br><br>
-
-            Example:<br><br>
-
-            print("Hello World")<br><br>
-
-            Python programming, automation,
-            data analysis aur AI mein use hota hai.
-            `;
-
-        }
-
-
-        if(q.includes("html")){
-
-            return `
-            <b>HTML 🌐</b><br><br>
-
-            HTML ka full form
-            <b>HyperText Markup Language</b> hai.<br><br>
-
-            Ye webpage ki structure banane ke
-            liye use hota hai.
-            `;
-
-        }
-
-
-        return `
-        <b>Computer Mode 💻</b><br><br>
-
-        Main Computer ke topics mein help kar sakta hoon:<br><br>
-
-        • Python<br>
-        • HTML<br>
-        • CSS<br>
-        • JavaScript<br>
-        • Networks<br>
-        • Cyber Security<br>
-        • AI Fundamentals
-        `;
-
-    }
-
-
-    /* QUIZ */
-
-    if(q.includes("quiz")){
-
-        return `
-        <b>Quiz Mode 🧠</b><br><br>
-
-        Bilkul! Subject aur topic batao.<br><br>
-
-        Example:<br>
-
-        <b>Science Motion ka quiz do</b><br>
-        <b>Maths Polynomials ka quiz do</b><br>
-        <b>English Tenses ka quiz do</b>
-        `;
-
-    }
-
-
-    /* FORMULA */
-
-    if(q.includes("formula")){
-
-        return `
-        <b>Formula Mode 📐</b><br><br>
-
-        Subject aur chapter ka naam batao.<br><br>
-
-        Example:<br>
-
-        <b>Science Motion ke formulas</b><br>
-        <b>Maths Statistics ka formula</b>
-        `;
-
-    }
-
-
-    /* HELP */
-
-    if(
-        q.includes("help") ||
-        q.includes("what can you do") ||
-        q.includes("kya kar")
-    ){
-
-        return `
-        <b>Acharya kya kar sakta hai? 🤖</b><br><br>
-
-        📐 Maths concepts<br>
-        🔬 Science explanations<br>
-        🌍 SST revision<br>
-        📖 English Grammar<br>
-        💻 Computer concepts<br>
-        🧠 Quiz guidance<br>
-        📝 Formula revision<br><br>
-
-        Bas apna <b>subject + topic</b> likho.
-        `;
-
-    }
-
-
-    /* DEFAULT */
-
-    return `
-    <b>Acharya 🤖</b><br><br>
-
-    Main abhi Academix ke selected Class 9
-    knowledge base par trained hoon.<br><br>
-
-    Mujhe is format mein poochho:<br><br>
-
-    <b>Science Motion samjhao</b><br>
-    <b>Maths Polynomials samjhao</b><br>
-    <b>English Tenses samjhao</b><br>
-    <b>Computer Python kya hai?</b><br>
-    <b>Science ka quiz do</b><br><br>
-
-    Jaise-jaise Academix ka knowledge base expand hoga,
-    Acharya bhi aur powerful hota jayega. 🚀
-    `;
-
-}
 
 </script>
 
