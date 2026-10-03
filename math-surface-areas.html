@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Surface Areas and Volumes | Academix by Tiwari</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f5f7fb;color:#182033;line-height:1.65}
+header{background:linear-gradient(135deg,#10182f,#304a91);color:white;text-align:center;padding:45px 20px}
+header h1{font-size:42px}
+.container{width:min(1050px,92%);margin:auto;padding:25px 0 50px}
+.nav{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:25px}
+.nav a{background:#304a91;color:white;text-decoration:none;padding:9px 15px;border-radius:8px}
+.card,.practice,.quiz{background:white;padding:25px;margin-bottom:20px;border-radius:16px;box-shadow:0 6px 22px rgba(0,0,0,.07)}
+h2{color:#263d82;margin-bottom:15px}
+.card p{margin:10px 0}
+.formula{background:#eef3ff;border-left:4px solid #304a91;padding:14px;margin:12px 0;border-radius:9px;font-weight:bold}
+.example{background:#f7f8fc;padding:15px;margin:12px 0;border-radius:10px}
+.question{border-top:1px solid #ddd;padding:18px 0}
+input[type=text]{padding:10px;width:min(400px,100%);border:1px solid #ccd2df;border-radius:7px;margin-top:10px}
+button{background:#304a91;color:white;border:none;padding:10px 16px;border-radius:7px;cursor:pointer;margin-top:10px}
+.option{display:block;margin:9px 0}
+.correct{color:green;font-weight:bold}
+.wrong{color:red;font-weight:bold}
+#score{font-size:21px;font-weight:bold;margin-top:18px}
+footer{text-align:center;padding:25px;color:#666}
+@media(max-width:600px){header h1{font-size:31px}.card,.practice,.quiz{padding:18px}}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Surface Areas & Volumes</h1>
+<p>Class 9 Mathematics • Academix by Tiwari</p>
+</header>
+
+<div class="container">
+
+<div class="nav">
+<a href="math.html">← Mathematics</a>
+<a href="#cuboid">Cuboid</a>
+<a href="#cube">Cube</a>
+<a href="#cylinder">Cylinder</a>
+<a href="#examples">Examples</a>
+<a href="#practice">Practice</a>
+<a href="#quiz">Quiz</a>
+</div>
+
+<section class="card">
+<h2>📚 Basic Idea</h2>
+<p>Surface area measures the total area covered by the surfaces of a solid.</p>
+<p>Volume measures the space occupied by a solid.</p>
+</section>
+
+<section class="card" id="cuboid">
+<h2>📦 Cuboid</h2>
+
+<div class="formula">LSA = 2h(l + b)</div>
+<div class="formula">TSA = 2(lb + bh + hl)</div>
+<div class="formula">Volume = lbh</div>
+
+<p>l = length, b = breadth, h = height.</p>
+</section>
+
+<section class="card" id="cube">
+<h2>🧊 Cube</h2>
+
+<div class="formula">LSA = 4a²</div>
+<div class="formula">TSA = 6a²</div>
+<div class="formula">Volume = a³</div>
+
+<p>a = side of cube.</p>
+</section>
+
+<section class="card" id="cylinder">
+<h2>🥫 Cylinder</h2>
+
+<div class="formula">CSA = 2πrh</div>
+<div class="formula">TSA = 2πr(r + h)</div>
+<div class="formula">Volume = πr²h</div>
+</section>
+
+<section class="card" id="examples">
+<h2>✍️ Solved Examples</h2>
+
+<div class="example">
+<b>Example 1:</b><br><br>
+Cube side = 5 cm.<br>
+Volume = a³<br>
+= 5³<br>
+<b>= 125 cm³</b>
+</div>
+
+<div class="example">
+<b>Example 2:</b><br><br>
+Cuboid has l = 5 cm, b = 4 cm and h = 3 cm.<br><br>
+Volume = lbh<br>
+= 5 × 4 × 3<br>
+<b>= 60 cm³</b>
+</div>
+
+<div class="example">
+<b>Example 3:</b><br><br>
+Cube side = 4 cm.<br>
+TSA = 6a²<br>
+= 6 × 16<br>
+<b>= 96 cm²</b>
+</div>
+</section>
+
+<section class="practice" id="practice">
+<h2>🎯 Practice Questions</h2>
+
+<div class="question">
+<b>1. Find volume of a cube with side 5 cm.</b><br>
+<input id="a1" type="text">
+<button onclick="check(1,'125')">Check</button>
+<span id="r1"></span>
+</div>
+
+<div class="question">
+<b>2. Find volume of a cuboid with l = 5, b = 4, h = 3.</b><br>
+<input id="a2" type="text">
+<button onclick="check(2,'60')">Check</button>
+<span id="r2"></span>
+</div>
+
+<div class="question">
+<b>3. TSA of cube with side 4 cm?</b><br>
+<input id="a3" type="text">
+<button onclick="check(3,'96')">Check</button>
+<span id="r3"></span>
+</div>
+</section>
+
+<section class="quiz" id="quiz">
+<h2>📝 Chapter Quiz</h2>
+
+<div class="question">
+<b>1. Volume of cube is:</b>
+<label class="option"><input type="radio" name="q1" value="a3"> a³</label>
+<label class="option"><input type="radio" name="q1" value="6a2"> 6a²</label>
+<label class="option"><input type="radio" name="q1" value="4a2"> 4a²</label>
+</div>
+
+<div class="question">
+<b>2. Volume of cuboid is:</b>
+<label class="option"><input type="radio" name="q2" value="lbh"> lbh</label>
+<label class="option"><input type="radio" name="q2" value="2lbh"> 2lbh</label>
+<label class="option"><input type="radio" name="q2" value="lb"> lb</label>
+</div>
+
+<div class="question">
+<b>3. Cylinder volume is:</b>
+<label class="option"><input type="radio" name="q3" value="pir2h"> πr²h</label>
+<label class="option"><input type="radio" name="q3" value="2pirh"> 2πrh</label>
+<label class="option"><input type="radio" name="q3" value="pi"> πr</label>
+</div>
+
+<button onclick="quiz()">Submit Quiz</button>
+<div id="score"></div>
+</section>
+
+</div>
+
+<footer>Academix by Tiwari • Learn. Practice. Improve.</footer>
+
+<script>
+function check(n,a){
+let v=document.getElementById("a"+n).value.trim();
+let r=document.getElementById("r"+n);
+if(v===a){r.textContent=" ✓ Correct";r.className="correct"}
+else{r.textContent=" ✗ Try again";r.className="wrong"}
+}
+function quiz(){
+let s=0;
+if(document.querySelector('input[name="q1"]:checked')?.value==="a3")s++;
+if(document.querySelector('input[name="q2"]:checked')?.value==="lbh")s++;
+if(document.querySelector('input[name="q3"]:checked')?.value==="pir2h")s++;
+document.getElementById("score").textContent="Your Score: "+s+" / 3";
+}
+</script>
+
+</body>
+</html>
