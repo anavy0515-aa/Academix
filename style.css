@@ -784,10 +784,29 @@ body.light .feature-card {
    RESPONSIVE
 ========================= */
 
+/* =========================
+   DESKTOP NAVBAR
+========================= */
+
+.mobile-menu-btn {
+    display: none;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
 @media (max-width: 1000px) {
 
-    .nav-links {
-        display: none;
+    .navbar {
+        position: relative;
     }
 
     .hero {
@@ -808,7 +827,168 @@ body.light .feature-card {
     }
 }
 
-@media (max-width: 650px) {
+
+/* =========================
+   MOBILE NAVBAR
+========================= */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        position: relative;
+        padding: 0 14px;
+    }
+
+    /* =========================
+       BRAND
+    ========================= */
+
+    .brand {
+        flex-shrink: 0;
+    }
+
+    .brand-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+    }
+
+    .brand-text strong {
+        font-size: 16px;
+    }
+
+    .brand-text small {
+        font-size: 8px;
+    }
+
+
+    /* =========================
+       HAMBURGER BUTTON
+    ========================= */
+
+    .mobile-menu-btn {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        width: 42px;
+        height: 42px;
+
+        padding: 0;
+
+        border: 1px solid var(--border);
+        border-radius: 11px;
+
+        background: rgba(255,255,255,.05);
+        color: var(--text);
+
+        font-size: 24px;
+        line-height: 1;
+
+        cursor: pointer;
+
+        flex-shrink: 0;
+
+        transition: .2s;
+    }
+
+    .mobile-menu-btn:hover {
+        background: rgba(255,255,255,.09);
+        border-color: rgba(99,230,255,.35);
+    }
+
+
+    /* =========================
+       MOBILE MENU
+       CLOSED BY DEFAULT
+    ========================= */
+
+    .nav-links {
+        display: none;
+
+        position: absolute;
+
+        top: calc(100% + 10px);
+        left: 0;
+        right: 0;
+
+        width: 100%;
+
+        padding: 12px;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 5px;
+
+        background: rgba(10,17,29,.98);
+
+        border: 1px solid var(--border);
+        border-radius: 16px;
+
+        box-shadow:
+            0 20px 45px rgba(0,0,0,.45);
+
+        backdrop-filter: blur(18px);
+
+        z-index: 99999;
+    }
+
+
+    /* =========================
+       MOBILE MENU OPEN
+    ========================= */
+
+    .nav-links.mobile-open {
+        display: flex;
+    }
+
+
+    /* =========================
+       MOBILE MENU LINKS
+    ========================= */
+
+    .nav-links a {
+        display: flex;
+
+        width: 100%;
+
+        align-items: center;
+        justify-content: flex-start;
+
+        padding: 13px 14px;
+
+        border-radius: 10px;
+
+        color: var(--muted);
+
+        font-size: 13px;
+
+        text-decoration: none;
+
+        flex-shrink: 0;
+
+        transition: .2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+        color: var(--text);
+        background: rgba(255,255,255,.07);
+    }
+
+
+    /* =========================
+       OTHER MOBILE SETTINGS
+    ========================= */
+
+    .theme-btn {
+        flex-shrink: 0;
+
+        width: 36px;
+        height: 36px;
+    }
 
     .navbar,
     .hero,
@@ -816,6 +996,11 @@ body.light .feature-card {
     footer {
         width: calc(100% - 24px);
     }
+
+
+    /* =========================
+       HERO
+    ========================= */
 
     .hero h1 {
         font-size: 53px;
@@ -839,6 +1024,11 @@ body.light .feature-card {
         margin-top: -50px;
     }
 
+
+    /* =========================
+       SECTIONS
+    ========================= */
+
     .section {
         padding: 65px 0;
     }
@@ -851,6 +1041,11 @@ body.light .feature-card {
     .section h2 {
         font-size: 35px;
     }
+
+
+    /* =========================
+       CLASS CARD
+    ========================= */
 
     .class-card {
         grid-template-columns: 1fr;
@@ -865,9 +1060,19 @@ body.light .feature-card {
         display: none;
     }
 
+
+    /* =========================
+       FEATURES
+    ========================= */
+
     .feature-grid {
         grid-template-columns: 1fr;
     }
+
+
+    /* =========================
+       ABOUT
+    ========================= */
 
     .about-box {
         grid-template-columns: 1fr;
@@ -875,182 +1080,17 @@ body.light .feature-card {
         padding: 25px;
     }
 
+
+    /* =========================
+       FOOTER
+    ========================= */
+
     .footer-main,
     .footer-bottom {
         flex-direction: column;
         align-items: flex-start;
         gap: 18px;
     }
-    
-    
-}
-#acharya-button {
-position: fixed;
-right: 25px;
-bottom: 25px;
-width: 60px;
-height: 60px;
-border-radius: 50%;
-background: linear-gradient(135deg, #00d9ff, #8b5cf6);
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 28px;
-cursor: pointer;
-z-index: 9999;
-box-shadow: 0 0 25px rgba(0, 217, 255, 0.4);
-}
-
-#acharya-chat {
-position: fixed;
-right: 25px;
-bottom: 95px;
-width: 350px;
-height: 480px;
-background: #636f89;
-border: 1px solid #374151;
-border-radius: 18px;
-display: none;
-flex-direction: column;
-overflow: hidden;
-z-index: 9998;
-box-shadow: 0 0 30px rgba(159, 83, 83, 0.5);
-}
-
-.acharya-header {
-padding: 16px;
-background: linear-gradient(90deg, #00d9ff, #8b5cf6);
-color: white;
-position: relative;
-}
-
-.acharya-header b {
-display: block;
-font-size: 18px;
-}
-
-.acharya-header span {
-font-size: 12px;
-opacity: 0.9;
-}
-
-.acharya-header button {
-position: absolute;
-right: 12px;
-top: 10px;
-background: none;
-border: none;
-color: white;
-font-size: 25px;
-cursor: pointer;
-}
-
-#acharya-messages {
-flex: 1;
-padding: 15px;
-overflow-y: auto;
-}
-
-.acharya-welcome,
-.acharya-message,
-.user-message {
-padding: 10px 12px;
-border-radius: 12px;
-margin-bottom: 10px;
-font-size: 14px;
-line-height: 1.5;
-}
-
-.acharya-welcome,
-.acharya-message {
-background: #1f2937;
-}
-
-.user-message {
-background: #164e63;
-margin-left: 30px;
-}
-
-.acharya-input {
-display: flex;
-padding: 12px;
-border-top: 1px solid #374151;
-}
-
-.acharya-input input {
-flex: 1;
-padding: 11px;
-border: none;
-border-radius: 10px;
-background: #486eb9;
-color: white;
-outline: none;
-}
-
-.acharya-input button {
-width: 45px;
-margin-left: 8px;
-border: none;
-border-radius: 10px;
-background: #00d9ff;
-cursor: pointer;
-}
-.academix-logo {
-
-width: 44px;
-
-height: 44px;
-
-display: flex;
-
-align-items: center;
-
-justify-content: center;
-
-border-radius: 12px;
-
-background: rgba(0, 217, 255, 0.08);
-
-border: 1px solid rgba(0, 217, 255, 0.25);
-
-box-shadow: 0 0 20px rgba(0, 217, 255, 0.15);
-
-}
-
-.logo-svg {
-
-width: 36px;
-
-height: 36px;
-
-}
-
-
-
-.nav-btn {
-    padding: 12px 22px;
-    border: 1px solid #00d9ff;
-    border-radius: 10px;
-    color: #00d9ff;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.25s;
-}
-
-.nav-btn:hover {
-    background: #00d9ff;
-    color: #071018;
-    transform: translateY(-2px);
-}
-
-.nav-btn.next {
-    border-color: #8b5cf6;
-    color: #8b5cf6;
-}
-
-.nav-btn.next:hover {
-    background: #8b5cf6;
-    color: white;
 }
 /* ============================= */
 /* ACHARYA FLOATING AI */
