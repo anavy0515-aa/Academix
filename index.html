@@ -2349,7 +2349,9 @@ footer strong {
     </a>
 
 
-    <div class="nav-links">
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false" type="button">☰</button>
+
+    <div class="nav-links" id="navLinks">
 
         <a href="index.html">
             Home
@@ -3223,6 +3225,35 @@ function openAcharya() {
 
     window.location.href =
         "acharya.html";
+
+}
+
+
+const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+const navLinks = document.getElementById("navLinks");
+
+if (mobileMenuBtn && navLinks) {
+
+    mobileMenuBtn.addEventListener("click", function () {
+
+        const isOpen = navLinks.classList.toggle("mobile-open");
+
+        mobileMenuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        mobileMenuBtn.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+        mobileMenuBtn.textContent = isOpen ? "✕" : "☰";
+
+    });
+
+    navLinks.querySelectorAll("a").forEach(function (link) {
+
+        link.addEventListener("click", function () {
+            navLinks.classList.remove("mobile-open");
+            mobileMenuBtn.setAttribute("aria-expanded", "false");
+            mobileMenuBtn.setAttribute("aria-label", "Open navigation menu");
+            mobileMenuBtn.textContent = "☰";
+        });
+
+    });
 
 }
 
