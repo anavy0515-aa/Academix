@@ -1362,3 +1362,127 @@ body.light .feature-card {
         transform: scale(1.1);
     }
 }
+/* ==================================================
+   FINAL MOBILE NAVBAR FIX
+   ================================================== */
+
+/* Desktop */
+.mobile-menu-btn {
+    display: none !important;
+}
+
+.nav-links {
+    display: flex;
+}
+
+
+/* Mobile */
+@media (max-width: 700px) {
+
+    /* Hamburger */
+    .mobile-menu-btn {
+        display: flex !important;
+
+        align-items: center;
+        justify-content: center;
+
+        width: 42px;
+        height: 42px;
+
+        padding: 0;
+
+        border: 1px solid var(--border);
+        border-radius: 11px;
+
+        background: rgba(255,255,255,.05);
+        color: var(--text);
+
+        font-size: 24px;
+        line-height: 1;
+
+        cursor: pointer;
+
+        flex-shrink: 0;
+
+        position: relative;
+        z-index: 100001;
+    }
+
+
+    /* Menu closed */
+    .nav-links {
+        display: none !important;
+
+        position: absolute;
+
+        top: calc(100% + 10px);
+        left: 0;
+        right: 0;
+
+        width: 100%;
+
+        padding: 12px;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 5px;
+
+        background: rgba(10,17,29,.98);
+
+        border: 1px solid var(--border);
+        border-radius: 16px;
+
+        box-shadow:
+            0 20px 45px rgba(0,0,0,.45);
+
+        backdrop-filter: blur(18px);
+
+        z-index: 100000;
+    }
+
+
+    /* Menu open */
+    .nav-links.mobile-open {
+        display: flex !important;
+    }
+
+
+    /* IMPORTANT:
+       Old CSS was hiding these links.
+       This forces every link to appear. */
+    .nav-links.mobile-open a {
+        display: flex !important;
+
+        width: 100%;
+
+        min-height: 44px;
+
+        align-items: center;
+        justify-content: flex-start;
+
+        padding: 12px 14px;
+
+        border-radius: 10px;
+
+        color: var(--text);
+
+        font-size: 13px;
+
+        text-decoration: none;
+
+        flex-shrink: 0;
+    }
+
+
+    .nav-links.mobile-open a:hover {
+        background: rgba(255,255,255,.08);
+    }
+
+
+    /* Keep navbar above page content */
+    .navbar {
+        position: relative;
+        z-index: 100000;
+    }
+}
