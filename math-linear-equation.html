@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linear Equations | Academix by Tiwari</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+    color: #182033;
+    line-height: 1.65;
+}
+
+header {
+    background: linear-gradient(135deg, #10182f, #304a91);
+    color: white;
+    text-align: center;
+    padding: 45px 20px;
+}
+
+header h1 {
+    font-size: 42px;
+    margin-bottom: 8px;
+}
+
+header p {
+    opacity: 0.9;
+}
+
+.container {
+    width: min(1050px, 92%);
+    margin: auto;
+    padding: 25px 0 50px;
+}
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.nav a {
+    text-decoration: none;
+    background: #304a91;
+    color: white;
+    padding: 9px 15px;
+    border-radius: 8px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 16px;
+    box-shadow: 0 6px 22px rgba(0,0,0,0.07);
+}
+
+.card h2,
+.practice h2,
+.quiz h2 {
+    color: #263d82;
+    margin-bottom: 15px;
+}
+
+.card p {
+    margin: 10px 0;
+}
+
+.formula {
+    background: #eef3ff;
+    border-left: 4px solid #304a91;
+    padding: 14px;
+    margin: 12px 0;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.example {
+    background: #f7f8fc;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 12px 0;
+}
+
+.practice,
+.quiz {
+    background: white;
+    padding: 25px;
+    margin-top: 20px;
+    border-radius: 16px;
+    box-shadow: 0 6px 22px rgba(0,0,0,0.07);
+}
+
+.question {
+    border-top: 1px solid #ddd;
+    padding: 18px 0;
+}
+
+.question:first-child {
+    border-top: none;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: min(400px, 100%);
+    border: 1px solid #cbd1dc;
+    border-radius: 7px;
+    margin-top: 10px;
+}
+
+button {
+    background: #304a91;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.result {
+    margin-left: 8px;
+    font-weight: bold;
+}
+
+.correct {
+    color: green;
+}
+
+.wrong {
+    color: red;
+}
+
+.option {
+    display: block;
+    margin: 9px 0;
+}
+
+#score {
+    font-size: 21px;
+    font-weight: bold;
+    margin-top: 18px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #666;
+}
+
+@media(max-width:600px) {
+    header h1 {
+        font-size: 31px;
+    }
+
+    .card,
+    .practice,
+    .quiz {
+        padding: 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Linear Equations</h1>
+    <p>Class 9 Mathematics • Academix by Tiwari</p>
+</header>
+
+<div class="container">
+
+<div class="nav">
+    <a href="math.html">← Mathematics</a>
+    <a href="#concepts">Concepts</a>
+    <a href="#examples">Examples</a>
+    <a href="#practice">Practice</a>
+    <a href="#quiz">Quiz</a>
+</div>
+
+<section class="card" id="concepts">
+    <h2>📚 What is a Linear Equation?</h2>
+
+    <p>
+        A linear equation in one variable is an equation in which the
+        highest power of the variable is 1.
+    </p>
+
+    <div class="formula">
+        General form: ax + b = 0, where a ≠ 0
+    </div>
+
+    <p>
+        The value of the variable that makes the equation true is called
+        the solution of the equation.
+    </p>
+</section>
+
+<section class="card">
+    <h2>🧠 Important Rules</h2>
+
+    <p>• The same number can be added or subtracted from both sides.</p>
+    <p>• Both sides can be multiplied or divided by the same non-zero number.</p>
+    <p>• Terms can be transposed from one side to the other by changing their sign.</p>
+    <p>• Always verify the answer by putting it back into the original equation.</p>
+</section>
+
+<section class="card" id="examples">
+    <h2>✍️ Solved Examples</h2>
+
+    <div class="example">
+        <b>Example 1:</b><br>
+        Solve: 3x + 5 = 20<br><br>
+        3x = 20 − 5<br>
+        3x = 15<br>
+        <b>x = 5</b>
+    </div>
+
+    <div class="example">
+        <b>Example 2:</b><br>
+        Solve: 5x − 7 = 18<br><br>
+        5x = 25<br>
+        <b>x = 5</b>
+    </div>
+
+    <div class="example">
+        <b>Example 3:</b><br>
+        Solve: 2x + 7 = x + 15<br><br>
+        2x − x = 15 − 7<br>
+        x = 8
+    </div>
+
+    <div class="example">
+        <b>Example 4:</b><br>
+        Solve: 3(x + 2) = 21<br><br>
+        x + 2 = 7<br>
+        <b>x = 5</b>
+    </div>
+</section>
+
+<section class="practice" id="practice">
+    <h2>🎯 Practice Questions</h2>
+
+    <div class="question">
+        <b>1. Solve: 4x + 3 = 19</b><br>
+        <input type="text" id="a1">
+        <button onclick="check(1,'4')">Check</button>
+        <span id="r1"></span>
+    </div>
+
+    <div class="question">
+        <b>2. Solve: 7x − 5 = 30</b><br>
+        <input type="text" id="a2">
+        <button onclick="check(2,'5')">Check</button>
+        <span id="r2"></span>
+    </div>
+
+    <div class="question">
+        <b>3. Solve: 3(x + 2) = 21</b><br>
+        <input type="text" id="a3">
+        <button onclick="check(3,'5')">Check</button>
+        <span id="r3"></span>
+    </div>
+
+    <div class="question">
+        <b>4. Solve: 5x + 2 = 2x + 17</b><br>
+        <input type="text" id="a4">
+        <button onclick="check(4,'5')">Check</button>
+        <span id="r4"></span>
+    </div>
+</section>
+
+<section class="quiz" id="quiz">
+    <h2>📝 Chapter Quiz</h2>
+
+    <div class="question">
+        <b>1. The solution of 2x + 6 = 14 is:</b>
+
+        <label class="option">
+            <input type="radio" name="q1" value="2"> 2
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q1" value="3"> 3
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q1" value="4"> 4
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q1" value="5"> 5
+        </label>
+    </div>
+
+    <div class="question">
+        <b>2. What is the highest power of x in a linear equation?</b>
+
+        <label class="option">
+            <input type="radio" name="q2" value="0"> 0
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q2" value="1"> 1
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q2" value="2"> 2
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q2" value="3"> 3
+        </label>
+    </div>
+
+    <div class="question">
+        <b>3. Solve: x + 9 = 15</b>
+
+        <label class="option">
+            <input type="radio" name="q3" value="4"> 4
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q3" value="5"> 5
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q3" value="6"> 6
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q3" value="7"> 7
+        </label>
+    </div>
+
+    <button onclick="submitQuiz()">Submit Quiz</button>
+
+    <div id="score"></div>
+</section>
+
+</div>
+
+<footer>
+    Academix by Tiwari • Learn. Practice. Improve.
+</footer>
+
+<script>
+
+function check(number, answer) {
+
+    let input = document.getElementById("a" + number);
+    let result = document.getElementById("r" + number);
+
+    if(input.value.trim() === "") {
+        result.textContent = " Enter an answer.";
+        result.className = "wrong";
+        return;
+    }
+
+    if(input.value.trim().toLowerCase() === answer.toLowerCase()) {
+        result.textContent = " ✓ Correct";
+        result.className = "result correct";
+    } else {
+        result.textContent = " ✗ Try again";
+        result.className = "result wrong";
+    }
+}
+
+function submitQuiz() {
+
+    let score = 0;
+
+    if(document.querySelector('input[name="q1"]:checked')?.value === "4")
+        score++;
+
+    if(document.querySelector('input[name="q2"]:checked')?.value === "1")
+        score++;
+
+    if(document.querySelector('input[name="q3"]:checked')?.value === "6")
+        score++;
+
+    document.getElementById("score").textContent =
+        "Your Score: " + score + " / 3";
+}
+
+</script>
+
+</body>
+</html>
