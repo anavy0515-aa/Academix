@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Heron's Formula | Academix by Tiwari</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f5f7fb;color:#182033;line-height:1.65}
+header{background:linear-gradient(135deg,#10182f,#304a91);color:white;text-align:center;padding:45px 20px}
+header h1{font-size:42px}
+.container{width:min(1050px,92%);margin:auto;padding:25px 0 50px}
+.nav{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:25px}
+.nav a{background:#304a91;color:white;text-decoration:none;padding:9px 15px;border-radius:8px}
+.card,.practice,.quiz{background:white;padding:25px;margin-bottom:20px;border-radius:16px;box-shadow:0 6px 22px rgba(0,0,0,.07)}
+h2{color:#263d82;margin-bottom:15px}
+.card p{margin:10px 0}
+.formula{background:#eef3ff;border-left:4px solid #304a91;padding:14px;margin:12px 0;border-radius:9px;font-weight:bold}
+.example{background:#f7f8fc;padding:15px;margin:12px 0;border-radius:10px}
+.question{border-top:1px solid #ddd;padding:18px 0}
+input[type=text]{padding:10px;width:min(400px,100%);border:1px solid #ccd2df;border-radius:7px;margin-top:10px}
+button{background:#304a91;color:white;border:none;padding:10px 16px;border-radius:7px;cursor:pointer;margin-top:10px}
+.option{display:block;margin:9px 0}
+.correct{color:green;font-weight:bold}
+.wrong{color:red;font-weight:bold}
+#score{font-size:21px;font-weight:bold;margin-top:18px}
+footer{text-align:center;padding:25px;color:#666}
+@media(max-width:600px){header h1{font-size:31px}.card,.practice,.quiz{padding:18px}}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Heron's Formula</h1>
+<p>Class 9 Mathematics • Academix by Tiwari</p>
+</header>
+
+<div class="container">
+
+<div class="nav">
+<a href="math.html">← Mathematics</a>
+<a href="#formula">Formula</a>
+<a href="#examples">Examples</a>
+<a href="#practice">Practice</a>
+<a href="#quiz">Quiz</a>
+</div>
+
+<section class="card" id="formula">
+<h2>📐 Heron's Formula</h2>
+
+<p>Heron's formula is used to find the area of a triangle when all three sides are known.</p>
+
+<div class="formula">
+s = (a + b + c) / 2
+</div>
+
+<div class="formula">
+Area = √[s(s − a)(s − b)(s − c)]
+</div>
+
+<p>Here a, b and c are the three sides and s is the semi-perimeter.</p>
+</section>
+
+<section class="card">
+<h2>🧠 Important Points</h2>
+
+<p>• First find the semi-perimeter.</p>
+<p>• Then substitute the values in Heron's formula.</p>
+<p>• Keep units consistent.</p>
+<p>• Area is expressed in square units.</p>
+</section>
+
+<section class="card" id="examples">
+<h2>✍️ Solved Examples</h2>
+
+<div class="example">
+<b>Example:</b> Find the area of a triangle with sides 3 cm, 4 cm and 5 cm.<br><br>
+
+s = (3 + 4 + 5) / 2<br>
+s = 12 / 2 = 6 cm<br><br>
+
+Area = √[6(6−3)(6−4)(6−5)]<br>
+= √(6 × 3 × 2 × 1)<br>
+= √36<br>
+<b>= 6 cm²</b>
+</div>
+</section>
+
+<section class="card">
+<h2>⚡ Quick Revision</h2>
+
+<div class="formula">
+Semi-perimeter = Half of perimeter
+</div>
+
+<div class="formula">
+Area = √[s(s−a)(s−b)(s−c)]
+</div>
+</section>
+
+<section class="practice" id="practice">
+<h2>🎯 Practice Questions</h2>
+
+<div class="question">
+<b>1. Find semi-perimeter of a triangle with sides 5, 6 and 7 cm.</b><br>
+<input id="a1" type="text">
+<button onclick="check(1,'9')">Check</button>
+<span id="r1"></span>
+</div>
+
+<div class="question">
+<b>2. Find area of triangle with sides 3, 4 and 5 cm.</b><br>
+<input id="a2" type="text">
+<button onclick="check(2,'6')">Check</button>
+<span id="r2"></span>
+</div>
+</section>
+
+<section class="quiz" id="quiz">
+<h2>📝 Chapter Quiz</h2>
+
+<div class="question">
+<b>1. Heron's formula is used to find:</b>
+<label class="option"><input type="radio" name="q1" value="area"> Area</label>
+<label class="option"><input type="radio" name="q1" value="volume"> Volume</label>
+<label class="option"><input type="radio" name="q1" value="angle"> Angle only</label>
+</div>
+
+<div class="question">
+<b>2. s represents:</b>
+<label class="option"><input type="radio" name="q2" value="semiperimeter"> Semi-perimeter</label>
+<label class="option"><input type="radio" name="q2" value="side"> Side</label>
+<label class="option"><input type="radio" name="q2" value="square"> Square</label>
+</div>
+
+<div class="question">
+<b>3. Area is measured in:</b>
+<label class="option"><input type="radio" name="q3" value="square"> Square units</label>
+<label class="option"><input type="radio" name="q3" value="linear"> Linear units</label>
+<label class="option"><input type="radio" name="q3" value="cubic"> Cubic units</label>
+</div>
+
+<button onclick="quiz()">Submit Quiz</button>
+<div id="score"></div>
+</section>
+
+</div>
+
+<footer>Academix by Tiwari • Learn. Practice. Improve.</footer>
+
+<script>
+function check(n,a){
+let v=document.getElementById("a"+n).value.trim();
+let r=document.getElementById("r"+n);
+if(v===a){r.textContent=" ✓ Correct";r.className="correct"}
+else{r.textContent=" ✗ Try again";r.className="wrong"}
+}
+function quiz(){
+let s=0;
+if(document.querySelector('input[name="q1"]:checked')?.value==="area")s++;
+if(document.querySelector('input[name="q2"]:checked')?.value==="semiperimeter")s++;
+if(document.querySelector('input[name="q3"]:checked')?.value==="square")s++;
+document.getElementById("score").textContent="Your Score: "+s+" / 3";
+}
+</script>
+
+</body>
+</html>
