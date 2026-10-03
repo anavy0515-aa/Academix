@@ -1,3 +1,7 @@
+/* =========================================================
+   ACADEMIX BY TIWARI
+   COMPLETE FRESH CSS
+========================================================= */
 
 * {
     box-sizing: border-box;
@@ -28,15 +32,17 @@ body {
     overflow-x: hidden;
 }
 
-/* =========================
+
+/* =========================================================
    BACKGROUND
-========================= */
+========================================================= */
 
 body::before {
     content: "";
     position: fixed;
     inset: 0;
     z-index: -2;
+
     background:
         radial-gradient(
             circle at 80% 10%,
@@ -55,7 +61,9 @@ body::after {
     position: fixed;
     inset: 0;
     z-index: -1;
+
     opacity: .25;
+
     background-image:
         linear-gradient(
             rgba(255,255,255,.035) 1px,
@@ -66,35 +74,48 @@ body::after {
             rgba(255,255,255,.035) 1px,
             transparent 1px
         );
+
     background-size: 50px 50px;
 }
 
-/* =========================
+
+/* =========================================================
    NAVBAR
-========================= */
+========================================================= */
 
 .navbar {
     width: min(1180px, calc(100% - 40px));
     height: 72px;
-    margin: 20px auto 0;
 
+    margin: 20px auto 0;
     padding: 0 22px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
+    position: relative;
+    z-index: 100000;
+
     border: 1px solid var(--border);
     border-radius: 18px;
 
-    background: rgba(170, 172, 176, 0.82);
+    background: rgba(170,172,176,.82);
+
     backdrop-filter: blur(18px);
 }
+
+
+/* =========================================================
+   BRAND
+========================================================= */
 
 .brand {
     display: flex;
     align-items: center;
     gap: 10px;
+
+    flex-shrink: 0;
 }
 
 .brand-icon {
@@ -114,6 +135,7 @@ body::after {
         );
 
     color: #071019;
+
     font-weight: 900;
     font-size: 21px;
 }
@@ -121,6 +143,7 @@ body::after {
 .brand-text {
     display: flex;
     flex-direction: column;
+
     line-height: 1;
 }
 
@@ -130,33 +153,162 @@ body::after {
 
 .brand-text small {
     margin-top: 5px;
+
     color: var(--muted);
+
     font-size: 9px;
     letter-spacing: 1.5px;
+
     text-transform: uppercase;
 }
 
-.nav-links {
+
+/* =========================================================
+   HAMBURGER
+   ALWAYS VISIBLE
+   DESKTOP + TABLET + MOBILE
+========================================================= */
+
+.mobile-menu-btn {
     display: flex;
+
     align-items: center;
-    gap: 4px;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+
+    padding: 0;
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    background: rgba(255,255,255,.05);
+
+    color: var(--text);
+
+    font-size: 25px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    flex-shrink: 0;
+
+    transition: .2s;
 }
 
+.mobile-menu-btn:hover {
+    background: rgba(255,255,255,.09);
+
+    border-color:
+        rgba(99,230,255,.45);
+
+    transform: scale(1.04);
+}
+
+.mobile-menu-btn:active {
+    transform: scale(.96);
+}
+
+
+/* =========================================================
+   NAVIGATION MENU
+   CLOSED BY DEFAULT
+========================================================= */
+
+.nav-links {
+    display: none;
+
+    position: absolute;
+
+    top: calc(100% + 10px);
+    right: 0;
+
+    width: 230px;
+
+    padding: 10px;
+
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 4px;
+
+    background:
+        rgba(10,17,29,.98);
+
+    border:
+        1px solid rgba(255,255,255,.1);
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.5);
+
+    backdrop-filter: blur(20px);
+
+    z-index: 100001;
+}
+
+
+/* =========================================================
+   MENU OPEN
+========================================================= */
+
+.nav-links.mobile-open {
+    display: flex;
+}
+
+
+/* =========================================================
+   MENU LINKS
+========================================================= */
+
 .nav-links a {
-    padding: 10px 12px;
-    border-radius: 9px;
+    display: flex;
+
+    width: 100%;
+    min-height: 44px;
+
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 12px 14px;
+
+    border-radius: 10px;
 
     color: var(--muted);
+
     font-size: 13px;
+
+    text-decoration: none;
+
+    white-space: nowrap;
 
     transition: .2s;
 }
 
 .nav-links a:hover,
+.nav-links a:active,
 .nav-links a.active {
     color: var(--text);
-    background: rgba(255,255,255,.06);
+
+    background:
+        rgba(255,255,255,.08);
 }
+
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+.nav-links .login-button {
+    color: var(--cyan);
+}
+
+
+/* =========================================================
+   THEME BUTTON
+========================================================= */
 
 .theme-btn {
     width: 40px;
@@ -165,15 +317,18 @@ body::after {
     border: 1px solid var(--border);
     border-radius: 10px;
 
-    background: rgba(255,255,255,.04);
+    background:
+        rgba(255,255,255,.04);
+
     color: var(--text);
 
     cursor: pointer;
 }
 
-/* =========================
+
+/* =========================================================
    HERO
-========================= */
+========================================================= */
 
 .hero {
     width: min(1180px, calc(100% - 40px));
@@ -182,7 +337,9 @@ body::after {
     margin: 0 auto;
 
     display: grid;
+
     grid-template-columns: 1fr 1fr;
+
     align-items: center;
 
     gap: 70px;
@@ -201,6 +358,7 @@ body::after {
     border-radius: 50px;
 
     color: var(--muted);
+
     font-size: 10px;
     letter-spacing: 1.4px;
 }
@@ -214,6 +372,7 @@ body::after {
     margin-right: 7px;
 
     border-radius: 50%;
+
     background: var(--cyan);
 }
 
@@ -221,7 +380,9 @@ body::after {
     margin-top: 25px;
 
     font-size: clamp(55px, 7vw, 86px);
+
     line-height: .98;
+
     letter-spacing: -4px;
 }
 
@@ -247,13 +408,17 @@ body::after {
     margin-top: 25px;
 
     color: var(--muted);
+
     line-height: 1.8;
+
     font-size: 15px;
 }
 
 .hero-buttons {
     display: flex;
+
     gap: 12px;
+
     margin-top: 30px;
 }
 
@@ -273,12 +438,15 @@ body::after {
 
 .primary-btn {
     background: var(--text);
+
     color: #071019;
 }
 
 .secondary-btn {
     border: 1px solid var(--border);
-    background: rgba(255,255,255,.04);
+
+    background:
+        rgba(255,255,255,.04);
 }
 
 .primary-btn:hover,
@@ -288,13 +456,17 @@ body::after {
 
 .hero-stats {
     display: flex;
+
     gap: 35px;
+
     margin-top: 45px;
 }
 
 .hero-stats div {
     display: flex;
+
     flex-direction: column;
+
     gap: 5px;
 }
 
@@ -304,12 +476,14 @@ body::after {
 
 .hero-stats span {
     color: var(--muted);
+
     font-size: 10px;
 }
 
-/* =========================
+
+/* =========================================================
    HERO CARD
-========================= */
+========================================================= */
 
 .hero-visual {
     min-height: 500px;
@@ -317,6 +491,7 @@ body::after {
     position: relative;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 }
@@ -345,9 +520,11 @@ body::after {
 
 .card-top {
     display: flex;
+
     justify-content: space-between;
 
     color: var(--muted);
+
     font-size: 9px;
 }
 
@@ -358,17 +535,20 @@ body::after {
     margin: 45px auto 25px;
 
     display: grid;
+
     place-items: center;
 
     border-radius: 22px;
 
-    background: rgba(99,230,255,.08);
+    background:
+        rgba(99,230,255,.08);
 
     font-size: 48px;
 }
 
 .learning-card h3 {
     text-align: center;
+
     font-size: 28px;
 }
 
@@ -378,6 +558,7 @@ body::after {
     text-align: center;
 
     color: var(--muted);
+
     font-size: 12px;
 }
 
@@ -390,7 +571,8 @@ body::after {
 
     border-radius: 10px;
 
-    background: rgba(255,255,255,.07);
+    background:
+        rgba(255,255,255,.07);
 }
 
 .mini-progress span {
@@ -409,15 +591,20 @@ body::after {
 
 .progress-label {
     display: flex;
+
     justify-content: space-between;
 
     margin-top: 8px;
 
     color: var(--muted);
+
     font-size: 10px;
 }
 
-/* Floating cards */
+
+/* =========================================================
+   FLOATING CARDS
+========================================================= */
 
 .floating-card {
     position: absolute;
@@ -425,7 +612,9 @@ body::after {
     padding: 12px 15px;
 
     display: flex;
+
     align-items: center;
+
     gap: 8px;
 
     border: 1px solid var(--border);
@@ -453,13 +642,16 @@ body::after {
     bottom: 180px;
 }
 
-/* =========================
+
+/* =========================================================
    SECTIONS
-========================= */
+========================================================= */
 
 .section {
     width: min(1180px, calc(100% - 40px));
+
     margin: 0 auto;
+
     padding: 90px 0;
 }
 
@@ -467,7 +659,9 @@ body::after {
     margin-bottom: 32px;
 
     display: flex;
+
     align-items: flex-end;
+
     justify-content: space-between;
 
     gap: 30px;
@@ -477,7 +671,9 @@ body::after {
     color: var(--cyan);
 
     font-size: 9px;
+
     font-weight: 800;
+
     letter-spacing: 2px;
 }
 
@@ -485,6 +681,7 @@ body::after {
     margin-top: 9px;
 
     font-size: 44px;
+
     letter-spacing: -2px;
 }
 
@@ -492,13 +689,16 @@ body::after {
     max-width: 320px;
 
     color: var(--muted);
+
     font-size: 13px;
+
     line-height: 1.6;
 }
 
-/* =========================
+
+/* =========================================================
    CLASS CARD
-========================= */
+========================================================= */
 
 .class-card {
     width: 100%;
@@ -507,12 +707,15 @@ body::after {
     padding: 35px;
 
     display: grid;
+
     grid-template-columns: 130px 1fr 55px;
 
     align-items: center;
+
     gap: 30px;
 
     border: 1px solid var(--border);
+
     border-radius: 20px;
 
     background:
@@ -527,13 +730,18 @@ body::after {
 
 .class-card:hover {
     transform: translateY(-4px);
-    border-color: rgba(99,230,255,.3);
+
+    border-color:
+        rgba(99,230,255,.3);
 }
 
 .class-number {
     font-size: 68px;
+
     font-weight: 800;
-    color: rgba(255,255,255,.09);
+
+    color:
+        rgba(255,255,255,.09);
 }
 
 .tag {
@@ -543,16 +751,19 @@ body::after {
 
     border-radius: 6px;
 
-    background: rgba(99,230,255,.1);
+    background:
+        rgba(99,230,255,.1);
 
     color: var(--cyan);
 
     font-size: 9px;
+
     font-weight: 800;
 }
 
 .class-info h3 {
     margin-top: 10px;
+
     font-size: 29px;
 }
 
@@ -562,7 +773,9 @@ body::after {
     margin-top: 7px;
 
     color: var(--muted);
+
     line-height: 1.6;
+
     font-size: 13px;
 }
 
@@ -571,23 +784,28 @@ body::after {
     height: 48px;
 
     display: grid;
+
     place-items: center;
 
     border: 1px solid var(--border);
+
     border-radius: 50%;
 
     font-size: 20px;
 }
 
-/* =========================
+
+/* =========================================================
    FEATURES
-========================= */
+========================================================= */
 
 .feature-grid {
     width: 100%;
 
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+
+    grid-template-columns:
+        repeat(4, 1fr);
 
     gap: 18px;
 }
@@ -600,16 +818,20 @@ body::after {
     position: relative;
 
     border: 1px solid var(--border);
+
     border-radius: 18px;
 
-    background: rgba(14,21,33,.75);
+    background:
+        rgba(14,21,33,.75);
 
     transition: .25s;
 }
 
 .feature-card:hover {
     transform: translateY(-6px);
-    border-color: rgba(99,230,255,.25);
+
+    border-color:
+        rgba(99,230,255,.25);
 }
 
 .feature-icon {
@@ -618,15 +840,19 @@ body::after {
 
 .feature-number {
     position: absolute;
+
     top: 25px;
     right: 25px;
 
-    color: rgba(255,255,255,.16);
+    color:
+        rgba(255,255,255,.16);
+
     font-size: 10px;
 }
 
 .feature-card h3 {
     margin-top: 42px;
+
     font-size: 19px;
 }
 
@@ -636,35 +862,42 @@ body::after {
     color: var(--muted);
 
     line-height: 1.6;
+
     font-size: 12px;
 }
 
 .feature-link {
     position: absolute;
+
     bottom: 25px;
 
     color: var(--cyan);
 
     font-size: 11px;
+
     font-weight: 700;
 }
 
-/* =========================
+
+/* =========================================================
    PHILOSOPHY
-========================= */
+========================================================= */
 
 .philosophy {
     text-align: center;
+
     padding: 130px 20px;
 }
 
 .quote-mark {
     color: var(--cyan);
+
     font-size: 70px;
 }
 
 .philosophy h2 {
     max-width: 700px;
+
     margin: 20px auto;
 }
 
@@ -674,35 +907,43 @@ body::after {
 
 .philosophy p {
     max-width: 550px;
+
     margin: auto;
 
     color: var(--muted);
 
     line-height: 1.8;
+
     font-size: 13px;
 }
 
-/* =========================
+
+/* =========================================================
    ABOUT
-========================= */
+========================================================= */
 
 .about-box {
     padding: 40px;
 
     display: grid;
+
     grid-template-columns: 1fr 1fr;
 
     gap: 60px;
 
     border: 1px solid var(--border);
+
     border-radius: 20px;
 
-    background: rgba(255,255,255,.025);
+    background:
+        rgba(255,255,255,.025);
 }
 
 .about-text {
     color: var(--muted);
+
     line-height: 1.8;
+
     font-size: 13px;
 }
 
@@ -710,12 +951,14 @@ body::after {
     margin-top: 15px;
 }
 
-/* =========================
+
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
 
 footer {
     width: min(1180px, calc(100% - 40px));
+
     margin: 30px auto 0;
 
     padding: 35px 0 25px;
@@ -725,42 +968,53 @@ footer {
 
 .footer-main {
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
 }
 
 .footer-brand > p {
     margin-top: 10px;
+
     color: var(--muted);
+
     font-size: 11px;
 }
 
 .footer-links {
     display: flex;
+
     gap: 24px;
 }
 
 .footer-links a {
     color: var(--muted);
+
     font-size: 11px;
 }
 
 .footer-bottom {
     margin-top: 30px;
+
     padding-top: 18px;
 
     display: flex;
+
     justify-content: space-between;
 
-    border-top: 1px solid rgba(255,255,255,.05);
+    border-top:
+        1px solid rgba(255,255,255,.05);
 
     color: #5d6878;
+
     font-size: 9px;
 }
 
-/* =========================
+
+/* =========================================================
    LIGHT MODE
-========================= */
+========================================================= */
 
 body.light {
     --bg: #f5f7fa;
@@ -772,7 +1026,8 @@ body.light {
 }
 
 body.light .navbar {
-    background: rgba(255,255,255,.85);
+    background:
+        rgba(255,255,255,.85);
 }
 
 body.light .learning-card,
@@ -780,28 +1035,10 @@ body.light .feature-card {
     background: #ffffff;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
 
-/* =========================
-   DESKTOP NAVBAR
-========================= */
-
-.mobile-menu-btn {
-    display: none;
-}
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-
-
-/* =========================
+/* =========================================================
    TABLET
-========================= */
+========================================================= */
 
 @media (max-width: 1000px) {
 
@@ -811,6 +1048,7 @@ body.light .feature-card {
 
     .hero {
         grid-template-columns: 1fr;
+
         gap: 10px;
     }
 
@@ -823,33 +1061,28 @@ body.light .feature-card {
     }
 
     .feature-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+            repeat(2, 1fr);
     }
 }
 
 
-/* =========================
-   MOBILE NAVBAR
-========================= */
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media (max-width: 700px) {
 
     .navbar {
-        position: relative;
+        width: calc(100% - 24px);
+
         padding: 0 14px;
-    }
-
-    /* =========================
-       BRAND
-    ========================= */
-
-    .brand {
-        flex-shrink: 0;
     }
 
     .brand-icon {
         width: 36px;
         height: 36px;
+
         font-size: 18px;
     }
 
@@ -861,149 +1094,31 @@ body.light .feature-card {
         font-size: 8px;
     }
 
-
-    /* =========================
-       HAMBURGER BUTTON
-    ========================= */
-
     .mobile-menu-btn {
-        display: flex;
-
-        align-items: center;
-        justify-content: center;
-
         width: 42px;
         height: 42px;
 
-        padding: 0;
-
-        border: 1px solid var(--border);
-        border-radius: 11px;
-
-        background: rgba(255,255,255,.05);
-        color: var(--text);
-
         font-size: 24px;
-        line-height: 1;
-
-        cursor: pointer;
-
-        flex-shrink: 0;
-
-        transition: .2s;
     }
-
-    .mobile-menu-btn:hover {
-        background: rgba(255,255,255,.09);
-        border-color: rgba(99,230,255,.35);
-    }
-
-
-    /* =========================
-       MOBILE MENU
-       CLOSED BY DEFAULT
-    ========================= */
 
     .nav-links {
-        display: none;
-
-        position: absolute;
-
-        top: calc(100% + 10px);
         left: 0;
         right: 0;
 
         width: 100%;
 
-        padding: 12px;
-
-        flex-direction: column;
-        align-items: stretch;
-
-        gap: 5px;
-
-        background: rgba(10,17,29,.98);
-
-        border: 1px solid var(--border);
-        border-radius: 16px;
-
-        box-shadow:
-            0 20px 45px rgba(0,0,0,.45);
-
-        backdrop-filter: blur(18px);
-
-        z-index: 99999;
+        top: calc(100% + 10px);
     }
 
-
-    /* =========================
-       MOBILE MENU OPEN
-    ========================= */
-
-    .nav-links.mobile-open {
-        display: flex;
-    }
-
-
-    /* =========================
-       MOBILE MENU LINKS
-    ========================= */
-
-    .nav-links a {
-        display: flex;
-
-        width: 100%;
-
-        align-items: center;
-        justify-content: flex-start;
-
-        padding: 13px 14px;
-
-        border-radius: 10px;
-
-        color: var(--muted);
-
-        font-size: 13px;
-
-        text-decoration: none;
-
-        flex-shrink: 0;
-
-        transition: .2s;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-        color: var(--text);
-        background: rgba(255,255,255,.07);
-    }
-
-
-    /* =========================
-       OTHER MOBILE SETTINGS
-    ========================= */
-
-    .theme-btn {
-        flex-shrink: 0;
-
-        width: 36px;
-        height: 36px;
-    }
-
-    .navbar,
     .hero,
     .section,
     footer {
         width: calc(100% - 24px);
     }
 
-
-    /* =========================
-       HERO
-    ========================= */
-
     .hero h1 {
         font-size: 53px;
+
         letter-spacing: -3px;
     }
 
@@ -1021,13 +1136,9 @@ body.light .feature-card {
 
     .hero-visual {
         transform: scale(.82);
+
         margin-top: -50px;
     }
-
-
-    /* =========================
-       SECTIONS
-    ========================= */
 
     .section {
         padding: 65px 0;
@@ -1035,6 +1146,7 @@ body.light .feature-card {
 
     .section-heading {
         flex-direction: column;
+
         align-items: flex-start;
     }
 
@@ -1042,13 +1154,9 @@ body.light .feature-card {
         font-size: 35px;
     }
 
-
-    /* =========================
-       CLASS CARD
-    ========================= */
-
     .class-card {
         grid-template-columns: 1fr;
+
         gap: 15px;
     }
 
@@ -1060,103 +1168,87 @@ body.light .feature-card {
         display: none;
     }
 
-
-    /* =========================
-       FEATURES
-    ========================= */
-
     .feature-grid {
         grid-template-columns: 1fr;
     }
 
-
-    /* =========================
-       ABOUT
-    ========================= */
-
     .about-box {
         grid-template-columns: 1fr;
+
         gap: 25px;
+
         padding: 25px;
     }
-
-
-    /* =========================
-       FOOTER
-    ========================= */
 
     .footer-main,
     .footer-bottom {
         flex-direction: column;
+
         align-items: flex-start;
+
         gap: 18px;
     }
 }
-/* ============================= */
-/* ACHARYA FLOATING AI */
-/* ============================= */
 
-.acharya-floating{
 
-    position:fixed;
+/* =========================================================
+   ACHARYA FLOATING AI
+========================================================= */
 
-    right:25px;
+.acharya-floating {
+    position: fixed;
 
-    top:50%;
+    right: 25px;
+    top: 50%;
 
-    transform:translateY(-50%);
+    transform: translateY(-50%);
 
-    z-index:9999;
+    z-index: 9999;
 
-    animation:acharyaFloat 3s ease-in-out infinite;
-
+    animation:
+        acharyaFloat 3s ease-in-out infinite;
 }
 
-.acharya-message{
+.acharya-message {
+    width: 260px;
 
-    width:260px;
+    padding: 17px;
 
-    padding:17px;
+    border-radius: 18px;
 
-    border-radius:18px;
+    background:
+        rgba(8,15,30,.94);
 
-    background:rgba(8,15,30,.94);
-
-    border:1px solid rgba(0,217,255,.35);
+    border:
+        1px solid rgba(0,217,255,.35);
 
     box-shadow:
         0 15px 40px rgba(0,0,0,.45),
         0 0 25px rgba(0,217,255,.08);
 
-    backdrop-filter:blur(15px);
-
+    backdrop-filter: blur(15px);
 }
 
-.acharya-top{
+.acharya-top {
+    display: flex;
 
-    display:flex;
+    align-items: center;
 
-    align-items:center;
+    gap: 10px;
 
-    gap:10px;
-
-    margin-bottom:12px;
-
+    margin-bottom: 12px;
 }
 
-.acharya-mini-logo{
+.acharya-mini-logo {
+    width: 40px;
+    height: 40px;
 
-    width:40px;
+    border-radius: 12px;
 
-    height:40px;
+    display: flex;
 
-    border-radius:12px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
+    align-items: center;
+    justify-content: center;
 
     background:
         linear-gradient(
@@ -1165,62 +1257,54 @@ body.light .feature-card {
             #8b5cf6
         );
 
-    color:white;
+    color: white;
 
-    font-size:21px;
+    font-size: 21px;
 
     box-shadow:
         0 0 15px rgba(0,217,255,.3);
-
 }
 
-.acharya-name{
+.acharya-name {
+    font-weight: bold;
 
-    font-weight:bold;
+    color: white;
 
-    color:white;
-
-    font-size:15px;
-
+    font-size: 15px;
 }
 
-.acharya-status{
+.acharya-status {
+    color: #22c55e;
 
-    color:#22c55e;
+    font-size: 11px;
 
-    font-size:11px;
-
-    margin-top:2px;
-
+    margin-top: 2px;
 }
 
-.acharya-text{
+.acharya-text {
+    color: #cbd5e1;
 
-    color:#cbd5e1;
+    font-size: 13px;
 
-    font-size:13px;
+    line-height: 1.5;
 
-    line-height:1.5;
-
-    margin-bottom:13px;
-
+    margin-bottom: 13px;
 }
 
-.acharya-message button{
+.acharya-message button {
+    width: 100%;
 
-    width:100%;
+    padding: 10px;
 
-    padding:10px;
+    border: none;
 
-    border:none;
+    border-radius: 9px;
 
-    border-radius:9px;
+    cursor: pointer;
 
-    cursor:pointer;
+    color: white;
 
-    color:white;
-
-    font-weight:bold;
+    font-weight: bold;
 
     background:
         linear-gradient(
@@ -1229,43 +1313,36 @@ body.light .feature-card {
             #8b5cf6
         );
 
-    transition:.25s;
-
+    transition: .25s;
 }
 
-.acharya-message button:hover{
-
-    transform:translateY(-2px);
+.acharya-message button:hover {
+    transform: translateY(-2px);
 
     box-shadow:
         0 5px 18px rgba(0,217,255,.25);
-
 }
 
-@keyframes acharyaFloat{
+@keyframes acharyaFloat {
 
-    0%,100%{
-
+    0%,
+    100% {
         transform:
             translateY(-50%);
-
     }
 
-    50%{
-
+    50% {
         transform:
             translateY(
                 calc(-50% - 6px)
             );
-
     }
-
 }
 
 
-/* ========================= */
-/* ACHARYA AI LOGO */
-/* ========================= */
+/* =========================================================
+   ACHARYA AI LOGO
+========================================================= */
 
 .acharya-logo {
     position: fixed;
@@ -1281,24 +1358,28 @@ body.light .feature-card {
     border-radius: 50%;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
-    background: rgba(7, 15, 30, 0.95);
+    background:
+        rgba(7,15,30,.95);
 
-    border: 2px solid rgba(0, 217, 255, 0.5);
+    border:
+        2px solid rgba(0,217,255,.5);
 
     cursor: pointer;
 
     z-index: 99999;
 
     box-shadow:
-        0 0 18px rgba(0, 217, 255, 0.35),
-        0 0 35px rgba(139, 92, 246, 0.25);
+        0 0 18px rgba(0,217,255,.35),
+        0 0 35px rgba(139,92,246,.25);
 
-    animation: acharyaGlow 3s ease-in-out infinite;
+    animation:
+        acharyaGlow 3s ease-in-out infinite;
 
-    transition: 0.3s ease;
+    transition: .3s ease;
 }
 
 .acharya-svg {
@@ -1307,43 +1388,47 @@ body.light .feature-card {
 }
 
 .acharya-logo:hover {
-    transform: translateY(-50%) scale(1.12);
+    transform:
+        translateY(-50%) scale(1.12);
 
     border-color: #00d9ff;
 
     box-shadow:
-        0 0 25px rgba(0, 217, 255, 0.65),
-        0 0 50px rgba(139, 92, 246, 0.45);
+        0 0 25px rgba(0,217,255,.65),
+        0 0 50px rgba(139,92,246,.45);
 }
 
 @keyframes acharyaGlow {
 
     0% {
         box-shadow:
-            0 0 18px rgba(0, 217, 255, 0.3),
-            0 0 35px rgba(139, 92, 246, 0.2);
+            0 0 18px rgba(0,217,255,.3),
+            0 0 35px rgba(139,92,246,.2);
     }
 
     50% {
         box-shadow:
-            0 0 28px rgba(0, 217, 255, 0.55),
-            0 0 45px rgba(139, 92, 246, 0.35);
+            0 0 28px rgba(0,217,255,.55),
+            0 0 45px rgba(139,92,246,.35);
     }
 
     100% {
         box-shadow:
-            0 0 18px rgba(0, 217, 255, 0.3),
-            0 0 35px rgba(139, 92, 246, 0.2);
+            0 0 18px rgba(0,217,255,.3),
+            0 0 35px rgba(139,92,246,.2);
     }
 }
 
 
-/* MOBILE */
+/* =========================================================
+   ACHARYA MOBILE
+========================================================= */
 
 @media (max-width: 700px) {
 
     .acharya-logo {
         right: 18px;
+
         bottom: 20px;
         top: auto;
 
@@ -1360,129 +1445,5 @@ body.light .feature-card {
 
     .acharya-logo:hover {
         transform: scale(1.1);
-    }
-}
-/* ==================================================
-   FINAL MOBILE NAVBAR FIX
-   ================================================== */
-
-/* Desktop */
-.mobile-menu-btn {
-    display: none !important;
-}
-
-.nav-links {
-    display: flex;
-}
-
-
-/* Mobile */
-@media (max-width: 700px) {
-
-    /* Hamburger */
-    .mobile-menu-btn {
-        display: flex !important;
-
-        align-items: center;
-        justify-content: center;
-
-        width: 42px;
-        height: 42px;
-
-        padding: 0;
-
-        border: 1px solid var(--border);
-        border-radius: 11px;
-
-        background: rgba(255,255,255,.05);
-        color: var(--text);
-
-        font-size: 24px;
-        line-height: 1;
-
-        cursor: pointer;
-
-        flex-shrink: 0;
-
-        position: relative;
-        z-index: 100001;
-    }
-
-
-    /* Menu closed */
-    .nav-links {
-        display: none !important;
-
-        position: absolute;
-
-        top: calc(100% + 10px);
-        left: 0;
-        right: 0;
-
-        width: 100%;
-
-        padding: 12px;
-
-        flex-direction: column;
-        align-items: stretch;
-
-        gap: 5px;
-
-        background: rgba(10,17,29,.98);
-
-        border: 1px solid var(--border);
-        border-radius: 16px;
-
-        box-shadow:
-            0 20px 45px rgba(0,0,0,.45);
-
-        backdrop-filter: blur(18px);
-
-        z-index: 100000;
-    }
-
-
-    /* Menu open */
-    .nav-links.mobile-open {
-        display: flex !important;
-    }
-
-
-    /* IMPORTANT:
-       Old CSS was hiding these links.
-       This forces every link to appear. */
-    .nav-links.mobile-open a {
-        display: flex !important;
-
-        width: 100%;
-
-        min-height: 44px;
-
-        align-items: center;
-        justify-content: flex-start;
-
-        padding: 12px 14px;
-
-        border-radius: 10px;
-
-        color: var(--text);
-
-        font-size: 13px;
-
-        text-decoration: none;
-
-        flex-shrink: 0;
-    }
-
-
-    .nav-links.mobile-open a:hover {
-        background: rgba(255,255,255,.08);
-    }
-
-
-    /* Keep navbar above page content */
-    .navbar {
-        position: relative;
-        z-index: 100000;
     }
 }
