@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Circles | Academix by Tiwari</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f5f7fb;color:#182033;line-height:1.65}
+header{background:linear-gradient(135deg,#10182f,#304a91);color:white;text-align:center;padding:45px 20px}
+header h1{font-size:42px}
+.container{width:min(1050px,92%);margin:auto;padding:25px 0 50px}
+.nav{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:25px}
+.nav a{background:#304a91;color:white;text-decoration:none;padding:9px 15px;border-radius:8px}
+.card,.practice,.quiz{background:white;padding:25px;margin-bottom:20px;border-radius:16px;box-shadow:0 6px 22px rgba(0,0,0,.07)}
+h2{color:#263d82;margin-bottom:15px}
+.card p{margin:10px 0}
+.formula{background:#eef3ff;border-left:4px solid #304a91;padding:14px;margin:12px 0;border-radius:9px;font-weight:bold}
+.example{background:#f7f8fc;padding:15px;margin:12px 0;border-radius:10px}
+.question{border-top:1px solid #ddd;padding:18px 0}
+input[type=text]{padding:10px;width:min(400px,100%);border:1px solid #ccd2df;border-radius:7px;margin-top:10px}
+button{background:#304a91;color:white;border:none;padding:10px 16px;border-radius:7px;cursor:pointer;margin-top:10px}
+.option{display:block;margin:9px 0}
+.correct{color:green;font-weight:bold}
+.wrong{color:red;font-weight:bold}
+#score{font-size:21px;font-weight:bold;margin-top:18px}
+footer{text-align:center;padding:25px;color:#666}
+@media(max-width:600px){header h1{font-size:31px}.card,.practice,.quiz{padding:18px}}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Circles</h1>
+<p>Class 9 Mathematics • Academix by Tiwari</p>
+</header>
+
+<div class="container">
+
+<div class="nav">
+<a href="math.html">← Mathematics</a>
+<a href="#concepts">Concepts</a>
+<a href="#properties">Properties</a>
+<a href="#examples">Examples</a>
+<a href="#practice">Practice</a>
+<a href="#quiz">Quiz</a>
+</div>
+
+<section class="card" id="concepts">
+<h2>📚 Basic Concepts</h2>
+
+<p>A circle is the set of all points in a plane that are at the same distance from a fixed point.</p>
+
+<p>The fixed point is called the <b>centre</b> and the fixed distance is called the <b>radius</b>.</p>
+
+<div class="formula">Diameter = 2 × Radius</div>
+<div class="formula">Radius = Diameter ÷ 2</div>
+
+<p>A chord is a line segment joining any two points on a circle.</p>
+<p>A diameter is the longest chord of a circle.</p>
+</section>
+
+<section class="card" id="properties">
+<h2>🧠 Important Properties</h2>
+
+<p>• Equal chords of a circle are equidistant from the centre.</p>
+<p>• Chords equidistant from the centre are equal.</p>
+<p>• The perpendicular from the centre to a chord bisects the chord.</p>
+<p>• Equal chords subtend equal angles at the centre.</p>
+<p>• Equal angles at the centre correspond to equal chords.</p>
+</section>
+
+<section class="card">
+<h2>🔵 Important Terms</h2>
+
+<p><b>Radius:</b> Centre to any point on circle.</p>
+<p><b>Diameter:</b> Chord passing through centre.</p>
+<p><b>Chord:</b> Segment joining two points on circle.</p>
+<p><b>Arc:</b> Part of circumference.</p>
+<p><b>Sector:</b> Region enclosed by two radii and an arc.</p>
+<p><b>Segment:</b> Region enclosed by a chord and an arc.</p>
+</section>
+
+<section class="card" id="examples">
+<h2>✍️ Solved Examples</h2>
+
+<div class="example">
+<b>Example 1:</b><br><br>
+Radius = 7 cm.<br>
+Diameter = 2 × 7<br>
+<b>= 14 cm</b>
+</div>
+
+<div class="example">
+<b>Example 2:</b><br><br>
+Diameter = 20 cm.<br>
+Radius = 20 ÷ 2<br>
+<b>= 10 cm</b>
+</div>
+
+<div class="example">
+<b>Example 3:</b><br><br>
+A perpendicular from the centre to a chord bisects the chord.<br>
+Therefore, if the chord is 12 cm, each half is:<br>
+12 ÷ 2 = <b>6 cm</b>
+</div>
+</section>
+
+<section class="practice" id="practice">
+<h2>🎯 Practice Questions</h2>
+
+<div class="question">
+<b>1. Find diameter if radius is 9 cm.</b><br>
+<input id="a1" type="text">
+<button onclick="check(1,'18')">Check</button>
+<span id="r1"></span>
+</div>
+
+<div class="question">
+<b>2. Find radius if diameter is 24 cm.</b><br>
+<input id="a2" type="text">
+<button onclick="check(2,'12')">Check</button>
+<span id="r2"></span>
+</div>
+
+<div class="question">
+<b>3. A chord is 16 cm. What is half of its length?</b><br>
+<input id="a3" type="text">
+<button onclick="check(3,'8')">Check</button>
+<span id="r3"></span>
+</div>
+</section>
+
+<section class="quiz" id="quiz">
+<h2>📝 Chapter Quiz</h2>
+
+<div class="question">
+<b>1. The longest chord of a circle is:</b>
+<label class="option"><input type="radio" name="q1" value="radius"> Radius</label>
+<label class="option"><input type="radio" name="q1" value="diameter"> Diameter</label>
+<label class="option"><input type="radio" name="q1" value="arc"> Arc</label>
+</div>
+
+<div class="question">
+<b>2. Diameter is:</b>
+<label class="option"><input type="radio" name="q2" value="2r"> 2r</label>
+<label class="option"><input type="radio" name="q2" value="r"> r</label>
+<label class="option"><input type="radio" name="q2" value="r2"> r²</label>
+</div>
+
+<div class="question">
+<b>3. A chord passing through the centre is called:</b>
+<label class="option"><input type="radio" name="q3" value="diameter"> Diameter</label>
+<label class="option"><input type="radio" name="q3" value="radius"> Radius</label>
+<label class="option"><input type="radio" name="q3" value="arc"> Arc</label>
+</div>
+
+<button onclick="quiz()">Submit Quiz</button>
+<div id="score"></div>
+</section>
+
+</div>
+
+<footer>Academix by Tiwari • Learn. Practice. Improve.</footer>
+
+<script>
+function check(n,a){
+let v=document.getElementById("a"+n).value.trim().replace("cm","").replace("°","");
+let r=document.getElementById("r"+n);
+if(v===a){r.textContent=" ✓ Correct";r.className="correct"}
+else{r.textContent=" ✗ Try again";r.className="wrong"}
+}
+function quiz(){
+let s=0;
+if(document.querySelector('input[name="q1"]:checked')?.value==="diameter")s++;
+if(document.querySelector('input[name="q2"]:checked')?.value==="2r")s++;
+if(document.querySelector('input[name="q3"]:checked')?.value==="diameter")s++;
+document.getElementById("score").textContent="Your Score: "+s+" / 3";
+}
+</script>
+
+</body>
+</html>
