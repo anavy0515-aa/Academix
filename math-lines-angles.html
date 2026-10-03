@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lines and Angles | Academix by Tiwari</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f5f7fb;
+    color:#182033;
+    line-height:1.65;
+}
+
+header{
+    background:linear-gradient(135deg,#10182f,#304a91);
+    color:white;
+    text-align:center;
+    padding:45px 20px;
+}
+
+header h1{font-size:42px;margin-bottom:8px}
+header p{opacity:.9}
+
+.container{
+    width:min(1050px,92%);
+    margin:auto;
+    padding:25px 0 50px;
+}
+
+.nav{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:25px;
+}
+
+.nav a{
+    text-decoration:none;
+    background:#304a91;
+    color:white;
+    padding:9px 15px;
+    border-radius:8px;
+}
+
+.card,.practice,.quiz{
+    background:white;
+    padding:25px;
+    margin-bottom:20px;
+    border-radius:16px;
+    box-shadow:0 6px 22px rgba(0,0,0,.07);
+}
+
+h2{
+    color:#263d82;
+    margin-bottom:15px;
+}
+
+.card p{margin:10px 0}
+
+.formula{
+    background:#eef3ff;
+    border-left:4px solid #304a91;
+    padding:14px;
+    margin:12px 0;
+    border-radius:9px;
+    font-weight:bold;
+}
+
+.example{
+    background:#f7f8fc;
+    padding:15px;
+    margin:12px 0;
+    border-radius:10px;
+}
+
+.question{
+    border-top:1px solid #ddd;
+    padding:18px 0;
+}
+
+.question:first-child{border-top:none}
+
+input[type="text"]{
+    padding:10px;
+    width:min(400px,100%);
+    border:1px solid #ccd2df;
+    border-radius:7px;
+    margin-top:10px;
+}
+
+button{
+    background:#304a91;
+    color:white;
+    border:none;
+    padding:10px 16px;
+    border-radius:7px;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+.option{
+    display:block;
+    margin:9px 0;
+}
+
+.correct{
+    color:green;
+    font-weight:bold;
+}
+
+.wrong{
+    color:red;
+    font-weight:bold;
+}
+
+#score{
+    font-size:21px;
+    font-weight:bold;
+    margin-top:18px;
+}
+
+footer{
+    text-align:center;
+    padding:25px;
+    color:#666;
+}
+
+@media(max-width:600px){
+    header h1{font-size:31px}
+    .card,.practice,.quiz{padding:18px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Lines and Angles</h1>
+    <p>Class 9 Mathematics • Academix by Tiwari</p>
+</header>
+
+<div class="container">
+
+<div class="nav">
+    <a href="math.html">← Mathematics</a>
+    <a href="#concepts">Concepts</a>
+    <a href="#properties">Properties</a>
+    <a href="#examples">Examples</a>
+    <a href="#practice">Practice</a>
+    <a href="#quiz">Quiz</a>
+</div>
+
+<section class="card" id="concepts">
+    <h2>📚 Basic Concepts</h2>
+
+    <p>
+        A line extends endlessly in both directions, while a line segment
+        has two fixed endpoints. A ray has one endpoint and extends
+        indefinitely in one direction.
+    </p>
+
+    <p>
+        An angle is formed when two rays have a common endpoint.
+        The common endpoint is called the vertex.
+    </p>
+
+    <div class="formula">
+        Complementary angles → Sum = 90°
+    </div>
+
+    <div class="formula">
+        Supplementary angles → Sum = 180°
+    </div>
+
+    <div class="formula">
+        Angles around a point → Sum = 360°
+    </div>
+</section>
+
+<section class="card" id="properties">
+    <h2>🧠 Important Properties</h2>
+
+    <p>
+        <b>1. Linear Pair:</b> Two adjacent angles whose non-common
+        arms form a straight line have sum 180°.
+    </p>
+
+    <p>
+        <b>2. Vertically Opposite Angles:</b> When two lines intersect,
+        vertically opposite angles are equal.
+    </p>
+
+    <p>
+        <b>3. Corresponding Angles:</b> When a transversal cuts two
+        parallel lines, corresponding angles are equal.
+    </p>
+
+    <p>
+        <b>4. Alternate Interior Angles:</b> For parallel lines,
+        alternate interior angles are equal.
+    </p>
+
+    <p>
+        <b>5. Co-interior Angles:</b> Interior angles on the same side
+        of a transversal have sum 180°.
+    </p>
+</section>
+
+<section class="card">
+    <h2>📐 Types of Angles</h2>
+
+    <p>• Acute angle: greater than 0° and less than 90°.</p>
+    <p>• Right angle: exactly 90°.</p>
+    <p>• Obtuse angle: greater than 90° and less than 180°.</p>
+    <p>• Straight angle: exactly 180°.</p>
+    <p>• Reflex angle: greater than 180° and less than 360°.</p>
+</section>
+
+<section class="card" id="examples">
+    <h2>✍️ Solved Examples</h2>
+
+    <div class="example">
+        <b>Example 1:</b><br><br>
+        One angle of a linear pair is 65°.<br><br>
+
+        Other angle = 180° − 65°<br>
+        <b>= 115°</b>
+    </div>
+
+    <div class="example">
+        <b>Example 2:</b><br><br>
+        Two vertically opposite angles are formed.
+        If one angle is 72°, the opposite angle is also:<br><br>
+
+        <b>72°</b>
+    </div>
+
+    <div class="example">
+        <b>Example 3:</b><br><br>
+        Two complementary angles are 37° and x.<br><br>
+
+        x + 37° = 90°<br>
+        x = 90° − 37°<br>
+        <b>x = 53°</b>
+    </div>
+
+    <div class="example">
+        <b>Example 4:</b><br><br>
+        Angles around a point are 80°, 100°, 70° and x.<br><br>
+
+        80 + 100 + 70 + x = 360<br>
+        250 + x = 360<br>
+        <b>x = 110°</b>
+    </div>
+</section>
+
+<section class="practice" id="practice">
+    <h2>🎯 Practice Questions</h2>
+
+    <div class="question">
+        <b>1. Find the supplement of 68°.</b><br>
+        <input type="text" id="a1">
+        <button onclick="check(1,'112')">Check</button>
+        <span id="r1"></span>
+    </div>
+
+    <div class="question">
+        <b>2. Find the complement of 37°.</b><br>
+        <input type="text" id="a2">
+        <button onclick="check(2,'53')">Check</button>
+        <span id="r2"></span>
+    </div>
+
+    <div class="question">
+        <b>3. Vertically opposite to 84° is:</b><br>
+        <input type="text" id="a3">
+        <button onclick="check(3,'84')">Check</button>
+        <span id="r3"></span>
+    </div>
+
+    <div class="question">
+        <b>4. Angles around a point total how many degrees?</b><br>
+        <input type="text" id="a4">
+        <button onclick="check(4,'360')">Check</button>
+        <span id="r4"></span>
+    </div>
+</section>
+
+<section class="quiz" id="quiz">
+    <h2>📝 Chapter Quiz</h2>
+
+    <div class="question">
+        <b>1. A linear pair has sum:</b>
+
+        <label class="option">
+            <input type="radio" name="q1" value="90"> 90°
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q1" value="180"> 180°
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q1" value="270"> 270°
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q1" value="360"> 360°
+        </label>
+    </div>
+
+    <div class="question">
+        <b>2. Vertically opposite angles are:</b>
+
+        <label class="option">
+            <input type="radio" name="q2" value="equal"> Equal
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q2" value="unequal"> Unequal
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q2" value="90"> Always 90°
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q2" value="180"> Always 180°
+        </label>
+    </div>
+
+    <div class="question">
+        <b>3. Complementary angles have sum:</b>
+
+        <label class="option">
+            <input type="radio" name="q3" value="45"> 45°
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q3" value="90"> 90°
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q3" value="180"> 180°
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q3" value="360"> 360°
+        </label>
+    </div>
+
+    <button onclick="submitQuiz()">Submit Quiz</button>
+
+    <div id="score"></div>
+</section>
+
+</div>
+
+<footer>
+    Academix by Tiwari • Learn. Practice. Improve.
+</footer>
+
+<script>
+
+function check(number,answer){
+
+    let input=document.getElementById("a"+number);
+    let result=document.getElementById("r"+number);
+
+    let value=input.value.trim()
+        .replace("°","")
+        .replace(/\s/g,"");
+
+    if(value===""){
+        result.textContent=" Enter an answer.";
+        result.className="wrong";
+        return;
+    }
+
+    if(value===answer){
+        result.textContent=" ✓ Correct";
+        result.className="correct";
+    }else{
+        result.textContent=" ✗ Try again";
+        result.className="wrong";
+    }
+}
+
+function submitQuiz(){
+
+    let score=0;
+
+    if(document.querySelector('input[name="q1"]:checked')?.value==="180")
+        score++;
+
+    if(document.querySelector('input[name="q2"]:checked')?.value==="equal")
+        score++;
+
+    if(document.querySelector('input[name="q3"]:checked')?.value==="90")
+        score++;
+
+    document.getElementById("score").textContent=
+        "Your Score: "+score+" / 3";
+}
+
+</script>
+
+</body>
+</html>
