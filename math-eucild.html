@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Euclid's Geometry | Academix by Tiwari</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+    color: #182033;
+    line-height: 1.65;
+}
+
+header {
+    background: linear-gradient(135deg, #10182f, #304a91);
+    color: white;
+    text-align: center;
+    padding: 45px 20px;
+}
+
+header h1 {
+    font-size: 42px;
+    margin-bottom: 8px;
+}
+
+header p {
+    opacity: .9;
+}
+
+.container {
+    width: min(1050px, 92%);
+    margin: auto;
+    padding: 25px 0 50px;
+}
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.nav a {
+    text-decoration: none;
+    background: #304a91;
+    color: white;
+    padding: 9px 15px;
+    border-radius: 8px;
+}
+
+.card,
+.practice,
+.quiz {
+    background: white;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 16px;
+    box-shadow: 0 6px 22px rgba(0,0,0,.07);
+}
+
+h2 {
+    color: #263d82;
+    margin-bottom: 15px;
+}
+
+.card p {
+    margin: 10px 0;
+}
+
+.point {
+    background: #eef3ff;
+    padding: 14px;
+    margin: 12px 0;
+    border-radius: 9px;
+}
+
+.example {
+    background: #f7f8fc;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 12px 0;
+}
+
+.question {
+    border-top: 1px solid #ddd;
+    padding: 18px 0;
+}
+
+.question:first-child {
+    border-top: none;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: min(400px,100%);
+    border: 1px solid #ccd2df;
+    border-radius: 7px;
+    margin-top: 10px;
+}
+
+button {
+    background: #304a91;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.option {
+    display: block;
+    margin: 9px 0;
+}
+
+.correct {
+    color: green;
+    font-weight: bold;
+}
+
+.wrong {
+    color: red;
+    font-weight: bold;
+}
+
+#score {
+    font-size: 21px;
+    font-weight: bold;
+    margin-top: 18px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #666;
+}
+
+@media(max-width:600px) {
+    header h1 {
+        font-size: 31px;
+    }
+
+    .card,
+    .practice,
+    .quiz {
+        padding: 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Euclid's Geometry</h1>
+    <p>Class 9 Mathematics • Academix by Tiwari</p>
+</header>
+
+<div class="container">
+
+<div class="nav">
+    <a href="math.html">← Mathematics</a>
+    <a href="#concepts">Concepts</a>
+    <a href="#postulates">Postulates</a>
+    <a href="#examples">Examples</a>
+    <a href="#practice">Practice</a>
+    <a href="#quiz">Quiz</a>
+</div>
+
+<section class="card" id="concepts">
+    <h2>📚 Introduction</h2>
+
+    <p>
+        Euclid was an ancient Greek mathematician whose work formed the
+        foundation of classical geometry.
+    </p>
+
+    <p>
+        Euclid organised geometry using definitions, axioms, postulates,
+        propositions and logical proofs.
+    </p>
+
+    <div class="point">
+        <b>Definition:</b> A statement that explains the meaning of a
+        mathematical term.
+    </div>
+
+    <div class="point">
+        <b>Axiom:</b> A statement accepted as true without proof and used
+        generally in mathematics.
+    </div>
+
+    <div class="point">
+        <b>Postulate:</b> An assumption accepted without proof that is
+        specifically related to geometry.
+    </div>
+
+    <div class="point">
+        <b>Theorem:</b> A mathematical statement that is proved using
+        definitions, axioms, postulates and earlier results.
+    </div>
+</section>
+
+<section class="card" id="postulates">
+    <h2>📐 Euclid's Five Postulates</h2>
+
+    <div class="point">
+        <b>1.</b> A straight line may be drawn from any one point to any
+        other point.
+    </div>
+
+    <div class="point">
+        <b>2.</b> A finite straight line can be extended continuously
+        in a straight line.
+    </div>
+
+    <div class="point">
+        <b>3.</b> A circle can be drawn with any centre and any radius.
+    </div>
+
+    <div class="point">
+        <b>4.</b> All right angles are equal to one another.
+    </div>
+
+    <div class="point">
+        <b>5.</b> If a straight line falling on two straight lines makes
+        the interior angles on the same side sum to less than two right
+        angles, the two lines, if extended indefinitely, meet on that side.
+    </div>
+</section>
+
+<section class="card">
+    <h2>🧠 Important Axioms / Common Notions</h2>
+
+    <p>• Things which are equal to the same thing are equal to one another.</p>
+
+    <p>• If equals are added to equals, the wholes are equal.</p>
+
+    <p>• If equals are subtracted from equals, the remainders are equal.</p>
+
+    <p>• Things which coincide with one another are equal to one another.</p>
+
+    <p>• The whole is greater than the part.</p>
+</section>
+
+<section class="card" id="examples">
+    <h2>✍️ Solved Examples</h2>
+
+    <div class="example">
+        <b>Example 1</b><br><br>
+        If AB = CD and CD = EF, prove that AB = EF.<br><br>
+
+        Since AB = CD and CD = EF,<br>
+        AB = EF.<br><br>
+
+        This follows from the axiom:
+        <b>Things equal to the same thing are equal to one another.</b>
+    </div>
+
+    <div class="example">
+        <b>Example 2</b><br><br>
+        If two equal quantities have the same quantity added to them,
+        the resulting quantities remain equal.
+    </div>
+
+    <div class="example">
+        <b>Example 3</b><br><br>
+        If a line segment is extended beyond one endpoint, the original
+        segment remains part of the extended straight line.
+    </div>
+</section>
+
+<section class="practice" id="practice">
+    <h2>🎯 Practice Questions</h2>
+
+    <div class="question">
+        <b>1. What is a statement accepted without proof called?</b><br>
+        <input type="text" id="a1">
+        <button onclick="check(1,'axiom')">Check</button>
+        <span id="r1"></span>
+    </div>
+
+    <div class="question">
+        <b>2. What is a geometry-specific assumption called?</b><br>
+        <input type="text" id="a2">
+        <button onclick="check(2,'postulate')">Check</button>
+        <span id="r2"></span>
+    </div>
+
+    <div class="question">
+        <b>3. If AB = 7 cm and CD = AB, find CD.</b><br>
+        <input type="text" id="a3">
+        <button onclick="check(3,'7 cm')">Check</button>
+        <span id="r3"></span>
+    </div>
+
+    <div class="question">
+        <b>4. Euclid's postulates are mainly related to which subject?</b><br>
+        <input type="text" id="a4">
+        <button onclick="check(4,'geometry')">Check</button>
+        <span id="r4"></span>
+    </div>
+</section>
+
+<section class="quiz" id="quiz">
+    <h2>📝 Chapter Quiz</h2>
+
+    <div class="question">
+        <b>1. A statement accepted without proof is called:</b>
+
+        <label class="option">
+            <input type="radio" name="q1" value="Theorem"> Theorem
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q1" value="Axiom"> Axiom
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q1" value="Proof"> Proof
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q1" value="Example"> Example
+        </label>
+    </div>
+
+    <div class="question">
+        <b>2. Euclid's postulates are mainly associated with:</b>
+
+        <label class="option">
+            <input type="radio" name="q2" value="Geometry"> Geometry
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q2" value="Algebra"> Algebra
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q2" value="Statistics"> Statistics
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q2" value="Probability"> Probability
+        </label>
+    </div>
+
+    <div class="question">
+        <b>3. How many postulates are commonly listed in Euclid's system?</b>
+
+        <label class="option">
+            <input type="radio" name="q3" value="3"> 3
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q3" value="4"> 4
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q3" value="5"> 5
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q3" value="6"> 6
+        </label>
+    </div>
+
+    <button onclick="submitQuiz()">Submit Quiz</button>
+
+    <div id="score"></div>
+</section>
+
+</div>
+
+<footer>
+    Academix by Tiwari • Learn. Practice. Improve.
+</footer>
+
+<script>
+
+function check(number, answer) {
+
+    let input = document.getElementById("a" + number);
+    let result = document.getElementById("r" + number);
+
+    if(input.value.trim() === "") {
+        result.textContent = " Enter an answer.";
+        result.className = "wrong";
+        return;
+    }
+
+    if(input.value.trim().toLowerCase() === answer.toLowerCase()) {
+        result.textContent = " ✓ Correct";
+        result.className = "correct";
+    } else {
+        result.textContent = " ✗ Try again";
+        result.className = "wrong";
+    }
+}
+
+function submitQuiz() {
+
+    let score = 0;
+
+    if(document.querySelector('input[name="q1"]:checked')?.value === "Axiom")
+        score++;
+
+    if(document.querySelector('input[name="q2"]:checked')?.value === "Geometry")
+        score++;
+
+    if(document.querySelector('input[name="q3"]:checked')?.value === "5")
+        score++;
+
+    document.getElementById("score").textContent =
+        "Your Score: " + score + " / 3";
+}
+
+</script>
+
+</body>
+</html>
