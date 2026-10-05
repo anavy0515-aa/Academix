@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Academix Search</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#030713;
+    color:white;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    width:650px;
+    height:650px;
+    border-radius:50%;
+    background:rgba(0,119,255,.10);
+    filter:blur(100px);
+    top:-250px;
+    left:200px;
+    z-index:-2;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    background:rgba(125,40,255,.10);
+    filter:blur(100px);
+    right:-180px;
+    bottom:-150px;
+    z-index:-2;
+}
+
+
+/* ================= SIDEBAR ================= */
+
+.sidebar{
+    position:fixed;
+    left:0;
+    top:0;
+    width:205px;
+    height:100vh;
+    padding:28px 18px;
+    background:linear-gradient(
+        180deg,
+        rgba(4,11,28,.98),
+        rgba(2,7,18,.98)
+    );
+    border-right:1px solid rgba(255,255,255,.08);
+    z-index:100;
+    display:flex;
+    flex-direction:column;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:34px;
+    padding-left:5px;
+}
+
+.logo-symbol{
+    width:38px;
+    height:38px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:23px;
+    font-weight:bold;
+    background:linear-gradient(
+        135deg,
+        #00d9ff,
+        #465cff,
+        #a53cff
+    );
+    box-shadow:0 0 20px rgba(0,217,255,.25);
+}
+
+.logo-text{
+    font-size:18px;
+    font-weight:800;
+    line-height:18px;
+}
+
+.logo-text span{
+    color:#6575ff;
+}
+
+.nav{
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
+
+.nav a{
+    text-decoration:none;
+    color:#aeb8cc;
+    padding:11px 12px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-size:14px;
+    transition:.25s;
+}
+
+.nav a:hover{
+    color:white;
+    background:rgba(90,100,255,.10);
+    transform:translateX(3px);
+}
+
+.nav a.active{
+    color:white;
+    background:linear-gradient(
+        90deg,
+        rgba(70,70,255,.35),
+        rgba(100,40,255,.10)
+    );
+    box-shadow:inset 3px 0 #5662ff;
+}
+
+.nav-icon{
+    width:20px;
+    text-align:center;
+    font-size:16px;
+}
+
+.sidebar-divider{
+    height:1px;
+    background:rgba(255,255,255,.08);
+    margin:18px 5px;
+}
+
+.pro-card{
+    margin-top:auto;
+    padding:15px;
+    border-radius:16px;
+    background:linear-gradient(
+        145deg,
+        rgba(54,58,150,.25),
+        rgba(108,38,180,.12)
+    );
+    border:1px solid rgba(120,90,255,.25);
+}
+
+.pro-title{
+    color:#8dfffb;
+    font-size:12px;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.pro-card p{
+    color:#9da8bd;
+    font-size:11px;
+    line-height:17px;
+    margin-bottom:12px;
+}
+
+.pro-btn{
+    display:block;
+    text-align:center;
+    padding:9px;
+    border-radius:9px;
+    color:white;
+    text-decoration:none;
+    font-size:11px;
+    font-weight:bold;
+    background:linear-gradient(
+        90deg,
+        #4658ff,
+        #873cff
+    );
+}
+
+
+/* ================= MAIN ================= */
+
+.main{
+    margin-left:205px;
+    min-height:100vh;
+    padding:25px 38px 50px;
+}
+
+.topbar{
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.signin{
+    padding:9px 18px;
+    border-radius:22px;
+    color:white;
+    text-decoration:none;
+    font-size:13px;
+    border:1px solid rgba(111,94,255,.7);
+    background:rgba(82,64,255,.10);
+}
+
+.signin:hover{
+    background:rgba(82,64,255,.3);
+}
+
+
+/* ================= HERO ================= */
+
+.hero{
+    text-align:center;
+    max-width:1000px;
+    margin:15px auto 0;
+}
+
+.hero h1{
+    font-size:clamp(42px,6vw,72px);
+    letter-spacing:-3px;
+    margin-bottom:8px;
+}
+
+.hero h1 span{
+    background:linear-gradient(
+        90deg,
+        #00d9ff,
+        #6670ff,
+        #b443ff
+    );
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    color:#8f9ab0;
+    font-size:16px;
+    margin-bottom:30px;
+}
+
+
+/* ================= SEARCH ================= */
+
+.search-wrapper{
+    max-width:900px;
+    margin:auto;
+    padding:2px;
+    border-radius:24px;
+    background:linear-gradient(
+        90deg,
+        #00d9ff,
+        #5867ff,
+        #b73dff
+    );
+    box-shadow:0 0 35px rgba(66,92,255,.17);
+}
+
+.search-box{
+    height:64px;
+    border-radius:22px;
+    background:#080e20;
+    display:flex;
+    align-items:center;
+    padding:0 9px 0 20px;
+    gap:12px;
+}
+
+.search-icon{
+    color:#7d8ba5;
+    font-size:21px;
+}
+
+#searchInput{
+    flex:1;
+    height:100%;
+    border:none;
+    outline:none;
+    background:transparent;
+    color:white;
+    font-size:16px;
+}
+
+#searchInput::placeholder{
+    color:#647087;
+}
+
+.search-action{
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:12px;
+    background:rgba(255,255,255,.05);
+    color:#9ca8bf;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.search-action:hover{
+    color:white;
+    background:rgba(80,90,255,.18);
+}
+
+.search-btn{
+    width:50px;
+    height:50px;
+    border:none;
+    border-radius:16px;
+    cursor:pointer;
+    color:white;
+    font-size:21px;
+    background:linear-gradient(
+        135deg,
+        #4265ff,
+        #893cff
+    );
+    box-shadow:0 0 20px rgba(90,70,255,.35);
+}
+
+.search-btn:hover{
+    transform:scale(1.06);
+}
+
+
+/* ================= CHIPS ================= */
+
+.quick-chips{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:9px;
+    margin-top:17px;
+}
+
+.chip{
+    border:1px solid rgba(255,255,255,.09);
+    background:rgba(255,255,255,.035);
+    color:#aab5c9;
+    padding:8px 14px;
+    border-radius:30px;
+    font-size:11px;
+    cursor:pointer;
+}
+
+.chip:hover{
+    color:white;
+    border-color:#5e62ff;
+    background:rgba(78,70,255,.12);
+}
+
+
+/* ================= RESULTS ================= */
+
+.content-grid{
+    max-width:1100px;
+    margin:42px auto 0;
+}
+
+.panel{
+    background:rgba(7,14,31,.88);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    padding:18px;
+}
+
+.panel-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:14px;
+}
+
+.panel-title{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    font-size:15px;
+    font-weight:bold;
+}
+
+.panel-title span{
+    color:#5e77ff;
+}
+
+.result-count{
+    color:#77839a;
+    font-size:11px;
+}
+
+#resultsContainer{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.result{
+    padding:17px;
+    border-radius:14px;
+    background:rgba(255,255,255,.025);
+    border:1px solid rgba(255,255,255,.07);
+    transition:.25s;
+}
+
+.result:hover{
+    background:rgba(75,80,255,.07);
+    border-color:rgba(94,100,255,.3);
+    transform:translateY(-2px);
+}
+
+.result-top{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:8px;
+}
+
+.result-logo{
+    width:34px;
+    height:34px;
+    border-radius:10px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:rgba(255,255,255,.07);
+    font-size:13px;
+    font-weight:bold;
+}
+
+.result-name{
+    font-size:12px;
+    color:#d5dbea;
+}
+
+.result-domain{
+    font-size:10px;
+    color:#6f7b91;
+    margin-top:3px;
+}
+
+.result-title{
+    color:#9b75ff;
+    font-size:15px;
+    text-decoration:none;
+    display:block;
+    margin-bottom:7px;
+}
+
+.result-title:hover{
+    text-decoration:underline;
+}
+
+.result-desc{
+    color:#8b96aa;
+    font-size:11px;
+    line-height:17px;
+    margin-bottom:10px;
+}
+
+.tags{
+    display:flex;
+    gap:6px;
+    flex-wrap:wrap;
+}
+
+.tag{
+    padding:4px 8px;
+    border-radius:20px;
+    color:#8f9db4;
+    background:rgba(255,255,255,.045);
+    font-size:9px;
+}
+
+.no-results{
+    text-align:center;
+    padding:45px 20px;
+    color:#7f8ba1;
+}
+
+.no-results .big{
+    font-size:40px;
+    margin-bottom:12px;
+}
+
+.no-results h3{
+    color:#b9c2d4;
+    margin-bottom:7px;
+}
+
+.no-results p{
+    font-size:11px;
+    line-height:18px;
+}
+
+
+/* ================= POPULAR ================= */
+
+.popular{
+    max-width:1100px;
+    margin:22px auto 0;
+}
+
+.popular-title{
+    color:#9da8bc;
+    font-size:12px;
+    margin-bottom:10px;
+}
+
+.popular-list{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.popular-item{
+    padding:8px 13px;
+    border-radius:20px;
+    color:#8f9bb0;
+    background:rgba(255,255,255,.035);
+    border:1px solid rgba(255,255,255,.06);
+    font-size:10px;
+    cursor:pointer;
+}
+
+.popular-item:hover{
+    color:white;
+    border-color:rgba(86,105,255,.4);
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1000px){
+
+    .sidebar{
+        width:75px;
+        padding:25px 10px;
+    }
+
+    .logo-text,
+    .nav a span,
+    .pro-card{
+        display:none;
+    }
+
+    .logo{
+        justify-content:center;
+    }
+
+    .nav a{
+        justify-content:center;
+    }
+
+    .main{
+        margin-left:75px;
+    }
+}
+
+@media(max-width:650px){
+
+    .sidebar{
+        display:none;
+    }
+
+    .main{
+        margin-left:0;
+        padding:18px 15px 40px;
+    }
+
+    .hero h1{
+        font-size:40px;
+        letter-spacing:-2px;
+    }
+
+    .hero p{
+        font-size:13px;
+    }
+
+    .search-box{
+        height:57px;
+        padding-left:15px;
+    }
+
+    .search-action{
+        width:35px;
+        height:35px;
+    }
+
+    .search-btn{
+        width:43px;
+        height:43px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ================= SIDEBAR ================= -->
+
+<aside class="sidebar">
+
+    <div class="logo">
+
+        <div class="logo-symbol">
+            A
+        </div>
+
+        <div class="logo-text">
+            Academix<br>
+            <span>Search</span>
+        </div>
+
+    </div>
+
+
+    <nav class="nav">
+
+        <a href="#" class="active">
+            <div class="nav-icon">⌕</div>
+            <span>All</span>
+        </a>
+
+        <a href="#" onclick="showAll();return false;">
+            <div class="nav-icon">◉</div>
+            <span>Web</span>
+        </a>
+
+        <a href="#">
+            <div class="nav-icon">▣</div>
+            <span>Images</span>
+        </a>
+
+        <a href="#">
+            <div class="nav-icon">▷</div>
+            <span>Videos</span>
+        </a>
+
+        <a href="#">
+            <div class="nav-icon">▤</div>
+            <span>Books</span>
+        </a>
+
+        <a href="#">
+            <div class="nav-icon">♢</div>
+            <span>Scholar</span>
+        </a>
+
+    </nav>
+
+
+    <div class="sidebar-divider"></div>
+
+
+    <nav class="nav">
+
+        <a href="#">
+            <div class="nav-icon">✦</div>
+            <span>AI Answer</span>
+        </a>
+
+        <a href="#" onclick="openCamera();return false;">
+            <div class="nav-icon">▣</div>
+            <span>Solve Question</span>
+        </a>
+
+        <a href="#">
+            <div class="nav-icon">♡</div>
+            <span>Saved</span>
+        </a>
+
+        <a href="#">
+            <div class="nav-icon">◷</div>
+            <span>History</span>
+        </a>
+
+        <a href="#">
+            <div class="nav-icon">⚙</div>
+            <span>Settings</span>
+        </a>
+
+    </nav>
+
+
+    <div class="pro-card">
+
+        <div class="pro-title">
+            ✦ Academix Pro
+        </div>
+
+        <p>
+            Unlock AI Answers,
+            Advanced Search
+            & more features.
+        </p>
+
+        <a href="#" class="pro-btn">
+            Upgrade Now
+        </a>
+
+    </div>
+
+</aside>
+
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="main">
+
+
+<div class="topbar">
+
+    <a href="login.html" class="signin">
+        ♙ &nbsp; Sign in
+    </a>
+
+</div>
+
+
+<section class="hero">
+
+    <h1>
+        Academix <span>Search</span>
+    </h1>
+
+    <p>
+        Search educational resources. Learn without limits.
+    </p>
+
+
+    <div class="search-wrapper">
+
+        <div class="search-box">
+
+            <div class="search-icon">
+                ⌕
+            </div>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search educational resources..."
+                autocomplete="off"
+            >
+
+            <button
+                class="search-action"
+                onclick="voiceSearch()"
+                title="Voice Search">
+                🎙
+            </button>
+
+            <button
+                class="search-btn"
+                onclick="performSearch()"
+                title="Search">
+                ⌕
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="quick-chips">
+
+        <button class="chip"
+            onclick="quickSearch('NCERT')">
+            📖 NCERT
+        </button>
+
+        <button class="chip"
+            onclick="quickSearch('CBSE')">
+            🎓 CBSE
+        </button>
+
+        <button class="chip"
+            onclick="quickSearch('Class 12 Physics')">
+            ⚡ Class 12 Physics
+        </button>
+
+        <button class="chip"
+            onclick="quickSearch('Mathematics')">
+            🧮 Mathematics
+        </button>
+
+        <button class="chip"
+            onclick="quickSearch('JEE')">
+            🎯 JEE
+        </button>
+
+        <button class="chip"
+            onclick="quickSearch('Programming')">
+            💻 Programming
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<section class="content-grid">
+
+<div class="panel">
+
+    <div class="panel-head">
+
+        <div class="panel-title">
+            <span>◎</span>
+            Educational Results
+        </div>
+
+        <div
+            class="result-count"
+            id="resultCount">
+            20 educational sources
+        </div>
+
+    </div>
+
+
+    <div id="resultsContainer"></div>
+
+</div>
+
+</section>
+
+
+
+<section class="popular">
+
+    <div class="popular-title">
+        ↗ &nbsp; Popular Searches
+    </div>
+
+    <div class="popular-list">
+
+        <button
+            class="popular-item"
+            onclick="quickSearch('Atomic Structure')">
+            Atomic Structure
+        </button>
+
+        <button
+            class="popular-item"
+            onclick="quickSearch('Photosynthesis')">
+            Photosynthesis
+        </button>
+
+        <button
+            class="popular-item"
+            onclick="quickSearch('Quadratic Equations')">
+            Quadratic Equations
+        </button>
+
+        <button
+            class="popular-item"
+            onclick="quickSearch('Newton Laws')">
+            Newton's Laws
+        </button>
+
+        <button
+            class="popular-item"
+            onclick="quickSearch('Trigonometry')">
+            Trigonometry
+        </button>
+
+        <button
+            class="popular-item"
+            onclick="quickSearch('Organic Chemistry')">
+            Organic Chemistry
+        </button>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<script>
+
+
+/* =========================================================
+   EDUCATIONAL WEBSITES
+========================================================= */
+
+const educationalSites = [
+
+{
+    name:"NCERT",
+    short:"NCERT",
+    domain:"ncert.nic.in",
+    url:"https://ncert.nic.in/",
+    title:"NCERT Official Website",
+    description:"Official NCERT textbooks, solutions, exemplar material and educational resources for students.",
+    keywords:"ncert textbook books class science maths chemistry physics biology"
+},
+
+{
+    name:"CBSE",
+    short:"CBSE",
+    domain:"cbse.gov.in",
+    url:"https://www.cbse.gov.in/",
+    title:"CBSE Official Website",
+    description:"Central Board of Secondary Education official portal for curriculum, examinations, notices and academic resources.",
+    keywords:"cbse board class 10 class 12 syllabus exam sample paper result curriculum"
+},
+
+{
+    name:"DIKSHA",
+    short:"D",
+    domain:"diksha.gov.in",
+    url:"https://diksha.gov.in/",
+    title:"DIKSHA Learning Platform",
+    description:"Digital learning resources and educational content for students and teachers.",
+    keywords:"diksha learning school education lessons digital resources"
+},
+
+{
+    name:"ePathshala",
+    short:"eP",
+    domain:"epathshala.nic.in",
+    url:"https://epathshala.nic.in/",
+    title:"ePathshala",
+    description:"Digital textbooks and educational resources from NCERT.",
+    keywords:"epathshala ncert ebooks textbook digital books"
+},
+
+{
+    name:"SWAYAM",
+    short:"S",
+    domain:"swayam.gov.in",
+    url:"https://swayam.gov.in/",
+    title:"SWAYAM Online Courses",
+    description:"Online courses covering school, college and professional learning.",
+    keywords:"swayam courses online college university engineering education"
+},
+
+{
+    name:"NPTEL",
+    short:"N",
+    domain:"nptel.ac.in",
+    url:"https://nptel.ac.in/",
+    title:"NPTEL Online Courses",
+    description:"Courses and lectures from IITs and IISc covering engineering, science and technology.",
+    keywords:"nptel iit engineering physics chemistry mathematics programming"
+},
+
+{
+    name:"Khan Academy",
+    short:"K",
+    domain:"khanacademy.org",
+    url:"https://www.khanacademy.org/",
+    title:"Khan Academy",
+    description:"Free lessons and practice in mathematics, science, computing and many other subjects.",
+    keywords:"math mathematics science physics chemistry biology programming calculus algebra geometry"
+},
+
+{
+    name:"Physics Wallah",
+    short:"PW",
+    domain:"pw.live",
+    url:"https://www.pw.live/",
+    title:"Physics Wallah",
+    description:"Online learning platform offering classes, lectures, test series and study resources.",
+    keywords:"physics wallah pw jee neet class physics chemistry maths biology"
+},
+
+{
+    name:"Vedantu",
+    short:"V",
+    domain:"vedantu.com",
+    url:"https://www.vedantu.com/",
+    title:"Vedantu Learning Platform",
+    description:"Online learning resources, lessons, notes and preparation material for students.",
+    keywords:"vedantu class jee neet maths science"
+},
+
+{
+    name:"Unacademy",
+    short:"U",
+    domain:"unacademy.com",
+    url:"https://unacademy.com/",
+    title:"Unacademy",
+    description:"Online classes and preparation resources for school and competitive exams.",
+    keywords:"unacademy jee neet upsc school exam preparation"
+},
+
+{
+    name:"MIT OpenCourseWare",
+    short:"MIT",
+    domain:"ocw.mit.edu",
+    url:"https://ocw.mit.edu/",
+    title:"MIT OpenCourseWare",
+    description:"Free educational materials from MIT courses across science, engineering and mathematics.",
+    keywords:"mit engineering mathematics physics computer science chemistry university"
+},
+
+{
+    name:"Coursera",
+    short:"C",
+    domain:"coursera.org",
+    url:"https://www.coursera.org/",
+    title:"Coursera",
+    description:"Online courses from universities and organizations around the world.",
+    keywords:"coursera programming computer science data science ai machine learning engineering"
+},
+
+{
+    name:"edX",
+    short:"edX",
+    domain:"edx.org",
+    url:"https://www.edx.org/",
+    title:"edX Online Courses",
+    description:"University-level online courses in science, technology and many other subjects.",
+    keywords:"edx university engineering programming computer science mathematics physics ai"
+},
+
+{
+    name:"National Digital Library",
+    short:"NDL",
+    domain:"ndl.iitkgp.ac.in",
+    url:"https://ndl.iitkgp.ac.in/",
+    title:"National Digital Library of India",
+    description:"Digital learning resources, books and academic material from many sources.",
+    keywords:"ndl india books research academic college university study material"
+},
+
+{
+    name:"Google Scholar",
+    short:"GS",
+    domain:"scholar.google.com",
+    url:"https://scholar.google.com/",
+    title:"Google Scholar",
+    description:"Search scholarly literature, research papers, theses, books and academic publications.",
+    keywords:"research paper scholar academic journal thesis science research"
+},
+
+{
+    name:"GeeksforGeeks",
+    short:"GFG",
+    domain:"geeksforgeeks.org",
+    url:"https://www.geeksforgeeks.org/",
+    title:"GeeksforGeeks",
+    description:"Programming tutorials, algorithms, data structures and computer science resources.",
+    keywords:"programming coding python java c cpp javascript algorithms data structures"
+},
+
+{
+    name:"W3Schools",
+    short:"W3",
+    domain:"w3schools.com",
+    url:"https://www.w3schools.com/",
+    title:"W3Schools",
+    description:"Tutorials for HTML, CSS, JavaScript, Python, SQL and web development.",
+    keywords:"html css javascript python java sql web development coding programming"
+},
+
+{
+    name:"BYJU'S",
+    short:"B",
+    domain:"byjus.com",
+    url:"https://byjus.com/",
+    title:"BYJU'S Learning Resources",
+    description:"Educational lessons, study material and preparation resources for school students.",
+    keywords:"byjus school class maths science"
+},
+
+{
+    name:"Toppr",
+    short:"T",
+    domain:"toppr.com",
+    url:"https://www.toppr.com/",
+    title:"Toppr Learning Resources",
+    description:"Study resources, questions, solutions and preparation material for students.",
+    keywords:"toppr questions solutions maths physics chemistry biology"
+},
+
+{
+    name:"Britannica",
+    short:"EB",
+    domain:"britannica.com",
+    url:"https://www.britannica.com/",
+    title:"Encyclopaedia Britannica",
+    description:"Reference articles covering science, history, geography, technology and many subjects.",
+    keywords:"britannica encyclopedia science history geography biology physics chemistry"
+}
+
+];
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const searchInput =
+    document.getElementById("searchInput");
+
+const resultsContainer =
+    document.getElementById("resultsContainer");
+
+const resultCount =
+    document.getElementById("resultCount");
+
+
+/* =========================================================
+   ENTER SEARCH
+========================================================= */
+
+searchInput.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Enter"){
+            performSearch();
+        }
+
+    }
+);
+
+
+/* =========================================================
+   SHOW ALL
+========================================================= */
+
+function showAll(){
+
+    searchInput.value = "";
+
+    renderResults(
+        educationalSites
+    );
+
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+function performSearch(){
+
+    const query =
+        searchInput.value
+        .trim()
+        .toLowerCase();
+
+
+    if(!query){
+
+        renderResults(
+            educationalSites
+        );
+
+        return;
+    }
+
+
+    const words =
+        query.split(/\s+/);
+
+
+    const results =
+        educationalSites
+        .map(site => {
+
+            let score = 0;
+
+
+            const searchable =
+                (
+                    site.name + " " +
+                    site.title + " " +
+                    site.description + " " +
+                    site.keywords
+                ).toLowerCase();
+
+
+            words.forEach(word => {
+
+                if(
+                    searchable.includes(word)
+                ){
+
+                    score += 1;
+
+                }
+
+
+                if(
+                    site.name
+                    .toLowerCase()
+                    .includes(word)
+                ){
+
+                    score += 3;
+
+                }
+
+            });
+
+
+            return {
+                site:site,
+                score:score
+            };
+
+        })
+        .filter(
+            item => item.score > 0
+        )
+        .sort(
+            (a,b) =>
+            b.score - a.score
+        )
+        .map(
+            item => item.site
+        );
+
+
+    renderResults(results);
+
+}
+
+
+/* =========================================================
+   RENDER RESULTS
+========================================================= */
+
+function renderResults(sites){
+
+    resultsContainer.innerHTML = "";
+
+
+    if(sites.length === 0){
+
+        resultsContainer.innerHTML = `
+
+            <div class="no-results">
+
+                <div class="big">
+                    🔎
+                </div>
+
+                <h3>
+                    No educational source found
+                </h3>
+
+                <p>
+                    Try another topic such as
+                    Physics, Mathematics, NCERT,
+                    JEE, Programming or Chemistry.
+                </p>
+
+            </div>
+
+        `;
+
+
+        resultCount.textContent =
+            "0 results";
+
+        return;
+    }
+
+
+    resultCount.textContent =
+        sites.length +
+        " educational sources";
+
+
+    sites.forEach(site => {
+
+        const card =
+            document.createElement("div");
+
+
+        card.className =
+            "result";
+
+
+        card.innerHTML = `
+
+            <div class="result-top">
+
+                <div class="result-logo">
+                    ${site.short}
+                </div>
+
+                <div>
+
+                    <div class="result-name">
+                        ${site.name}
+                    </div>
+
+                    <div class="result-domain">
+                        ${site.domain}
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="${site.url}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="result-title"
+            >
+                ${site.title}
+            </a>
+
+
+            <p class="result-desc">
+                ${site.description}
+            </p>
+
+
+            <div class="tags">
+
+                <span class="tag">
+                    Educational
+                </span>
+
+                <span class="tag">
+                    ${site.name}
+                </span>
+
+                <span class="tag">
+                    Open Website ↗
+                </span>
+
+            </div>
+
+        `;
+
+
+        resultsContainer.appendChild(card);
+
+    });
+
+}
+
+
+/* =========================================================
+   QUICK SEARCH
+========================================================= */
+
+function quickSearch(query){
+
+    searchInput.value =
+        query;
+
+    performSearch();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================================================
+   VOICE SEARCH
+========================================================= */
+
+function voiceSearch(){
+
+    if(
+        !("webkitSpeechRecognition" in window)
+        &&
+        !("SpeechRecognition" in window)
+    ){
+
+        alert(
+            "Voice search is not supported in this browser."
+        );
+
+        return;
+    }
+
+
+    const SpeechRecognition =
+        window.SpeechRecognition ||
+        window.webkitSpeechRecognition;
+
+
+    const recognition =
+        new SpeechRecognition();
+
+
+    recognition.lang =
+        "en-IN";
+
+
+    recognition.continuous =
+        false;
+
+
+    recognition.interimResults =
+        false;
+
+
+    recognition.start();
+
+
+    recognition.onresult =
+        function(event){
+
+            const text =
+                event.results[0][0]
+                .transcript;
+
+
+            searchInput.value =
+                text;
+
+
+            performSearch();
+
+        };
+
+}
+
+
+/* =========================================================
+   INITIAL RESULTS
+========================================================= */
+
+renderResults(
+    educationalSites
+);
+
+</script>
+
+</body>
+</html>
