@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -7,46 +8,64 @@
 
 <title>Academix by Tiwari | Class 9 Notes, Quizzes, Study Tools & AI</title>
 
-<meta name="description" content="Academix by Tiwari is a Class 9 learning platform with study notes, quizzes, practice resources, exams, study tools and Acharya AI.">
+<meta
+    name="description"
+    content="Academix by Tiwari is a Class 9 learning platform with study notes, quizzes, practice resources, exams, study tools and Acharya AI."
+>
 
 <meta name="robots" content="index, follow">
 
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
-<link rel="canonical" href="https://anavy0515-aa.github.io/Academix/">
+<link
+    rel="canonical"
+    href="https://anavy0515-aa.github.io/Academix/"
+>
 
 <meta property="og:site_name" content="Academix by Tiwari">
-<meta property="og:title" content="Academix by Tiwari | Class 9 Learning Platform">
-<meta property="og:description" content="Class 9 notes, quizzes, practice, exams, study tools and Acharya AI by Academix by Tiwari.">
+<meta
+    property="og:title"
+    content="Academix by Tiwari | Class 9 Learning Platform"
+>
+<meta
+    property="og:description"
+    content="Class 9 notes, quizzes, practice, exams, study tools and Acharya AI."
+>
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://anavy0515-aa.github.io/Academix/">
+<meta
+    property="og:url"
+    content="https://anavy0515-aa.github.io/Academix/"
+>
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Academix by Tiwari">
-<meta name="twitter:description" content="Class 9 learning platform with notes, quizzes, practice, exams, study tools and Acharya AI.">
+<meta
+    name="twitter:description"
+    content="Class 9 learning platform with notes, quizzes, practice, exams, study tools and Acharya AI."
+>
 
 
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Academix by Tiwari",
-  "alternateName": "Academix",
-  "url": "https://anavy0515-aa.github.io/Academix/",
-  "description": "Academix by Tiwari is a Class 9 learning platform with study notes, quizzes, practice resources, exams, study tools and Acharya AI.",
-  "publisher": {
-    "@type": "Person",
-    "name": "Anshu Tiwari"
-  }
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Academix by Tiwari",
+    "alternateName": "Academix",
+    "url": "https://anavy0515-aa.github.io/Academix/",
+    "description": "Academix by Tiwari is a Class 9 learning platform with study notes, quizzes, practice resources, exams, study tools and Acharya AI.",
+    "publisher": {
+        "@type": "Person",
+        "name": "Anshu Tiwari"
+    }
 }
 </script>
 
 
 <style>
 
-/* =========================
+/* =========================================================
    GLOBAL
-========================= */
+========================================================= */
 
 * {
     margin: 0;
@@ -63,7 +82,6 @@ body {
     background: #050b16;
     color: white;
     line-height: 1.6;
-
     position: relative;
     overflow-x: hidden;
 }
@@ -73,53 +91,40 @@ a {
     color: inherit;
 }
 
-button {
+button,
+input {
     font-family: inherit;
 }
 
 
-/* ==================================================
-   ANIMATED ACADEMIX BACKGROUND
-================================================== */
+/* =========================================================
+   ANIMATED BACKGROUND
+========================================================= */
 
 .animated-bg {
-
     position: fixed;
-
     inset: 0;
-
     z-index: -1;
-
     pointer-events: none;
-
     overflow: hidden;
 
     background:
         radial-gradient(
             circle at 15% 20%,
-            rgba(0, 217, 255, 0.07),
+            rgba(0,217,255,0.07),
             transparent 28%
         ),
         radial-gradient(
             circle at 85% 70%,
-            rgba(139, 92, 246, 0.08),
+            rgba(139,92,246,0.08),
             transparent 30%
         );
 }
 
-
-/* =========================
-   GLOWING ORBS
-========================= */
-
 .bg-orb {
-
     position: absolute;
-
     border-radius: 50%;
-
     filter: blur(80px);
-
     opacity: 0.25;
 
     animation:
@@ -130,78 +135,52 @@ button {
         alternate;
 }
 
-
 .orb-a {
-
     width: 320px;
     height: 320px;
-
     background: #00d9ff;
-
     top: -120px;
     left: -100px;
 }
 
-
 .orb-b {
-
     width: 380px;
     height: 380px;
-
     background: #8b5cf6;
-
     right: -150px;
     top: 35%;
-
     animation-delay: -5s;
 }
 
-
 .orb-c {
-
     width: 280px;
     height: 280px;
-
     background: #00aaff;
-
     bottom: -130px;
     left: 40%;
-
     animation-delay: -9s;
 }
 
-
-/* =========================
-   FLOATING SYMBOLS
-========================= */
-
 .floating-symbols {
-
     position: absolute;
-
     inset: 0;
 }
 
-
 .floating-symbols span {
-
     position: absolute;
-
     left: var(--x);
     top: var(--y);
 
-    color:
-        rgba(0, 217, 255, 0.10);
+    color: rgba(0,217,255,0.10);
 
     font-size: 22px;
-
     font-weight: 700;
 
     user-select: none;
 
     text-shadow:
         0 0 18px
-        rgba(0, 217, 255, 0.25);
+        rgba(0,217,255,0.25);
 
     animation:
         symbolFloat
@@ -212,24 +191,15 @@ button {
     animation-delay: var(--delay);
 }
 
-
-/* =========================
-   TECHNOLOGY GRID
-========================= */
-
 .grid-lines {
-
     position: absolute;
-
     inset: 0;
 
     background-image:
-
         linear-gradient(
             rgba(255,255,255,0.018) 1px,
             transparent 1px
         ),
-
         linear-gradient(
             90deg,
             rgba(255,255,255,0.018) 1px,
@@ -252,142 +222,101 @@ button {
         );
 }
 
-
-/* =========================
-   BACKGROUND ANIMATIONS
-========================= */
-
 @keyframes backgroundOrb {
 
     0% {
-
         transform:
-            translate(0, 0)
+            translate(0,0)
             scale(1);
-
     }
 
     50% {
-
         transform:
-            translate(80px, 50px)
+            translate(80px,50px)
             scale(1.15);
-
     }
 
     100% {
-
         transform:
-            translate(-40px, 90px)
+            translate(-40px,90px)
             scale(0.95);
-
     }
-
 }
-
 
 @keyframes symbolFloat {
 
     0% {
-
         transform:
             translateY(0)
             rotate(0deg);
 
         opacity: 0.06;
-
     }
 
     50% {
-
         transform:
             translateY(-35px)
             rotate(8deg);
 
         opacity: 0.16;
-
     }
 
     100% {
-
         transform:
             translateY(0)
             rotate(0deg);
 
         opacity: 0.06;
-
     }
-
 }
-
 
 @keyframes gridMove {
 
     from {
-
-        transform:
-            translateY(0);
-
+        transform: translateY(0);
     }
 
     to {
-
-        transform:
-            translateY(70px);
-
+        transform: translateY(70px);
     }
-
 }
 
 
-/* =========================
+/* =========================================================
    NAVBAR
-========================= */
+========================================================= */
 
 .navbar {
-
-    position: sticky;
-
-    top: 0;
-
-    z-index: 9999;
+    position: relative;
+    z-index: 100000;
 
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 
     padding: 14px 6%;
 
     background:
-        rgba(5, 11, 22, 0.88);
+        rgba(5,11,22,0.88);
 
     border-bottom:
         1px solid
-        rgba(0, 217, 255, 0.12);
+        rgba(0,217,255,0.12);
 
     backdrop-filter: blur(15px);
 }
 
-
 .logo-area {
-
     display: flex;
-
     align-items: center;
-
     gap: 10px;
 }
 
-
 .academix-logo {
-
     width: 44px;
     height: 44px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
@@ -395,136 +324,179 @@ button {
 
     border:
         1px solid
-        rgba(0, 217, 255, 0.6);
+        rgba(0,217,255,0.6);
 
     background:
-        rgba(0, 217, 255, 0.05);
+        rgba(0,217,255,0.05);
 
     box-shadow:
         0 0 15px
-        rgba(0, 217, 255, 0.18);
+        rgba(0,217,255,0.18);
 }
 
-
 .logo-svg {
-
     width: 36px;
     height: 36px;
 }
 
-
 .logo-text {
-
     font-size: 20px;
-
     font-weight: 800;
-
     letter-spacing: 0.3px;
 }
 
-
 .logo-text span {
-
     color: #00d9ff;
 }
 
 
-.nav-links {
+/* =========================================================
+   MOBILE MENU
+========================================================= */
 
+.mobile-menu-btn {
     display: flex;
 
-    align-items: center;
+    width: 46px;
+    height: 46px;
 
-    gap: 12px;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border:
+        1px solid
+        rgba(0,217,255,0.35);
+
+    border-radius: 12px;
+
+    background:
+        rgba(0,217,255,0.06);
+
+    color: #00d9ff;
+
+    font-size: 26px;
+
+    cursor: pointer;
+
+    flex-shrink: 0;
+
+    position: relative;
+
+    z-index: 100002;
+
+    transition: 0.25s;
+}
+
+.mobile-menu-btn:hover {
+    background:
+        rgba(0,217,255,0.12);
+
+    border-color:
+        #00d9ff;
+
+    transform:
+        scale(1.04);
 }
 
 
-.nav-links a {
+/* =========================================================
+   NAV LINKS
+========================================================= */
 
-    padding: 9px 13px;
+.nav-links {
+    display: none;
+
+    position: absolute;
+
+    top: calc(100% + 10px);
+    right: 0;
+
+    width: 240px;
+
+    padding: 10px;
+
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 5px;
+
+    background:
+        rgba(5,11,22,0.98);
+
+    border:
+        1px solid
+        rgba(0,217,255,0.22);
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,0.55);
+
+    backdrop-filter: blur(18px);
+
+    z-index: 100001;
+}
+
+.nav-links.mobile-open {
+    display: flex;
+}
+
+.nav-links a {
+    display: flex;
+
+    width: 100%;
+    min-height: 44px;
+
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 12px 14px;
+
+    border-radius: 9px;
 
     color: #dbeafe;
 
     font-size: 14px;
 
-    border-radius: 9px;
-
-    transition: 0.25s;
+    transition: 0.2s;
 }
 
-
 .nav-links a:hover {
-
     color: #00d9ff;
 
     background:
-        rgba(0, 217, 255, 0.08);
+        rgba(0,217,255,0.08);
 }
-
 
 .login-button {
-
-    padding: 10px 18px !important;
-
-    border:
-        1px solid #00d9ff;
-
-    border-radius: 10px;
-
     color: #00d9ff !important;
-
-    font-weight: bold;
-}
-
-
-.login-button:hover {
-
-    background: #00d9ff !important;
-
-    color: #071018 !important;
-
-    transform:
-        translateY(-2px);
-}
-
-
-.search-nav {
-
-    padding: 10px 16px !important;
 
     border:
         1px solid
-        rgba(0, 217, 255, 0.5);
+        rgba(0,217,255,0.5);
+}
 
-    border-radius: 10px;
-
+.search-nav {
     color: #00d9ff !important;
+
+    border:
+        1px solid
+        rgba(0,217,255,0.3);
 }
 
 
-.search-nav:hover {
-
-    background: #00d9ff !important;
-
-    color: #071018 !important;
-
-    transform:
-        translateY(-2px);
-}
-
-
-/* =========================
+/* =========================================================
    HERO
-========================= */
+========================================================= */
 
 .hero {
-
     min-height: 88vh;
 
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 
     gap: 50px;
@@ -534,25 +506,21 @@ button {
     background:
         radial-gradient(
             circle at 20% 30%,
-            rgba(0, 217, 255, 0.12),
+            rgba(0,217,255,0.12),
             transparent 35%
         ),
         radial-gradient(
             circle at 80% 70%,
-            rgba(139, 92, 246, 0.12),
+            rgba(139,92,246,0.12),
             transparent 35%
         );
 }
 
-
 .hero-content {
-
     max-width: 650px;
 }
 
-
 .hero-badge {
-
     display: inline-block;
 
     padding: 7px 14px;
@@ -561,34 +529,29 @@ button {
 
     border:
         1px solid
-        rgba(0, 217, 255, 0.3);
+        rgba(0,217,255,0.3);
 
     border-radius: 20px;
 
     color: #00d9ff;
 
     font-size: 12px;
-
     font-weight: bold;
 
     background:
-        rgba(0, 217, 255, 0.06);
+        rgba(0,217,255,0.06);
 }
 
-
 .hero h1 {
-
     font-size:
-        clamp(42px, 6vw, 72px);
+        clamp(42px,6vw,72px);
 
     line-height: 1.05;
 
     margin-bottom: 22px;
 }
 
-
 .hero h1 span {
-
     background:
         linear-gradient(
             90deg,
@@ -597,13 +560,10 @@ button {
         );
 
     -webkit-background-clip: text;
-
     -webkit-text-fill-color: transparent;
 }
 
-
 .hero p {
-
     color: #a9b7cc;
 
     font-size: 18px;
@@ -613,19 +573,13 @@ button {
     margin-bottom: 30px;
 }
 
-
 .hero-buttons {
-
     display: flex;
-
     gap: 14px;
-
     flex-wrap: wrap;
 }
 
-
 .primary-button {
-
     padding: 13px 22px;
 
     border-radius: 11px;
@@ -644,20 +598,15 @@ button {
     transition: 0.25s;
 }
 
-
 .primary-button:hover {
-
-    transform:
-        translateY(-3px);
+    transform: translateY(-3px);
 
     box-shadow:
         0 10px 25px
-        rgba(0, 217, 255, 0.2);
+        rgba(0,217,255,0.2);
 }
 
-
 .secondary-button {
-
     padding: 13px 22px;
 
     border-radius: 11px;
@@ -674,24 +623,20 @@ button {
     transition: 0.25s;
 }
 
-
 .secondary-button:hover {
-
     border-color: #00d9ff;
 
     color: #00d9ff;
 
-    transform:
-        translateY(-3px);
+    transform: translateY(-3px);
 }
 
 
-/* =========================
+/* =========================================================
    HERO SEARCH
-========================= */
+========================================================= */
 
 .hero-search {
-
     display: flex;
 
     max-width: 580px;
@@ -710,15 +655,12 @@ button {
     overflow: hidden;
 }
 
-
 .hero-search input {
-
     flex: 1;
 
     padding: 14px 16px;
 
     border: none;
-
     outline: none;
 
     background: transparent;
@@ -728,15 +670,11 @@ button {
     font-size: 14px;
 }
 
-
 .hero-search input::placeholder {
-
     color: #7d8da5;
 }
 
-
 .hero-search button {
-
     padding: 0 20px;
 
     border: none;
@@ -756,12 +694,11 @@ button {
 }
 
 
-/* =========================
+/* =========================================================
    HERO PREVIEW
-========================= */
+========================================================= */
 
 .hero-preview {
-
     width: 420px;
 
     padding: 22px;
@@ -769,7 +706,7 @@ button {
     border-radius: 22px;
 
     background:
-        rgba(10, 20, 38, 0.8);
+        rgba(10,20,38,0.8);
 
     border:
         1px solid
@@ -782,33 +719,22 @@ button {
     backdrop-filter: blur(15px);
 }
 
-
 .preview-top {
-
     display: flex;
-
     justify-content: space-between;
-
     margin-bottom: 20px;
 }
 
-
 .preview-title {
-
     font-weight: bold;
 }
 
-
 .preview-status {
-
     color: #22c55e;
-
     font-size: 12px;
 }
 
-
 .preview-card {
-
     padding: 18px;
 
     margin-bottom: 12px;
@@ -823,17 +749,12 @@ button {
         rgba(255,255,255,0.06);
 }
 
-
 .preview-card strong {
-
     display: block;
-
     margin-bottom: 5px;
 }
 
-
 .progress {
-
     height: 7px;
 
     margin-top: 10px;
@@ -845,13 +766,10 @@ button {
     overflow: hidden;
 }
 
-
 .progress span {
-
     display: block;
 
     width: 72%;
-
     height: 100%;
 
     border-radius: 20px;
@@ -865,25 +783,22 @@ button {
 }
 
 
-/* =========================
+/* =========================================================
    STATS
-========================= */
+========================================================= */
 
 .stats {
-
     display: grid;
 
     grid-template-columns:
-        repeat(4, 1fr);
+        repeat(4,1fr);
 
     gap: 15px;
 
     padding: 30px 8%;
 }
 
-
 .stat-card {
-
     padding: 24px;
 
     text-align: center;
@@ -898,72 +813,54 @@ button {
         rgba(255,255,255,0.07);
 }
 
-
 .stat-card h2 {
-
     color: #00d9ff;
-
     font-size: 30px;
 }
 
-
 .stat-card p {
-
     color: #8998ae;
-
     font-size: 13px;
 }
 
 
-/* =========================
-   SECTION
-========================= */
+/* =========================================================
+   GENERAL SECTIONS
+========================================================= */
 
 .section {
-
     padding: 80px 8%;
 }
 
-
 .section-heading {
-
     text-align: center;
-
     margin-bottom: 45px;
 }
 
-
 .section-heading h2 {
-
     font-size: 38px;
-
     margin-bottom: 10px;
 }
 
-
 .section-heading p {
-
     color: #8e9bb0;
 }
 
 
-/* =========================
+/* =========================================================
    SUBJECTS
-========================= */
+========================================================= */
 
 .subject-grid {
-
     display: grid;
 
     grid-template-columns:
-        repeat(5, 1fr);
+        repeat(5,1fr);
 
     gap: 18px;
 }
 
-
 .subject-card {
-
     padding: 25px 20px;
 
     min-height: 180px;
@@ -980,11 +877,8 @@ button {
     transition: 0.3s;
 }
 
-
 .subject-card:hover {
-
-    transform:
-        translateY(-7px);
+    transform: translateY(-7px);
 
     border-color:
         rgba(0,217,255,0.35);
@@ -994,46 +888,373 @@ button {
         rgba(0,217,255,0.08);
 }
 
-
 .subject-icon {
-
     font-size: 32px;
-
     margin-bottom: 15px;
 }
 
-
 .subject-card h3 {
-
     margin-bottom: 7px;
 }
 
-
 .subject-card p {
-
     color: #8998ae;
-
     font-size: 13px;
 }
 
 
-/* =========================
+/* =========================================================
+   ACADEMIX SEARCH FLASH CARD
+========================================================= */
+
+.academix-search-section {
+    padding: 5px 8% 70px;
+}
+
+
+/*
+   IMPORTANT:
+   This is now a real <a> link.
+   No onclick is required.
+*/
+
+.academix-search-card {
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    max-width: 1100px;
+    min-height: 230px;
+
+    margin: auto;
+    padding: 38px 42px;
+
+    gap: 28px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    border-radius: 25px;
+
+    background:
+        radial-gradient(
+            circle at 10% 50%,
+            rgba(0,217,255,0.12),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(139,92,246,0.14),
+            transparent 35%
+        ),
+        rgba(255,255,255,0.025);
+
+    border:
+        1px solid
+        rgba(0,217,255,0.20);
+
+    box-shadow:
+        0 15px 50px
+        rgba(0,0,0,0.20);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+
+    z-index: 5;
+}
+
+.academix-search-card:hover {
+
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(0,217,255,0.55);
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,217,255,0.10),
+        0 0 40px
+        rgba(139,92,246,0.08);
+}
+
+
+/* SEARCH ICON */
+
+.search-card-icon {
+
+    width: 82px;
+    height: 82px;
+
+    min-width: 82px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 22px;
+
+    font-size: 38px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,217,255,0.12),
+            rgba(139,92,246,0.15)
+        );
+
+    border:
+        1px solid
+        rgba(0,217,255,0.30);
+
+    box-shadow:
+        0 0 30px
+        rgba(0,217,255,0.12);
+
+    transition:
+        transform 0.35s ease;
+}
+
+.academix-search-card:hover
+.search-card-icon {
+
+    transform:
+        rotate(-5deg)
+        scale(1.08);
+}
+
+
+/* SEARCH CONTENT */
+
+.search-card-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    flex: 1;
+}
+
+.search-card-badge {
+
+    display: inline-block;
+
+    margin-bottom: 7px;
+
+    color: #00d9ff;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+.search-card-content h2 {
+
+    margin:
+        0 0 7px;
+
+    font-size:
+        clamp(25px,3vw,34px);
+
+    line-height:
+        1.2;
+}
+
+.search-card-content h2 span {
+
+    background:
+        linear-gradient(
+            90deg,
+            #00d9ff,
+            #8b5cf6
+        );
+
+    -webkit-background-clip:
+        text;
+
+    -webkit-text-fill-color:
+        transparent;
+}
+
+.search-card-main {
+
+    margin:
+        0 0 7px;
+
+    color:
+        #dbeafe;
+
+    font-size:
+        16px;
+
+    font-weight:
+        600;
+}
+
+.search-card-description {
+
+    max-width:
+        650px;
+
+    margin:
+        0;
+
+    color:
+        #8998ae;
+
+    font-size:
+        13px;
+
+    line-height:
+        1.6;
+}
+
+
+/* SEARCH BUTTON */
+
+.search-card-button {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+    margin-top:
+        17px;
+
+    padding:
+        10px 17px;
+
+    border-radius:
+        10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00d9ff,
+            #8b5cf6
+        );
+
+    color:
+        white;
+
+    font-size:
+        13px;
+
+    font-weight:
+        700;
+
+    box-shadow:
+        0 8px 22px
+        rgba(0,217,255,0.15);
+
+    transition:
+        transform 0.3s ease;
+}
+
+.academix-search-card:hover
+.search-card-button {
+
+    transform:
+        translateX(6px);
+}
+
+.search-card-button span {
+
+    font-size:
+        18px;
+
+    line-height:
+        1;
+}
+
+
+/* SEARCH DECORATIONS */
+
+.search-card-decoration {
+
+    position:
+        absolute;
+
+    border-radius:
+        50%;
+
+    pointer-events:
+        none;
+
+    filter:
+        blur(5px);
+}
+
+.decoration-one {
+
+    width:
+        180px;
+
+    height:
+        180px;
+
+    right:
+        -80px;
+
+    top:
+        -90px;
+
+    border:
+        1px solid
+        rgba(0,217,255,0.15);
+
+    box-shadow:
+        0 0 40px
+        rgba(0,217,255,0.08);
+}
+
+.decoration-two {
+
+    width:
+        100px;
+
+    height:
+        100px;
+
+    right:
+        70px;
+
+    bottom:
+        -65px;
+
+    border:
+        1px solid
+        rgba(139,92,246,0.18);
+}
+
+
+/* =========================================================
    TOOLS
-========================= */
+========================================================= */
 
 .tools-grid {
-
     display: grid;
 
     grid-template-columns:
-        repeat(4, 1fr);
+        repeat(4,1fr);
 
     gap: 18px;
 }
 
-
 .tool-card {
-
     padding: 28px;
 
     border-radius: 18px;
@@ -1052,9 +1273,7 @@ button {
     transition: 0.3s;
 }
 
-
 .tool-card:hover {
-
     transform:
         translateY(-6px);
 
@@ -1062,27 +1281,21 @@ button {
         rgba(139,92,246,0.35);
 }
 
-
 .tool-card .icon {
-
     font-size: 34px;
-
     margin-bottom: 14px;
 }
 
-
 .tool-card p {
-
     color: #8998ae;
 
     font-size: 13px;
 
-    margin: 8px 0 18px;
+    margin:
+        8px 0 18px;
 }
 
-
 .tool-link {
-
     color: #00d9ff;
 
     font-size: 13px;
@@ -1091,32 +1304,41 @@ button {
 }
 
 
-/* ==================================================
+/* =========================================================
    ACADEMIX LAB
-================================================== */
+========================================================= */
 
 .academix-lab-home {
 
     margin:
         40px 8% 80px;
 
-    min-height: 430px;
+    min-height:
+        430px;
 
-    padding: 55px;
+    padding:
+        55px;
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: space-between;
+    justify-content:
+        space-between;
 
-    gap: 50px;
+    gap:
+        50px;
 
-    position: relative;
+    position:
+        relative;
 
-    overflow: hidden;
+    overflow:
+        hidden;
 
-    border-radius: 28px;
+    border-radius:
+        28px;
 
     background:
         radial-gradient(
@@ -1140,9 +1362,7 @@ button {
         rgba(0,217,255,0.06);
 }
 
-
 .lab-home-content {
-
     max-width: 580px;
 
     position: relative;
@@ -1150,22 +1370,27 @@ button {
     z-index: 2;
 }
 
-
 .lab-home-badge {
 
     display: inline-block;
 
-    padding: 7px 14px;
+    padding:
+        7px 14px;
 
-    margin-bottom: 18px;
+    margin-bottom:
+        18px;
 
-    border-radius: 20px;
+    border-radius:
+        20px;
 
-    color: #00d9ff;
+    color:
+        #00d9ff;
 
-    font-size: 12px;
+    font-size:
+        12px;
 
-    font-weight: bold;
+    font-weight:
+        bold;
 
     border:
         1px solid
@@ -1175,17 +1400,17 @@ button {
         rgba(0,217,255,0.06);
 }
 
-
 .lab-home-content h2 {
 
     font-size:
-        clamp(32px, 4vw, 48px);
+        clamp(32px,4vw,48px);
 
-    line-height: 1.1;
+    line-height:
+        1.1;
 
-    margin-bottom: 18px;
+    margin-bottom:
+        18px;
 }
-
 
 .lab-home-content h2 span {
 
@@ -1196,31 +1421,38 @@ button {
             #8b5cf6
         );
 
-    -webkit-background-clip: text;
+    -webkit-background-clip:
+        text;
 
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color:
+        transparent;
 }
-
 
 .lab-home-content p {
 
-    color: #94a3b8;
+    color:
+        #94a3b8;
 
-    font-size: 16px;
+    font-size:
+        16px;
 
-    max-width: 520px;
+    max-width:
+        520px;
 
-    margin-bottom: 28px;
+    margin-bottom:
+        28px;
 }
-
 
 .lab-home-btn {
 
-    display: inline-block;
+    display:
+        inline-block;
 
-    padding: 14px 24px;
+    padding:
+        14px 24px;
 
-    border-radius: 12px;
+    border-radius:
+        12px;
 
     background:
         linear-gradient(
@@ -1229,13 +1461,15 @@ button {
             #8b5cf6
         );
 
-    color: white;
+    color:
+        white;
 
-    font-weight: bold;
+    font-weight:
+        bold;
 
-    transition: 0.3s;
+    transition:
+        0.3s;
 }
-
 
 .lab-home-btn:hover {
 
@@ -1248,43 +1482,54 @@ button {
 }
 
 
-/* =========================
-   LAB VISUAL
-========================= */
+/* LAB VISUAL */
 
 .lab-home-visual {
 
-    width: 330px;
+    width:
+        330px;
 
-    height: 330px;
+    height:
+        330px;
 
-    position: relative;
+    position:
+        relative;
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    flex-shrink: 0;
+    flex-shrink:
+        0;
 }
-
 
 .lab-core {
 
-    width: 105px;
+    width:
+        105px;
 
-    height: 105px;
+    height:
+        105px;
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    border-radius: 50%;
+    border-radius:
+        50%;
 
-    font-size: 48px;
+    font-size:
+        48px;
 
     background:
         rgba(7,15,30,0.95);
@@ -1299,9 +1544,11 @@ button {
         0 0 55px
         rgba(139,92,246,0.2);
 
-    position: relative;
+    position:
+        relative;
 
-    z-index: 3;
+    z-index:
+        3;
 
     animation:
         labFloat
@@ -1310,27 +1557,26 @@ button {
         infinite;
 }
 
-
 .orbit {
 
-    position: absolute;
+    position:
+        absolute;
 
-    border-radius: 50%;
+    border-radius:
+        50%;
 
     border:
         1px solid
         rgba(0,217,255,0.18);
-
-    transform:
-        rotate(-20deg);
 }
-
 
 .orbit1 {
 
-    width: 245px;
+    width:
+        245px;
 
-    height: 115px;
+    height:
+        115px;
 
     animation:
         rotateOrbit
@@ -1339,12 +1585,13 @@ button {
         infinite;
 }
 
-
 .orbit2 {
 
-    width: 180px;
+    width:
+        180px;
 
-    height: 285px;
+    height:
+        285px;
 
     animation:
         rotateOrbit
@@ -1354,22 +1601,28 @@ button {
         reverse;
 }
 
-
 .lab-orb {
 
-    width: 52px;
+    width:
+        52px;
 
-    height: 52px;
+    height:
+        52px;
 
-    position: absolute;
+    position:
+        absolute;
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    border-radius: 50%;
+    border-radius:
+        50%;
 
     background:
         rgba(8,17,32,0.95);
@@ -1378,13 +1631,15 @@ button {
         1px solid
         rgba(255,255,255,0.15);
 
-    font-size: 23px;
+    font-size:
+        23px;
 
     box-shadow:
         0 0 20px
         rgba(0,217,255,0.15);
 
-    z-index: 4;
+    z-index:
+        4;
 
     animation:
         labFloat
@@ -1393,87 +1648,78 @@ button {
         infinite;
 }
 
-
 .orb1 {
+    top:
+        20px;
 
-    top: 20px;
-
-    left: 135px;
+    left:
+        135px;
 }
-
 
 .orb2 {
+    right:
+        10px;
 
-    right: 10px;
+    top:
+        130px;
 
-    top: 130px;
-
-    animation-delay: 0.5s;
+    animation-delay:
+        0.5s;
 }
-
 
 .orb3 {
+    bottom:
+        25px;
 
-    bottom: 25px;
+    left:
+        130px;
 
-    left: 130px;
-
-    animation-delay: 1s;
+    animation-delay:
+        1s;
 }
-
 
 .orb4 {
+    left:
+        5px;
 
-    left: 5px;
+    top:
+        130px;
 
-    top: 130px;
-
-    animation-delay: 1.5s;
+    animation-delay:
+        1.5s;
 }
-
 
 @keyframes labFloat {
 
     0%,
     100% {
-
         transform:
             translateY(0);
-
     }
 
     50% {
-
         transform:
             translateY(-10px);
-
     }
-
 }
-
 
 @keyframes rotateOrbit {
 
     from {
-
         transform:
             rotate(0deg);
-
     }
 
     to {
-
         transform:
             rotate(360deg);
-
     }
-
 }
 
 
-/* =========================
+/* =========================================================
    CTA
-========================= */
+========================================================= */
 
 .cta {
 
@@ -1502,7 +1748,6 @@ button {
         rgba(0,217,255,0.15);
 }
 
-
 .cta h2 {
 
     font-size:
@@ -1511,7 +1756,6 @@ button {
     margin-bottom:
         12px;
 }
-
 
 .cta p {
 
@@ -1523,16 +1767,15 @@ button {
 }
 
 
-/* =========================
+/* =========================================================
    ABOUT DEVELOPER
-========================= */
+========================================================= */
 
 .about-developer {
 
     padding:
         20px 8% 80px;
 }
-
 
 .developer-card {
 
@@ -1570,7 +1813,6 @@ button {
         0.3s;
 }
 
-
 .developer-card:hover {
 
     transform:
@@ -1583,7 +1825,6 @@ button {
         0 15px 45px
         rgba(0,217,255,0.08);
 }
-
 
 .developer-icon {
 
@@ -1627,7 +1868,6 @@ button {
         rgba(0,217,255,0.12);
 }
 
-
 .developer-card h3 {
 
     font-size:
@@ -1650,7 +1890,6 @@ button {
         transparent;
 }
 
-
 .developer-role {
 
     color:
@@ -1665,7 +1904,6 @@ button {
     margin-bottom:
         18px;
 }
-
 
 .developer-card p {
 
@@ -1684,11 +1922,6 @@ button {
     line-height:
         1.8;
 }
-
-
-/* =========================
-   X / TWITTER
-========================= */
 
 .x-profile {
 
@@ -1733,7 +1966,6 @@ button {
         0.3s;
 }
 
-
 .x-profile:hover {
 
     transform:
@@ -1749,9 +1981,9 @@ button {
 }
 
 
-/* =========================
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
 
 footer {
 
@@ -1772,17 +2004,15 @@ footer {
         13px;
 }
 
-
 footer strong {
-
     color:
         #00d9ff;
 }
 
 
-/* =========================
+/* =========================================================
    ACHARYA AI
-========================= */
+========================================================= */
 
 .acharya-logo {
 
@@ -1817,11 +2047,11 @@ footer strong {
         50%;
 
     background:
-        rgba(7, 15, 30, 0.96);
+        rgba(7,15,30,0.96);
 
     border:
         2px solid
-        rgba(0, 217, 255, 0.5);
+        rgba(0,217,255,0.5);
 
     cursor:
         pointer;
@@ -1831,9 +2061,9 @@ footer strong {
 
     box-shadow:
         0 0 18px
-        rgba(0, 217, 255, 0.35),
+        rgba(0,217,255,0.35),
         0 0 35px
-        rgba(139, 92, 246, 0.25);
+        rgba(139,92,246,0.25);
 
     animation:
         acharyaGlow
@@ -1845,7 +2075,6 @@ footer strong {
         0.3s ease;
 }
 
-
 .acharya-svg {
 
     width:
@@ -1854,7 +2083,6 @@ footer strong {
     height:
         52px;
 }
-
 
 .acharya-logo:hover {
 
@@ -1867,11 +2095,10 @@ footer strong {
 
     box-shadow:
         0 0 25px
-        rgba(0, 217, 255, 0.65),
+        rgba(0,217,255,0.65),
         0 0 50px
-        rgba(139, 92, 246, 0.45);
+        rgba(139,92,246,0.45);
 }
-
 
 @keyframes acharyaGlow {
 
@@ -1879,38 +2106,83 @@ footer strong {
 
         box-shadow:
             0 0 18px
-            rgba(0, 217, 255, 0.3),
+            rgba(0,217,255,0.3),
 
             0 0 35px
-            rgba(139, 92, 246, 0.2);
+            rgba(139,92,246,0.2);
     }
 
     50% {
 
         box-shadow:
             0 0 28px
-            rgba(0, 217, 255, 0.55),
+            rgba(0,217,255,0.55),
 
             0 0 45px
-            rgba(139, 92, 246, 0.35);
+            rgba(139,92,246,0.35);
     }
 
     100% {
 
         box-shadow:
             0 0 18px
-            rgba(0, 217, 255, 0.3),
+            rgba(0,217,255,0.3),
 
             0 0 35px
-            rgba(139, 92, 246, 0.2);
+            rgba(139,92,246,0.2);
     }
-
 }
 
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* =========================================================
+   DESKTOP NAV
+========================================================= */
+
+@media (min-width: 701px) {
+
+    .mobile-menu-btn {
+        display: none;
+    }
+
+    .nav-links {
+
+        position: static;
+
+        width: auto;
+
+        padding: 0;
+
+        display: flex;
+
+        flex-direction: row;
+
+        align-items: center;
+
+        gap: 12px;
+
+        background: transparent;
+
+        border: none;
+
+        box-shadow: none;
+
+        backdrop-filter: none;
+    }
+
+    .nav-links a {
+
+        width: auto;
+
+        min-height: auto;
+
+        padding: 9px 13px;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
 
 @media (max-width: 1000px) {
 
@@ -1965,31 +2237,20 @@ footer strong {
     .subject-grid {
 
         grid-template-columns:
-            repeat(3, 1fr);
+            repeat(3,1fr);
     }
 
     .tools-grid {
 
         grid-template-columns:
-            repeat(2, 1fr);
+            repeat(2,1fr);
     }
 
     .stats {
 
         grid-template-columns:
-            repeat(2, 1fr);
+            repeat(2,1fr);
     }
-
-    .nav-links {
-
-        gap:
-            4px;
-    }
-
-}
-
-
-@media (max-width: 800px) {
 
     .academix-lab-home {
 
@@ -2020,36 +2281,12 @@ footer strong {
         margin-right:
             auto;
     }
-
-    .lab-home-visual {
-
-        width:
-            280px;
-
-        height:
-            280px;
-    }
-
-    .orbit1 {
-
-        width:
-            210px;
-
-        height:
-            100px;
-    }
-
-    .orbit2 {
-
-        width:
-            155px;
-
-        height:
-            240px;
-    }
-
 }
 
+
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media (max-width: 700px) {
 
@@ -2074,17 +2311,10 @@ footer strong {
             50px 50px;
     }
 
-
     .navbar {
 
         padding:
             12px 4%;
-    }
-
-    .nav-links a {
-
-        display:
-            none;
     }
 
     .logo-text {
@@ -2120,7 +2350,7 @@ footer strong {
     .stats {
 
         grid-template-columns:
-            repeat(2, 1fr);
+            repeat(2,1fr);
 
         padding:
             20px 5%;
@@ -2129,7 +2359,7 @@ footer strong {
     .subject-grid {
 
         grid-template-columns:
-            repeat(2, 1fr);
+            repeat(2,1fr);
     }
 
     .tools-grid {
@@ -2149,6 +2379,99 @@ footer strong {
         font-size:
             30px;
     }
+
+
+    /* SEARCH CARD MOBILE */
+
+    .academix-search-section {
+
+        padding:
+            5px 5% 55px;
+    }
+
+    .academix-search-card {
+
+        padding:
+            28px 24px;
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+        gap:
+            20px;
+    }
+
+    .search-card-icon {
+
+        width:
+            65px;
+
+        height:
+            65px;
+
+        min-width:
+            65px;
+
+        font-size:
+            30px;
+
+        border-radius:
+            18px;
+    }
+
+    .search-card-content h2 {
+
+        font-size:
+            25px;
+    }
+
+    .search-card-main {
+
+        font-size:
+            14px;
+    }
+
+    .search-card-description {
+
+        font-size:
+            12px;
+    }
+
+
+    /* LAB MOBILE */
+
+    .lab-home-visual {
+
+        width:
+            280px;
+
+        height:
+            280px;
+    }
+
+    .orbit1 {
+
+        width:
+            210px;
+
+        height:
+            100px;
+    }
+
+    .orbit2 {
+
+        width:
+            155px;
+
+        height:
+            240px;
+    }
+
+
+    /* ACHARYA */
 
     .acharya-logo {
 
@@ -2186,6 +2509,9 @@ footer strong {
             scale(1.1);
     }
 
+
+    /* DEVELOPER */
+
     .about-developer {
 
         padding:
@@ -2209,241 +2535,51 @@ footer strong {
         font-size:
             14px;
     }
-
-}/* =====================================================
-   FINAL ACADEMIX NAVBAR
-   DESKTOP + MOBILE HAMBURGER MENU
-===================================================== */
-
-/* HAMBURGER BUTTON */
-.mobile-menu-btn {
-    display: flex !important;
-
-    width: 46px !important;
-    height: 46px !important;
-
-    align-items: center !important;
-    justify-content: center !important;
-
-    padding: 0 !important;
-
-    border: 1px solid rgba(0,217,255,.35) !important;
-    border-radius: 12px !important;
-
-    background: rgba(0,217,255,.06) !important;
-
-    color: #00d9ff !important;
-
-    font-size: 26px !important;
-    line-height: 1 !important;
-
-    cursor: pointer !important;
-
-    flex-shrink: 0 !important;
-
-    position: relative !important;
-    z-index: 100002 !important;
 }
-
-
-/* HAMBURGER HOVER */
-.mobile-menu-btn:hover {
-    background: rgba(0,217,255,.12) !important;
-
-    border-color: #00d9ff !important;
-
-    transform: scale(1.04);
-}
-
-
-/* NAVIGATION MENU CLOSED */
-.nav-links {
-    display: none !important;
-
-    position: absolute !important;
-
-    top: calc(100% + 10px) !important;
-    right: 0 !important;
-
-    width: 240px !important;
-
-    padding: 10px !important;
-
-    flex-direction: column !important;
-    align-items: stretch !important;
-
-    gap: 5px !important;
-
-    background: rgba(5,11,22,.98) !important;
-
-    border: 1px solid rgba(0,217,255,.22) !important;
-
-    border-radius: 15px !important;
-
-    box-shadow:
-        0 20px 50px rgba(0,0,0,.55) !important;
-
-    backdrop-filter: blur(18px) !important;
-
-    z-index: 100001 !important;
-}
-
-
-/* NAVIGATION MENU OPEN */
-.nav-links.mobile-open {
-    display: flex !important;
-}
-
-
-/* MENU LINKS */
-.nav-links a {
-    display: flex !important;
-
-    width: 100% !important;
-
-    min-height: 44px !important;
-
-    align-items: center !important;
-    justify-content: flex-start !important;
-
-    padding: 12px 14px !important;
-
-    border-radius: 9px !important;
-
-    color: #dbeafe !important;
-
-    font-size: 14px !important;
-
-    text-decoration: none !important;
-
-    white-space: nowrap !important;
-
-    transition: .2s !important;
-}
-
-
-/* MENU LINK HOVER */
-.nav-links a:hover,
-.nav-links a:active {
-    color: #00d9ff !important;
-
-    background:
-        rgba(0,217,255,.08) !important;
-}
-
-
-/* LOGIN */
-.nav-links .login-button {
-    color: #00d9ff !important;
-}
-
-
-/* NAVBAR ABOVE EVERYTHING */
-.navbar {
-    position: relative !important;
-    z-index: 100000 !important;
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media (max-width: 700px) {
-
-    .navbar {
-        position: relative !important;
-
-        padding:
-            12px 4% !important;
-    }
-
-    .mobile-menu-btn {
-        display: flex !important;
-
-        width: 44px !important;
-        height: 44px !important;
-
-        font-size: 25px !important;
-    }
-
-    .nav-links {
-        left: 0 !important;
-        right: 0 !important;
-
-        width: 100% !important;
-
-        top: calc(100% + 10px) !important;
-    }
-
-    .nav-links.mobile-open {
-        display: flex !important;
-    }
-
-    .nav-links.mobile-open a {
-        display: flex !important;
-    }
-}
-
 
 </style>
+
 </head>
 
 
 <body>
 
 
-<!-- ==================================================
+<!-- =========================================================
      ANIMATED BACKGROUND
-================================================== -->
+========================================================= -->
 
 <div class="animated-bg">
 
     <div class="bg-orb orb-a"></div>
-
     <div class="bg-orb orb-b"></div>
-
     <div class="bg-orb orb-c"></div>
-
 
     <div class="floating-symbols">
 
-        <span style="--x:5%; --y:15%; --delay:0s;">∫</span>
-
-        <span style="--x:14%; --y:70%; --delay:2s;">π</span>
-
-        <span style="--x:27%; --y:25%; --delay:4s;">⚛</span>
-
-        <span style="--x:40%; --y:82%; --delay:1s;">Σ</span>
-
-        <span style="--x:55%; --y:18%; --delay:3s;">λ</span>
-
-        <span style="--x:68%; --y:72%; --delay:5s;">{ }</span>
-
-        <span style="--x:78%; --y:28%; --delay:2s;">∞</span>
-
-        <span style="--x:91%; --y:65%; --delay:4s;">AI</span>
-
-        <span style="--x:85%; --y:12%; --delay:1s;">01</span>
-
-        <span style="--x:32%; --y:55%; --delay:5s;">H₂O</span>
-
-        <span style="--x:62%; --y:42%; --delay:3s;">f(x)</span>
-
-        <span style="--x:10%; --y:40%; --delay:6s;">λ</span>
+        <span style="--x:5%;--y:15%;--delay:0s;">∫</span>
+        <span style="--x:14%;--y:70%;--delay:2s;">π</span>
+        <span style="--x:27%;--y:25%;--delay:4s;">⚛</span>
+        <span style="--x:40%;--y:82%;--delay:1s;">Σ</span>
+        <span style="--x:55%;--y:18%;--delay:3s;">λ</span>
+        <span style="--x:68%;--y:72%;--delay:5s;">{ }</span>
+        <span style="--x:78%;--y:28%;--delay:2s;">∞</span>
+        <span style="--x:91%;--y:65%;--delay:4s;">AI</span>
+        <span style="--x:85%;--y:12%;--delay:1s;">01</span>
+        <span style="--x:32%;--y:55%;--delay:5s;">H₂O</span>
+        <span style="--x:62%;--y:42%;--delay:3s;">f(x)</span>
+        <span style="--x:10%;--y:40%;--delay:6s;">λ</span>
 
     </div>
-
 
     <div class="grid-lines"></div>
 
 </div>
 
 
-
-<!-- ==================================================
+<!-- =========================================================
      NAVBAR
-================================================== -->
+========================================================= -->
 
 <nav class="navbar">
 
@@ -2469,17 +2605,16 @@ footer strong {
                         <stop
                             offset="0%"
                             stop-color="#00d9ff"
-                        />
+                        >
 
                         <stop
                             offset="100%"
                             stop-color="#8b5cf6"
-                        />
+                        >
 
                     </linearGradient>
 
                 </defs>
-
 
                 <path
                     d="M10 20 L32 10 L54 20 L32 30 Z"
@@ -2489,7 +2624,6 @@ footer strong {
                     stroke-linejoin="round"
                 />
 
-
                 <path
                     d="M16 27 V42 L32 51 L48 42 V27"
                     fill="none"
@@ -2497,7 +2631,6 @@ footer strong {
                     stroke-width="4"
                     stroke-linejoin="round"
                 />
-
 
                 <path
                     d="M32 30 V50"
@@ -2509,22 +2642,31 @@ footer strong {
 
         </div>
 
-
         <div class="logo-text">
 
             Academix
-            <span>
-                by Tiwari
-            </span>
+            <span>by Tiwari</span>
 
         </div>
 
     </a>
 
 
-    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false" type="button">☰</button>
+    <button
+        class="mobile-menu-btn"
+        id="mobileMenuBtn"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        type="button"
+    >
+        ☰
+    </button>
 
-    <div class="nav-links" id="navLinks">
+
+    <div
+        class="nav-links"
+        id="navLinks"
+    >
 
         <a href="index.html">
             Home
@@ -2542,8 +2684,9 @@ footer strong {
             Tools
         </a>
 
+        <!-- EXACT SEARCH FILE -->
         <a
-            href="search.html"
+            href="Academix-search.html"
             class="search-nav"
         >
             🔎 Search
@@ -2561,10 +2704,9 @@ footer strong {
 </nav>
 
 
-
-<!-- ==================================================
+<!-- =========================================================
      HERO
-================================================== -->
+========================================================= -->
 
 <section class="hero">
 
@@ -2573,7 +2715,6 @@ footer strong {
         <div class="hero-badge">
             🚀 SMART LEARNING PLATFORM
         </div>
-
 
         <h1>
 
@@ -2585,7 +2726,6 @@ footer strong {
 
         </h1>
 
-
         <p>
 
             Academix by Tiwari is your modern learning platform
@@ -2593,7 +2733,6 @@ footer strong {
             and AI-powered learning.
 
         </p>
-
 
         <div class="hero-buttons">
 
@@ -2603,7 +2742,6 @@ footer strong {
             >
                 Start Learning →
             </a>
-
 
             <a
                 href="dashboard.html"
@@ -2615,29 +2753,30 @@ footer strong {
         </div>
 
 
-        <div class="hero-search">
+        <!-- HOME SEARCH -->
+
+        <form
+            class="hero-search"
+            id="homeSearchForm"
+        >
 
             <input
                 type="text"
                 id="homeSearch"
                 placeholder="🔎 Search chapters, topics, subjects..."
-                onkeydown="if(event.key==='Enter') homeSearch()"
+                autocomplete="off"
             >
 
-
-            <button
-                onclick="homeSearch()"
-            >
+            <button type="submit">
                 Search
             </button>
 
-        </div>
+        </form>
 
     </div>
 
 
-
-    <!-- DASHBOARD PREVIEW -->
+    <!-- HERO PREVIEW -->
 
     <div class="hero-preview">
 
@@ -2652,7 +2791,6 @@ footer strong {
             </div>
 
         </div>
-
 
         <div class="preview-card">
 
@@ -2670,7 +2808,6 @@ footer strong {
 
         </div>
 
-
         <div class="preview-card">
 
             <strong>
@@ -2682,7 +2819,6 @@ footer strong {
             </span>
 
         </div>
-
 
         <div class="preview-card">
 
@@ -2701,18 +2837,15 @@ footer strong {
 </section>
 
 
-
-<!-- ==================================================
+<!-- =========================================================
      STATS
-================================================== -->
+========================================================= -->
 
 <section class="stats">
 
     <div class="stat-card">
 
-        <h2>
-            5
-        </h2>
+        <h2>5</h2>
 
         <p>
             Core Subjects
@@ -2720,12 +2853,9 @@ footer strong {
 
     </div>
 
-
     <div class="stat-card">
 
-        <h2>
-            100+
-        </h2>
+        <h2>100+</h2>
 
         <p>
             Learning Topics
@@ -2733,12 +2863,9 @@ footer strong {
 
     </div>
 
-
     <div class="stat-card">
 
-        <h2>
-            4+
-        </h2>
+        <h2>4+</h2>
 
         <p>
             Study Tools
@@ -2746,12 +2873,9 @@ footer strong {
 
     </div>
 
-
     <div class="stat-card">
 
-        <h2>
-            24/7
-        </h2>
+        <h2>24/7</h2>
 
         <p>
             Learn Anytime
@@ -2762,10 +2886,9 @@ footer strong {
 </section>
 
 
-
-<!-- ==================================================
+<!-- =========================================================
      SUBJECTS
-================================================== -->
+========================================================= -->
 
 <section
     class="section"
@@ -2786,7 +2909,6 @@ footer strong {
 
 
     <div class="subject-grid">
-
 
         <a
             href="math.html"
@@ -2892,16 +3014,79 @@ footer strong {
 
         </a>
 
-
     </div>
 
 </section>
 
 
+<!-- =========================================================
+     ACADEMIX SEARCH FLASH CARD
+========================================================= -->
 
-<!-- ==================================================
+<section class="academix-search-section">
+
+    <!--
+        IMPORTANT:
+        This is now a direct link.
+        No JavaScript onclick needed.
+    -->
+
+    <a
+        href="Academix-search.html"
+        class="academix-search-card"
+        aria-label="Open Academix Search"
+    >
+
+        <div class="search-card-icon">
+            🔎
+        </div>
+
+
+        <div class="search-card-content">
+
+            <div class="search-card-badge">
+                ✦ SMART LEARNING SEARCH
+            </div>
+
+            <h2>
+                Try Our
+                <span>Academix Search</span>
+            </h2>
+
+            <p class="search-card-main">
+                Search smarter. Discover faster. Learn better.
+            </p>
+
+            <p class="search-card-description">
+                Find educational resources, study material and
+                trusted learning websites — all in one place.
+            </p>
+
+            <div class="search-card-button">
+
+                Explore Academix Search
+
+                <span>
+                    →
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="search-card-decoration decoration-one"></div>
+
+        <div class="search-card-decoration decoration-two"></div>
+
+    </a>
+
+</section>
+
+
+<!-- =========================================================
      TOOLS
-================================================== -->
+========================================================= -->
 
 <section
     class="section"
@@ -2922,7 +3107,6 @@ footer strong {
 
 
     <div class="tools-grid">
-
 
         <a
             href="focus.html"
@@ -3023,27 +3207,22 @@ footer strong {
 
         </a>
 
-
     </div>
 
 </section>
 
 
-
-<!-- ==================================================
+<!-- =========================================================
      ACADEMIX LAB
-================================================== -->
+========================================================= -->
 
 <section class="academix-lab-home">
 
-
     <div class="lab-home-content">
-
 
         <div class="lab-home-badge">
             ✦ INTERACTIVE LEARNING
         </div>
-
 
         <h2>
 
@@ -3055,7 +3234,6 @@ footer strong {
 
         </h2>
 
-
         <p>
 
             Don't just read concepts.
@@ -3063,7 +3241,6 @@ footer strong {
             and discover what happens.
 
         </p>
-
 
         <a
             href="lab.html"
@@ -3075,50 +3252,40 @@ footer strong {
     </div>
 
 
-
     <div class="lab-home-visual">
-
 
         <div class="orbit orbit1"></div>
 
         <div class="orbit orbit2"></div>
 
-
         <div class="lab-core">
             🧪
         </div>
-
 
         <div class="lab-orb orb1">
             ⚡
         </div>
 
-
         <div class="lab-orb orb2">
             🧬
         </div>
-
 
         <div class="lab-orb orb3">
             📐
         </div>
 
-
         <div class="lab-orb orb4">
             💻
         </div>
 
-
     </div>
-
 
 </section>
 
 
-
-<!-- ==================================================
+<!-- =========================================================
      CTA
-================================================== -->
+========================================================= -->
 
 <section class="cta">
 
@@ -3141,10 +3308,9 @@ footer strong {
 </section>
 
 
-
-<!-- ==================================================
+<!-- =========================================================
      ABOUT DEVELOPER
-================================================== -->
+========================================================= -->
 
 <section
     class="about-developer"
@@ -3166,21 +3332,17 @@ footer strong {
 
     <div class="developer-card">
 
-
         <div class="developer-icon">
             👨‍💻
         </div>
-
 
         <h3>
             Anshu Tiwari
         </h3>
 
-
         <div class="developer-role">
             Founder & Developer of Academix
         </div>
-
 
         <p>
 
@@ -3191,7 +3353,6 @@ footer strong {
             AI-powered learning together in one place.
 
         </p>
-
 
         <a
             href="https://x.com/Avy0515"
@@ -3204,16 +3365,14 @@ footer strong {
             𝕏
         </a>
 
-
     </div>
 
 </section>
 
 
-
-<!-- ==================================================
+<!-- =========================================================
      FOOTER
-================================================== -->
+========================================================= -->
 
 <footer>
 
@@ -3227,7 +3386,6 @@ footer strong {
 
     </p>
 
-
     <p>
 
         Developed with ❤️ by:
@@ -3238,23 +3396,23 @@ footer strong {
 </footer>
 
 
-
-<!-- ==================================================
-     ACHARYA AI FLOATING LOGO
-================================================== -->
+<!-- =========================================================
+     ACHARYA AI
+========================================================= -->
 
 <div
     class="acharya-logo"
     onclick="openAcharya()"
     title="Acharya AI"
+    role="button"
+    tabindex="0"
+    aria-label="Open Acharya AI"
 >
-
 
     <svg
         viewBox="0 0 100 100"
         class="acharya-svg"
     >
-
 
         <defs>
 
@@ -3281,7 +3439,6 @@ footer strong {
         </defs>
 
 
-
         <circle
             cx="50"
             cy="50"
@@ -3294,13 +3451,13 @@ footer strong {
 
         <path
             d="
-            M35 42
-            C35 32 43 27 50 32
-            C57 27 65 32 65 42
-            C70 45 70 54 65 58
-            C63 68 55 73 50 68
-            C45 73 37 68 35 58
-            C30 54 30 45 35 42Z
+                M35 42
+                C35 32 43 27 50 32
+                C57 27 65 32 65 42
+                C70 45 70 54 65 58
+                C63 68 55 73 50 68
+                C45 73 37 68 35 58
+                C30 54 30 45 35 42Z
             "
             fill="none"
             stroke="url(#acharyaGradient)"
@@ -3380,19 +3537,20 @@ footer strong {
             stroke-linecap="round"
         />
 
-
     </svg>
 
 </div>
 
 
-
-<!-- ==================================================
+<!-- =========================================================
      JAVASCRIPT
-================================================== -->
+========================================================= -->
 
 <script>
 
+/* =========================================================
+   ACHARYA
+========================================================= */
 
 function openAcharya() {
 
@@ -3402,63 +3560,167 @@ function openAcharya() {
 }
 
 
-const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-const navLinks = document.getElementById("navLinks");
+/* =========================================================
+   ACHARYA KEYBOARD ACCESS
+========================================================= */
+
+const acharyaLogo =
+    document.querySelector(".acharya-logo");
+
+if (acharyaLogo) {
+
+    acharyaLogo.addEventListener(
+        "keydown",
+        function(event) {
+
+            if (
+                event.key === "Enter" ||
+                event.key === " "
+            ) {
+
+                event.preventDefault();
+
+                openAcharya();
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   MOBILE NAVIGATION
+========================================================= */
+
+const mobileMenuBtn =
+    document.getElementById(
+        "mobileMenuBtn"
+    );
+
+const navLinks =
+    document.getElementById(
+        "navLinks"
+    );
+
 
 if (mobileMenuBtn && navLinks) {
 
-    mobileMenuBtn.addEventListener("click", function () {
+    mobileMenuBtn.addEventListener(
+        "click",
+        function() {
 
-        const isOpen = navLinks.classList.toggle("mobile-open");
+            const isOpen =
+                navLinks.classList.toggle(
+                    "mobile-open"
+                );
 
-        mobileMenuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
-        mobileMenuBtn.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
-        mobileMenuBtn.textContent = isOpen ? "✕" : "☰";
+            mobileMenuBtn.setAttribute(
+                "aria-expanded",
+                isOpen ? "true" : "false"
+            );
 
-    });
+            mobileMenuBtn.setAttribute(
+                "aria-label",
+                isOpen
+                    ? "Close navigation menu"
+                    : "Open navigation menu"
+            );
 
-    navLinks.querySelectorAll("a").forEach(function (link) {
+            mobileMenuBtn.textContent =
+                isOpen ? "✕" : "☰";
 
-        link.addEventListener("click", function () {
-            navLinks.classList.remove("mobile-open");
-            mobileMenuBtn.setAttribute("aria-expanded", "false");
-            mobileMenuBtn.setAttribute("aria-label", "Open navigation menu");
-            mobileMenuBtn.textContent = "☰";
+        }
+    );
+
+
+    navLinks
+        .querySelectorAll("a")
+        .forEach(function(link) {
+
+            link.addEventListener(
+                "click",
+                function() {
+
+                    navLinks.classList.remove(
+                        "mobile-open"
+                    );
+
+                    mobileMenuBtn.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                    mobileMenuBtn.setAttribute(
+                        "aria-label",
+                        "Open navigation menu"
+                    );
+
+                    mobileMenuBtn.textContent =
+                        "☰";
+
+                }
+            );
+
         });
 
-    });
-
 }
 
 
-function homeSearch() {
+/* =========================================================
+   HOME SEARCH
+========================================================= */
 
-    const query =
-        document
-        .getElementById("homeSearch")
-        .value
-        .trim();
-
-
-    if (query === "") {
-
-        window.location.href =
-            "search.html";
-
-        return;
-
-    }
+const homeSearchForm =
+    document.getElementById(
+        "homeSearchForm"
+    );
 
 
-    window.location.href =
-        "search.html?query=" +
-        encodeURIComponent(query);
+if (homeSearchForm) {
+
+    homeSearchForm.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+            const input =
+                document.getElementById(
+                    "homeSearch"
+                );
+
+            const query =
+                input.value.trim();
+
+
+            /*
+                EXACT SAME SEARCH FILE
+            */
+
+            if (query === "") {
+
+                window.location.href =
+                    "Academix-search.html";
+
+                return;
+
+            }
+
+
+            window.location.href =
+                "Academix-search.html?query=" +
+                encodeURIComponent(query);
+
+        }
+    );
 
 }
-
 
 </script>
 
 
 </body>
+
 </html>
