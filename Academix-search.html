@@ -1,1299 +1,1964 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Academix Search</title>
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family:Arial, Helvetica, sans-serif;
-    background:#f4f1e8;
-    color:#20201e;
-    min-height:100vh;
-}
-
-/* ================= TOP BAR ================= */
-
-.topbar{
-    height:74px;
-    padding:0 5%;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    border-bottom:1px solid #d8d2c4;
-    background:#f8f6ef;
-}
-
-.logo{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    font-weight:800;
-    font-size:20px;
-}
-
-.logo-box{
-    width:38px;
-    height:38px;
-    background:#20201e;
-    color:#f4f1e8;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:11px;
-}
-
-.top-right{
-    display:flex;
-    gap:10px;
-}
-
-.top-link{
-    text-decoration:none;
-    color:#55534e;
-    padding:9px 14px;
-    border-radius:20px;
-    font-size:14px;
-}
-
-.top-link:hover{
-    background:#e8e4d9;
-}
-
-/* ================= MAIN ================= */
-
-.main{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
-    padding:65px 0 80px;
-}
-
-/* ================= HERO ================= */
-
-.hero{
-    display:grid;
-    grid-template-columns:1.1fr .9fr;
-    gap:50px;
-    align-items:end;
-    margin-bottom:48px;
-}
-
-.hero-title{
-    font-family:Georgia,serif;
-    font-size:clamp(45px,6vw,82px);
-    line-height:.92;
-    letter-spacing:-4px;
-}
-
-.hero-title span{
-    color:#77736a;
-}
-
-.hero-text{
-    margin-top:22px;
-    max-width:530px;
-    color:#716e67;
-    font-size:16px;
-    line-height:1.7;
-}
-
-.hero-note{
-    justify-self:end;
-    max-width:270px;
-    border-left:3px solid #20201e;
-    padding-left:18px;
-    color:#66625b;
-    font-size:14px;
-    line-height:1.6;
-}
-
-/* ================= SEARCH ================= */
-
-.search-area{
-    background:#20201e;
-    padding:28px;
-    border-radius:26px;
-    box-shadow:0 18px 45px rgba(30,30,25,.13);
-}
-
-.search-label{
-    color:#aaa69d;
-    font-size:12px;
-    text-transform:uppercase;
-    letter-spacing:2px;
-    margin-bottom:13px;
-}
-
-.search-box{
-    background:#f8f6ef;
-    border-radius:18px;
-    min-height:72px;
-    display:flex;
-    align-items:center;
-    padding:8px 10px 8px 22px;
-    gap:10px;
-}
-
-.search-icon{
-    font-size:22px;
-    color:#77736b;
-}
-
-#searchInput{
-    flex:1;
-    border:none;
-    outline:none;
-    background:transparent;
-    font-size:18px;
-    color:#20201e;
-    min-width:0;
-}
-
-#searchInput::placeholder{
-    color:#9b978d;
-}
-
-.search-action{
-    width:48px;
-    height:48px;
-    border:none;
-    border-radius:13px;
-    background:#20201e;
-    color:white;
-    cursor:pointer;
-    font-size:19px;
-    transition:.2s;
-}
-
-.search-action:hover{
-    transform:translateY(-2px);
-}
-
-.camera-btn,
-.voice-btn{
-    width:43px;
-    height:43px;
-    border:none;
-    background:transparent;
-    font-size:19px;
-    cursor:pointer;
-    color:#68645c;
-}
-
-.camera-btn:hover,
-.voice-btn:hover{
-    color:#111;
-}
-
-/* ================= QUICK ================= */
-
-.quick{
-    margin-top:18px;
-    display:flex;
-    flex-wrap:wrap;
-    gap:9px;
-}
-
-.quick button{
-    border:1px solid #46443f;
-    background:transparent;
-    color:#dedbd3;
-    padding:9px 14px;
-    border-radius:30px;
-    cursor:pointer;
-    font-size:13px;
-}
-
-.quick button:hover{
-    background:#f4f1e8;
-    color:#20201e;
-}
-
-/* ================= RESULTS AREA ================= */
-
-.content{
-    display:none;
-    grid-template-columns:210px 1fr;
-    gap:42px;
-    margin-top:55px;
-}
-
-/* ================= SIDEBAR ================= */
-
-.sidebar{
-    border-right:1px solid #d8d2c4;
-    padding-right:25px;
-}
-
-.sidebar-title{
-    font-size:11px;
-    text-transform:uppercase;
-    letter-spacing:2px;
-    color:#918d84;
-    margin-bottom:17px;
-}
-
-.category{
-    width:100%;
-    border:none;
-    background:transparent;
-    text-align:left;
-    padding:12px 13px;
-    margin-bottom:3px;
-    border-radius:10px;
-    cursor:pointer;
-    color:#65615a;
-    font-size:14px;
-}
-
-.category:hover,
-.category.active{
-    background:#20201e;
-    color:#fff;
-}
-
-/* ================= RESULTS ================= */
-
-.results-header{
-    display:flex;
-    align-items:end;
-    justify-content:space-between;
-    margin-bottom:20px;
-}
-
-.results-title{
-    font-family:Georgia,serif;
-    font-size:30px;
-}
-
-.result-count{
-    color:#89857d;
-    font-size:13px;
-}
-
-.results{
-    display:flex;
-    flex-direction:column;
-    gap:13px;
-}
-
-.result-card{
-    background:#fbfaf5;
-    border:1px solid #ddd7ca;
-    border-radius:17px;
-    padding:22px;
-    display:grid;
-    grid-template-columns:55px 1fr auto;
-    gap:18px;
-    align-items:center;
-    transition:.22s;
-}
-
-.result-card:hover{
-    transform:translateX(5px);
-    border-color:#aaa398;
-    box-shadow:0 8px 25px rgba(40,40,30,.07);
-}
-
-.result-number{
-    width:46px;
-    height:46px;
-    border-radius:13px;
-    background:#e9e5da;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-weight:bold;
-    color:#555149;
-}
-
-.result-name{
-    font-size:18px;
-    font-weight:700;
-    margin-bottom:6px;
-}
-
-.result-description{
-    color:#77736b;
-    font-size:13px;
-    line-height:1.5;
-}
-
-.result-url{
-    margin-top:8px;
-    color:#99948a;
-    font-size:11px;
-}
-
-.open-btn{
-    text-decoration:none;
-    border:1px solid #cbc5b8;
-    color:#33312d;
-    padding:10px 15px;
-    border-radius:10px;
-    font-size:12px;
-    white-space:nowrap;
-}
-
-.open-btn:hover{
-    background:#20201e;
-    color:white;
-}
-
-/* ================= NO RESULT ================= */
-
-.no-result{
-    display:none;
-    text-align:center;
-    padding:65px 20px;
-}
-
-.no-result-icon{
-    font-size:40px;
-    margin-bottom:15px;
-}
-
-.no-result h3{
-    font-family:Georgia,serif;
-    font-size:26px;
-    margin-bottom:8px;
-}
-
-.no-result p{
-    color:#77736b;
-}
-
-/* ================= FOOTER ================= */
-
-.footer{
-    margin-top:80px;
-    padding-top:25px;
-    border-top:1px solid #d8d2c4;
-    display:flex;
-    justify-content:space-between;
-    color:#8b877e;
-    font-size:12px;
-}
-
-/* ================= MOBILE ================= */
-
-@media(max-width:800px){
-
-    .top-right{
-        display:none;
-    }
-
-    .main{
-        width:92%;
-        padding-top:40px;
-    }
-
-    .hero{
-        grid-template-columns:1fr;
-        gap:25px;
-    }
-
-    .hero-title{
-        letter-spacing:-2px;
-    }
-
-    .hero-note{
-        justify-self:start;
-    }
-
-    .content{
-        grid-template-columns:1fr;
-    }
-
-    .sidebar{
-        border-right:none;
-        border-bottom:1px solid #d8d2c4;
-        padding-right:0;
-        padding-bottom:15px;
-        display:flex;
-        gap:5px;
-        overflow-x:auto;
-    }
-
-    .sidebar-title{
-        display:none;
-    }
-
-    .category{
-        white-space:nowrap;
-        width:auto;
-    }
-
-    .result-card{
-        grid-template-columns:45px 1fr;
-    }
-
-    .open-btn{
-        grid-column:2;
-        width:max-content;
-    }
-
-    .footer{
-        flex-direction:column;
-        gap:8px;
-    }
-
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Academix Search | Search. Solve. Learn.</title>
+
+    <meta
+        name="description"
+        content="Academix Search — search, explore and solve academic questions."
+    >
+
+    <style>
+
+        /* =========================================
+           RESET
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #f4f7ff;
+            background: #03050b;
+            overflow-x: hidden;
+        }
+
+
+        /* =========================================
+           ANIMATED BACKGROUND
+        ========================================= */
+
+        .background {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: -10;
+            background:
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(0, 229, 255, 0.13),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 85% 25%,
+                    rgba(125, 85, 255, 0.14),
+                    transparent 32%
+                ),
+                radial-gradient(
+                    circle at 50% 100%,
+                    rgba(0, 180, 255, 0.09),
+                    transparent 35%
+                ),
+                #03050b;
+        }
+
+        /* Moving glow 1 */
+
+        .glow-one {
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            border-radius: 50%;
+
+            background: rgba(0, 229, 255, 0.10);
+            filter: blur(90px);
+
+            left: -150px;
+            top: 20%;
+
+            animation: glowOne 12s ease-in-out infinite alternate;
+        }
+
+        /* Moving glow 2 */
+
+        .glow-two {
+            position: absolute;
+            width: 480px;
+            height: 480px;
+            border-radius: 50%;
+
+            background: rgba(121, 83, 255, 0.10);
+            filter: blur(100px);
+
+            right: -180px;
+            top: 40%;
+
+            animation: glowTwo 14s ease-in-out infinite alternate;
+        }
+
+        @keyframes glowOne {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(120px, 80px) scale(1.15);
+            }
+
+            100% {
+                transform: translate(30px, 180px) scale(0.95);
+            }
+        }
+
+        @keyframes glowTwo {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(-120px, -80px) scale(1.12);
+            }
+
+            100% {
+                transform: translate(-30px, 100px) scale(0.95);
+            }
+        }
+
+
+        /* =========================================
+           FUTURISTIC GRID
+        ========================================= */
+
+        .grid {
+            position: absolute;
+            width: 160%;
+            height: 70%;
+
+            left: -30%;
+            bottom: -10%;
+
+            background-image:
+                linear-gradient(
+                    rgba(0, 229, 255, 0.045) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(0, 229, 255, 0.045) 1px,
+                    transparent 1px
+                );
+
+            background-size: 55px 55px;
+
+            transform:
+                perspective(600px)
+                rotateX(60deg);
+
+            transform-origin: center bottom;
+
+            animation: gridMove 12s linear infinite;
+
+            mask-image: linear-gradient(
+                to top,
+                black,
+                transparent 90%
+            );
+        }
+
+        @keyframes gridMove {
+            from {
+                background-position: 0 0;
+            }
+
+            to {
+                background-position: 0 55px;
+            }
+        }
+
+
+        /* =========================================
+           FLOATING PARTICLES
+        ========================================= */
+
+        .particle {
+            position: absolute;
+
+            width: 3px;
+            height: 3px;
+
+            border-radius: 50%;
+
+            background: #00e5ff;
+
+            box-shadow:
+                0 0 8px #00e5ff,
+                0 0 18px rgba(0, 229, 255, 0.7);
+
+            opacity: 0;
+
+            animation: particleMove linear infinite;
+        }
+
+        @keyframes particleMove {
+
+            0% {
+                transform:
+                    translateY(110vh)
+                    translateX(0);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.6;
+            }
+
+            50% {
+                opacity: 0.9;
+            }
+
+            90% {
+                opacity: 0.3;
+            }
+
+            100% {
+                transform:
+                    translateY(-10vh)
+                    translateX(80px);
+                opacity: 0;
+            }
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        header {
+            width: 100%;
+            padding: 22px 6%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+
+            background: rgba(3,5,11,0.45);
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            position: relative;
+            z-index: 10;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            text-decoration: none;
+            color: white;
+        }
+
+        .brand-logo {
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 13px;
+
+            font-size: 20px;
+            font-weight: 800;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #00e5ff,
+                    #7b5cff
+                );
+
+            box-shadow:
+                0 0 25px rgba(0,229,255,0.25);
+        }
+
+        .brand-name {
+            font-size: 19px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+
+        .brand-name span {
+            color: #00e5ff;
+        }
+
+        .home-btn {
+            text-decoration: none;
+            color: #cdd5e5;
+
+            padding: 10px 18px;
+
+            border: 1px solid rgba(255,255,255,0.10);
+            border-radius: 12px;
+
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+        .home-btn:hover {
+            color: white;
+
+            border-color: rgba(0,229,255,0.5);
+
+            background: rgba(0,229,255,0.07);
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================================
+           MAIN
+        ========================================= */
+
+        main {
+            width: min(1100px, 92%);
+            margin: auto;
+
+            padding: 85px 0 100px;
+
+            position: relative;
+            z-index: 2;
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .hero {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .hero-label {
+            display: inline-block;
+
+            padding: 8px 15px;
+
+            border: 1px solid rgba(0,229,255,0.20);
+            border-radius: 100px;
+
+            background: rgba(0,229,255,0.05);
+
+            color: #73efff;
+
+            font-size: 12px;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 76px);
+            line-height: 1.02;
+
+            letter-spacing: -3px;
+
+            margin-bottom: 18px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #ffffff,
+                    #8cefff,
+                    #b09cff,
+                    #ffffff
+                );
+
+            background-size: 250% auto;
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            color: transparent;
+
+            animation: titleShine 7s linear infinite;
+        }
+
+        @keyframes titleShine {
+            from {
+                background-position: 0% center;
+            }
+
+            to {
+                background-position: 250% center;
+            }
+        }
+
+        .hero p {
+            color: #9ca8bc;
+
+            font-size: 16px;
+            line-height: 1.7;
+
+            max-width: 650px;
+            margin: auto;
+        }
+
+
+        /* =========================================
+           SEARCH AREA
+        ========================================= */
+
+        .search-wrapper {
+            padding: 10px;
+
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(0,229,255,0.18),
+                    rgba(123,92,255,0.15),
+                    rgba(255,255,255,0.03)
+                );
+
+            box-shadow:
+                0 30px 80px rgba(0,0,0,0.35);
+        }
+
+        .search-box {
+            min-height: 72px;
+
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            padding: 10px 12px;
+
+            border-radius: 17px;
+
+            background: rgba(7,10,19,0.92);
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            backdrop-filter: blur(20px);
+        }
+
+        .search-icon {
+            width: 23px;
+            height: 23px;
+
+            margin-left: 10px;
+
+            flex-shrink: 0;
+        }
+
+        .search-input {
+            flex: 1;
+
+            min-width: 0;
+
+            background: transparent;
+            border: none;
+            outline: none;
+
+            color: white;
+
+            font-size: 16px;
+        }
+
+        .search-input::placeholder {
+            color: #68758c;
+        }
+
+        .camera-btn {
+            width: 48px;
+            height: 48px;
+
+            flex-shrink: 0;
+
+            border: 1px solid rgba(255,255,255,0.10);
+            border-radius: 13px;
+
+            background: rgba(255,255,255,0.04);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .camera-btn:hover {
+            background: rgba(0,229,255,0.10);
+
+            border-color: rgba(0,229,255,0.4);
+
+            transform: translateY(-2px);
+        }
+
+        .camera-btn svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .search-btn {
+            height: 48px;
+
+            padding: 0 25px;
+
+            border: none;
+            border-radius: 13px;
+
+            cursor: pointer;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            color: #021015;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #00e5ff,
+                    #72f2ff
+                );
+
+            box-shadow:
+                0 0 25px rgba(0,229,255,0.18);
+
+            transition: 0.3s;
+        }
+
+        .search-btn:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 0 35px rgba(0,229,255,0.35);
+        }
+
+
+        /* =========================================
+           CLASS FILTER
+        ========================================= */
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin-top: 22px;
+        }
+
+        .filter {
+            padding: 10px 17px;
+
+            border-radius: 100px;
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            background: rgba(255,255,255,0.035);
+
+            color: #8f9bb0;
+
+            cursor: pointer;
+
+            font-size: 13px;
+
+            transition: 0.3s;
+        }
+
+        .filter:hover,
+        .filter.active {
+            color: #00e5ff;
+
+            border-color: rgba(0,229,255,0.35);
+
+            background: rgba(0,229,255,0.07);
+
+            box-shadow:
+                0 0 20px rgba(0,229,255,0.06);
+        }
+
+
+        /* =========================================
+           SCAN PANEL
+        ========================================= */
+
+        .scan-panel {
+            display: none;
+
+            margin-top: 30px;
+
+            padding: 30px;
+
+            border-radius: 22px;
+
+            background: rgba(8,12,23,0.78);
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            backdrop-filter: blur(18px);
+
+            animation: panelIn 0.4s ease;
+        }
+
+        .scan-panel.show {
+            display: block;
+        }
+
+        @keyframes panelIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .scan-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .scan-header h2 {
+            font-size: 23px;
+            margin-bottom: 8px;
+        }
+
+        .scan-header p {
+            color: #7e8a9f;
+            font-size: 14px;
+        }
+
+        .scan-actions {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .scan-action {
+            padding: 13px 20px;
+
+            border-radius: 12px;
+
+            border: 1px solid rgba(255,255,255,0.09);
+
+            background: rgba(255,255,255,0.04);
+
+            color: #dce4f3;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .scan-action:hover {
+            border-color: rgba(0,229,255,0.35);
+
+            background: rgba(0,229,255,0.07);
+
+            color: white;
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        .preview-area {
+            display: none;
+
+            margin-top: 25px;
+
+            text-align: center;
+        }
+
+        .preview-area.show {
+            display: block;
+        }
+
+        #previewImage {
+            max-width: 100%;
+            max-height: 320px;
+
+            border-radius: 15px;
+
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .solve-btn {
+            margin-top: 20px;
+
+            padding: 13px 25px;
+
+            border: none;
+            border-radius: 12px;
+
+            background: linear-gradient(
+                135deg,
+                #7b5cff,
+                #a68bff
+            );
+
+            color: white;
+
+            cursor: pointer;
+
+            font-weight: 700;
+
+            transition: 0.3s;
+        }
+
+        .solve-btn:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 0 30px rgba(123,92,255,0.25);
+        }
+
+
+        /* =========================================
+           QUICK SEARCHES
+        ========================================= */
+
+        .quick-section {
+            margin-top: 48px;
+        }
+
+        .section-title {
+            text-align: center;
+
+            color: #78859a;
+
+            font-size: 12px;
+
+            letter-spacing: 1.8px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 18px;
+        }
+
+        .quick-list {
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+        }
+
+        .quick {
+            padding: 11px 17px;
+
+            border-radius: 12px;
+
+            color: #aeb9ca;
+
+            background: rgba(255,255,255,0.035);
+
+            border: 1px solid rgba(255,255,255,0.07);
+
+            cursor: pointer;
+
+            font-size: 13px;
+
+            transition: 0.3s;
+        }
+
+        .quick:hover {
+            color: #00e5ff;
+
+            border-color: rgba(0,229,255,0.3);
+
+            background: rgba(0,229,255,0.06);
+        }
+
+
+        /* =========================================
+           RESULTS
+        ========================================= */
+
+        .results {
+            margin-top: 55px;
+        }
+
+        .results-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 18px;
+        }
+
+        .results-heading h2 {
+            font-size: 20px;
+        }
+
+        .result-count {
+            color: #68758b;
+            font-size: 12px;
+        }
+
+        .result-card {
+            display: none;
+
+            padding: 22px;
+
+            margin-bottom: 12px;
+
+            border-radius: 18px;
+
+            background: rgba(255,255,255,0.035);
+
+            border: 1px solid rgba(255,255,255,0.07);
+
+            backdrop-filter: blur(15px);
+
+            transition: 0.3s;
+        }
+
+        .result-card.show {
+            display: block;
+        }
+
+        .result-card:hover {
+            border-color: rgba(0,229,255,0.25);
+
+            transform: translateY(-2px);
+        }
+
+        .result-class {
+            display: inline-block;
+
+            color: #00e5ff;
+
+            font-size: 11px;
+
+            margin-bottom: 9px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+        }
+
+        .result-card h3 {
+            font-size: 17px;
+            margin-bottom: 7px;
+        }
+
+        .result-card p {
+            color: #8490a4;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================================
+           EMPTY STATE
+        ========================================= */
+
+        .empty-state {
+            text-align: center;
+
+            padding: 55px 20px;
+
+            border-radius: 20px;
+
+            border: 1px dashed rgba(255,255,255,0.08);
+
+            background: rgba(255,255,255,0.02);
+        }
+
+        .empty-orbit {
+            width: 62px;
+            height: 62px;
+
+            margin: 0 auto 20px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(0,229,255,0.3);
+
+            position: relative;
+
+            animation: orbitSpin 5s linear infinite;
+        }
+
+        .empty-orbit::before {
+            content: "";
+
+            position: absolute;
+
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+
+            background: #00e5ff;
+
+            box-shadow: 0 0 15px #00e5ff;
+
+            top: -4px;
+            left: 50%;
+
+            transform: translateX(-50%);
+        }
+
+        @keyframes orbitSpin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .empty-state h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .empty-state p {
+            color: #707c90;
+            font-size: 13px;
+        }
+
+
+        /* =========================================
+           SOLVER
+        ========================================= */
+
+        .solver {
+            display: none;
+
+            margin-top: 30px;
+
+            padding: 28px;
+
+            border-radius: 20px;
+
+            background: rgba(9,12,24,0.8);
+
+            border: 1px solid rgba(123,92,255,0.2);
+
+            backdrop-filter: blur(18px);
+        }
+
+        .solver.show {
+            display: block;
+        }
+
+        .solver h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .step {
+            padding: 15px 17px;
+
+            margin-bottom: 10px;
+
+            border-radius: 12px;
+
+            background: rgba(255,255,255,0.035);
+
+            border: 1px solid rgba(255,255,255,0.06);
+
+            color: #aeb9ca;
+
+            font-size: 14px;
+        }
+
+        .step span {
+            color: #7b5cff;
+            font-weight: 700;
+            margin-right: 8px;
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            text-align: center;
+
+            padding: 30px 20px 40px;
+
+            color: #4f5a6c;
+
+            font-size: 12px;
+
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 700px) {
+
+            header {
+                padding: 16px 5%;
+            }
+
+            .brand-logo {
+                width: 38px;
+                height: 38px;
+            }
+
+            .brand-name {
+                font-size: 16px;
+            }
+
+            .home-btn {
+                padding: 9px 13px;
+                font-size: 12px;
+            }
+
+            main {
+                width: 92%;
+
+                padding-top: 55px;
+            }
+
+            .hero {
+                margin-bottom: 32px;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+
+                letter-spacing: -2px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .search-box {
+                min-height: auto;
+
+                padding: 9px;
+
+                flex-wrap: wrap;
+            }
+
+            .search-icon {
+                margin-left: 7px;
+            }
+
+            .search-input {
+                min-width: calc(100% - 60px);
+
+                height: 46px;
+            }
+
+            .camera-btn {
+                width: 46px;
+                height: 46px;
+            }
+
+            .search-btn {
+                width: 100%;
+
+                margin-top: 2px;
+            }
+
+            .filters {
+                gap: 7px;
+            }
+
+            .filter {
+                padding: 9px 13px;
+                font-size: 12px;
+            }
+
+            .scan-panel {
+                padding: 22px 16px;
+            }
+
+            .scan-actions {
+                flex-direction: column;
+            }
+
+            .scan-action {
+                width: 100%;
+            }
+
+            .quick-list {
+                gap: 7px;
+            }
+
+            .quick {
+                font-size: 12px;
+                padding: 10px 13px;
+            }
+
+            .results-heading h2 {
+                font-size: 18px;
+            }
+
+            .glow-one {
+                width: 280px;
+                height: 280px;
+            }
+
+            .glow-two {
+                width: 300px;
+                height: 300px;
+            }
+
+            .grid {
+                background-size: 42px 42px;
+            }
+        }
+
+
+        /* =========================================
+           REDUCE MOTION
+        ========================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+    </style>
 </head>
+
 
 <body>
 
 
-<header class="topbar">
+    <!-- =========================================
+         ANIMATED BACKGROUND
+    ========================================= -->
 
-    <div class="logo">
+    <div class="background">
 
-        <div class="logo-box">
-            A
+        <div class="glow-one"></div>
+
+        <div class="glow-two"></div>
+
+        <div class="grid"></div>
+
+
+        <div class="particle"
+             style="left:5%; animation-duration:15s; animation-delay:0s;">
         </div>
 
-        <span>
-            Academix Search
-        </span>
-
-    </div>
-
-    <div class="top-right">
-
-        <a href="index.html" class="top-link">
-            Home
-        </a>
-
-        <a href="dashboard.html" class="top-link">
-            Dashboard
-        </a>
-
-    </div>
-
-</header>
-
-
-<main class="main">
-
-
-<!-- HERO -->
-
-<section class="hero">
-
-    <div>
-
-        <h1 class="hero-title">
-            Find what<br>
-            <span>you need.</span>
-        </h1>
-
-        <p class="hero-text">
-            Search trusted educational resources,
-            books, notes and learning platforms from one place.
-        </p>
-
-    </div>
-
-
-    <div class="hero-note">
-
-        <strong>ACADEMIX SEARCH</strong>
-
-        <br><br>
-
-        Search first.
-        Discover what you need.
-        Learn without getting lost.
-
-    </div>
-
-</section>
-
-
-
-<!-- SEARCH -->
-
-<section class="search-area">
-
-    <div class="search-label">
-        Search Academix
-    </div>
-
-
-    <div class="search-box">
-
-        <span class="search-icon">
-            ⌕
-        </span>
-
-
-        <input
-            type="text"
-            id="searchInput"
-            placeholder="Search maths, physics, NCERT, chemistry..."
-            autocomplete="off"
-        >
-
-
-        <button
-            class="camera-btn"
-            onclick="openCamera()"
-            title="Search using image">
-            📷
-        </button>
-
-
-        <button
-            class="voice-btn"
-            onclick="voiceSearch()"
-            title="Voice search">
-            🎙
-        </button>
-
-
-        <button
-            class="search-action"
-            onclick="performSearch()">
-            →
-        </button>
-
-    </div>
-
-
-    <div class="quick">
-
-        <button onclick="quickSearch('NCERT')">
-            NCERT
-        </button>
-
-        <button onclick="quickSearch('Class 9 Maths')">
-            Class 9 Maths
-        </button>
-
-        <button onclick="quickSearch('Physics')">
-            Physics
-        </button>
-
-        <button onclick="quickSearch('Chemistry')">
-            Chemistry
-        </button>
-
-        <button onclick="quickSearch('Mathematics')">
-            Mathematics
-        </button>
-
-    </div>
-
-</section>
-
-
-
-<!-- RESULTS -->
-
-<section class="content" id="content">
-
-
-    <aside class="sidebar">
-
-        <div class="sidebar-title">
-            Filter
+        <div class="particle"
+             style="left:13%; animation-duration:20s; animation-delay:4s;">
         </div>
 
-
-        <button
-            class="category active"
-            onclick="filterCategory('all',this)">
-            All
-        </button>
-
-
-        <button
-            class="category"
-            onclick="filterCategory('study',this)">
-            Study
-        </button>
-
-
-        <button
-            class="category"
-            onclick="filterCategory('notes',this)">
-            Notes
-        </button>
-
-
-        <button
-            class="category"
-            onclick="filterCategory('books',this)">
-            Books
-        </button>
-
-
-        <button
-            class="category"
-            onclick="filterCategory('videos',this)">
-            Videos
-        </button>
-
-    </aside>
-
-
-
-    <div>
-
-        <div class="results-header">
-
-            <h2 class="results-title">
-                Search Results
-            </h2>
-
-            <span
-                class="result-count"
-                id="resultCount">
-            </span>
-
+        <div class="particle"
+             style="left:23%; animation-duration:13s; animation-delay:7s;">
         </div>
 
-
-        <div
-            class="results"
-            id="results">
+        <div class="particle"
+             style="left:34%; animation-duration:18s; animation-delay:2s;">
         </div>
 
+        <div class="particle"
+             style="left:45%; animation-duration:22s; animation-delay:8s;">
+        </div>
 
-        <div
-            class="no-result"
-            id="noResult">
+        <div class="particle"
+             style="left:56%; animation-duration:16s; animation-delay:3s;">
+        </div>
 
-            <div class="no-result-icon">
-                ◌
+        <div class="particle"
+             style="left:68%; animation-duration:19s; animation-delay:6s;">
+        </div>
+
+        <div class="particle"
+             style="left:79%; animation-duration:14s; animation-delay:1s;">
+        </div>
+
+        <div class="particle"
+             style="left:90%; animation-duration:21s; animation-delay:5s;">
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         HEADER
+    ========================================= -->
+
+    <header>
+
+        <a href="index.html" class="brand">
+
+            <div class="brand-logo">
+                A
             </div>
 
-            <h3>
-                Nothing found
-            </h3>
+            <div class="brand-name">
+                Academix <span>Search</span>
+            </div>
+
+        </a>
+
+
+        <a href="index.html" class="home-btn">
+            Back to Home
+        </a>
+
+    </header>
+
+
+
+    <!-- =========================================
+         MAIN
+    ========================================= -->
+
+    <main>
+
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="hero-label">
+                Academix Search Engine
+            </div>
+
+            <h1>
+                Search.<br>
+                Solve. Learn.
+            </h1>
 
             <p>
-                Try a different keyword or subject.
+                Find academic resources, explore questions,
+                and solve problems through one intelligent
+                learning interface.
             </p>
 
-        </div>
-
-    </div>
-
-</section>
+        </section>
 
 
 
-<footer class="footer">
+        <!-- SEARCH -->
 
-    <span>
+        <section>
+
+            <div class="search-wrapper">
+
+                <div class="search-box">
+
+                    <!-- Search Icon -->
+
+                    <svg
+                        class="search-icon"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="#718096"
+                        stroke-width="2"
+                    >
+                        <circle cx="11" cy="11" r="7"></circle>
+
+                        <line
+                            x1="16.5"
+                            y1="16.5"
+                            x2="21"
+                            y2="21"
+                        ></line>
+                    </svg>
+
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        class="search-input"
+                        placeholder="Search a chapter, question or concept..."
+                        autocomplete="off"
+                    >
+
+
+                    <!-- Camera -->
+
+                    <button
+                        class="camera-btn"
+                        id="cameraBtn"
+                        title="Scan question"
+                    >
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="#aeb9ca"
+                            stroke-width="1.8"
+                        >
+
+                            <path
+                                d="M4 7h3l1.5-2h7L17 7h3a1.5 1.5 0 0 1 1.5 1.5v9A1.5 1.5 0 0 1 20 19H4a1.5 1.5 0 0 1-1.5-1.5v-9A1.5 1.5 0 0 1 4 7Z"
+                            />
+
+                            <circle cx="12" cy="12.5" r="3.5"></circle>
+
+                        </svg>
+
+                    </button>
+
+
+                    <button
+                        class="search-btn"
+                        id="searchBtn"
+                    >
+                        Search
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CLASS FILTER -->
+
+            <div class="filters">
+
+                <button class="filter active" data-class="all">
+                    All
+                </button>
+
+                <button class="filter" data-class="8">
+                    Class 8
+                </button>
+
+                <button class="filter" data-class="9">
+                    Class 9
+                </button>
+
+                <button class="filter" data-class="10">
+                    Class 10
+                </button>
+
+                <button class="filter" data-class="11">
+                    Class 11
+                </button>
+
+                <button class="filter" data-class="12">
+                    Class 12
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             SCAN QUESTION
+        ========================================= -->
+
+        <section
+            class="scan-panel"
+            id="scanPanel"
+        >
+
+            <div class="scan-header">
+
+                <h2>
+                    Scan a Question
+                </h2>
+
+                <p>
+                    Upload a question image and Academix
+                    will prepare it for solving.
+                </p>
+
+            </div>
+
+
+            <div class="scan-actions">
+
+                <button
+                    class="scan-action"
+                    id="cameraAction"
+                >
+                    Take Photo
+                </button>
+
+
+                <label
+                    class="scan-action"
+                    for="fileInput"
+                >
+                    Upload Image
+                </label>
+
+                <input
+                    type="file"
+                    id="fileInput"
+                    accept="image/*"
+                >
+
+            </div>
+
+
+            <div
+                class="preview-area"
+                id="previewArea"
+            >
+
+                <img
+                    id="previewImage"
+                    alt="Question preview"
+                >
+
+                <br>
+
+                <button
+                    class="solve-btn"
+                    id="solveBtn"
+                >
+                    Solve Question
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             QUICK SEARCH
+        ========================================= -->
+
+        <section class="quick-section">
+
+            <div class="section-title">
+                Explore Topics
+            </div>
+
+            <div class="quick-list">
+
+                <button class="quick">
+                    Quadratic Equations
+                </button>
+
+                <button class="quick">
+                    Trigonometry
+                </button>
+
+                <button class="quick">
+                    Motion
+                </button>
+
+                <button class="quick">
+                    Chemical Bonding
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             RESULTS
+        ========================================= -->
+
+        <section class="results">
+
+            <div class="results-heading">
+
+                <h2>
+                    Search Results
+                </h2>
+
+                <span
+                    class="result-count"
+                    id="resultCount"
+                >
+                    0 results
+                </span>
+
+            </div>
+
+
+            <!-- Empty state -->
+
+            <div
+                class="empty-state"
+                id="emptyState"
+            >
+
+                <div class="empty-orbit"></div>
+
+                <h3>
+                    Your search starts here
+                </h3>
+
+                <p>
+                    Search for a chapter, topic or question
+                    to explore Academix resources.
+                </p>
+
+            </div>
+
+
+            <!-- Result 1 -->
+
+            <div
+                class="result-card"
+                data-keywords="quadratic equations maths class 10 class 11"
+                data-class="10"
+            >
+
+                <span class="result-class">
+                    Mathematics
+                </span>
+
+                <h3>
+                    Quadratic Equations
+                </h3>
+
+                <p>
+                    Concepts, formulas, examples and
+                    practice questions.
+                </p>
+
+            </div>
+
+
+            <!-- Result 2 -->
+
+            <div
+                class="result-card"
+                data-keywords="trigonometry maths class 10 class 11 class 12"
+                data-class="11"
+            >
+
+                <span class="result-class">
+                    Mathematics
+                </span>
+
+                <h3>
+                    Trigonometry
+                </h3>
+
+                <p>
+                    Important identities, formulas and
+                    problem-solving concepts.
+                </p>
+
+            </div>
+
+
+            <!-- Result 3 -->
+
+            <div
+                class="result-card"
+                data-keywords="motion physics class 9 class 11"
+                data-class="9"
+            >
+
+                <span class="result-class">
+                    Physics
+                </span>
+
+                <h3>
+                    Motion
+                </h3>
+
+                <p>
+                    Definitions, equations, graphs and
+                    numerical practice.
+                </p>
+
+            </div>
+
+
+            <!-- Result 4 -->
+
+            <div
+                class="result-card"
+                data-keywords="chemical bonding chemistry class 11"
+                data-class="11"
+            >
+
+                <span class="result-class">
+                    Chemistry
+                </span>
+
+                <h3>
+                    Chemical Bonding
+                </h3>
+
+                <p>
+                    Bond formation, molecular structures,
+                    concepts and examples.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             SOLVER
+        ========================================= -->
+
+        <section
+            class="solver"
+            id="solver"
+        >
+
+            <h2>
+                Question Solver
+            </h2>
+
+            <div class="step">
+                <span>01</span>
+                Question image detected.
+            </div>
+
+            <div class="step">
+                <span>02</span>
+                Text extraction and question
+                identification will happen here.
+            </div>
+
+            <div class="step">
+                <span>03</span>
+                Step-by-step solution will appear here
+                after the solver backend is connected.
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+
+    <footer>
+
         Academix by Tiwari
-    </span>
 
-    <span>
-        Search • Learn • Grow
-    </span>
-
-</footer>
-
-
-</main>
-
-
-<input
-    type="file"
-    id="cameraInput"
-    accept="image/*"
-    capture="environment"
-    style="display:none;"
->
+    </footer>
 
 
 
-<script>
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================= -->
 
+    <script>
 
-/* ==============================
-   DATABASE
-============================== */
+        const searchInput =
+            document.getElementById("searchInput");
 
-const resources = [
+        const searchBtn =
+            document.getElementById("searchBtn");
 
-    {
-        name:"NCERT",
-        description:"Official NCERT textbooks and educational resources.",
-        url:"https://ncert.nic.in/",
-        category:"books",
-        keywords:"ncert textbook books class 9 class 10 class 11 class 12 maths science"
-    },
+        const cameraBtn =
+            document.getElementById("cameraBtn");
 
-    {
-        name:"CBSE",
-        description:"Official CBSE syllabus, academics and examination resources.",
-        url:"https://www.cbse.gov.in/",
-        category:"study",
-        keywords:"cbse board syllabus exam class 9 class 10 class 12"
-    },
+        const scanPanel =
+            document.getElementById("scanPanel");
 
-    {
-        name:"DIKSHA",
-        description:"Digital learning resources for school students.",
-        url:"https://diksha.gov.in/",
-        category:"study",
-        keywords:"diksha school learning education"
-    },
+        const fileInput =
+            document.getElementById("fileInput");
 
-    {
-        name:"ePathshala",
-        description:"Digital NCERT textbooks and educational material.",
-        url:"https://epathshala.nic.in/",
-        category:"books",
-        keywords:"epathshala ebook textbook ncert books"
-    },
+        const previewArea =
+            document.getElementById("previewArea");
 
-    {
-        name:"SWAYAM",
-        description:"Online courses from universities and institutions.",
-        url:"https://swayam.gov.in/",
-        category:"study",
-        keywords:"swayam course learning education"
-    },
+        const previewImage =
+            document.getElementById("previewImage");
 
-    {
-        name:"NPTEL",
-        description:"Science, engineering and technology lectures.",
-        url:"https://nptel.ac.in/",
-        category:"videos",
-        keywords:"nptel physics chemistry maths engineering lecture"
-    },
+        const solveBtn =
+            document.getElementById("solveBtn");
 
-    {
-        name:"Khan Academy",
-        description:"Free lessons and practice for mathematics and science.",
-        url:"https://www.khanacademy.org/",
-        category:"videos",
-        keywords:"math mathematics physics chemistry science videos"
-    },
+        const solver =
+            document.getElementById("solver");
 
-    {
-        name:"Physics Wallah",
-        description:"Educational lectures and study resources.",
-        url:"https://www.pw.live/",
-        category:"videos",
-        keywords:"physics wallah maths physics chemistry lectures"
-    },
+        const emptyState =
+            document.getElementById("emptyState");
 
-    {
-        name:"Vedantu",
-        description:"School learning resources and educational lessons.",
-        url:"https://www.vedantu.com/",
-        category:"study",
-        keywords:"school maths science physics chemistry"
-    },
+        const resultCount =
+            document.getElementById("resultCount");
 
-    {
-        name:"Unacademy",
-        description:"Online courses and educational resources.",
-        url:"https://unacademy.com/",
-        category:"videos",
-        keywords:"maths physics chemistry school jee"
-    },
+        const filters =
+            document.querySelectorAll(".filter");
 
-    {
-        name:"MIT OpenCourseWare",
-        description:"Free educational material from MIT.",
-        url:"https://ocw.mit.edu/",
-        category:"study",
-        keywords:"mit mathematics physics science engineering"
-    },
+        const resultCards =
+            document.querySelectorAll(".result-card");
 
-    {
-        name:"Coursera",
-        description:"Online courses from universities and institutions.",
-        url:"https://www.coursera.org/",
-        category:"study",
-        keywords:"course university mathematics science programming"
-    },
-
-    {
-        name:"edX",
-        description:"Online courses from universities around the world.",
-        url:"https://www.edx.org/",
-        category:"study",
-        keywords:"courses university science technology"
-    },
-
-    {
-        name:"National Digital Library",
-        description:"Digital educational resources and books from India.",
-        url:"https://ndl.iitkgp.ac.in/",
-        category:"books",
-        keywords:"books india education research"
-    },
-
-    {
-        name:"Google Scholar",
-        description:"Academic papers and scholarly research.",
-        url:"https://scholar.google.com/",
-        category:"study",
-        keywords:"research academic paper scholar"
-    },
-
-    {
-        name:"GeeksforGeeks",
-        description:"Programming and computer science learning resources.",
-        url:"https://www.geeksforgeeks.org/",
-        category:"study",
-        keywords:"coding programming python computer science"
-    },
-
-    {
-        name:"W3Schools",
-        description:"Web development and programming tutorials.",
-        url:"https://www.w3schools.com/",
-        category:"study",
-        keywords:"html css javascript coding programming"
-    },
-
-    {
-        name:"BYJU'S",
-        description:"Digital learning resources for school students.",
-        url:"https://byjus.com/",
-        category:"study",
-        keywords:"school maths science learning"
-    },
-
-    {
-        name:"Toppr",
-        description:"Questions, explanations and school study resources.",
-        url:"https://www.toppr.com/",
-        category:"notes",
-        keywords:"questions maths science notes school"
-    },
-
-    {
-        name:"Britannica",
-        description:"Educational encyclopedia and reference material.",
-        url:"https://www.britannica.com/",
-        category:"study",
-        keywords:"history geography science encyclopedia"
-    }
-
-];
+        const quickButtons =
+            document.querySelectorAll(".quick");
 
 
 
-/* ==============================
-   SEARCH
-============================== */
+        /* =========================================
+           SEARCH
+        ========================================= */
 
-function performSearch(){
-
-    const input =
-        document.getElementById("searchInput");
-
-    const query =
-        input.value.toLowerCase().trim();
+        let selectedClass = "all";
 
 
-    if(!query){
+        function performSearch(query) {
 
-        return;
+            query = query.toLowerCase().trim();
 
-    }
-
-
-    const words =
-        query.split(/\s+/);
+            let found = 0;
 
 
-    const filtered = resources
+            resultCards.forEach(card => {
 
-        .map(item=>{
+                const keywords =
+                    card.dataset.keywords.toLowerCase();
 
-            let score = 0;
-
-
-            const text = (
-
-                item.name +
-                " " +
-                item.description +
-                " " +
-                item.keywords
-
-            ).toLowerCase();
+                const cardClass =
+                    card.dataset.class;
 
 
-            words.forEach(word=>{
-
-                if(item.name.toLowerCase().includes(word)){
-
-                    score += 10;
-
-                }
+                const matchesSearch =
+                    query === "" ||
+                    keywords.includes(query);
 
 
-                if(text.includes(word)){
+                const matchesClass =
+                    selectedClass === "all" ||
+                    cardClass === selectedClass;
 
-                    score += 3;
+
+                if (
+                    matchesSearch &&
+                    matchesClass &&
+                    query !== ""
+                ) {
+
+                    card.classList.add("show");
+
+                    found++;
+
+                } else {
+
+                    card.classList.remove("show");
 
                 }
 
             });
 
 
-            return {
-                item:item,
-                score:score
-            };
+            resultCount.textContent =
+                found + (found === 1 ? " result" : " results");
 
-        })
 
+            emptyState.style.display =
+                found === 0 ? "block" : "none";
 
-        .filter(result=>result.score > 0)
+        }
 
 
-        .sort((a,b)=>b.score-a.score)
+        searchBtn.addEventListener(
+            "click",
+            () => {
 
+                performSearch(
+                    searchInput.value
+                );
 
-        .map(result=>result.item);
+            }
+        );
 
 
+        searchInput.addEventListener(
+            "keydown",
+            event => {
 
-    showResults(filtered);
+                if (event.key === "Enter") {
 
-}
+                    performSearch(
+                        searchInput.value
+                    );
 
+                }
 
+            }
+        );
 
-/* ==============================
-   SHOW RESULTS
-============================== */
 
-function showResults(data){
 
-    const content =
-        document.getElementById("content");
+        /* =========================================
+           CLASS FILTER
+        ========================================= */
 
-    const results =
-        document.getElementById("results");
+        filters.forEach(filter => {
 
-    const noResult =
-        document.getElementById("noResult");
+            filter.addEventListener(
+                "click",
+                () => {
 
-    const count =
-        document.getElementById("resultCount");
+                    filters.forEach(item =>
+                        item.classList.remove("active")
+                    );
 
+                    filter.classList.add("active");
 
-    /* NOW RESULTS BECOME VISIBLE */
+                    selectedClass =
+                        filter.dataset.class;
 
-    content.style.display = "grid";
+                    performSearch(
+                        searchInput.value
+                    );
 
-
-    results.innerHTML = "";
-
-
-    count.textContent =
-        data.length +
-        (data.length === 1
-            ? " result"
-            : " results");
-
-
-    if(data.length === 0){
-
-        noResult.style.display = "block";
-
-        return;
-
-    }
-
-
-    noResult.style.display = "none";
-
-
-    data.forEach((item,index)=>{
-
-        const card =
-            document.createElement("div");
-
-
-        card.className =
-            "result-card";
-
-
-        card.innerHTML = `
-
-            <div class="result-number">
-                ${String(index+1).padStart(2,"0")}
-            </div>
-
-            <div>
-
-                <div class="result-name">
-                    ${item.name}
-                </div>
-
-                <div class="result-description">
-                    ${item.description}
-                </div>
-
-                <div class="result-url">
-                    ${item.url.replace("https://","")}
-                </div>
-
-            </div>
-
-            <a
-                href="${item.url}"
-                target="_blank"
-                rel="noopener"
-                class="open-btn">
-                Open ↗
-            </a>
-
-        `;
-
-
-        results.appendChild(card);
-
-    });
-
-
-    /* Scroll smoothly to results */
-
-    setTimeout(()=>{
-
-        content.scrollIntoView({
-            behavior:"smooth",
-            block:"start"
-        });
-
-    },100);
-
-}
-
-
-
-/* ==============================
-   ENTER
-============================== */
-
-document
-.getElementById("searchInput")
-.addEventListener("keydown",function(event){
-
-    if(event.key === "Enter"){
-
-        performSearch();
-
-    }
-
-});
-
-
-
-/* ==============================
-   QUICK SEARCH
-============================== */
-
-function quickSearch(query){
-
-    document
-    .getElementById("searchInput")
-    .value = query;
-
-
-    performSearch();
-
-}
-
-
-
-/* ==============================
-   CATEGORY FILTER
-============================== */
-
-function filterCategory(category,button){
-
-    document
-    .querySelectorAll(".category")
-    .forEach(btn=>{
-
-        btn.classList.remove("active");
-
-    });
-
-
-    button.classList.add("active");
-
-
-    const input =
-        document.getElementById("searchInput");
-
-    const query =
-        input.value.toLowerCase().trim();
-
-
-    let data = resources;
-
-
-    if(category !== "all"){
-
-        data =
-            data.filter(item=>
-                item.category === category
+                }
             );
 
-    }
+        });
 
 
-    if(query){
 
-        const words =
-            query.split(/\s+/);
+        /* =========================================
+           CAMERA PANEL
+        ========================================= */
 
+        cameraBtn.addEventListener(
+            "click",
+            () => {
 
-        data =
-            data
-            .map(item=>{
+                scanPanel.classList.toggle("show");
 
-                let score = 0;
+                if (
+                    scanPanel.classList.contains("show")
+                ) {
 
-                const text = (
+                    scanPanel.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
+                    });
 
-                    item.name +
-                    " " +
-                    item.description +
-                    " " +
-                    item.keywords
+                }
 
-                ).toLowerCase();
-
-
-                words.forEach(word=>{
-
-                    if(text.includes(word)){
-
-                        score += 1;
-
-                    }
-
-                });
+            }
+        );
 
 
-                return {
-                    item,
-                    score
+
+        /* =========================================
+           FILE UPLOAD
+        ========================================= */
+
+        fileInput.addEventListener(
+            "change",
+            event => {
+
+                const file =
+                    event.target.files[0];
+
+
+                if (!file) return;
+
+
+                const reader =
+                    new FileReader();
+
+
+                reader.onload = function(e) {
+
+                    previewImage.src =
+                        e.target.result;
+
+                    previewArea.classList.add(
+                        "show"
+                    );
+
                 };
 
-            })
-            .filter(x=>x.score>0)
-            .sort((a,b)=>b.score-a.score)
-            .map(x=>x.item);
 
-    }
+                reader.readAsDataURL(file);
 
-
-    showResults(data);
-
-}
-
-
-
-/* ==============================
-   VOICE SEARCH
-============================== */
-
-function voiceSearch(){
-
-    const SpeechRecognition =
-        window.SpeechRecognition ||
-        window.webkitSpeechRecognition;
-
-
-    if(!SpeechRecognition){
-
-        alert(
-            "Voice search is not supported in this browser."
+            }
         );
 
-        return;
-
-    }
 
 
-    const recognition =
-        new SpeechRecognition();
+        /* =========================================
+           SOLVE BUTTON
+        ========================================= */
 
+        solveBtn.addEventListener(
+            "click",
+            () => {
 
-    recognition.lang = "en-IN";
+                solver.classList.add("show");
 
+                solver.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
 
-    recognition.start();
-
-
-    recognition.onresult =
-    function(event){
-
-        const text =
-            event.results[0][0].transcript;
-
-
-        document
-        .getElementById("searchInput")
-        .value = text;
-
-
-        performSearch();
-
-    };
-
-}
-
-
-
-/* ==============================
-   CAMERA
-============================== */
-
-function openCamera(){
-
-    document
-    .getElementById("cameraInput")
-    .click();
-
-}
-
-
-document
-.getElementById("cameraInput")
-.addEventListener("change",function(){
-
-    if(this.files.length){
-
-        alert(
-            "Image selected. Question-image recognition can be connected later."
+            }
         );
 
-    }
 
-});
 
-</script>
+        /* =========================================
+           QUICK SEARCHES
+        ========================================= */
+
+        quickButtons.forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    searchInput.value =
+                        button.textContent.trim();
+
+                    performSearch(
+                        searchInput.value
+                    );
+
+                    document
+                        .querySelector(".results")
+                        .scrollIntoView({
+                            behavior: "smooth",
+                            block: "start"
+                        });
+
+                }
+            );
+
+        });
+
+    </script>
 
 </body>
 </html>
