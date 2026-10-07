@@ -4,67 +4,29 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Academix by Tiwari | Class 9 Notes, Quizzes, Study Tools & AI</title>
+<title>Academix by Tiwari | Learn Smarter</title>
 
 <meta
     name="description"
-    content="Academix by Tiwari is a Class 9 learning platform with study notes, quizzes, practice resources, exams, study tools and Acharya AI."
+    content="Academix by Tiwari is a modern learning platform with notes, quizzes, practice resources, exams, study tools and AI-powered learning."
 >
 
 <meta name="robots" content="index, follow">
 
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 
 <link
     rel="canonical"
     href="https://anavy0515-aa.github.io/Academix/"
 >
 
-<meta property="og:site_name" content="Academix by Tiwari">
-<meta
-    property="og:title"
-    content="Academix by Tiwari | Class 9 Learning Platform"
->
-<meta
-    property="og:description"
-    content="Class 9 notes, quizzes, practice, exams, study tools and Acharya AI."
->
-<meta property="og:type" content="website">
-<meta
-    property="og:url"
-    content="https://anavy0515-aa.github.io/Academix/"
->
-
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Academix by Tiwari">
-<meta
-    name="twitter:description"
-    content="Class 9 learning platform with notes, quizzes, practice, exams, study tools and Acharya AI."
->
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Academix by Tiwari",
-    "alternateName": "Academix",
-    "url": "https://anavy0515-aa.github.io/Academix/",
-    "description": "Academix by Tiwari is a Class 9 learning platform with study notes, quizzes, practice resources, exams, study tools and Acharya AI.",
-    "publisher": {
-        "@type": "Person",
-        "name": "Anshu Tiwari"
-    }
-}
-</script>
-
-
 <style>
 
 /* =========================================================
-   GLOBAL
+   RESET
 ========================================================= */
 
 * {
@@ -78,206 +40,360 @@ html {
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #050b16;
-    color: white;
-    line-height: 1.6;
-    position: relative;
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background: #030712;
+    color: #f8fafc;
+
     overflow-x: hidden;
 }
 
 a {
-    text-decoration: none;
     color: inherit;
+    text-decoration: none;
 }
 
 button,
-input {
+select {
     font-family: inherit;
+}
+
+:root {
+    --cyan: #00d9ff;
+    --purple: #8b5cf6;
+    --bg: #030712;
+    --muted: #94a3b8;
 }
 
 
 /* =========================================================
-   ANIMATED BACKGROUND
+   BACKGROUND
 ========================================================= */
 
-.animated-bg {
+.background {
     position: fixed;
     inset: 0;
-    z-index: -1;
-    pointer-events: none;
     overflow: hidden;
-
-    background:
-        radial-gradient(
-            circle at 15% 20%,
-            rgba(0,217,255,0.07),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 85% 70%,
-            rgba(139,92,246,0.08),
-            transparent 30%
-        );
+    pointer-events: none;
+    z-index: -10;
 }
 
-.bg-orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.25;
-
-    animation:
-        backgroundOrb
-        14s
-        ease-in-out
-        infinite
-        alternate;
-}
-
-.orb-a {
-    width: 320px;
-    height: 320px;
-    background: #00d9ff;
-    top: -120px;
-    left: -100px;
-}
-
-.orb-b {
-    width: 380px;
-    height: 380px;
-    background: #8b5cf6;
-    right: -150px;
-    top: 35%;
-    animation-delay: -5s;
-}
-
-.orb-c {
-    width: 280px;
-    height: 280px;
-    background: #00aaff;
-    bottom: -130px;
-    left: 40%;
-    animation-delay: -9s;
-}
-
-.floating-symbols {
-    position: absolute;
-    inset: 0;
-}
-
-.floating-symbols span {
-    position: absolute;
-    left: var(--x);
-    top: var(--y);
-
-    color: rgba(0,217,255,0.10);
-
-    font-size: 22px;
-    font-weight: 700;
-
-    user-select: none;
-
-    text-shadow:
-        0 0 18px
-        rgba(0,217,255,0.25);
-
-    animation:
-        symbolFloat
-        9s
-        ease-in-out
-        infinite;
-
-    animation-delay: var(--delay);
-}
-
-.grid-lines {
+.background-grid {
     position: absolute;
     inset: 0;
 
     background-image:
         linear-gradient(
-            rgba(255,255,255,0.018) 1px,
+            rgba(0,217,255,.025) 1px,
             transparent 1px
         ),
         linear-gradient(
             90deg,
-            rgba(255,255,255,0.018) 1px,
+            rgba(139,92,246,.025) 1px,
             transparent 1px
         );
 
-    background-size: 70px 70px;
-
-    animation:
-        gridMove
-        25s
-        linear
-        infinite;
+    background-size: 55px 55px;
 
     mask-image:
         linear-gradient(
             to bottom,
             black,
-            transparent 95%
+            transparent 90%
         );
 }
 
-@keyframes backgroundOrb {
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(110px);
+    opacity: .12;
+}
 
-    0% {
-        transform:
-            translate(0,0)
-            scale(1);
+.orb.one {
+    width: 450px;
+    height: 450px;
+    background: #00d9ff;
+    top: -220px;
+    left: -180px;
+    animation: floatOne 12s ease-in-out infinite;
+}
+
+.orb.two {
+    width: 450px;
+    height: 450px;
+    background: #8b5cf6;
+    top: 25%;
+    right: -220px;
+    animation: floatTwo 15s ease-in-out infinite;
+}
+
+.orb.three {
+    width: 330px;
+    height: 330px;
+    background: #2563eb;
+    bottom: -200px;
+    left: 40%;
+    animation: floatThree 14s ease-in-out infinite;
+}
+
+@keyframes floatOne {
+    0%,100% {
+        transform: translate(0,0);
     }
-
     50% {
-        transform:
-            translate(80px,50px)
-            scale(1.15);
-    }
-
-    100% {
-        transform:
-            translate(-40px,90px)
-            scale(0.95);
+        transform: translate(80px,60px);
     }
 }
 
-@keyframes symbolFloat {
-
-    0% {
-        transform:
-            translateY(0)
-            rotate(0deg);
-
-        opacity: 0.06;
+@keyframes floatTwo {
+    0%,100% {
+        transform: translate(0,0);
     }
-
     50% {
-        transform:
-            translateY(-35px)
-            rotate(8deg);
-
-        opacity: 0.16;
-    }
-
-    100% {
-        transform:
-            translateY(0)
-            rotate(0deg);
-
-        opacity: 0.06;
+        transform: translate(-70px,50px);
     }
 }
 
-@keyframes gridMove {
+@keyframes floatThree {
+    0%,100% {
+        transform: translate(0,0);
+    }
+    50% {
+        transform: translate(50px,-70px);
+    }
+}
 
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+#intro {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(0,217,255,.07),
+            transparent 30%
+        ),
+        #020617;
+
+    transition:
+        opacity .9s ease,
+        visibility .9s ease;
+}
+
+#intro.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.intro-grid {
+    position: absolute;
+    inset: -20%;
+
+    background-image:
+        linear-gradient(
+            rgba(0,217,255,.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(139,92,246,.035) 1px,
+            transparent 1px
+        );
+
+    background-size: 60px 60px;
+
+    transform:
+        perspective(600px)
+        rotateX(55deg)
+        scale(1.7);
+
+    transform-origin: center bottom;
+}
+
+.intro-ring {
+    position: absolute;
+
+    width: 330px;
+    height: 330px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid rgba(0,217,255,.25);
+
+    box-shadow:
+        0 0 35px rgba(0,217,255,.07),
+        inset 0 0 35px rgba(139,92,246,.05);
+
+    animation: ringPulse 3s ease-in-out infinite;
+}
+
+.intro-ring::before {
+    content: "";
+
+    position: absolute;
+    inset: 27px;
+
+    border:
+        1px solid rgba(139,92,246,.17);
+
+    border-radius: 50%;
+}
+
+.intro-ring::after {
+    content: "";
+
+    position: absolute;
+    inset: -35px;
+
+    border:
+        1px solid rgba(0,217,255,.07);
+
+    border-radius: 50%;
+}
+
+@keyframes ringPulse {
+    0%,100% {
+        transform: scale(.94);
+        opacity: .45;
+    }
+
+    50% {
+        transform: scale(1.04);
+        opacity: .9;
+    }
+}
+
+.intro-content {
+    position: relative;
+    z-index: 2;
+
+    width: min(90%,700px);
+
+    text-align: center;
+}
+
+.intro-logo {
+    width: 88px;
+    height: 88px;
+
+    margin: 0 auto 28px;
+
+    animation: introLogo 1.2s ease forwards;
+}
+
+.intro-logo svg {
+    width: 100%;
+    height: 100%;
+
+    filter:
+        drop-shadow(
+            0 0 15px
+            rgba(0,217,255,.35)
+        );
+}
+
+@keyframes introLogo {
     from {
-        transform: translateY(0);
+        opacity: 0;
+        transform: scale(.55);
     }
 
     to {
-        transform: translateY(70px);
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.intro-greeting {
+    min-height: 55px;
+
+    font-size:
+        clamp(27px,5vw,43px);
+
+    font-weight: 750;
+
+    letter-spacing: -1px;
+}
+
+.intro-welcome {
+    min-height: 35px;
+
+    margin-top: 5px;
+
+    color: var(--cyan);
+
+    font-size:
+        clamp(17px,3vw,25px);
+
+    font-weight: 500;
+}
+
+.intro-tagline {
+    margin-top: 27px;
+
+    color: #64748b;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+}
+
+.intro-progress {
+    width: 190px;
+    height: 2px;
+
+    margin: 31px auto 0;
+
+    overflow: hidden;
+
+    background:
+        rgba(255,255,255,.07);
+}
+
+.intro-progress span {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--cyan),
+            var(--purple)
+        );
+
+    transform: translateX(-100%);
+
+    animation: progress 3.2s ease forwards;
+}
+
+@keyframes progress {
+    to {
+        transform: translateX(0);
     }
 }
 
@@ -288,22 +404,18 @@ input {
 
 .navbar {
     position: relative;
-    z-index: 100000;
+    z-index: 10000;
+
+    width: 90%;
+    max-width: 1250px;
+
+    height: 78px;
+
+    margin: auto;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    padding: 14px 6%;
-
-    background:
-        rgba(5,11,22,0.88);
-
-    border-bottom:
-        1px solid
-        rgba(0,217,255,0.12);
-
-    backdrop-filter: blur(15px);
 }
 
 .logo-area {
@@ -313,145 +425,136 @@ input {
 }
 
 .academix-logo {
-    width: 44px;
-    height: 44px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 12px;
-
-    border:
-        1px solid
-        rgba(0,217,255,0.6);
-
-    background:
-        rgba(0,217,255,0.05);
-
-    box-shadow:
-        0 0 15px
-        rgba(0,217,255,0.18);
+    width: 45px;
+    height: 45px;
 }
 
 .logo-svg {
-    width: 36px;
-    height: 36px;
+    width: 100%;
+    height: 100%;
 }
 
 .logo-text {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 800;
-    letter-spacing: 0.3px;
+    letter-spacing: -.5px;
 }
 
 .logo-text span {
-    color: #00d9ff;
+    display: block;
+
+    color: var(--cyan);
+
+    font-size: 9px;
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
 }
 
 
 /* =========================================================
-   MOBILE MENU
+   HAMBURGER
 ========================================================= */
 
 .mobile-menu-btn {
     display: flex;
 
-    width: 46px;
-    height: 46px;
-
     align-items: center;
     justify-content: center;
 
-    padding: 0;
+    width: 46px;
+    height: 46px;
 
     border:
-        1px solid
-        rgba(0,217,255,0.35);
+        1px solid rgba(0,217,255,.35);
 
     border-radius: 12px;
 
     background:
-        rgba(0,217,255,0.06);
+        rgba(0,217,255,.055);
 
-    color: #00d9ff;
+    color: var(--cyan);
 
-    font-size: 26px;
+    font-size: 25px;
+
+    line-height: 1;
 
     cursor: pointer;
 
-    flex-shrink: 0;
-
-    position: relative;
+    transition: .25s;
 
     z-index: 100002;
-
-    transition: 0.25s;
 }
 
 .mobile-menu-btn:hover {
     background:
-        rgba(0,217,255,0.12);
+        rgba(0,217,255,.12);
 
     border-color:
-        #00d9ff;
+        var(--cyan);
 
-    transform:
-        scale(1.04);
+    transform: scale(1.04);
 }
-
-
-/* =========================================================
-   NAV LINKS
-========================================================= */
 
 .nav-links {
     display: none;
 
     position: absolute;
 
-    top: calc(100% + 10px);
+    top: 68px;
     right: 0;
 
-    width: 240px;
+    width: 255px;
 
     padding: 10px;
 
     flex-direction: column;
-    align-items: stretch;
-
     gap: 5px;
 
-    background:
-        rgba(5,11,22,0.98);
-
     border:
-        1px solid
-        rgba(0,217,255,0.22);
+        1px solid rgba(0,217,255,.2);
 
-    border-radius: 15px;
+    border-radius: 17px;
+
+    background:
+        rgba(5,11,22,.98);
+
+    backdrop-filter: blur(20px);
 
     box-shadow:
-        0 20px 50px
-        rgba(0,0,0,0.55);
-
-    backdrop-filter: blur(18px);
+        0 25px 60px rgba(0,0,0,.55);
 
     z-index: 100001;
 }
 
 .nav-links.mobile-open {
     display: flex;
+
+    animation:
+        menuOpen .22s ease;
+}
+
+@keyframes menuOpen {
+    from {
+        opacity: 0;
+        transform:
+            translateY(-8px)
+            scale(.97);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
 }
 
 .nav-links a {
+    min-height: 45px;
+
     display: flex;
-
-    width: 100%;
-    min-height: 44px;
-
     align-items: center;
-    justify-content: flex-start;
 
     padding: 12px 14px;
 
@@ -461,30 +564,31 @@ input {
 
     font-size: 14px;
 
-    transition: 0.2s;
+    transition: .2s;
 }
 
 .nav-links a:hover {
-    color: #00d9ff;
+    color: var(--cyan);
 
     background:
-        rgba(0,217,255,0.08);
+        rgba(0,217,255,.07);
+
+    transform:
+        translateX(3px);
 }
 
-.login-button {
-    color: #00d9ff !important;
+.nav-links .search-nav {
+    color: var(--cyan);
 
     border:
-        1px solid
-        rgba(0,217,255,0.5);
+        1px solid rgba(0,217,255,.15);
 }
 
-.search-nav {
-    color: #00d9ff !important;
+.nav-links .login-button {
+    color: var(--cyan);
 
     border:
-        1px solid
-        rgba(0,217,255,0.3);
+        1px solid rgba(0,217,255,.3);
 }
 
 
@@ -493,293 +597,843 @@ input {
 ========================================================= */
 
 .hero {
-    min-height: 88vh;
+    width: 90%;
+    max-width: 1100px;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    margin: 75px auto 0;
 
-    gap: 50px;
-
-    padding: 80px 8%;
-
-    background:
-        radial-gradient(
-            circle at 20% 30%,
-            rgba(0,217,255,0.12),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 80% 70%,
-            rgba(139,92,246,0.12),
-            transparent 35%
-        );
-}
-
-.hero-content {
-    max-width: 650px;
+    text-align: center;
 }
 
 .hero-badge {
-    display: inline-block;
+    display: inline-flex;
 
-    padding: 7px 14px;
+    align-items: center;
 
-    margin-bottom: 20px;
+    padding: 8px 15px;
 
     border:
-        1px solid
-        rgba(0,217,255,0.3);
+        1px solid rgba(0,217,255,.2);
 
-    border-radius: 20px;
-
-    color: #00d9ff;
-
-    font-size: 12px;
-    font-weight: bold;
+    border-radius: 999px;
 
     background:
-        rgba(0,217,255,0.06);
+        rgba(0,217,255,.045);
+
+    color: var(--cyan);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.6px;
 }
 
 .hero h1 {
+    max-width: 900px;
+
+    margin: 24px auto 0;
+
     font-size:
-        clamp(42px,6vw,72px);
+        clamp(43px,7vw,82px);
 
-    line-height: 1.05;
+    line-height: .98;
 
-    margin-bottom: 22px;
+    letter-spacing: -4px;
+
+    font-weight: 850;
 }
 
 .hero h1 span {
+    display: block;
+
     background:
         linear-gradient(
             90deg,
-            #00d9ff,
-            #8b5cf6
+            #fff,
+            var(--cyan),
+            #fff
         );
 
+    background-size: 200% auto;
+
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    color: transparent;
+
+    animation:
+        gradientMove 5s linear infinite;
+}
+
+@keyframes gradientMove {
+    to {
+        background-position: 200% center;
+    }
 }
 
 .hero p {
-    color: #a9b7cc;
+    max-width: 670px;
 
-    font-size: 18px;
+    margin: 28px auto 0;
 
-    max-width: 580px;
+    color: var(--muted);
 
-    margin-bottom: 30px;
+    font-size: 16px;
+
+    line-height: 1.8;
 }
 
 .hero-buttons {
     display: flex;
-    gap: 14px;
+
+    justify-content: center;
+
     flex-wrap: wrap;
+
+    gap: 13px;
+
+    margin-top: 31px;
 }
 
-.primary-button {
-    padding: 13px 22px;
+.primary-btn,
+.secondary-btn {
+    min-height: 48px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 22px;
 
     border-radius: 11px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition: .25s;
+}
+
+.primary-btn {
+    color: #001018;
 
     background:
         linear-gradient(
             135deg,
-            #00d9ff,
-            #8b5cf6
+            var(--cyan),
+            #62efff
         );
 
-    color: white;
-
-    font-weight: bold;
-
-    transition: 0.25s;
-}
-
-.primary-button:hover {
-    transform: translateY(-3px);
-
     box-shadow:
-        0 10px 25px
-        rgba(0,217,255,0.2);
+        0 12px 30px
+        rgba(0,217,255,.13);
 }
 
-.secondary-button {
-    padding: 13px 22px;
-
-    border-radius: 11px;
+.secondary-btn {
+    color: #e2e8f0;
 
     border:
-        1px solid
-        rgba(255,255,255,0.15);
-
-    color: #dbeafe;
+        1px solid rgba(255,255,255,.11);
 
     background:
-        rgba(255,255,255,0.04);
-
-    transition: 0.25s;
+        rgba(255,255,255,.035);
 }
 
-.secondary-button:hover {
-    border-color: #00d9ff;
-
-    color: #00d9ff;
-
+.primary-btn:hover,
+.secondary-btn:hover {
     transform: translateY(-3px);
 }
 
 
 /* =========================================================
-   HERO SEARCH
+   LEARNING SELECTOR
 ========================================================= */
 
-.hero-search {
-    display: flex;
+.learning-selector {
+    width: 90%;
+    max-width: 1050px;
 
-    max-width: 580px;
+    margin: 65px auto 0;
 
-    margin-top: 25px;
-
-    background:
-        rgba(255,255,255,0.04);
+    padding: 29px;
 
     border:
-        1px solid
-        rgba(0,217,255,0.2);
+        1px solid rgba(0,217,255,.14);
 
-    border-radius: 12px;
-
-    overflow: hidden;
-}
-
-.hero-search input {
-    flex: 1;
-
-    padding: 14px 16px;
-
-    border: none;
-    outline: none;
-
-    background: transparent;
-
-    color: white;
-
-    font-size: 14px;
-}
-
-.hero-search input::placeholder {
-    color: #7d8da5;
-}
-
-.hero-search button {
-    padding: 0 20px;
-
-    border: none;
+    border-radius: 23px;
 
     background:
         linear-gradient(
-            135deg,
-            #00d9ff,
-            #8b5cf6
+            145deg,
+            rgba(9,20,38,.9),
+            rgba(8,13,27,.78)
         );
 
-    color: white;
+    backdrop-filter: blur(18px);
 
-    font-weight: bold;
+    box-shadow:
+        0 25px 65px
+        rgba(0,0,0,.22);
+}
+
+.selector-heading {
+    text-align: center;
+
+    margin-bottom: 25px;
+}
+
+.selector-heading h3 {
+    font-size: 22px;
+
+    margin-bottom: 7px;
+}
+
+.selector-heading p {
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+.selector-row {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 14px;
+}
+
+.selector-box label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #cbd5e1;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+.selector-box select {
+    width: 100%;
+
+    height: 48px;
+
+    padding: 0 14px;
+
+    border:
+        1px solid rgba(255,255,255,.09);
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background: #08111f;
+
+    color: #e2e8f0;
 
     cursor: pointer;
 }
 
-
-/* =========================================================
-   HERO PREVIEW
-========================================================= */
-
-.hero-preview {
-    width: 420px;
-
-    padding: 22px;
-
-    border-radius: 22px;
-
-    background:
-        rgba(10,20,38,0.8);
-
-    border:
-        1px solid
-        rgba(0,217,255,0.2);
+.selector-box select:focus {
+    border-color: var(--cyan);
 
     box-shadow:
-        0 0 50px
-        rgba(0,217,255,0.08);
-
-    backdrop-filter: blur(15px);
+        0 0 0 3px
+        rgba(0,217,255,.06);
 }
 
-.preview-top {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
+.selector-box select:disabled {
+    opacity: .4;
+    cursor: not-allowed;
 }
 
-.preview-title {
-    font-weight: bold;
+.open-chapter-btn {
+    display: block;
+
+    margin: 22px auto 0;
+
+    min-height: 46px;
+
+    padding: 0 25px;
+
+    border: 0;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--cyan),
+            var(--purple)
+        );
+
+    color: white;
+
+    font-weight: 700;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition: .25s;
 }
 
-.preview-status {
-    color: #22c55e;
-    font-size: 12px;
+.open-chapter-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,217,255,.15);
+}
+
+.open-chapter-btn:disabled {
+    opacity: .3;
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   ENHANCED FLASH CARD / LEARNING
+========================================================= */
+
+.preview {
+    width: 90%;
+    max-width: 1050px;
+
+    margin: 70px auto 0;
+
+    display: grid;
+
+    grid-template-columns:
+        1.05fr .95fr;
+
+    gap: 17px;
 }
 
 .preview-card {
-    padding: 18px;
+    position: relative;
 
-    margin-bottom: 12px;
+    padding: 27px;
 
-    border-radius: 14px;
-
-    background:
-        rgba(255,255,255,0.04);
-
-    border:
-        1px solid
-        rgba(255,255,255,0.06);
-}
-
-.preview-card strong {
-    display: block;
-    margin-bottom: 5px;
-}
-
-.progress {
-    height: 7px;
-
-    margin-top: 10px;
-
-    border-radius: 20px;
-
-    background: #172338;
+    min-height: 330px;
 
     overflow: hidden;
+
+    border:
+        1px solid rgba(255,255,255,.075);
+
+    border-radius: 23px;
+
+    background:
+        rgba(7,15,29,.78);
+
+    backdrop-filter: blur(15px);
+
+    transition: .3s;
 }
 
-.progress span {
+.preview-card:hover {
+    border-color:
+        rgba(0,217,255,.2);
+
+    transform:
+        translateY(-4px);
+}
+
+
+/* top */
+
+.card-top {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 22px;
+}
+
+.card-label {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #64748b;
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 7px;
+}
+
+.card-label::before {
+    content: "";
+
+    width: 17px;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--cyan),
+            transparent
+        );
+}
+
+.card-top h3 {
+    font-size: 20px;
+
+    letter-spacing: -.5px;
+}
+
+
+/* Active status */
+
+.status-dot {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 6px 10px;
+
+    border:
+        1px solid rgba(34,197,94,.17);
+
+    border-radius: 999px;
+
+    color: #86efac;
+
+    background:
+        rgba(34,197,94,.06);
+
+    font-size: 9px;
+}
+
+.status-dot::before {
+    content: "";
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #4ade80;
+
+    box-shadow:
+        0 0 8px #4ade80;
+}
+
+
+/* learning panel */
+
+.learning-progress {
+    position: relative;
+
+    padding: 19px;
+
+    margin-bottom: 14px;
+
+    border:
+        1px solid rgba(255,255,255,.055);
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,217,255,.05),
+            rgba(139,92,246,.045)
+        );
+}
+
+.learning-progress::before {
+    content: "";
+
+    position: absolute;
+
+    width: 70px;
+    height: 70px;
+
+    right: -20px;
+    top: -30px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0,217,255,.08);
+
+    filter: blur(25px);
+}
+
+.progress-info {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 11px;
+
+    color: #94a3b8;
+
+    font-size: 10px;
+}
+
+.progress-info strong {
+    color: var(--cyan);
+
+    font-size: 13px;
+}
+
+.progress-track {
+    position: relative;
+
+    width: 100%;
+    height: 7px;
+
+    overflow: hidden;
+
+    border-radius: 999px;
+
+    background:
+        rgba(255,255,255,.06);
+}
+
+.progress-track span {
     display: block;
 
     width: 72%;
     height: 100%;
 
-    border-radius: 20px;
+    border-radius: inherit;
 
     background:
         linear-gradient(
             90deg,
-            #00d9ff,
-            #8b5cf6
+            var(--cyan),
+            var(--purple)
         );
+
+    box-shadow:
+        0 0 14px
+        rgba(0,217,255,.25);
+}
+
+
+/* learning stats */
+
+.learning-stats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 9px;
+}
+
+.learning-stat {
+    position: relative;
+
+    padding: 15px 11px;
+
+    border:
+        1px solid rgba(255,255,255,.05);
+
+    border-radius: 14px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    transition: .25s;
+}
+
+.learning-stat:hover {
+    border-color:
+        rgba(0,217,255,.15);
+
+    background:
+        rgba(0,217,255,.035);
+}
+
+.learning-stat-icon {
+    width: 27px;
+    height: 27px;
+
+    margin-bottom: 10px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid rgba(0,217,255,.15);
+
+    border-radius: 8px;
+
+    background:
+        rgba(0,217,255,.06);
+}
+
+.learning-stat-icon svg {
+    width: 14px;
+    height: 14px;
+
+    stroke: var(--cyan);
+}
+
+.learning-stat strong {
+    display: block;
+
+    font-size: 14px;
+}
+
+.learning-stat small {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #64748b;
+
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   FLASH CARD
+========================================================= */
+
+.flash-card-section {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(8,16,31,.85),
+            rgba(9,13,28,.9)
+        );
+}
+
+.flash-card {
+    position: relative;
+
+    min-height: 235px;
+
+    padding: 26px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    border:
+        1px solid rgba(0,217,255,.15);
+
+    border-radius: 19px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,217,255,.065),
+            rgba(139,92,246,.095)
+        );
+
+    transition: .35s;
+}
+
+.flash-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 190px;
+    height: 190px;
+
+    right: -90px;
+    top: -95px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0,217,255,.12);
+
+    filter: blur(45px);
+}
+
+.flash-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    bottom: -70px;
+    left: -60px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(139,92,246,.1);
+
+    filter: blur(35px);
+}
+
+.flash-card:hover {
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(0,217,255,.3);
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.3);
+}
+
+
+/* flash icon */
+
+.flash-symbol {
+    position: relative;
+
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 16px;
+
+    border:
+        1px solid rgba(0,217,255,.18);
+
+    border-radius: 12px;
+
+    background:
+        rgba(0,217,255,.06);
+
+    box-shadow:
+        inset 0 0 20px
+        rgba(0,217,255,.025);
+}
+
+.flash-symbol svg {
+    width: 21px;
+    height: 21px;
+
+    stroke: var(--cyan);
+}
+
+.flash-tag {
+    position: relative;
+
+    align-self: flex-start;
+
+    margin-bottom: 9px;
+
+    color: var(--cyan);
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.7px;
+}
+
+.flash-card h4 {
+    position: relative;
+
+    max-width: 390px;
+
+    margin-bottom: 9px;
+
+    font-size: 21px;
+
+    line-height: 1.3;
+
+    letter-spacing: -.5px;
+}
+
+.flash-card p {
+    position: relative;
+
+    max-width: 350px;
+
+    color: #94a3b8;
+
+    font-size: 10px;
+
+    line-height: 1.7;
+}
+
+.flash-card-bottom {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-top: auto;
+
+    padding-top: 18px;
+
+    color: #64748b;
+
+    font-size: 9px;
+}
+
+.flash-arrow {
+    width: 31px;
+    height: 31px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid rgba(0,217,255,.13);
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.035);
+
+    color: var(--cyan);
+
+    transition: .25s;
+}
+
+.flash-card:hover .flash-arrow {
+    transform:
+        translateX(5px);
+
+    background:
+        rgba(0,217,255,.08);
+
+    border-color:
+        rgba(0,217,255,.3);
 }
 
 
@@ -788,62 +1442,90 @@ input {
 ========================================================= */
 
 .stats {
+    width: 90%;
+    max-width: 1050px;
+
+    margin: 70px auto 0;
+
     display: grid;
 
     grid-template-columns:
         repeat(4,1fr);
 
-    gap: 15px;
-
-    padding: 30px 8%;
+    gap: 12px;
 }
 
-.stat-card {
-    padding: 24px;
+.stat-box {
+    padding: 22px 15px;
 
     text-align: center;
+
+    border:
+        1px solid rgba(255,255,255,.065);
 
     border-radius: 16px;
 
     background:
-        rgba(255,255,255,0.03);
+        rgba(255,255,255,.022);
 
-    border:
-        1px solid
-        rgba(255,255,255,0.07);
+    transition: .25s;
 }
 
-.stat-card h2 {
-    color: #00d9ff;
-    font-size: 30px;
+.stat-box:hover {
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(0,217,255,.16);
 }
 
-.stat-card p {
-    color: #8998ae;
-    font-size: 13px;
+.stat-box strong {
+    display: block;
+
+    color: var(--cyan);
+
+    font-size: 25px;
+
+    margin-bottom: 5px;
+}
+
+.stat-box span {
+    color: #64748b;
+
+    font-size: 10px;
 }
 
 
 /* =========================================================
-   GENERAL SECTIONS
+   COMMON SECTION
 ========================================================= */
 
 .section {
-    padding: 80px 8%;
+    width: 90%;
+    max-width: 1100px;
+
+    margin: 100px auto 0;
 }
 
 .section-heading {
     text-align: center;
-    margin-bottom: 45px;
+
+    margin-bottom: 31px;
 }
 
 .section-heading h2 {
-    font-size: 38px;
-    margin-bottom: 10px;
+    font-size:
+        clamp(28px,4vw,40px);
+
+    letter-spacing: -1.5px;
 }
 
 .section-heading p {
-    color: #8e9bb0;
+    margin-top: 8px;
+
+    color: var(--muted);
+
+    font-size: 13px;
 }
 
 
@@ -857,387 +1539,132 @@ input {
     grid-template-columns:
         repeat(5,1fr);
 
-    gap: 18px;
+    gap: 13px;
 }
 
 .subject-card {
-    padding: 25px 20px;
+    min-height: 160px;
 
-    min-height: 180px;
+    padding: 21px;
 
-    border-radius: 18px;
+    display: flex;
 
-    background:
-        rgba(255,255,255,0.035);
+    flex-direction: column;
+
+    justify-content: space-between;
 
     border:
-        1px solid
-        rgba(255,255,255,0.07);
+        1px solid rgba(255,255,255,.07);
 
-    transition: 0.3s;
+    border-radius: 17px;
+
+    background:
+        rgba(8,16,30,.7);
+
+    transition: .3s;
 }
 
 .subject-card:hover {
-    transform: translateY(-7px);
+    transform:
+        translateY(-6px);
 
     border-color:
-        rgba(0,217,255,0.35);
+        rgba(0,217,255,.25);
 
     box-shadow:
         0 15px 35px
-        rgba(0,217,255,0.08);
+        rgba(0,0,0,.25);
 }
 
-.subject-icon {
-    font-size: 32px;
-    margin-bottom: 15px;
-}
+.subject-number {
+    color: var(--cyan);
 
-.subject-card h3 {
-    margin-bottom: 7px;
-}
+    font-size: 9px;
 
-.subject-card p {
-    color: #8998ae;
-    font-size: 13px;
-}
-
-
-/* =========================================================
-   ACADEMIX SEARCH FLASH CARD
-========================================================= */
-
-.academix-search-section {
-    padding: 5px 8% 70px;
-}
-
-
-/*
-   IMPORTANT:
-   This is now a real <a> link.
-   No onclick is required.
-*/
-
-.academix-search-card {
-
-    position: relative;
-
-    display: flex;
-    align-items: center;
-
-    max-width: 1100px;
-    min-height: 230px;
-
-    margin: auto;
-    padding: 38px 42px;
-
-    gap: 28px;
-
-    overflow: hidden;
-
-    cursor: pointer;
-
-    border-radius: 25px;
-
-    background:
-        radial-gradient(
-            circle at 10% 50%,
-            rgba(0,217,255,0.12),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 90% 20%,
-            rgba(139,92,246,0.14),
-            transparent 35%
-        ),
-        rgba(255,255,255,0.025);
-
-    border:
-        1px solid
-        rgba(0,217,255,0.20);
-
-    box-shadow:
-        0 15px 50px
-        rgba(0,0,0,0.20);
-
-    transition:
-        transform 0.35s ease,
-        border-color 0.35s ease,
-        box-shadow 0.35s ease;
-
-    z-index: 5;
-}
-
-.academix-search-card:hover {
-
-    transform:
-        translateY(-7px);
-
-    border-color:
-        rgba(0,217,255,0.55);
-
-    box-shadow:
-        0 20px 60px
-        rgba(0,217,255,0.10),
-        0 0 40px
-        rgba(139,92,246,0.08);
-}
-
-
-/* SEARCH ICON */
-
-.search-card-icon {
-
-    width: 82px;
-    height: 82px;
-
-    min-width: 82px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 22px;
-
-    font-size: 38px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(0,217,255,0.12),
-            rgba(139,92,246,0.15)
-        );
-
-    border:
-        1px solid
-        rgba(0,217,255,0.30);
-
-    box-shadow:
-        0 0 30px
-        rgba(0,217,255,0.12);
-
-    transition:
-        transform 0.35s ease;
-}
-
-.academix-search-card:hover
-.search-card-icon {
-
-    transform:
-        rotate(-5deg)
-        scale(1.08);
-}
-
-
-/* SEARCH CONTENT */
-
-.search-card-content {
-
-    position: relative;
-
-    z-index: 2;
-
-    flex: 1;
-}
-
-.search-card-badge {
-
-    display: inline-block;
-
-    margin-bottom: 7px;
-
-    color: #00d9ff;
-
-    font-size: 11px;
-
-    font-weight: 800;
+    font-weight: 700;
 
     letter-spacing: 1.5px;
 }
 
-.search-card-content h2 {
+.subject-card h3 {
+    margin-top: auto;
 
-    margin:
-        0 0 7px;
+    margin-bottom: 6px;
 
-    font-size:
-        clamp(25px,3vw,34px);
-
-    line-height:
-        1.2;
+    font-size: 16px;
 }
 
-.search-card-content h2 span {
+.subject-card p {
+    color: var(--muted);
 
-    background:
-        linear-gradient(
-            90deg,
-            #00d9ff,
-            #8b5cf6
-        );
+    font-size: 10px;
 
-    -webkit-background-clip:
-        text;
-
-    -webkit-text-fill-color:
-        transparent;
-}
-
-.search-card-main {
-
-    margin:
-        0 0 7px;
-
-    color:
-        #dbeafe;
-
-    font-size:
-        16px;
-
-    font-weight:
-        600;
-}
-
-.search-card-description {
-
-    max-width:
-        650px;
-
-    margin:
-        0;
-
-    color:
-        #8998ae;
-
-    font-size:
-        13px;
-
-    line-height:
-        1.6;
+    line-height: 1.55;
 }
 
 
-/* SEARCH BUTTON */
+/* =========================================================
+   SEARCH
+========================================================= */
 
-.search-card-button {
+.search-section {
+    padding: 40px 30px;
 
-    display:
-        inline-flex;
+    text-align: center;
 
-    align-items:
-        center;
+    border:
+        1px solid rgba(0,217,255,.13);
 
-    gap:
-        10px;
-
-    margin-top:
-        17px;
-
-    padding:
-        10px 17px;
-
-    border-radius:
-        10px;
+    border-radius: 23px;
 
     background:
         linear-gradient(
             135deg,
-            #00d9ff,
-            #8b5cf6
+            rgba(0,217,255,.045),
+            rgba(139,92,246,.05)
+        );
+}
+
+.search-section h2 {
+    font-size: 28px;
+
+    letter-spacing: -1px;
+}
+
+.search-section p {
+    max-width: 620px;
+
+    margin:
+        10px auto 23px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+.search-link {
+    display: inline-flex;
+
+    align-items: center;
+
+    min-height: 45px;
+
+    padding: 0 21px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--cyan),
+            var(--purple)
         );
 
-    color:
-        white;
+    font-size: 12px;
 
-    font-size:
-        13px;
-
-    font-weight:
-        700;
-
-    box-shadow:
-        0 8px 22px
-        rgba(0,217,255,0.15);
-
-    transition:
-        transform 0.3s ease;
-}
-
-.academix-search-card:hover
-.search-card-button {
-
-    transform:
-        translateX(6px);
-}
-
-.search-card-button span {
-
-    font-size:
-        18px;
-
-    line-height:
-        1;
-}
-
-
-/* SEARCH DECORATIONS */
-
-.search-card-decoration {
-
-    position:
-        absolute;
-
-    border-radius:
-        50%;
-
-    pointer-events:
-        none;
-
-    filter:
-        blur(5px);
-}
-
-.decoration-one {
-
-    width:
-        180px;
-
-    height:
-        180px;
-
-    right:
-        -80px;
-
-    top:
-        -90px;
-
-    border:
-        1px solid
-        rgba(0,217,255,0.15);
-
-    box-shadow:
-        0 0 40px
-        rgba(0,217,255,0.08);
-}
-
-.decoration-two {
-
-    width:
-        100px;
-
-    height:
-        100px;
-
-    right:
-        70px;
-
-    bottom:
-        -65px;
-
-    border:
-        1px solid
-        rgba(139,92,246,0.18);
+    font-weight: 700;
 }
 
 
@@ -1251,469 +1678,110 @@ input {
     grid-template-columns:
         repeat(4,1fr);
 
-    gap: 18px;
+    gap: 13px;
 }
 
 .tool-card {
-    padding: 28px;
+    min-height: 145px;
 
-    border-radius: 18px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(0,217,255,0.05),
-            rgba(139,92,246,0.04)
-        );
+    padding: 22px;
 
     border:
-        1px solid
-        rgba(255,255,255,0.07);
+        1px solid rgba(255,255,255,.07);
 
-    transition: 0.3s;
+    border-radius: 16px;
+
+    background:
+        rgba(8,16,30,.7);
+
+    transition: .25s;
 }
 
 .tool-card:hover {
     transform:
-        translateY(-6px);
+        translateY(-5px);
 
     border-color:
-        rgba(139,92,246,0.35);
+        rgba(139,92,246,.28);
 }
 
-.tool-card .icon {
-    font-size: 34px;
-    margin-bottom: 14px;
+.tool-card h3 {
+    margin-bottom: 9px;
+
+    font-size: 16px;
 }
 
 .tool-card p {
-    color: #8998ae;
+    color: var(--muted);
 
-    font-size: 13px;
+    font-size: 11px;
 
-    margin:
-        8px 0 18px;
-}
-
-.tool-link {
-    color: #00d9ff;
-
-    font-size: 13px;
-
-    font-weight: bold;
+    line-height: 1.6;
 }
 
 
 /* =========================================================
-   ACADEMIX LAB
+   LAB
 ========================================================= */
 
-.academix-lab-home {
+.lab-card {
+    padding: 40px;
+
+    text-align: center;
+
+    border:
+        1px solid rgba(139,92,246,.17);
+
+    border-radius: 23px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(139,92,246,.07),
+            transparent 55%
+        ),
+        rgba(8,15,29,.7);
+}
+
+.lab-card h2 {
+    font-size: 29px;
+
+    margin-bottom: 10px;
+}
+
+.lab-card p {
+    max-width: 650px;
 
     margin:
-        40px 8% 80px;
+        auto auto 22px;
 
-    min-height:
-        430px;
+    color: var(--muted);
 
-    padding:
-        55px;
+    font-size: 12px;
 
-    display:
-        flex;
+    line-height: 1.7;
+}
 
-    align-items:
-        center;
+.lab-btn {
+    display: inline-flex;
 
-    justify-content:
-        space-between;
+    align-items: center;
 
-    gap:
-        50px;
+    min-height: 44px;
 
-    position:
-        relative;
-
-    overflow:
-        hidden;
-
-    border-radius:
-        28px;
-
-    background:
-        radial-gradient(
-            circle at 15% 50%,
-            rgba(0,217,255,0.12),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 85% 50%,
-            rgba(139,92,246,0.13),
-            transparent 35%
-        ),
-        rgba(255,255,255,0.025);
+    padding: 0 20px;
 
     border:
-        1px solid
-        rgba(0,217,255,0.18);
+        1px solid rgba(139,92,246,.3);
 
-    box-shadow:
-        0 0 60px
-        rgba(0,217,255,0.06);
-}
+    border-radius: 10px;
 
-.lab-home-content {
-    max-width: 580px;
-
-    position: relative;
-
-    z-index: 2;
-}
-
-.lab-home-badge {
-
-    display: inline-block;
-
-    padding:
-        7px 14px;
-
-    margin-bottom:
-        18px;
-
-    border-radius:
-        20px;
-
-    color:
-        #00d9ff;
-
-    font-size:
-        12px;
-
-    font-weight:
-        bold;
-
-    border:
-        1px solid
-        rgba(0,217,255,0.3);
+    color: #ddd6fe;
 
     background:
-        rgba(0,217,255,0.06);
-}
+        rgba(139,92,246,.07);
 
-.lab-home-content h2 {
-
-    font-size:
-        clamp(32px,4vw,48px);
-
-    line-height:
-        1.1;
-
-    margin-bottom:
-        18px;
-}
-
-.lab-home-content h2 span {
-
-    background:
-        linear-gradient(
-            90deg,
-            #00d9ff,
-            #8b5cf6
-        );
-
-    -webkit-background-clip:
-        text;
-
-    -webkit-text-fill-color:
-        transparent;
-}
-
-.lab-home-content p {
-
-    color:
-        #94a3b8;
-
-    font-size:
-        16px;
-
-    max-width:
-        520px;
-
-    margin-bottom:
-        28px;
-}
-
-.lab-home-btn {
-
-    display:
-        inline-block;
-
-    padding:
-        14px 24px;
-
-    border-radius:
-        12px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #00d9ff,
-            #8b5cf6
-        );
-
-    color:
-        white;
-
-    font-weight:
-        bold;
-
-    transition:
-        0.3s;
-}
-
-.lab-home-btn:hover {
-
-    transform:
-        translateY(-4px);
-
-    box-shadow:
-        0 12px 30px
-        rgba(0,217,255,0.22);
-}
-
-
-/* LAB VISUAL */
-
-.lab-home-visual {
-
-    width:
-        330px;
-
-    height:
-        330px;
-
-    position:
-        relative;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    flex-shrink:
-        0;
-}
-
-.lab-core {
-
-    width:
-        105px;
-
-    height:
-        105px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    border-radius:
-        50%;
-
-    font-size:
-        48px;
-
-    background:
-        rgba(7,15,30,0.95);
-
-    border:
-        2px solid
-        rgba(0,217,255,0.55);
-
-    box-shadow:
-        0 0 25px
-        rgba(0,217,255,0.35),
-        0 0 55px
-        rgba(139,92,246,0.2);
-
-    position:
-        relative;
-
-    z-index:
-        3;
-
-    animation:
-        labFloat
-        3s
-        ease-in-out
-        infinite;
-}
-
-.orbit {
-
-    position:
-        absolute;
-
-    border-radius:
-        50%;
-
-    border:
-        1px solid
-        rgba(0,217,255,0.18);
-}
-
-.orbit1 {
-
-    width:
-        245px;
-
-    height:
-        115px;
-
-    animation:
-        rotateOrbit
-        8s
-        linear
-        infinite;
-}
-
-.orbit2 {
-
-    width:
-        180px;
-
-    height:
-        285px;
-
-    animation:
-        rotateOrbit
-        10s
-        linear
-        infinite
-        reverse;
-}
-
-.lab-orb {
-
-    width:
-        52px;
-
-    height:
-        52px;
-
-    position:
-        absolute;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    border-radius:
-        50%;
-
-    background:
-        rgba(8,17,32,0.95);
-
-    border:
-        1px solid
-        rgba(255,255,255,0.15);
-
-    font-size:
-        23px;
-
-    box-shadow:
-        0 0 20px
-        rgba(0,217,255,0.15);
-
-    z-index:
-        4;
-
-    animation:
-        labFloat
-        3.5s
-        ease-in-out
-        infinite;
-}
-
-.orb1 {
-    top:
-        20px;
-
-    left:
-        135px;
-}
-
-.orb2 {
-    right:
-        10px;
-
-    top:
-        130px;
-
-    animation-delay:
-        0.5s;
-}
-
-.orb3 {
-    bottom:
-        25px;
-
-    left:
-        130px;
-
-    animation-delay:
-        1s;
-}
-
-.orb4 {
-    left:
-        5px;
-
-    top:
-        130px;
-
-    animation-delay:
-        1.5s;
-}
-
-@keyframes labFloat {
-
-    0%,
-    100% {
-        transform:
-            translateY(0);
-    }
-
-    50% {
-        transform:
-            translateY(-10px);
-    }
-}
-
-@keyframes rotateOrbit {
-
-    from {
-        transform:
-            rotate(0deg);
-    }
-
-    to {
-        transform:
-            rotate(360deg);
-    }
+    font-size: 12px;
 }
 
 
@@ -1722,262 +1790,402 @@ input {
 ========================================================= */
 
 .cta {
+    width: 90%;
+    max-width: 1000px;
 
-    margin:
-        30px 8% 80px;
+    margin: 100px auto 0;
 
-    padding:
-        55px 30px;
+    padding: 55px 30px;
 
-    text-align:
-        center;
-
-    border-radius:
-        25px;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(0,217,255,0.12),
-            rgba(139,92,246,0.08),
-            rgba(255,255,255,0.02)
-        );
+    text-align: center;
 
     border:
-        1px solid
-        rgba(0,217,255,0.15);
-}
+        1px solid rgba(0,217,255,.13);
 
-.cta h2 {
-
-    font-size:
-        34px;
-
-    margin-bottom:
-        12px;
-}
-
-.cta p {
-
-    color:
-        #94a3b8;
-
-    margin-bottom:
-        25px;
-}
-
-
-/* =========================================================
-   ABOUT DEVELOPER
-========================================================= */
-
-.about-developer {
-
-    padding:
-        20px 8% 80px;
-}
-
-.developer-card {
-
-    max-width:
-        850px;
-
-    margin:
-        auto;
-
-    padding:
-        45px 40px;
-
-    text-align:
-        center;
-
-    border-radius:
-        24px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(0,217,255,0.06),
-            rgba(139,92,246,0.06)
-        );
-
-    border:
-        1px solid
-        rgba(0,217,255,0.16);
-
-    box-shadow:
-        0 0 45px
-        rgba(0,217,255,0.06);
-
-    transition:
-        0.3s;
-}
-
-.developer-card:hover {
-
-    transform:
-        translateY(-5px);
-
-    border-color:
-        rgba(0,217,255,0.35);
-
-    box-shadow:
-        0 15px 45px
-        rgba(0,217,255,0.08);
-}
-
-.developer-icon {
-
-    width:
-        82px;
-
-    height:
-        82px;
-
-    margin:
-        0 auto 20px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    border-radius:
-        50%;
-
-    font-size:
-        38px;
+    border-radius: 25px;
 
     background:
         linear-gradient(
             135deg,
-            rgba(0,217,255,0.12),
-            rgba(139,92,246,0.12)
+            rgba(0,217,255,.05),
+            rgba(139,92,246,.05)
         );
-
-    border:
-        1px solid
-        rgba(0,217,255,0.3);
-
-    box-shadow:
-        0 0 25px
-        rgba(0,217,255,0.12);
 }
 
-.developer-card h3 {
-
+.cta h2 {
     font-size:
-        28px;
+        clamp(29px,5vw,45px);
 
-    margin-bottom:
-        8px;
+    letter-spacing: -1.5px;
+}
+
+.cta p {
+    max-width: 600px;
+
+    margin:
+        12px auto 24px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   DEVELOPER SECTION
+========================================================= */
+
+.developer {
+    position: relative;
+
+    width: 90%;
+    max-width: 900px;
+
+    margin: 100px auto 0;
+
+    padding: 48px 45px;
+
+    overflow: hidden;
+
+    border:
+        1px solid rgba(0,217,255,.13);
+
+    border-radius: 27px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(8,18,34,.94),
+            rgba(7,12,25,.84)
+        );
+
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,.25);
+}
+
+.developer::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent 15%,
+            rgba(0,217,255,.035),
+            transparent 85%
+        );
+
+    pointer-events: none;
+}
+
+.developer-glow {
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    top: -180px;
+    right: -100px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0,217,255,.1);
+
+    filter: blur(80px);
+}
+
+.developer-content {
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+}
+
+.developer-label {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-bottom: 12px;
+
+    color: var(--cyan);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2.5px;
+}
+
+.developer-label::before,
+.developer-label::after {
+    content: "";
+
+    width: 24px;
+    height: 1px;
 
     background:
         linear-gradient(
             90deg,
-            #00d9ff,
-            #8b5cf6
+            transparent,
+            var(--cyan)
         );
-
-    -webkit-background-clip:
-        text;
-
-    -webkit-text-fill-color:
-        transparent;
 }
 
-.developer-role {
-
-    color:
-        #dbeafe;
-
-    font-size:
-        14px;
-
-    font-weight:
-        bold;
-
-    margin-bottom:
-        18px;
-}
-
-.developer-card p {
-
-    max-width:
-        680px;
-
-    margin:
-        auto;
-
-    color:
-        #94a3b8;
-
-    font-size:
-        15px;
-
-    line-height:
-        1.8;
-}
-
-.x-profile {
-
-    display:
-        inline-flex;
-
-    width:
-        48px;
-
-    height:
-        48px;
-
-    margin-top:
-        25px;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    border-radius:
-        50%;
-
+.developer-label::after {
     background:
-        #000;
+        linear-gradient(
+            90deg,
+            var(--cyan),
+            transparent
+        );
+}
+
+.developer h2 {
+    margin-bottom: 13px;
+
+    font-size:
+        clamp(28px,4vw,38px);
+
+    letter-spacing: -1.5px;
+}
+
+.developer-description {
+    max-width: 630px;
+
+    margin: auto;
+
+    color: #94a3b8;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
+
+
+/* developer identity */
+
+.developer-profile {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-top: 29px;
+
+    padding:
+        11px 20px 11px 11px;
 
     border:
-        1px solid
-        rgba(255,255,255,0.25);
+        1px solid rgba(255,255,255,.075);
 
-    color:
-        white;
+    border-radius: 16px;
 
-    font-size:
-        25px;
+    background:
+        rgba(255,255,255,.025);
 
-    font-weight:
-        bold;
+    text-align: left;
 
-    transition:
-        0.3s;
+    transition: .3s;
 }
 
-.x-profile:hover {
-
+.developer-profile:hover {
     transform:
-        translateY(-4px)
-        scale(1.08);
+        translateY(-3px);
 
     border-color:
-        #00d9ff;
+        rgba(0,217,255,.18);
+
+    background:
+        rgba(0,217,255,.025);
+}
+
+
+/* avatar */
+
+.developer-avatar {
+    position: relative;
+
+    width: 53px;
+    height: 53px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--cyan),
+            var(--purple)
+        );
+
+    color: #020617;
+
+    font-size: 14px;
+
+    font-weight: 900;
 
     box-shadow:
-        0 0 20px
-        rgba(0,217,255,0.35);
+        0 0 25px
+        rgba(0,217,255,.13);
+}
+
+.developer-avatar::after {
+    content: "";
+
+    position: absolute;
+
+    width: 9px;
+    height: 9px;
+
+    right: -3px;
+    bottom: -3px;
+
+    border: 2px solid #07101e;
+
+    border-radius: 50%;
+
+    background:
+        #4ade80;
+
+    box-shadow:
+        0 0 8px
+        rgba(74,222,128,.7);
+}
+
+.developer-info h3 {
+    font-size: 16px;
+
+    margin-bottom: 3px;
+}
+
+.developer-info span {
+    color: #64748b;
+
+    font-size: 9px;
+}
+
+
+/* developer divider */
+
+.developer-divider {
+    width: 100%;
+    height: 1px;
+
+    margin:
+        31px 0 23px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.08),
+            transparent
+        );
+}
+
+
+/* bottom */
+
+.developer-bottom {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.developer-quote {
+    display: flex;
+
+    align-items: center;
+
+    color: #64748b;
+
+    font-size: 11px;
+
+    font-style: italic;
+
+    text-align: left;
+}
+
+.quote-mark {
+    margin-right: 5px;
+
+    color: var(--cyan);
+
+    font-size: 27px;
+
+    font-style: normal;
+
+    line-height: 1;
+}
+
+
+/* X */
+
+.developer-x {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding:
+        10px 15px;
+
+    border:
+        1px solid rgba(255,255,255,.1);
+
+    border-radius: 11px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    color: #e2e8f0;
+
+    font-size: 10px;
+
+    font-weight: 650;
+
+    transition: .25s;
+}
+
+.developer-x:hover {
+    color: white;
+
+    background:
+        rgba(255,255,255,.07);
+
+    border-color:
+        rgba(255,255,255,.24);
+
+    transform:
+        translateY(-2px);
+}
+
+.x-logo {
+    width: 16px;
+    height: 16px;
+
+    flex-shrink: 0;
 }
 
 
@@ -1986,556 +2194,231 @@ input {
 ========================================================= */
 
 footer {
+    width: 90%;
+    max-width: 1100px;
+
+    margin:
+        80px auto 0;
 
     padding:
-        35px 8%;
-
-    text-align:
-        center;
+        28px 0;
 
     border-top:
-        1px solid
-        rgba(255,255,255,0.06);
+        1px solid rgba(255,255,255,.06);
 
-    color:
-        #718096;
+    text-align: center;
 
-    font-size:
-        13px;
-}
+    color: #64748b;
 
-footer strong {
-    color:
-        #00d9ff;
+    font-size: 10px;
 }
 
 
 /* =========================================================
-   ACHARYA AI
+   ACHARYA
 ========================================================= */
 
 .acharya-logo {
+    position: fixed;
 
-    position:
-        fixed;
+    right: 25px;
+    bottom: 25px;
 
-    right:
-        25px;
+    width: 64px;
+    height: 64px;
 
-    top:
-        50%;
+    display: flex;
 
-    transform:
-        translateY(-50%);
+    align-items: center;
+    justify-content: center;
 
-    width:
-        68px;
-
-    height:
-        68px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    border-radius:
-        50%;
+    border-radius: 50%;
 
     background:
-        rgba(7,15,30,0.96);
+        rgba(5,15,28,.94);
 
     border:
-        2px solid
-        rgba(0,217,255,0.5);
-
-    cursor:
-        pointer;
-
-    z-index:
-        99999;
-
-    box-shadow:
-        0 0 18px
-        rgba(0,217,255,0.35),
-        0 0 35px
-        rgba(139,92,246,0.25);
-
-    animation:
-        acharyaGlow
-        3s
-        ease-in-out
-        infinite;
-
-    transition:
-        0.3s ease;
-}
-
-.acharya-svg {
-
-    width:
-        52px;
-
-    height:
-        52px;
-}
-
-.acharya-logo:hover {
-
-    transform:
-        translateY(-50%)
-        scale(1.12);
-
-    border-color:
-        #00d9ff;
+        1px solid rgba(0,217,255,.3);
 
     box-shadow:
         0 0 25px
-        rgba(0,217,255,0.65),
-        0 0 50px
-        rgba(139,92,246,0.45);
+        rgba(0,217,255,.1);
+
+    z-index: 5000;
+
+    transition: .25s;
 }
 
-@keyframes acharyaGlow {
+.acharya-logo:hover {
+    transform: scale(1.07);
 
-    0% {
+    border-color:
+        var(--cyan);
+}
 
-        box-shadow:
-            0 0 18px
-            rgba(0,217,255,0.3),
-
-            0 0 35px
-            rgba(139,92,246,0.2);
-    }
-
-    50% {
-
-        box-shadow:
-            0 0 28px
-            rgba(0,217,255,0.55),
-
-            0 0 45px
-            rgba(139,92,246,0.35);
-    }
-
-    100% {
-
-        box-shadow:
-            0 0 18px
-            rgba(0,217,255,0.3),
-
-            0 0 35px
-            rgba(139,92,246,0.2);
-    }
+.acharya-svg {
+    width: 43px;
+    height: 43px;
 }
 
 
 /* =========================================================
-   DESKTOP NAV
+   RESPONSIVE
 ========================================================= */
 
-@media (min-width: 701px) {
-
-    .mobile-menu-btn {
-        display: none;
-    }
-
-    .nav-links {
-
-        position: static;
-
-        width: auto;
-
-        padding: 0;
-
-        display: flex;
-
-        flex-direction: row;
-
-        align-items: center;
-
-        gap: 12px;
-
-        background: transparent;
-
-        border: none;
-
-        box-shadow: none;
-
-        backdrop-filter: none;
-    }
-
-    .nav-links a {
-
-        width: auto;
-
-        min-height: auto;
-
-        padding: 9px 13px;
-    }
-}
-
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width: 1000px) {
-
-    .hero {
-
-        flex-direction:
-            column;
-
-        text-align:
-            center;
-    }
-
-    .hero-content {
-
-        max-width:
-            750px;
-    }
-
-    .hero p {
-
-        margin-left:
-            auto;
-
-        margin-right:
-            auto;
-    }
-
-    .hero-buttons {
-
-        justify-content:
-            center;
-    }
-
-    .hero-search {
-
-        margin-left:
-            auto;
-
-        margin-right:
-            auto;
-    }
-
-    .hero-preview {
-
-        width:
-            100%;
-
-        max-width:
-            500px;
-    }
+@media (max-width: 950px) {
 
     .subject-grid {
-
         grid-template-columns:
             repeat(3,1fr);
     }
 
     .tools-grid {
-
         grid-template-columns:
             repeat(2,1fr);
     }
 
-    .stats {
-
-        grid-template-columns:
-            repeat(2,1fr);
+    .preview {
+        grid-template-columns: 1fr;
     }
 
-    .academix-lab-home {
-
-        margin:
-            30px 5% 60px;
-
-        padding:
-            40px 25px;
-
-        flex-direction:
-            column;
-
-        text-align:
-            center;
-    }
-
-    .lab-home-content {
-
-        max-width:
-            100%;
-    }
-
-    .lab-home-content p {
-
-        margin-left:
-            auto;
-
-        margin-right:
-            auto;
-    }
 }
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
 
 @media (max-width: 700px) {
 
-    .bg-orb {
-
-        filter:
-            blur(65px);
-
-        opacity:
-            0.20;
-    }
-
-    .floating-symbols span {
-
-        font-size:
-            17px;
-    }
-
-    .grid-lines {
-
-        background-size:
-            50px 50px;
-    }
-
     .navbar {
+        width: 92%;
+        height: 70px;
+    }
 
-        padding:
-            12px 4%;
+    .academix-logo {
+        width: 40px;
+        height: 40px;
     }
 
     .logo-text {
-
-        font-size:
-            17px;
+        font-size: 16px;
     }
 
     .hero {
-
-        padding:
-            60px 5%;
+        margin-top: 55px;
     }
 
     .hero h1 {
-
         font-size:
-            42px;
+            clamp(39px,11vw,58px);
+
+        letter-spacing: -2.5px;
     }
 
     .hero p {
-
-        font-size:
-            15px;
+        font-size: 13px;
     }
 
-    .hero-search {
+    .learning-selector {
+        padding: 20px;
+        margin-top: 45px;
+    }
 
-        width:
-            100%;
+    .selector-row {
+        grid-template-columns: 1fr;
     }
 
     .stats {
-
         grid-template-columns:
             repeat(2,1fr);
-
-        padding:
-            20px 5%;
     }
 
     .subject-grid {
-
         grid-template-columns:
             repeat(2,1fr);
     }
 
     .tools-grid {
-
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
     }
 
-    .section {
+    .intro-ring {
+        width: 240px;
+        height: 240px;
+    }
 
+    .intro-logo {
+        width: 75px;
+        height: 75px;
+    }
+
+    .intro-tagline {
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+
+    .developer {
         padding:
-            60px 5%;
+            34px 20px;
     }
 
-    .section-heading h2 {
-
-        font-size:
-            30px;
+    .developer-bottom {
+        flex-direction: column;
+        align-items: center;
     }
 
-
-    /* SEARCH CARD MOBILE */
-
-    .academix-search-section {
-
-        padding:
-            5px 5% 55px;
+    .developer-quote {
+        text-align: center;
     }
 
-    .academix-search-card {
-
-        padding:
-            28px 24px;
-
-        flex-direction:
-            column;
-
-        align-items:
-            flex-start;
-
-        gap:
-            20px;
+    .developer-x {
+        width: 100%;
+        justify-content: center;
     }
-
-    .search-card-icon {
-
-        width:
-            65px;
-
-        height:
-            65px;
-
-        min-width:
-            65px;
-
-        font-size:
-            30px;
-
-        border-radius:
-            18px;
-    }
-
-    .search-card-content h2 {
-
-        font-size:
-            25px;
-    }
-
-    .search-card-main {
-
-        font-size:
-            14px;
-    }
-
-    .search-card-description {
-
-        font-size:
-            12px;
-    }
-
-
-    /* LAB MOBILE */
-
-    .lab-home-visual {
-
-        width:
-            280px;
-
-        height:
-            280px;
-    }
-
-    .orbit1 {
-
-        width:
-            210px;
-
-        height:
-            100px;
-    }
-
-    .orbit2 {
-
-        width:
-            155px;
-
-        height:
-            240px;
-    }
-
-
-    /* ACHARYA */
 
     .acharya-logo {
+        width: 58px;
+        height: 58px;
 
-        right:
-            18px;
-
-        bottom:
-            20px;
-
-        top:
-            auto;
-
-        transform:
-            none;
-
-        width:
-            60px;
-
-        height:
-            60px;
+        right: 16px;
+        bottom: 16px;
     }
 
-    .acharya-svg {
-
-        width:
-            46px;
-
-        height:
-            46px;
-    }
-
-    .acharya-logo:hover {
-
-        transform:
-            scale(1.1);
-    }
-
-
-    /* DEVELOPER */
-
-    .about-developer {
-
-        padding:
-            20px 5% 60px;
-    }
-
-    .developer-card {
-
-        padding:
-            35px 22px;
-    }
-
-    .developer-card h3 {
-
-        font-size:
-            24px;
-    }
-
-    .developer-card p {
-
-        font-size:
-            14px;
-    }
 }
+
+@media (max-width: 450px) {
+
+    .subject-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+        width: 100%;
+    }
+
+    .intro-greeting {
+        font-size: 26px;
+    }
+
+    .intro-welcome {
+        font-size: 17px;
+    }
+
+    .learning-stats {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================================================
+   END CSS
+========================================================= */
 
 </style>
 
@@ -2545,57 +2428,43 @@ footer strong {
 <body>
 
 
-<!-- =========================================================
-     ANIMATED BACKGROUND
-========================================================= -->
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
 
-<div class="animated-bg">
+<div class="background">
 
-    <div class="bg-orb orb-a"></div>
-    <div class="bg-orb orb-b"></div>
-    <div class="bg-orb orb-c"></div>
+    <div class="background-grid"></div>
 
-    <div class="floating-symbols">
+    <div class="orb one"></div>
 
-        <span style="--x:5%;--y:15%;--delay:0s;">∫</span>
-        <span style="--x:14%;--y:70%;--delay:2s;">π</span>
-        <span style="--x:27%;--y:25%;--delay:4s;">⚛</span>
-        <span style="--x:40%;--y:82%;--delay:1s;">Σ</span>
-        <span style="--x:55%;--y:18%;--delay:3s;">λ</span>
-        <span style="--x:68%;--y:72%;--delay:5s;">{ }</span>
-        <span style="--x:78%;--y:28%;--delay:2s;">∞</span>
-        <span style="--x:91%;--y:65%;--delay:4s;">AI</span>
-        <span style="--x:85%;--y:12%;--delay:1s;">01</span>
-        <span style="--x:32%;--y:55%;--delay:5s;">H₂O</span>
-        <span style="--x:62%;--y:42%;--delay:3s;">f(x)</span>
-        <span style="--x:10%;--y:40%;--delay:6s;">λ</span>
+    <div class="orb two"></div>
 
-    </div>
-
-    <div class="grid-lines"></div>
+    <div class="orb three"></div>
 
 </div>
 
 
-<!-- =========================================================
-     NAVBAR
-========================================================= -->
+<!-- =====================================================
+     INTRO
+===================================================== -->
 
-<nav class="navbar">
+<div id="intro">
 
-    <a href="index.html" class="logo-area">
+    <div class="intro-grid"></div>
 
-        <div class="academix-logo">
+    <div class="intro-ring"></div>
 
-            <svg
-                viewBox="0 0 64 64"
-                class="logo-svg"
-            >
+    <div class="intro-content">
+
+        <div class="intro-logo">
+
+            <svg viewBox="0 0 64 64">
 
                 <defs>
 
                     <linearGradient
-                        id="logoGradient"
+                        id="introLogoGradient"
                         x1="0%"
                         y1="0%"
                         x2="100%"
@@ -2605,12 +2474,12 @@ footer strong {
                         <stop
                             offset="0%"
                             stop-color="#00d9ff"
-                        >
+                        />
 
                         <stop
                             offset="100%"
                             stop-color="#8b5cf6"
-                        >
+                        />
 
                     </linearGradient>
 
@@ -2619,7 +2488,7 @@ footer strong {
                 <path
                     d="M10 20 L32 10 L54 20 L32 30 Z"
                     fill="none"
-                    stroke="url(#logoGradient)"
+                    stroke="url(#introLogoGradient)"
                     stroke-width="4"
                     stroke-linejoin="round"
                 />
@@ -2627,14 +2496,14 @@ footer strong {
                 <path
                     d="M16 27 V42 L32 51 L48 42 V27"
                     fill="none"
-                    stroke="url(#logoGradient)"
+                    stroke="url(#introLogoGradient)"
                     stroke-width="4"
                     stroke-linejoin="round"
                 />
 
                 <path
                     d="M32 30 V50"
-                    stroke="url(#logoGradient)"
+                    stroke="url(#introLogoGradient)"
                     stroke-width="4"
                 />
 
@@ -2642,253 +2511,642 @@ footer strong {
 
         </div>
 
-        <div class="logo-text">
+        <div
+            class="intro-greeting"
+            id="introGreeting"
+        ></div>
 
-            Academix
-            <span>by Tiwari</span>
+        <div
+            class="intro-welcome"
+            id="introWelcome"
+        ></div>
 
+        <div class="intro-tagline">
+            Learn • Practice • Explore
         </div>
 
-    </a>
-
-
-    <button
-        class="mobile-menu-btn"
-        id="mobileMenuBtn"
-        aria-label="Open navigation menu"
-        aria-expanded="false"
-        type="button"
-    >
-        ☰
-    </button>
-
-
-    <div
-        class="nav-links"
-        id="navLinks"
-    >
-
-        <a href="index.html">
-            Home
-        </a>
-
-        <a href="#subjects">
-            Subjects
-        </a>
-
-        <a href="dashboard.html">
-            📊 Dashboard
-        </a>
-
-        <a href="#tools">
-            Tools
-        </a>
-
-        <!-- EXACT SEARCH FILE -->
-        <a
-            href="Academix-search.html"
-            class="search-nav"
-        >
-            🔎 Search
-        </a>
-
-        <a
-            href="login.html"
-            class="login-button"
-        >
-            🔐 Login
-        </a>
+        <div class="intro-progress">
+            <span></span>
+        </div>
 
     </div>
+
+</div>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar">
+
+
+<a
+    href="index.html"
+    class="logo-area"
+>
+
+    <div class="academix-logo">
+
+        <svg
+            viewBox="0 0 64 64"
+            class="logo-svg"
+        >
+
+            <defs>
+
+                <linearGradient
+                    id="logoGradient"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%"
+                >
+
+                    <stop
+                        offset="0%"
+                        stop-color="#00d9ff"
+                    />
+
+                    <stop
+                        offset="100%"
+                        stop-color="#8b5cf6"
+                    />
+
+                </linearGradient>
+
+            </defs>
+
+            <path
+                d="M10 20 L32 10 L54 20 L32 30 Z"
+                fill="none"
+                stroke="url(#logoGradient)"
+                stroke-width="4"
+                stroke-linejoin="round"
+            />
+
+            <path
+                d="M16 27 V42 L32 51 L48 42 V27"
+                fill="none"
+                stroke="url(#logoGradient)"
+                stroke-width="4"
+                stroke-linejoin="round"
+            />
+
+            <path
+                d="M32 30 V50"
+                stroke="url(#logoGradient)"
+                stroke-width="4"
+            />
+
+        </svg>
+
+    </div>
+
+    <div class="logo-text">
+
+        Academix
+
+        <span>
+            by Tiwari
+        </span>
+
+    </div>
+
+</a>
+
+
+<button
+    class="mobile-menu-btn"
+    id="mobileMenuBtn"
+    aria-label="Open navigation menu"
+    aria-expanded="false"
+    type="button"
+>
+    ☰
+</button>
+
+
+<div
+    class="nav-links"
+    id="navLinks"
+>
+
+    <a href="index.html">
+        Home
+    </a>
+
+    <a href="#subjects">
+        Subjects
+    </a>
+
+    <a href="dashboard.html">
+        Dashboard
+    </a>
+
+    <a href="#tools">
+        Tools
+    </a>
+
+    <a
+        href="Academix-search.html"
+        class="search-nav"
+    >
+        Search
+    </a>
+
+    <a
+        href="login.html"
+        class="login-button"
+    >
+        Login
+    </a>
+
+</div>
 
 </nav>
 
 
-<!-- =========================================================
-     HERO
-========================================================= -->
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main>
+
+
+<!-- HERO -->
 
 <section class="hero">
 
-    <div class="hero-content">
-
-        <div class="hero-badge">
-            🚀 SMART LEARNING PLATFORM
-        </div>
-
-        <h1>
-
-            Learn Smarter.<br>
-
-            <span>
-                Build Your Future.
-            </span>
-
-        </h1>
-
-        <p>
-
-            Academix by Tiwari is your modern learning platform
-            for notes, quizzes, practice, exams, study tools
-            and AI-powered learning.
-
-        </p>
-
-        <div class="hero-buttons">
-
-            <a
-                href="#subjects"
-                class="primary-button"
-            >
-                Start Learning →
-            </a>
-
-            <a
-                href="dashboard.html"
-                class="secondary-button"
-            >
-                Open Dashboard
-            </a>
-
-        </div>
-
-
-        <!-- HOME SEARCH -->
-
-        <form
-            class="hero-search"
-            id="homeSearchForm"
-        >
-
-            <input
-                type="text"
-                id="homeSearch"
-                placeholder="🔎 Search chapters, topics, subjects..."
-                autocomplete="off"
-            >
-
-            <button type="submit">
-                Search
-            </button>
-
-        </form>
-
+    <div class="hero-badge">
+        SMART LEARNING PLATFORM
     </div>
 
+    <h1>
 
-    <!-- HERO PREVIEW -->
+        Learn Smarter.
 
-    <div class="hero-preview">
+        <span>
+            Build Your Future.
+        </span>
 
-        <div class="preview-top">
+    </h1>
 
-            <div class="preview-title">
-                Student Dashboard
-            </div>
+    <p>
+        Academix by Tiwari brings notes, practice,
+        quizzes, exams and powerful study tools
+        together in one modern learning space.
+    </p>
 
-            <div class="preview-status">
-                ● Active
-            </div>
+    <div class="hero-buttons">
 
-        </div>
+        <a
+            href="#subjects"
+            class="primary-btn"
+        >
+            Start Learning →
+        </a>
 
-        <div class="preview-card">
-
-            <strong>
-                📚 Today's Learning
-            </strong>
-
-            <span>
-                Mathematics • Science • English
-            </span>
-
-            <div class="progress">
-                <span></span>
-            </div>
-
-        </div>
-
-        <div class="preview-card">
-
-            <strong>
-                🎯 Focus Session
-            </strong>
-
-            <span>
-                50 minute study session
-            </span>
-
-        </div>
-
-        <div class="preview-card">
-
-            <strong>
-                🧠 Exam Simulator
-            </strong>
-
-            <span>
-                Practice your knowledge
-            </span>
-
-        </div>
+        <a
+            href="dashboard.html"
+            class="secondary-btn"
+        >
+            Open Dashboard
+        </a>
 
     </div>
 
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
+     SELECTOR
+===================================================== -->
+
+<section class="learning-selector">
+
+    <div class="selector-heading">
+
+        <h3>
+            Choose Your Learning Path
+        </h3>
+
+        <p>
+            Select your class, subject and chapter to continue.
+        </p>
+
+    </div>
+
+    <div class="selector-row">
+
+
+        <div class="selector-box">
+
+            <label for="classSelect">
+                Class
+            </label>
+
+            <select id="classSelect">
+
+                <option value="">
+                    Select Class
+                </option>
+
+                <option value="8">
+                    Class 8
+                </option>
+
+                <option value="9">
+                    Class 9
+                </option>
+
+                <option value="10">
+                    Class 10
+                </option>
+
+                <option value="11">
+                    Class 11
+                </option>
+
+                <option value="12">
+                    Class 12
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="selector-box">
+
+            <label for="subjectSelect">
+                Subject
+            </label>
+
+            <select
+                id="subjectSelect"
+                disabled
+            >
+
+                <option value="">
+                    Select Subject
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="selector-box">
+
+            <label for="chapterSelect">
+                Chapter
+            </label>
+
+            <select
+                id="chapterSelect"
+                disabled
+            >
+
+                <option value="">
+                    Select Chapter
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+
+    <button
+        class="open-chapter-btn"
+        id="openChapterBtn"
+        type="button"
+        disabled
+    >
+        Open Chapter →
+    </button>
+
+</section>
+
+
+<!-- =====================================================
+     LEARNING + FLASH CARDS
+===================================================== -->
+
+<section class="preview">
+
+
+<!-- LEARNING CARD -->
+
+<div class="preview-card">
+
+    <div class="card-top">
+
+        <div>
+
+            <span class="card-label">
+                ACADEMIX LEARNING
+            </span>
+
+            <h3>
+                Today's Learning
+            </h3>
+
+        </div>
+
+        <span class="status-dot">
+            Active
+        </span>
+
+    </div>
+
+
+    <div class="learning-progress">
+
+        <div class="progress-info">
+
+            <span>
+                Daily Progress
+            </span>
+
+            <strong>
+                72%
+            </strong>
+
+        </div>
+
+        <div class="progress-track">
+            <span></span>
+        </div>
+
+    </div>
+
+
+    <div class="learning-stats">
+
+
+        <!-- TOPICS -->
+
+        <div class="learning-stat">
+
+            <div class="learning-stat-icon">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+
+                    <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5z"/>
+
+                    <path d="M4 5.5v16"/>
+
+                </svg>
+
+            </div>
+
+            <strong>
+                04
+            </strong>
+
+            <small>
+                Topics
+            </small>
+
+        </div>
+
+
+        <!-- QUESTIONS -->
+
+        <div class="learning-stat">
+
+            <div class="learning-stat-icon">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+
+                    <path d="M5 4h14v16H5z"/>
+
+                    <path d="M8 8h8M8 12h5M8 16h7"/>
+
+                </svg>
+
+            </div>
+
+            <strong>
+                28
+            </strong>
+
+            <small>
+                Questions
+            </small>
+
+        </div>
+
+
+        <!-- FOCUS -->
+
+        <div class="learning-stat">
+
+            <div class="learning-stat-icon">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+
+                    <circle cx="12" cy="12" r="8"/>
+
+                    <path d="M12 8v4l3 2"/>
+
+                </svg>
+
+            </div>
+
+            <strong>
+                45m
+            </strong>
+
+            <small>
+                Focus
+            </small>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<!-- FLASH CARD -->
+
+<div class="preview-card flash-card-section">
+
+    <div class="card-top">
+
+        <div>
+
+            <span class="card-label">
+                QUICK REVISION
+            </span>
+
+            <h3>
+                Flash Cards
+            </h3>
+
+        </div>
+
+        <span class="card-count">
+            01 / 04
+        </span>
+
+    </div>
+
+
+    <div class="flash-card">
+
+
+        <div class="flash-symbol">
+
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            >
+
+                <rect
+                    x="5"
+                    y="3"
+                    width="14"
+                    height="18"
+                    rx="2"
+                />
+
+                <path d="M8 7h8"/>
+
+                <path d="M8 11h5"/>
+
+                <path d="M8 15h3"/>
+
+                <path d="M15 14l2 2 3-4"/>
+
+            </svg>
+
+        </div>
+
+
+        <span class="flash-tag">
+            SCIENCE
+        </span>
+
+
+        <h4>
+            What is the basic unit of life?
+        </h4>
+
+
+        <p>
+            Think about the answer before
+            checking your notes.
+        </p>
+
+
+        <div class="flash-card-bottom">
+
+            <span>
+                Think & Recall
+            </span>
+
+            <span class="flash-arrow">
+                →
+            </span>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+</section>
+
+
+<!-- =====================================================
      STATS
-========================================================= -->
+===================================================== -->
 
 <section class="stats">
 
-    <div class="stat-card">
+    <div class="stat-box">
 
-        <h2>5</h2>
+        <strong>
+            5
+        </strong>
 
-        <p>
+        <span>
             Core Subjects
-        </p>
+        </span>
 
     </div>
 
-    <div class="stat-card">
+    <div class="stat-box">
 
-        <h2>100+</h2>
+        <strong>
+            100+
+        </strong>
 
-        <p>
+        <span>
             Learning Topics
-        </p>
+        </span>
 
     </div>
 
-    <div class="stat-card">
+    <div class="stat-box">
 
-        <h2>4+</h2>
+        <strong>
+            4+
+        </strong>
 
-        <p>
+        <span>
             Study Tools
-        </p>
+        </span>
 
     </div>
 
-    <div class="stat-card">
+    <div class="stat-box">
 
-        <h2>24/7</h2>
+        <strong>
+            24/7
+        </strong>
 
-        <p>
+        <span>
             Learn Anytime
-        </p>
+        </span>
 
     </div>
 
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      SUBJECTS
-========================================================= -->
+===================================================== -->
 
 <section
     class="section"
@@ -2902,7 +3160,7 @@ footer strong {
         </h2>
 
         <p>
-            Choose a subject and start learning.
+            Start learning from your favourite subject.
         </p>
 
     </div>
@@ -2910,22 +3168,23 @@ footer strong {
 
     <div class="subject-grid">
 
+
         <a
             href="math.html"
             class="subject-card"
         >
 
-            <div class="subject-icon">
-                📐
-            </div>
+            <span class="subject-number">
+                01
+            </span>
 
             <h3>
                 Mathematics
             </h3>
 
             <p>
-                Concepts, formulas, chapters,
-                practice and quizzes.
+                Concepts, examples,
+                practice and revision.
             </p>
 
         </a>
@@ -2936,17 +3195,17 @@ footer strong {
             class="subject-card"
         >
 
-            <div class="subject-icon">
-                🔬
-            </div>
+            <span class="subject-number">
+                02
+            </span>
 
             <h3>
                 Science
             </h3>
 
             <p>
-                Physics, Chemistry, Biology,
-                notes, quizzes and 3D learning.
+                Physics, Chemistry
+                and Biology learning.
             </p>
 
         </a>
@@ -2957,17 +3216,17 @@ footer strong {
             class="subject-card"
         >
 
-            <div class="subject-icon">
-                🌍
-            </div>
+            <span class="subject-number">
+                03
+            </span>
 
             <h3>
                 Social Science
             </h3>
 
             <p>
-                History, Geography, Civics
-                and Economics.
+                History, Geography,
+                Civics and Economics.
             </p>
 
         </a>
@@ -2978,17 +3237,17 @@ footer strong {
             class="subject-card"
         >
 
-            <div class="subject-icon">
-                📖
-            </div>
+            <span class="subject-number">
+                04
+            </span>
 
             <h3>
                 English
             </h3>
 
             <p>
-                Grammar, practice,
-                tests and quizzes.
+                Literature, grammar
+                and writing skills.
             </p>
 
         </a>
@@ -2999,19 +3258,50 @@ footer strong {
             class="subject-card"
         >
 
-            <div class="subject-icon">
-                💻
-            </div>
+            <span class="subject-number">
+                05
+            </span>
 
             <h3>
                 Computer
             </h3>
 
             <p>
-                Programming, web development,
-                AI, networking and IT.
+                Digital concepts,
+                coding and technology.
             </p>
 
+        </a>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SEARCH
+===================================================== -->
+
+<section class="section">
+
+    <div class="search-section">
+
+        <h2>
+            Academix Search
+        </h2>
+
+        <p>
+            Find study resources, chapters,
+            notes and learning content through
+            the dedicated Academix search experience.
+        </p>
+
+        <a
+            href="Academix-search.html"
+            class="search-link"
+        >
+            Open Academix Search →
         </a>
 
     </div>
@@ -3019,74 +3309,9 @@ footer strong {
 </section>
 
 
-<!-- =========================================================
-     ACADEMIX SEARCH FLASH CARD
-========================================================= -->
-
-<section class="academix-search-section">
-
-    <!--
-        IMPORTANT:
-        This is now a direct link.
-        No JavaScript onclick needed.
-    -->
-
-    <a
-        href="Academix-search.html"
-        class="academix-search-card"
-        aria-label="Open Academix Search"
-    >
-
-        <div class="search-card-icon">
-            🔎
-        </div>
-
-
-        <div class="search-card-content">
-
-            <div class="search-card-badge">
-                ✦ SMART LEARNING SEARCH
-            </div>
-
-            <h2>
-                Try Our
-                <span>Academix Search</span>
-            </h2>
-
-            <p class="search-card-main">
-                Search smarter. Discover faster. Learn better.
-            </p>
-
-            <p class="search-card-description">
-                Find educational resources, study material and
-                trusted learning websites — all in one place.
-            </p>
-
-            <div class="search-card-button">
-
-                Explore Academix Search
-
-                <span>
-                    →
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <div class="search-card-decoration decoration-one"></div>
-
-        <div class="search-card-decoration decoration-two"></div>
-
-    </a>
-
-</section>
-
-
-<!-- =========================================================
+<!-- =====================================================
      TOOLS
-========================================================= -->
+===================================================== -->
 
 <section
     class="section"
@@ -3096,11 +3321,11 @@ footer strong {
     <div class="section-heading">
 
         <h2>
-            Powerful Study Tools
+            Study Tools
         </h2>
 
         <p>
-            Everything you need to study smarter.
+            Useful tools designed for students.
         </p>
 
     </div>
@@ -3108,27 +3333,20 @@ footer strong {
 
     <div class="tools-grid">
 
+
         <a
             href="focus.html"
             class="tool-card"
         >
-
-            <div class="icon">
-                ⏱️
-            </div>
 
             <h3>
                 Focus Timer
             </h3>
 
             <p>
-                Improve concentration with
-                focused study sessions.
+                Stay focused with
+                structured study sessions.
             </p>
-
-            <span class="tool-link">
-                Open Tool →
-            </span>
 
         </a>
 
@@ -3138,22 +3356,14 @@ footer strong {
             class="tool-card"
         >
 
-            <div class="icon">
-                🧮
-            </div>
-
             <h3>
                 Scientific Calculator
             </h3>
 
             <p>
-                Solve mathematical calculations
-                quickly and easily.
+                Calculate equations
+                and scientific expressions.
             </p>
-
-            <span class="tool-link">
-                Open Tool →
-            </span>
 
         </a>
 
@@ -3163,22 +3373,14 @@ footer strong {
             class="tool-card"
         >
 
-            <div class="icon">
-                📊
-            </div>
-
             <h3>
                 Student Dashboard
             </h3>
 
             <p>
-                Track your study time,
-                sessions and progress.
+                Keep track of your
+                learning activity.
             </p>
-
-            <span class="tool-link">
-                Open Dashboard →
-            </span>
 
         </a>
 
@@ -3188,224 +3390,206 @@ footer strong {
             class="tool-card"
         >
 
-            <div class="icon">
-                🎯
-            </div>
-
             <h3>
                 Exam Simulator
             </h3>
 
             <p>
-                Practice timed exams and
-                check your performance.
+                Practice in an
+                exam-style environment.
             </p>
 
-            <span class="tool-link">
-                Start Exam →
-            </span>
-
         </a>
+
 
     </div>
 
 </section>
 
 
-<!-- =========================================================
-     ACADEMIX LAB
-========================================================= -->
+<!-- =====================================================
+     LAB
+===================================================== -->
 
-<section class="academix-lab-home">
+<section class="section">
 
-    <div class="lab-home-content">
-
-        <div class="lab-home-badge">
-            ✦ INTERACTIVE LEARNING
-        </div>
+    <div class="lab-card">
 
         <h2>
-
-            Welcome to
-
-            <span>
-                Academix Lab
-            </span>
-
+            Academix Lab
         </h2>
 
         <p>
-
-            Don't just read concepts.
-            Experiment with them, change variables
-            and discover what happens.
-
+            Explore interactive learning,
+            experiments and future educational
+            tools being developed for Academix.
         </p>
 
         <a
             href="lab.html"
-            class="lab-home-btn"
+            class="lab-btn"
         >
-            🧪 Enter Academix Lab →
+            Enter Academix Lab →
         </a>
-
-    </div>
-
-
-    <div class="lab-home-visual">
-
-        <div class="orbit orbit1"></div>
-
-        <div class="orbit orbit2"></div>
-
-        <div class="lab-core">
-            🧪
-        </div>
-
-        <div class="lab-orb orb1">
-            ⚡
-        </div>
-
-        <div class="lab-orb orb2">
-            🧬
-        </div>
-
-        <div class="lab-orb orb3">
-            📐
-        </div>
-
-        <div class="lab-orb orb4">
-            💻
-        </div>
 
     </div>
 
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      CTA
-========================================================= -->
+===================================================== -->
 
 <section class="cta">
 
     <h2>
-        Ready to Start Learning?
+        Your Learning.
+        Your Future.
     </h2>
 
     <p>
-        Explore Academix and build your knowledge
-        one topic at a time.
+        Learn concepts, practise questions,
+        test yourself and keep improving
+        with Academix by Tiwari.
     </p>
 
     <a
-        href="#subjects"
-        class="primary-button"
+        href="Academix-search.html"
+        class="primary-btn"
     >
-        Start Learning →
+        Start Exploring →
     </a>
 
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      ABOUT DEVELOPER
-========================================================= -->
+===================================================== -->
 
-<section
-    class="about-developer"
-    id="developer"
->
+<section class="developer">
 
-    <div class="section-heading">
+    <div class="developer-glow"></div>
+
+    <div class="developer-content">
+
+
+        <span class="developer-label">
+            THE PERSON BEHIND ACADEMIX
+        </span>
+
 
         <h2>
             About Developer
         </h2>
 
-        <p>
-            The person behind Academix by Tiwari.
-        </p>
 
-    </div>
+        <p class="developer-description">
 
-
-    <div class="developer-card">
-
-        <div class="developer-icon">
-            👨‍💻
-        </div>
-
-        <h3>
-            Anshu Tiwari
-        </h3>
-
-        <div class="developer-role">
-            Founder & Developer of Academix
-        </div>
-
-        <p>
-
-            Academix by Tiwari is created with the vision
-            of making learning simple, organized and
-            accessible for students. The platform brings
-            learning resources, practice, study tools and
-            AI-powered learning together in one place.
+            Academix is an independent educational
+            platform built with one simple goal —
+            making learning, practice and useful
+            study tools accessible in one focused space.
 
         </p>
 
-        <a
-            href="https://x.com/Avy0515"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="x-profile"
-            title="Follow Anshu Tiwari on X"
-            aria-label="X / Twitter"
-        >
-            𝕏
-        </a>
+
+        <div class="developer-profile">
+
+
+            <div class="developer-avatar">
+                AT
+            </div>
+
+
+            <div class="developer-info">
+
+                <h3>
+                    Anshu Tiwari
+                </h3>
+
+                <span>
+                    Founder & Developer
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="developer-divider"></div>
+
+
+        <div class="developer-bottom">
+
+
+            <div class="developer-quote">
+
+                <span class="quote-mark">
+                    “
+                </span>
+
+                Building Academix,
+                one idea at a time.
+
+            </div>
+
+
+            <a
+                href="https://x.com/Avy0515"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="developer-x"
+                aria-label="Follow Anshu Tiwari on X"
+            >
+
+                <svg
+                    viewBox="0 0 24 24"
+                    class="x-logo"
+                    aria-hidden="true"
+                >
+
+                    <path
+                        d="M18.244 2.25h3.308l-7.227 8.26
+                        8.502 11.24H16.17l-5.214-6.817
+                        -5.963 6.817H1.684l7.73-8.835
+                        L1.254 2.25H8.08l4.713 6.231
+                        5.45-6.231Zm-1.161 17.52h1.833
+                        L7.084 4.126H5.117L17.083 19.77Z"
+                        fill="currentColor"
+                    />
+
+                </svg>
+
+
+                <span>
+                    Follow on X
+                </span>
+
+
+            </a>
+
+
+        </div>
+
 
     </div>
 
 </section>
 
 
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-
-<footer>
-
-    <p>
-
-        © 2026
-
-        <strong>
-            Academix by Tiwari
-        </strong>
-
-    </p>
-
-    <p>
-
-        Developed with ❤️ by:
-        ANSHU TIWARI
-
-    </p>
-
-</footer>
+</main>
 
 
-<!-- =========================================================
-     ACHARYA AI
-========================================================= -->
+<!-- =====================================================
+     ACHARYA
+===================================================== -->
 
-<div
+<a
+    href="acharya.html"
     class="acharya-logo"
-    onclick="openAcharya()"
-    title="Acharya AI"
-    role="button"
-    tabindex="0"
     aria-label="Open Acharya AI"
 >
 
@@ -3438,288 +3622,676 @@ footer strong {
 
         </defs>
 
-
         <circle
             cx="50"
             cy="50"
-            r="43"
+            r="42"
             fill="none"
             stroke="url(#acharyaGradient)"
-            stroke-width="4"
+            stroke-width="3"
         />
-
 
         <path
-            d="
-                M35 42
-                C35 32 43 27 50 32
-                C57 27 65 32 65 42
-                C70 45 70 54 65 58
-                C63 68 55 73 50 68
-                C45 73 37 68 35 58
-                C30 54 30 45 35 42Z
-            "
+            d="M30 63 Q50 76 70 63"
             fill="none"
             stroke="url(#acharyaGradient)"
             stroke-width="4"
             stroke-linecap="round"
         />
 
-
         <circle
-            cx="42"
-            cy="45"
-            r="3"
+            cx="37"
+            cy="43"
+            r="4"
             fill="#00d9ff"
         />
 
         <circle
-            cx="58"
-            cy="45"
-            r="3"
+            cx="63"
+            cy="43"
+            r="4"
             fill="#8b5cf6"
-        />
-
-        <circle
-            cx="50"
-            cy="55"
-            r="3"
-            fill="#00d9ff"
-        />
-
-
-        <line
-            x1="42"
-            y1="45"
-            x2="50"
-            y2="55"
-            stroke="#00d9ff"
-            stroke-width="2"
-        />
-
-        <line
-            x1="58"
-            y1="45"
-            x2="50"
-            y2="55"
-            stroke="#8b5cf6"
-            stroke-width="2"
-        />
-
-
-        <line
-            x1="50"
-            y1="15"
-            x2="50"
-            y2="23"
-            stroke="#00d9ff"
-            stroke-width="3"
-            stroke-linecap="round"
-        />
-
-        <line
-            x1="30"
-            y1="20"
-            x2="35"
-            y2="27"
-            stroke="#8b5cf6"
-            stroke-width="3"
-            stroke-linecap="round"
-        />
-
-        <line
-            x1="70"
-            y1="20"
-            x2="65"
-            y2="27"
-            stroke="#00d9ff"
-            stroke-width="3"
-            stroke-linecap="round"
         />
 
     </svg>
 
-</div>
+</a>
 
 
-<!-- =========================================================
-     JAVASCRIPT
-========================================================= -->
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    © 2026 Academix by Tiwari.
+    Built for smarter learning.
+
+</footer>
+
 
 <script>
 
 /* =========================================================
-   ACHARYA
+   INTRO
 ========================================================= */
 
-function openAcharya() {
+const intro =
+    document.getElementById("intro");
 
-    window.location.href =
-        "acharya.html";
+const greeting =
+    document.getElementById("introGreeting");
+
+const welcome =
+    document.getElementById("introWelcome");
+
+
+function typeText(
+    element,
+    text,
+    speed,
+    callback
+) {
+
+    let index = 0;
+
+    element.textContent = "";
+
+    const timer =
+        setInterval(() => {
+
+            element.textContent +=
+                text[index];
+
+            index++;
+
+            if (
+                index >= text.length
+            ) {
+
+                clearInterval(timer);
+
+                if (callback) {
+                    callback();
+                }
+
+            }
+
+        }, speed);
 
 }
 
 
-/* =========================================================
-   ACHARYA KEYBOARD ACCESS
-========================================================= */
+setTimeout(() => {
 
-const acharyaLogo =
-    document.querySelector(".acharya-logo");
+    typeText(
+        greeting,
+        "नमस्ते",
+        120,
+        () => {
 
-if (acharyaLogo) {
+            setTimeout(() => {
 
-    acharyaLogo.addEventListener(
-        "keydown",
-        function(event) {
+                typeText(
+                    welcome,
+                    "आपका Academix by Tiwari में स्वागत है",
+                    60
+                );
 
-            if (
-                event.key === "Enter" ||
-                event.key === " "
-            ) {
-
-                event.preventDefault();
-
-                openAcharya();
-
-            }
+            }, 250);
 
         }
     );
 
-}
+}, 500);
+
+
+setTimeout(() => {
+
+    intro.classList.add("hide");
+
+}, 4300);
 
 
 /* =========================================================
-   MOBILE NAVIGATION
+   HAMBURGER
 ========================================================= */
 
-const mobileMenuBtn =
+const menuButton =
     document.getElementById(
         "mobileMenuBtn"
     );
 
-const navLinks =
+const nav =
     document.getElementById(
         "navLinks"
     );
 
 
-if (mobileMenuBtn && navLinks) {
+menuButton.addEventListener(
+    "click",
+    function(event) {
 
-    mobileMenuBtn.addEventListener(
+        event.stopPropagation();
+
+        const open =
+            nav.classList.toggle(
+                "mobile-open"
+            );
+
+        menuButton.textContent =
+            open ? "✕" : "☰";
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            open ? "true" : "false"
+        );
+
+    }
+);
+
+
+nav.querySelectorAll("a")
+.forEach(link => {
+
+    link.addEventListener(
         "click",
-        function() {
+        () => {
 
-            const isOpen =
-                navLinks.classList.toggle(
-                    "mobile-open"
-                );
+            nav.classList.remove(
+                "mobile-open"
+            );
 
-            mobileMenuBtn.setAttribute(
+            menuButton.textContent =
+                "☰";
+
+            menuButton.setAttribute(
                 "aria-expanded",
-                isOpen ? "true" : "false"
+                "false"
             );
-
-            mobileMenuBtn.setAttribute(
-                "aria-label",
-                isOpen
-                    ? "Close navigation menu"
-                    : "Open navigation menu"
-            );
-
-            mobileMenuBtn.textContent =
-                isOpen ? "✕" : "☰";
 
         }
     );
 
+});
 
-    navLinks
-        .querySelectorAll("a")
-        .forEach(function(link) {
 
-            link.addEventListener(
-                "click",
-                function() {
+document.addEventListener(
+    "click",
+    function(event) {
 
-                    navLinks.classList.remove(
-                        "mobile-open"
-                    );
+        if (
+            !nav.contains(event.target) &&
+            !menuButton.contains(event.target)
+        ) {
 
-                    mobileMenuBtn.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-                    mobileMenuBtn.setAttribute(
-                        "aria-label",
-                        "Open navigation menu"
-                    );
-
-                    mobileMenuBtn.textContent =
-                        "☰";
-
-                }
+            nav.classList.remove(
+                "mobile-open"
             );
 
-        });
+            menuButton.textContent =
+                "☰";
 
-}
+        }
+
+    }
+);
 
 
 /* =========================================================
-   HOME SEARCH
+   LEARNING SELECTOR
 ========================================================= */
 
-const homeSearchForm =
+const classSelect =
     document.getElementById(
-        "homeSearchForm"
+        "classSelect"
+    );
+
+const subjectSelect =
+    document.getElementById(
+        "subjectSelect"
+    );
+
+const chapterSelect =
+    document.getElementById(
+        "chapterSelect"
+    );
+
+const openChapterBtn =
+    document.getElementById(
+        "openChapterBtn"
     );
 
 
-if (homeSearchForm) {
+const data = {
 
-    homeSearchForm.addEventListener(
-        "submit",
-        function(event) {
+    "8": {
 
-            event.preventDefault();
+        "Mathematics": [
+            "Number Systems",
+            "Linear Equations",
+            "Understanding Quadrilaterals",
+            "Data Handling"
+        ],
 
-            const input =
-                document.getElementById(
-                    "homeSearch"
-                );
+        "Science": [
+            "Crop Production",
+            "Microorganisms",
+            "Force and Pressure",
+            "Light"
+        ],
 
-            const query =
-                input.value.trim();
+        "English": [
+            "Literature",
+            "Grammar",
+            "Writing Skills"
+        ]
 
-
-            /*
-                EXACT SAME SEARCH FILE
-            */
-
-            if (query === "") {
-
-                window.location.href =
-                    "Academix-search.html";
-
-                return;
-
-            }
+    },
 
 
-            window.location.href =
-                "Academix-search.html?query=" +
-                encodeURIComponent(query);
+    "9": {
 
-        }
-    );
+        "Mathematics": [
+            "Number Systems",
+            "Polynomials",
+            "Coordinate Geometry",
+            "Linear Equations in Two Variables",
+            "Euclid's Geometry",
+            "Lines and Angles",
+            "Triangles",
+            "Quadrilaterals",
+            "Circles",
+            "Heron's Formula",
+            "Surface Areas and Volumes",
+            "Statistics",
+            "Probability"
+        ],
+
+        "Science": [
+            "Matter in Our Surroundings",
+            "Is Matter Around Us Pure",
+            "Atoms and Molecules",
+            "Structure of the Atom",
+            "The Fundamental Unit of Life",
+            "Tissues",
+            "Motion",
+            "Force and Laws of Motion",
+            "Gravitation",
+            "Work and Energy",
+            "Sound",
+            "Improvement in Food Resources"
+        ],
+
+        "Social Science": [
+            "India and the Contemporary World",
+            "Contemporary India",
+            "Democratic Politics",
+            "Economics"
+        ],
+
+        "English": [
+            "Beehive",
+            "Moments",
+            "Grammar",
+            "Writing Skills"
+        ],
+
+        "Computer": [
+            "Computer Fundamentals",
+            "Internet",
+            "Cyber Safety"
+        ]
+
+    },
+
+
+    "10": {
+
+        "Mathematics": [
+            "Real Numbers",
+            "Polynomials",
+            "Pair of Linear Equations",
+            "Quadratic Equations",
+            "Arithmetic Progressions",
+            "Triangles",
+            "Coordinate Geometry",
+            "Introduction to Trigonometry",
+            "Circles",
+            "Areas Related to Circles",
+            "Surface Areas and Volumes",
+            "Statistics",
+            "Probability"
+        ],
+
+        "Science": [
+            "Chemical Reactions",
+            "Acids Bases and Salts",
+            "Metals and Non-metals",
+            "Carbon and its Compounds",
+            "Life Processes",
+            "Control and Coordination",
+            "Light",
+            "Electricity",
+            "Magnetic Effects",
+            "Our Environment"
+        ],
+
+        "English": [
+            "First Flight",
+            "Footprints Without Feet",
+            "Grammar",
+            "Writing Skills"
+        ]
+
+    },
+
+
+    "11": {
+
+        "Mathematics": [
+            "Sets",
+            "Relations and Functions",
+            "Trigonometric Functions",
+            "Complex Numbers",
+            "Linear Inequalities",
+            "Permutations and Combinations",
+            "Binomial Theorem",
+            "Sequences and Series",
+            "Straight Lines",
+            "Conic Sections",
+            "Limits and Derivatives",
+            "Statistics",
+            "Probability"
+        ],
+
+        "Physics": [
+            "Units and Measurements",
+            "Motion in a Straight Line",
+            "Motion in a Plane",
+            "Laws of Motion",
+            "Work Energy and Power",
+            "System of Particles",
+            "Gravitation",
+            "Thermodynamics",
+            "Oscillations",
+            "Waves"
+        ],
+
+        "Chemistry": [
+            "Some Basic Concepts",
+            "Structure of Atom",
+            "Periodic Classification",
+            "Chemical Bonding",
+            "Thermodynamics",
+            "Equilibrium",
+            "Redox Reactions",
+            "Organic Chemistry",
+            "Hydrocarbons"
+        ]
+
+    },
+
+
+    "12": {
+
+        "Mathematics": [
+            "Relations and Functions",
+            "Inverse Trigonometric Functions",
+            "Matrices",
+            "Determinants",
+            "Continuity and Differentiability",
+            "Application of Derivatives",
+            "Integrals",
+            "Application of Integrals",
+            "Differential Equations",
+            "Vector Algebra",
+            "Three Dimensional Geometry",
+            "Linear Programming",
+            "Probability"
+        ],
+
+        "Physics": [
+            "Electric Charges and Fields",
+            "Electrostatic Potential",
+            "Current Electricity",
+            "Moving Charges and Magnetism",
+            "Electromagnetic Induction",
+            "Alternating Current",
+            "Ray Optics",
+            "Wave Optics",
+            "Dual Nature",
+            "Atoms",
+            "Nuclei",
+            "Semiconductor Electronics"
+        ],
+
+        "Chemistry": [
+            "Solutions",
+            "Electrochemistry",
+            "Chemical Kinetics",
+            "d and f Block Elements",
+            "Coordination Compounds",
+            "Haloalkanes and Haloarenes",
+            "Alcohols Phenols and Ethers",
+            "Aldehydes Ketones and Carboxylic Acids",
+            "Amines",
+            "Biomolecules"
+        ]
+
+    }
+
+};
+
+
+function resetSelect(
+    select,
+    placeholder
+) {
+
+    select.innerHTML =
+        `<option value="">${placeholder}</option>`;
+
+    select.disabled = true;
 
 }
 
-</script>
 
+classSelect.addEventListener(
+    "change",
+    function() {
+
+        resetSelect(
+            subjectSelect,
+            "Select Subject"
+        );
+
+        resetSelect(
+            chapterSelect,
+            "Select Chapter"
+        );
+
+        openChapterBtn.disabled =
+            true;
+
+
+        const selected =
+            classSelect.value;
+
+
+        if (
+            selected &&
+            data[selected]
+        ) {
+
+            Object.keys(
+                data[selected]
+            ).forEach(subject => {
+
+                const option =
+                    document.createElement(
+                        "option"
+                    );
+
+                option.value =
+                    subject;
+
+                option.textContent =
+                    subject;
+
+                subjectSelect.appendChild(
+                    option
+                );
+
+            });
+
+            subjectSelect.disabled =
+                false;
+
+        }
+
+    }
+);
+
+
+subjectSelect.addEventListener(
+    "change",
+    function() {
+
+        resetSelect(
+            chapterSelect,
+            "Select Chapter"
+        );
+
+        openChapterBtn.disabled =
+            true;
+
+
+        const selectedClass =
+            classSelect.value;
+
+        const selectedSubject =
+            subjectSelect.value;
+
+
+        if (
+            selectedClass &&
+            selectedSubject &&
+            data[selectedClass] &&
+            data[selectedClass][selectedSubject]
+        ) {
+
+            data[selectedClass]
+            [selectedSubject]
+            .forEach(chapter => {
+
+                const option =
+                    document.createElement(
+                        "option"
+                    );
+
+                option.value =
+                    chapter;
+
+                option.textContent =
+                    chapter;
+
+                chapterSelect.appendChild(
+                    option
+                );
+
+            });
+
+            chapterSelect.disabled =
+                false;
+
+        }
+
+    }
+);
+
+
+chapterSelect.addEventListener(
+    "change",
+    function() {
+
+        openChapterBtn.disabled =
+            !chapterSelect.value;
+
+    }
+);
+
+
+openChapterBtn.addEventListener(
+    "click",
+    function() {
+
+        const selectedClass =
+            classSelect.value;
+
+        const selectedSubject =
+            subjectSelect.value;
+
+        const selectedChapter =
+            chapterSelect.value;
+
+
+        if (
+            !selectedClass ||
+            !selectedSubject ||
+            !selectedChapter
+        ) {
+            return;
+        }
+
+
+        if (
+            selectedClass === "9" &&
+            selectedSubject === "Mathematics"
+        ) {
+
+            window.location.href =
+                "math.html?chapter=" +
+                encodeURIComponent(
+                    selectedChapter
+                );
+
+            return;
+
+        }
+
+
+        if (
+            selectedClass === "9" &&
+            selectedSubject === "Science"
+        ) {
+
+            window.location.href =
+                "science.html?chapter=" +
+                encodeURIComponent(
+                    selectedChapter
+                );
+
+            return;
+
+        }
+
+
+        window.location.href =
+            "Academix-search.html?query=" +
+            encodeURIComponent(
+                "Class " +
+                selectedClass +
+                " " +
+                selectedSubject +
+                " " +
+                selectedChapter
+            );
+
+    }
+);
+
+</script>
 
 </body>
 
