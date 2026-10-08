@@ -10,7 +10,6 @@
   gtag('js', new Date());
 
   gtag('config', 'G-C9BC3HYWQ2');
-</script>
 
 <meta charset="UTF-8">
 
@@ -2738,94 +2737,41 @@ footer {
 <section class="learning-selector">
 
     <div class="selector-heading">
-
-        <h3>
-            Choose Your Learning Path
-        </h3>
-
-        <p>
-            Select your class, subject and chapter to continue.
-        </p>
-
+        <h3>Choose Your Learning Path</h3>
+        <p>Select your class, subject and chapter to continue.</p>
     </div>
 
     <div class="selector-row">
 
-
         <div class="selector-box">
-
-            <label for="classSelect">
-                Class
-            </label>
+            <label for="classSelect">Class</label>
 
             <select id="classSelect">
-
-                <option value="">
-                    Select Class
-                </option>
-
-                <option value="8">
-                    Class 8
-                </option>
-
-                <option value="9">
-                    Class 9
-                </option>
-
-                <option value="10">
-                    Class 10
-                </option>
-
-                <option value="11">
-                    Class 11
-                </option>
-
-                <option value="12">
-                    Class 12
-                </option>
-
+                <option value="">Select Class</option>
+                <option value="8">Class 8</option>
+                <option value="9">Class 9</option>
+                <option value="10">Class 10</option>
+                <option value="11">Class 11</option>
+                <option value="12">Class 12</option>
             </select>
-
         </div>
 
 
         <div class="selector-box">
+            <label for="subjectSelect">Subject</label>
 
-            <label for="subjectSelect">
-                Subject
-            </label>
-
-            <select
-                id="subjectSelect"
-                disabled
-            >
-
-                <option value="">
-                    Select Subject
-                </option>
-
+            <select id="subjectSelect" disabled>
+                <option value="">Select Subject</option>
             </select>
-
         </div>
 
 
         <div class="selector-box">
+            <label for="chapterSelect">Chapter</label>
 
-            <label for="chapterSelect">
-                Chapter
-            </label>
-
-            <select
-                id="chapterSelect"
-                disabled
-            >
-
-                <option value="">
-                    Select Chapter
-                </option>
-
+            <select id="chapterSelect" disabled>
+                <option value="">Select Chapter</option>
             </select>
-
         </div>
 
     </div>
@@ -3685,625 +3631,1908 @@ footer {
 <script>
 
 /* =========================================================
-   INTRO
+   ACADEMIX — HOMEPAGE JAVASCRIPT
+   Intro + Mobile Menu + Learning Selector
 ========================================================= */
 
-const intro =
-    document.getElementById("intro");
 
-const greeting =
-    document.getElementById("introGreeting");
+/* =========================================================
+   1. INTRO ANIMATION
+========================================================= */
 
-const welcome =
-    document.getElementById("introWelcome");
+const intro = document.getElementById("intro");
+const introGreeting = document.getElementById("introGreeting");
+const introWelcome = document.getElementById("introWelcome");
 
+function typeText(element, text, speed = 45) {
 
-function typeText(
-    element,
-    text,
-    speed,
-    callback
-) {
+    return new Promise(function(resolve) {
 
-    let index = 0;
+        if (!element) {
+            resolve();
+            return;
+        }
 
-    element.textContent = "";
+        element.textContent = "";
 
-    const timer =
-        setInterval(() => {
+        let index = 0;
 
-            element.textContent +=
-                text[index];
+        const timer = setInterval(function() {
+
+            element.textContent += text.charAt(index);
 
             index++;
 
-            if (
-                index >= text.length
-            ) {
+            if (index >= text.length) {
 
                 clearInterval(timer);
 
-                if (callback) {
-                    callback();
-                }
-
+                resolve();
             }
 
         }, speed);
 
+    });
+
 }
 
 
-setTimeout(() => {
+async function startIntro() {
 
-    typeText(
-        greeting,
-        "नमस्ते",
-        120,
-        () => {
+    try {
 
-            setTimeout(() => {
-
-                typeText(
-                    welcome,
-                    "आपका Academix by Tiwari में स्वागत है",
-                    60
-                );
-
-            }, 250);
-
-        }
-    );
-
-}, 500);
-
-
-setTimeout(() => {
-
-    intro.classList.add("hide");
-
-}, 4300);
-
-
-/* =========================================================
-   HAMBURGER
-========================================================= */
-
-const menuButton =
-    document.getElementById(
-        "mobileMenuBtn"
-    );
-
-const nav =
-    document.getElementById(
-        "navLinks"
-    );
-
-
-menuButton.addEventListener(
-    "click",
-    function(event) {
-
-        event.stopPropagation();
-
-        const open =
-            nav.classList.toggle(
-                "mobile-open"
-            );
-
-        menuButton.textContent =
-            open ? "✕" : "☰";
-
-        menuButton.setAttribute(
-            "aria-expanded",
-            open ? "true" : "false"
+        await typeText(
+            introGreeting,
+            "Welcome to Academix",
+            55
         );
 
-    }
-);
+        await typeText(
+            introWelcome,
+            "Learn smarter. Build your future.",
+            42
+        );
 
+        setTimeout(function() {
 
-nav.querySelectorAll("a")
-.forEach(link => {
+            if (intro) {
+                intro.classList.add("hide");
+            }
 
-    link.addEventListener(
-        "click",
-        () => {
+        }, 800);
 
-            nav.classList.remove(
-                "mobile-open"
-            );
+    } catch (error) {
 
-            menuButton.textContent =
-                "☰";
+        console.error("Intro error:", error);
 
-            menuButton.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-        }
-    );
-
-});
-
-
-document.addEventListener(
-    "click",
-    function(event) {
-
-        if (
-            !nav.contains(event.target) &&
-            !menuButton.contains(event.target)
-        ) {
-
-            nav.classList.remove(
-                "mobile-open"
-            );
-
-            menuButton.textContent =
-                "☰";
-
+        if (intro) {
+            intro.classList.add("hide");
         }
 
     }
-);
+
+}
+
+
+window.addEventListener("load", startIntro);
+
+
+setTimeout(function() {
+
+    if (intro) {
+        intro.classList.add("hide");
+    }
+
+}, 6500);
+
 
 
 /* =========================================================
-   LEARNING SELECTOR
+   2. MOBILE NAVIGATION
 ========================================================= */
 
-const classSelect =
-    document.getElementById(
-        "classSelect"
+const mobileMenuBtn =
+    document.getElementById("mobileMenuBtn");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+
+if (mobileMenuBtn && navLinks) {
+
+    mobileMenuBtn.addEventListener(
+        "click",
+        function() {
+
+            const isOpen =
+                navLinks.classList.toggle("mobile-open");
+
+            mobileMenuBtn.setAttribute(
+                "aria-expanded",
+                String(isOpen)
+            );
+
+            mobileMenuBtn.setAttribute(
+                "aria-label",
+                isOpen
+                    ? "Close navigation menu"
+                    : "Open navigation menu"
+            );
+
+            mobileMenuBtn.textContent =
+                isOpen ? "×" : "☰";
+
+        }
     );
 
-const subjectSelect =
-    document.getElementById(
-        "subjectSelect"
+
+    document.querySelectorAll("#navLinks a")
+        .forEach(function(link) {
+
+            link.addEventListener(
+                "click",
+                function() {
+
+                    navLinks.classList.remove(
+                        "mobile-open"
+                    );
+
+                    mobileMenuBtn.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                    mobileMenuBtn.setAttribute(
+                        "aria-label",
+                        "Open navigation menu"
+                    );
+
+                    mobileMenuBtn.textContent = "☰";
+
+                }
+            );
+
+        });
+
+
+    document.addEventListener(
+        "click",
+        function(event) {
+
+            if (
+                !navLinks.contains(event.target) &&
+                !mobileMenuBtn.contains(event.target)
+            ) {
+
+                navLinks.classList.remove(
+                    "mobile-open"
+                );
+
+                mobileMenuBtn.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                mobileMenuBtn.textContent = "☰";
+
+            }
+
+        }
     );
 
-const chapterSelect =
-    document.getElementById(
-        "chapterSelect"
+
+    document.addEventListener(
+        "keydown",
+        function(event) {
+
+            if (event.key === "Escape") {
+
+                navLinks.classList.remove(
+                    "mobile-open"
+                );
+
+                mobileMenuBtn.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                mobileMenuBtn.setAttribute(
+                    "aria-label",
+                    "Open navigation menu"
+                );
+
+                mobileMenuBtn.textContent = "☰";
+
+            }
+
+        }
     );
 
-const openChapterBtn =
-    document.getElementById(
-        "openChapterBtn"
-    );
+}
 
 
-const data = {
+
+/* =========================================================
+   3. ACADEMIX CURRICULUM
+========================================================= */
+
+const curriculum = {
+
+    /* =====================================================
+       CLASS 8
+    ===================================================== */
 
     "8": {
 
-        "Mathematics": [
-            "Number Systems",
-            "Linear Equations",
-            "Understanding Quadrilaterals",
-            "Data Handling"
-        ],
+        "Mathematics Solutions": {
 
-        "Science": [
-            "Crop Production",
-            "Microorganisms",
-            "Force and Pressure",
-            "Light"
-        ],
+            page: "math.html",
 
-        "English": [
-            "Literature",
-            "Grammar",
-            "Writing Skills"
-        ]
+            parts: {
+
+                "Part I": [
+                    "A Square and a Cube",
+                    "Power Play",
+                    "A Story of Numbers",
+                    "Quadrilaterals",
+                    "Number Play",
+                    "We Distribute, Yet We Care",
+                    "Proportional Reasoning-1",
+                    "Fractions in Disguise"
+                ],
+
+                "Part II": [
+                    "Proportional Reasoning-2",
+                    "Exploring Some Geometrical Figures",
+                    "Four Sides and More",
+                    "Area",
+                    "Data Handling",
+                    "The Universe of Shapes"
+                ]
+
+            }
+
+        },
+
+
+        "Science Solutions": {
+
+            page: "science.html",
+
+            chapters: [
+                "Exploring the World of Science",
+                "The Invisible Living World",
+                "Health: The Ultimate Treasure",
+                "Electricity: Magnetic and Heating Effects",
+                "Exploring Forces",
+                "Pressure, Winds and Storms",
+                "Particulate Nature of Matter",
+                "The Magic of Light",
+                "The Earth in Space",
+                "Our Home: Earth",
+                "Life Processes in Plants",
+                "Life Processes in Animals",
+                "The Amazing World of Microorganisms"
+            ]
+
+        },
+
+
+        "Social Science Solutions": {
+
+            page: "sst.html",
+
+            chapters: [
+                "History",
+                "Geography",
+                "Social and Political Life"
+            ]
+
+        },
+
+
+        "English Solutions": {
+
+            page: "english.html",
+
+            chapters: [
+                "Reading Comprehension",
+                "Grammar and Language",
+                "Writing Skills",
+                "Literature",
+                "Poetry",
+                "Supplementary Reading"
+            ]
+
+        },
+
+
+        "Hindi Solutions": {
+
+            page: "hindi.html",
+
+            chapters: [
+                "गद्य खंड",
+                "पद्य खंड",
+                "पूरक पठन",
+                "व्याकरण",
+                "लेखन"
+            ]
+
+        },
+
+
+        "Sanskrit Solutions": {
+
+            page: "sanskrit.html",
+
+            chapters: [
+                "शब्दरूप",
+                "धातुरूप",
+                "सन्धि",
+                "समास",
+                "कारक",
+                "अनुवाद",
+                "पाठ-अभ्यास"
+            ]
+
+        },
+
+
+        "Computer Solutions": {
+
+            page: "computer.html",
+
+            chapters: [
+                "Computer Systems",
+                "Digital Communication",
+                "Internet and Web",
+                "Data and Information",
+                "Cyber Safety",
+                "Programming Fundamentals",
+                "Algorithms and Flowcharts",
+                "Artificial Intelligence"
+            ]
+
+        }
 
     },
 
+
+
+    /* =====================================================
+       CLASS 9
+    ===================================================== */
 
     "9": {
 
-        "Mathematics": [
-            "Number Systems",
-            "Polynomials",
-            "Coordinate Geometry",
-            "Linear Equations in Two Variables",
-            "Euclid's Geometry",
-            "Lines and Angles",
-            "Triangles",
-            "Quadrilaterals",
-            "Circles",
-            "Heron's Formula",
-            "Surface Areas and Volumes",
-            "Statistics",
-            "Probability"
-        ],
+        "Mathematics Solutions": {
 
-        "Science": [
-            "Matter in Our Surroundings",
-            "Is Matter Around Us Pure",
-            "Atoms and Molecules",
-            "Structure of the Atom",
-            "The Fundamental Unit of Life",
-            "Tissues",
-            "Motion",
-            "Force and Laws of Motion",
-            "Gravitation",
-            "Work and Energy",
-            "Sound",
-            "Improvement in Food Resources"
-        ],
+            page: "math.html",
 
-        "Social Science": [
-            "India and the Contemporary World",
-            "Contemporary India",
-            "Democratic Politics",
-            "Economics"
-        ],
+            parts: {
 
-        "English": [
-            "Beehive",
-            "Moments",
-            "Grammar",
-            "Writing Skills"
-        ],
+                "Part I": [
 
-        "Computer": [
-            "Computer Fundamentals",
-            "Internet",
-            "Cyber Safety"
-        ]
+                    "Orienting Yourself: The Use of Coordinates",
+
+                    "Introduction to Linear Polynomials",
+
+                    "The World of Numbers",
+
+                    "Exploring Algebraic Identities",
+
+                    "I'm Up and Down, and Round and Round",
+
+                    "Measuring Space: Perimeter and Area",
+
+                    "The Mathematics of Maybe: Introduction to Probability",
+
+                    "Predicting What Comes Next: Exploring Sequences and Progressions"
+
+                ],
+
+                "Part II": [
+
+                    "Propositions and their Converses",
+
+                    "How Quantities Combine: Understanding Data",
+
+                    "The World of Algorithms",
+
+                    "Quadrilaterals",
+
+                    "Two Variables, One Line",
+
+                    "Math of Space: Surface Area and Volume"
+
+                ]
+
+            }
+
+        },
+
+
+        "Science Solutions": {
+
+            page: "science.html",
+
+            chapters: [
+
+                "Exploring the World of Science",
+
+                "Matter: Structure and Behaviour",
+
+                "Atoms and Molecules",
+
+                "Motion",
+
+                "Force and Laws of Motion",
+
+                "Work, Energy and Simple Machines",
+
+                "Sound",
+
+                "Cell: The Building Block of Life",
+
+                "Tissues in Living Organisms",
+
+                "Reproduction",
+
+                "Diversity in Living Organisms",
+
+                "Earth as a System",
+
+                "The Living Planet"
+
+            ]
+
+        },
+
+
+        "Social Science Solutions": {
+
+            page: "sst.html",
+
+            parts: {
+
+                "Part I": [
+
+                    "Understanding Social Science",
+
+                    "Shaping of the Earth’s Surface",
+
+                    "Landscapes and Life",
+
+                    "India’s Cultural Roots",
+
+                    "Unity in Diversity, or Many in the One",
+
+                    "Family and Community",
+
+                    "Grassroots Democracy – Part 1: Governance",
+
+                    "Grassroots Democracy – Part 2: Local Government",
+
+                    "Making a Living – Part 1",
+
+                    "Making a Living – Part 2",
+
+                    "The Story of the Indian Constitution",
+
+                    "Democratic Rights and Responsibilities",
+
+                    "The Indian Economy",
+
+                    "Building a Better Future"
+
+                ],
+
+                "Part II": [
+
+                    "State and Society",
+
+                    "The Idea of Democracy",
+
+                    "Elections and Representation",
+
+                    "The Judiciary",
+
+                    "Understanding Markets",
+
+                    "Population and Society",
+
+                    "India and the World",
+
+                    "Towards a Sustainable Future"
+
+                ]
+
+            }
+
+        },
+
+
+        "English Solutions": {
+
+            page: "english.html",
+
+            chapters: [
+
+                "Reading Comprehension",
+
+                "Grammar and Language",
+
+                "Writing Skills",
+
+                "Literature",
+
+                "Poetry",
+
+                "Supplementary Reading"
+
+            ]
+
+        },
+
+
+        "Hindi Solutions": {
+
+            page: "hindi.html",
+
+            chapters: [
+
+                "गद्य खंड",
+
+                "पद्य खंड",
+
+                "पूरक पठन",
+
+                "व्याकरण",
+
+                "लेखन"
+
+            ]
+
+        },
+
+
+        "Sanskrit Solutions": {
+
+            page: "sanskrit.html",
+
+            chapters: [
+
+                "शब्दरूप",
+
+                "धातुरूप",
+
+                "सन्धि",
+
+                "समास",
+
+                "कारक",
+
+                "अनुवाद",
+
+                "पाठ-अभ्यास"
+
+            ]
+
+        },
+
+
+        "Computer Solutions": {
+
+            page: "computer.html",
+
+            chapters: [
+
+                "Computer Systems",
+
+                "Data Representation",
+
+                "Computer Networks",
+
+                "Internet and Web",
+
+                "Cyber Safety",
+
+                "Programming Fundamentals",
+
+                "Algorithms and Flowcharts",
+
+                "Artificial Intelligence"
+
+            ]
+
+        }
 
     },
 
+
+
+    /* =====================================================
+       CLASS 10
+    ===================================================== */
 
     "10": {
 
-        "Mathematics": [
-            "Real Numbers",
-            "Polynomials",
-            "Pair of Linear Equations",
-            "Quadratic Equations",
-            "Arithmetic Progressions",
-            "Triangles",
-            "Coordinate Geometry",
-            "Introduction to Trigonometry",
-            "Circles",
-            "Areas Related to Circles",
-            "Surface Areas and Volumes",
-            "Statistics",
-            "Probability"
-        ],
+        "Mathematics Solutions": {
 
-        "Science": [
-            "Chemical Reactions",
-            "Acids Bases and Salts",
-            "Metals and Non-metals",
-            "Carbon and its Compounds",
-            "Life Processes",
-            "Control and Coordination",
-            "Light",
-            "Electricity",
-            "Magnetic Effects",
-            "Our Environment"
-        ],
+            page: "math.html",
 
-        "English": [
-            "First Flight",
-            "Footprints Without Feet",
-            "Grammar",
-            "Writing Skills"
-        ]
+            chapters: [
+
+                "Real Numbers",
+                "Polynomials",
+                "Pair of Linear Equations in Two Variables",
+                "Quadratic Equations",
+                "Arithmetic Progressions",
+                "Triangles",
+                "Coordinate Geometry",
+                "Introduction to Trigonometry",
+                "Some Applications of Trigonometry",
+                "Circles",
+                "Areas Related to Circles",
+                "Surface Areas and Volumes",
+                "Statistics",
+                "Probability"
+
+            ]
+
+        },
+
+
+        "Science Solutions": {
+
+            page: "science.html",
+
+            chapters: [
+
+                "Chemical Reactions and Equations",
+                "Acids, Bases and Salts",
+                "Metals and Non-metals",
+                "Carbon and Its Compounds",
+                "Life Processes",
+                "Control and Coordination",
+                "How Do Organisms Reproduce?",
+                "Heredity",
+                "Light – Reflection and Refraction",
+                "The Human Eye and the Colourful World",
+                "Electricity",
+                "Magnetic Effects of Electric Current",
+                "Our Environment"
+
+            ]
+
+        },
+
+
+        "Social Science Solutions": {
+
+            page: "sst.html",
+
+            chapters: [
+
+                "History",
+                "Geography",
+                "Political Science",
+                "Economics"
+
+            ]
+
+        },
+
+
+        "English Solutions": {
+
+            page: "english.html",
+
+            chapters: [
+
+                "Reading Comprehension",
+                "Grammar and Language",
+                "Writing Skills",
+                "Literature",
+                "Poetry",
+                "Supplementary Reading"
+
+            ]
+
+        },
+
+
+        "Hindi Solutions": {
+
+            page: "hindi.html",
+
+            chapters: [
+
+                "गद्य खंड",
+                "पद्य खंड",
+                "पूरक पठन",
+                "व्याकरण",
+                "लेखन"
+
+            ]
+
+        },
+
+
+        "Sanskrit Solutions": {
+
+            page: "sanskrit.html",
+
+            chapters: [
+
+                "पाठ-अभ्यास",
+                "व्याकरण",
+                "शब्दरूप",
+                "धातुरूप",
+                "सन्धि",
+                "समास",
+                "अनुवाद"
+
+            ]
+
+        },
+
+
+        "Computer Solutions": {
+
+            page: "computer.html",
+
+            chapters: [
+
+                "Introduction to IT and ITeS",
+                "Digital Documentation",
+                "Electronic Spreadsheet",
+                "Database Management System",
+                "Web Applications and Security"
+
+            ]
+
+        }
 
     },
 
+
+
+    /* =====================================================
+       CLASS 11
+    ===================================================== */
 
     "11": {
 
-        "Mathematics": [
-            "Sets",
-            "Relations and Functions",
-            "Trigonometric Functions",
-            "Complex Numbers",
-            "Linear Inequalities",
-            "Permutations and Combinations",
-            "Binomial Theorem",
-            "Sequences and Series",
-            "Straight Lines",
-            "Conic Sections",
-            "Limits and Derivatives",
-            "Statistics",
-            "Probability"
-        ],
+        "Mathematics Solutions": {
 
-        "Physics": [
-            "Units and Measurements",
-            "Motion in a Straight Line",
-            "Motion in a Plane",
-            "Laws of Motion",
-            "Work Energy and Power",
-            "System of Particles",
-            "Gravitation",
-            "Thermodynamics",
-            "Oscillations",
-            "Waves"
-        ],
+            page: "math.html",
 
-        "Chemistry": [
-            "Some Basic Concepts",
-            "Structure of Atom",
-            "Periodic Classification",
-            "Chemical Bonding",
-            "Thermodynamics",
-            "Equilibrium",
-            "Redox Reactions",
-            "Organic Chemistry",
-            "Hydrocarbons"
-        ]
+            chapters: [
+
+                "Sets",
+                "Relations and Functions",
+                "Trigonometric Functions",
+                "Complex Numbers and Quadratic Equations",
+                "Linear Inequalities",
+                "Permutations and Combinations",
+                "Binomial Theorem",
+                "Sequences and Series",
+                "Straight Lines",
+                "Conic Sections",
+                "Introduction to Three Dimensional Geometry",
+                "Limits and Derivatives",
+                "Statistics",
+                "Probability"
+
+            ]
+
+        },
+
+
+        "Physics Solutions": {
+
+            page: "physics.html",
+
+            chapters: [
+
+                "Units and Measurements",
+                "Motion in a Straight Line",
+                "Motion in a Plane",
+                "Laws of Motion",
+                "Work, Energy and Power",
+                "System of Particles and Rotational Motion",
+                "Gravitation",
+                "Mechanical Properties of Solids",
+                "Mechanical Properties of Fluids",
+                "Thermal Properties of Matter",
+                "Thermodynamics",
+                "Kinetic Theory",
+                "Oscillations",
+                "Waves"
+
+            ]
+
+        },
+
+
+        "Chemistry Solutions": {
+
+            page: "chemistry.html",
+
+            chapters: [
+
+                "Some Basic Concepts of Chemistry",
+                "Structure of Atom",
+                "Classification of Elements and Periodicity in Properties",
+                "Chemical Bonding and Molecular Structure",
+                "Thermodynamics",
+                "Equilibrium",
+                "Redox Reactions",
+                "Organic Chemistry – Some Basic Principles and Techniques",
+                "Hydrocarbons"
+
+            ]
+
+        },
+
+
+        "Biology Solutions": {
+
+            page: "biology.html",
+
+            chapters: [
+
+                "The Living World",
+                "Biological Classification",
+                "Plant Kingdom",
+                "Animal Kingdom",
+                "Morphology of Flowering Plants",
+                "Anatomy of Flowering Plants",
+                "Structural Organisation in Animals",
+                "Cell: The Unit of Life",
+                "Biomolecules",
+                "Cell Cycle and Cell Division",
+                "Transport in Plants",
+                "Mineral Nutrition",
+                "Photosynthesis in Plants",
+                "Respiration in Plants",
+                "Plant Growth and Development",
+                "Digestion and Absorption",
+                "Breathing and Exchange of Gases",
+                "Body Fluids and Circulation",
+                "Excretory Products and Their Elimination",
+                "Locomotion and Movement",
+                "Neural Control and Coordination",
+                "Chemical Coordination and Integration"
+
+            ]
+
+        },
+
+
+        "English Solutions": {
+
+            page: "english.html",
+
+            chapters: [
+
+                "Reading Comprehension",
+                "Grammar and Language",
+                "Writing Skills",
+                "Literature",
+                "Poetry",
+                "Supplementary Reading"
+
+            ]
+
+        },
+
+
+        "Hindi Solutions": {
+
+            page: "hindi.html",
+
+            chapters: [
+
+                "गद्य",
+                "पद्य",
+                "वितान",
+                "अभिव्यक्ति और माध्यम",
+                "व्याकरण"
+
+            ]
+
+        },
+
+
+        "Computer Science Solutions": {
+
+            page: "computer.html",
+
+            chapters: [
+
+                "Computer Systems and Organisation",
+                "Computational Thinking and Programming",
+                "Society, Law and Ethics",
+                "Introduction to Python",
+                "Data Handling",
+                "Flow of Control",
+                "Functions",
+                "String Manipulation",
+                "Lists",
+                "Tuples",
+                "Dictionaries"
+
+            ]
+
+        },
+
+
+        "Informatics Practices Solutions": {
+
+            page: "ip.html",
+
+            chapters: [
+
+                "Introduction to Computer System",
+                "Introduction to Python",
+                "Database Concepts",
+                "Introduction to Emerging Trends"
+
+            ]
+
+        },
+
+
+        "Economics Solutions": {
+
+            page: "economics.html",
+
+            chapters: [
+
+                "Introduction to Micro Economics",
+                "Consumer's Equilibrium and Demand",
+                "Producer Behaviour and Supply",
+                "Forms of Market and Price Determination",
+                "Introduction to Statistics",
+                "Collection, Organisation and Presentation of Data",
+                "Statistical Tools and Interpretation"
+
+            ]
+
+        },
+
+
+        "Accountancy Solutions": {
+
+            page: "accountancy.html",
+
+            chapters: [
+
+                "Introduction to Accounting",
+                "Theory Base of Accounting",
+                "Recording of Transactions",
+                "Bank Reconciliation Statement",
+                "Trial Balance and Rectification of Errors",
+                "Depreciation, Provisions and Reserves",
+                "Bills of Exchange",
+                "Financial Statements",
+                "Accounts from Incomplete Records"
+
+            ]
+
+        },
+
+
+        "Business Studies Solutions": {
+
+            page: "business.html",
+
+            chapters: [
+
+                "Nature and Purpose of Business",
+                "Forms of Business Organisation",
+                "Private, Public and Global Enterprises",
+                "Business Services",
+                "Emerging Modes of Business",
+                "Social Responsibility of Business and Business Ethics",
+                "Sources of Business Finance",
+                "Small Business",
+                "Internal Trade",
+                "International Business"
+
+            ]
+
+        },
+
+
+        "History Solutions": {
+
+            page: "history.html",
+
+            chapters: [
+
+                "Writing and City Life",
+                "An Empire Across Three Continents",
+                "Nomadic Empires",
+                "The Three Orders",
+                "Changing Cultural Traditions",
+                "Displacing Indigenous Peoples",
+                "Paths to Modernisation"
+
+            ]
+
+        },
+
+
+        "Geography Solutions": {
+
+            page: "geography.html",
+
+            chapters: [
+
+                "Geography as a Discipline",
+                "The Origin and Evolution of the Earth",
+                "Interior of the Earth",
+                "Distribution of Oceans and Continents",
+                "Minerals and Rocks",
+                "Geomorphic Processes",
+                "Landforms and their Evolution",
+                "Composition and Structure of Atmosphere",
+                "Solar Radiation, Heat Balance and Temperature",
+                "Atmospheric Circulation and Weather Systems",
+                "Water in the Atmosphere",
+                "World Climate and Climate Change",
+                "Water",
+                "Movements of Ocean Water",
+                "Life on the Earth",
+                "Biodiversity and Conservation"
+
+            ]
+
+        },
+
+
+        "Political Science Solutions": {
+
+            page: "political-science.html",
+
+            chapters: [
+
+                "Constitution: Why and How?",
+                "Rights in the Indian Constitution",
+                "Election and Representation",
+                "Executive",
+                "Legislature",
+                "Judiciary",
+                "Federalism",
+                "Local Governments",
+                "Constitution as a Living Document",
+                "The Philosophy of the Constitution"
+
+            ]
+
+        },
+
+
+        "Sociology Solutions": {
+
+            page: "sociology.html",
+
+            chapters: [
+
+                "Sociology and Society",
+                "Terms, Concepts and their Use in Sociology",
+                "Understanding Social Institutions",
+                "Culture and Socialisation",
+                "Doing Sociology: Research Methods"
+
+            ]
+
+        },
+
+
+        "Psychology Solutions": {
+
+            page: "psychology.html",
+
+            chapters: [
+
+                "Introduction to Psychology",
+                "Methods of Enquiry in Psychology",
+                "Human Development",
+                "Sensory, Attentional and Perceptual Processes",
+                "Learning",
+                "Human Memory",
+                "Thinking",
+                "Motivation and Emotion"
+
+            ]
+
+        }
 
     },
 
 
+
+    /* =====================================================
+       CLASS 12
+    ===================================================== */
+
     "12": {
 
-        "Mathematics": [
-            "Relations and Functions",
-            "Inverse Trigonometric Functions",
-            "Matrices",
-            "Determinants",
-            "Continuity and Differentiability",
-            "Application of Derivatives",
-            "Integrals",
-            "Application of Integrals",
-            "Differential Equations",
-            "Vector Algebra",
-            "Three Dimensional Geometry",
-            "Linear Programming",
-            "Probability"
-        ],
+        "Mathematics Solutions": {
 
-        "Physics": [
-            "Electric Charges and Fields",
-            "Electrostatic Potential",
-            "Current Electricity",
-            "Moving Charges and Magnetism",
-            "Electromagnetic Induction",
-            "Alternating Current",
-            "Ray Optics",
-            "Wave Optics",
-            "Dual Nature",
-            "Atoms",
-            "Nuclei",
-            "Semiconductor Electronics"
-        ],
+            page: "math.html",
 
-        "Chemistry": [
-            "Solutions",
-            "Electrochemistry",
-            "Chemical Kinetics",
-            "d and f Block Elements",
-            "Coordination Compounds",
-            "Haloalkanes and Haloarenes",
-            "Alcohols Phenols and Ethers",
-            "Aldehydes Ketones and Carboxylic Acids",
-            "Amines",
-            "Biomolecules"
-        ]
+            chapters: [
+
+                "Relations and Functions",
+                "Inverse Trigonometric Functions",
+                "Matrices",
+                "Determinants",
+                "Continuity and Differentiability",
+                "Application of Derivatives",
+                "Integrals",
+                "Application of Integrals",
+                "Differential Equations",
+                "Vector Algebra",
+                "Three Dimensional Geometry",
+                "Linear Programming",
+                "Probability"
+
+            ]
+
+        },
+
+
+        "Physics Solutions": {
+
+            page: "physics.html",
+
+            chapters: [
+
+                "Electric Charges and Fields",
+                "Electrostatic Potential and Capacitance",
+                "Current Electricity",
+                "Moving Charges and Magnetism",
+                "Magnetism and Matter",
+                "Electromagnetic Induction",
+                "Alternating Current",
+                "Electromagnetic Waves",
+                "Ray Optics and Optical Instruments",
+                "Wave Optics",
+                "Dual Nature of Radiation and Matter",
+                "Atoms",
+                "Nuclei",
+                "Semiconductor Electronics"
+
+            ]
+
+        },
+
+
+        "Chemistry Solutions": {
+
+            page: "chemistry.html",
+
+            chapters: [
+
+                "Solutions",
+                "Electrochemistry",
+                "Chemical Kinetics",
+                "d- and f-Block Elements",
+                "Coordination Compounds",
+                "Haloalkanes and Haloarenes",
+                "Alcohols, Phenols and Ethers",
+                "Aldehydes, Ketones and Carboxylic Acids",
+                "Amines",
+                "Biomolecules"
+
+            ]
+
+        },
+
+
+        "Biology Solutions": {
+
+            page: "biology.html",
+
+            chapters: [
+
+                "Sexual Reproduction in Flowering Plants",
+                "Human Reproduction",
+                "Reproductive Health",
+                "Principles of Inheritance and Variation",
+                "Molecular Basis of Inheritance",
+                "Evolution",
+                "Human Health and Disease",
+                "Microbes in Human Welfare",
+                "Biotechnology: Principles and Processes",
+                "Biotechnology and its Applications",
+                "Organisms and Populations",
+                "Ecosystem",
+                "Biodiversity and Conservation"
+
+            ]
+
+        },
+
+
+        "English Solutions": {
+
+            page: "english.html",
+
+            chapters: [
+
+                "Reading Comprehension",
+                "Creative Writing Skills",
+                "Literature",
+                "Poetry",
+                "Vistas"
+
+            ]
+
+        },
+
+
+        "Hindi Solutions": {
+
+            page: "hindi.html",
+
+            chapters: [
+
+                "गद्य खंड",
+                "पद्य खंड",
+                "अभिव्यक्ति और माध्यम",
+                "रचनात्मक लेखन",
+                "पुनरावृत्ति"
+
+            ]
+
+        },
+
+
+        "Computer Science Solutions": {
+
+            page: "computer.html",
+
+            chapters: [
+
+                "Computational Thinking and Programming",
+                "Python Programming",
+                "Data Structures",
+                "Database Management",
+                "Computer Networks",
+                "Society, Law and Ethics"
+
+            ]
+
+        },
+
+
+        "Informatics Practices Solutions": {
+
+            page: "ip.html",
+
+            chapters: [
+
+                "Data Handling using Pandas",
+                "Database Query using SQL",
+                "Introduction to Computer Networks",
+                "Societal Impacts"
+
+            ]
+
+        },
+
+
+        "Economics Solutions": {
+
+            page: "economics.html",
+
+            chapters: [
+
+                "National Income Accounting",
+                "Money and Banking",
+                "Determination of Income and Employment",
+                "Government Budget and the Economy",
+                "Balance of Payments",
+                "Development Experience and Economic Reforms",
+                "Current Challenges Facing Indian Economy",
+                "Development Experience of India"
+
+            ]
+
+        },
+
+
+        "Accountancy Solutions": {
+
+            page: "accountancy.html",
+
+            chapters: [
+
+                "Accounting for Partnership Firms",
+                "Accounting for Companies",
+                "Analysis of Financial Statements",
+                "Cash Flow Statement"
+
+            ]
+
+        },
+
+
+        "Business Studies Solutions": {
+
+            page: "business.html",
+
+            chapters: [
+
+                "Nature and Significance of Management",
+                "Principles of Management",
+                "Business Environment",
+                "Planning",
+                "Organising",
+                "Staffing",
+                "Directing",
+                "Controlling",
+                "Financial Management",
+                "Financial Markets",
+                "Marketing Management",
+                "Consumer Protection"
+
+            ]
+
+        },
+
+
+        "History Solutions": {
+
+            page: "history.html",
+
+            parts: {
+
+                "Part I": [
+                    "Themes in Indian History – Part I"
+                ],
+
+                "Part II": [
+                    "Themes in Indian History – Part II"
+                ],
+
+                "Part III": [
+                    "Themes in Indian History – Part III"
+                ]
+
+            }
+
+        },
+
+
+        "Geography Solutions": {
+
+            page: "geography.html",
+
+            chapters: [
+
+                "Human Geography: Nature and Scope",
+                "The World Population",
+                "Human Development",
+                "Primary Activities",
+                "Secondary Activities",
+                "Tertiary and Quaternary Activities",
+                "Transport and Communication",
+                "International Trade",
+                "Population: Distribution, Density, Growth and Composition",
+                "Migration",
+                "Human Settlements",
+                "Water Resources",
+                "Mineral and Energy Resources",
+                "Manufacturing Industries",
+                "Planning and Sustainable Development",
+                "Geographical Perspective on Selected Issues and Problems"
+
+            ]
+
+        },
+
+
+        "Political Science Solutions": {
+
+            page: "political-science.html",
+
+            chapters: [
+
+                "The End of Bipolarity",
+                "Contemporary Centres of Power",
+                "Contemporary South Asia",
+                "International Organizations",
+                "Security in the Contemporary World",
+                "Environment and Natural Resources",
+                "Globalisation",
+                "Challenges of Nation-Building",
+                "Era of One-Party Dominance",
+                "Politics of Planned Development",
+                "India’s External Relations",
+                "Challenges to and Restoration of the Congress System",
+                "The Crisis of Democratic Order",
+                "Regional Aspirations",
+                "Recent Developments in Indian Politics"
+
+            ]
+
+        },
+
+
+        "Sociology Solutions": {
+
+            page: "sociology.html",
+
+            chapters: [
+
+                "Introducing Indian Society",
+                "The Demographic Structure of Indian Society",
+                "Social Institutions: Continuity and Change",
+                "Patterns of Social Inequality and Exclusion",
+                "Challenges of Cultural Diversity",
+                "Structural Change",
+                "Cultural Change",
+                "Change and Development in Rural Society",
+                "Change and Development in Industrial Society",
+                "Social Movements"
+
+            ]
+
+        },
+
+
+        "Psychology Solutions": {
+
+            page: "psychology.html",
+
+            chapters: [
+
+                "Variations in Psychological Attributes",
+                "Self and Personality",
+                "Meeting Life Challenges",
+                "Psychological Disorders",
+                "Therapeutic Approaches",
+                "Attitude and Social Cognition",
+                "Social Influence and Group Processes"
+
+            ]
+
+        }
 
     }
 
 };
 
 
-function resetSelect(
-    select,
-    placeholder
+
+/* =========================================================
+   4. LEARNING SELECTOR ELEMENTS
+========================================================= */
+
+const classSelect =
+    document.getElementById("classSelect");
+
+const subjectSelect =
+    document.getElementById("subjectSelect");
+
+const chapterSelect =
+    document.getElementById("chapterSelect");
+
+const openChapterBtn =
+    document.getElementById("openChapterBtn");
+
+
+
+/* =========================================================
+   5. CHECK ELEMENTS
+========================================================= */
+
+if (
+    !classSelect ||
+    !subjectSelect ||
+    !chapterSelect ||
+    !openChapterBtn
 ) {
 
-    select.innerHTML =
-        `<option value="">${placeholder}</option>`;
+    console.warn(
+        "Academix: Learning selector elements not found."
+    );
 
-    select.disabled = true;
+} else {
+
+
+    /* =====================================================
+       RESET SELECT
+    ===================================================== */
+
+    function resetSelect(select, placeholder) {
+
+        select.innerHTML = "";
+
+        const option =
+            document.createElement("option");
+
+        option.value = "";
+
+        option.textContent = placeholder;
+
+        select.appendChild(option);
+
+    }
+
+
+
+    /* =====================================================
+       CLASS → SUBJECT
+    ===================================================== */
+
+    classSelect.addEventListener(
+        "change",
+        function() {
+
+            const selectedClass =
+                classSelect.value;
+
+
+            resetSelect(
+                subjectSelect,
+                "Select Subject"
+            );
+
+            resetSelect(
+                chapterSelect,
+                "Select Chapter"
+            );
+
+
+            subjectSelect.disabled = true;
+
+            chapterSelect.disabled = true;
+
+            openChapterBtn.disabled = true;
+
+
+            if (!selectedClass) {
+                return;
+            }
+
+
+            const classData =
+                curriculum[selectedClass];
+
+
+            if (!classData) {
+
+                console.error(
+                    "Academix: Class not found:",
+                    selectedClass
+                );
+
+                return;
+
+            }
+
+
+            Object.keys(classData)
+                .forEach(function(subject) {
+
+                    const option =
+                        document.createElement("option");
+
+                    option.value = subject;
+
+                    option.textContent = subject;
+
+                    subjectSelect.appendChild(option);
+
+                });
+
+
+            subjectSelect.disabled = false;
+
+        }
+    );
+
+
+
+    /* =====================================================
+       SUBJECT → CHAPTER
+    ===================================================== */
+
+    subjectSelect.addEventListener(
+        "change",
+        function() {
+
+            const selectedClass =
+                classSelect.value;
+
+            const selectedSubject =
+                subjectSelect.value;
+
+
+            resetSelect(
+                chapterSelect,
+                "Select Chapter"
+            );
+
+
+            chapterSelect.disabled = true;
+
+            openChapterBtn.disabled = true;
+
+
+            if (
+                !selectedClass ||
+                !selectedSubject
+            ) {
+
+                return;
+
+            }
+
+
+            const subjectData =
+                curriculum[selectedClass]
+                [selectedSubject];
+
+
+            if (!subjectData) {
+
+                console.error(
+                    "Academix: Subject not found:",
+                    selectedSubject
+                );
+
+                return;
+
+            }
+
+
+
+            /* =============================================
+               SUBJECT WITH PARTS
+            ============================================= */
+
+            if (subjectData.parts) {
+
+                Object.entries(
+                    subjectData.parts
+                ).forEach(
+                    function([partName, chapters]) {
+
+                        const group =
+                            document.createElement(
+                                "optgroup"
+                            );
+
+                        group.label = partName;
+
+
+                        chapters.forEach(
+                            function(chapter) {
+
+                                const option =
+                                    document.createElement(
+                                        "option"
+                                    );
+
+                                option.value =
+                                    chapter;
+
+                                option.textContent =
+                                    chapter;
+
+                                option.dataset.part =
+                                    partName;
+
+                                group.appendChild(
+                                    option
+                                );
+
+                            }
+                        );
+
+
+                        chapterSelect.appendChild(
+                            group
+                        );
+
+                    }
+                );
+
+            }
+
+
+
+            /* =============================================
+               SUBJECT WITHOUT PARTS
+            ============================================= */
+
+            else if (
+                Array.isArray(
+                    subjectData.chapters
+                )
+            ) {
+
+                subjectData.chapters.forEach(
+                    function(chapter) {
+
+                        const option =
+                            document.createElement(
+                                "option"
+                            );
+
+                        option.value =
+                            chapter;
+
+                        option.textContent =
+                            chapter;
+
+                        chapterSelect.appendChild(
+                            option
+                        );
+
+                    }
+                );
+
+            }
+
+
+
+            /* =============================================
+               ENABLE CHAPTER
+            ============================================= */
+
+            if (
+                chapterSelect.options.length > 1
+            ) {
+
+                chapterSelect.disabled = false;
+
+            }
+
+        }
+    );
+
+
+
+    /* =====================================================
+       CHAPTER → OPEN BUTTON
+    ===================================================== */
+
+    chapterSelect.addEventListener(
+        "change",
+        function() {
+
+            openChapterBtn.disabled =
+                !chapterSelect.value;
+
+        }
+    );
+
+
+
+    /* =====================================================
+       OPEN CHAPTER
+    ===================================================== */
+
+    openChapterBtn.addEventListener(
+        "click",
+        function() {
+
+            const selectedClass =
+                classSelect.value;
+
+            const selectedSubject =
+                subjectSelect.value;
+
+            const selectedChapter =
+                chapterSelect.value;
+
+
+            if (
+                !selectedClass ||
+                !selectedSubject ||
+                !selectedChapter
+            ) {
+
+                return;
+
+            }
+
+
+            const subjectData =
+                curriculum[selectedClass]
+                [selectedSubject];
+
+
+            if (!subjectData) {
+
+                return;
+
+            }
+
+
+            const selectedOption =
+                chapterSelect.options[
+                    chapterSelect.selectedIndex
+                ];
+
+
+            const selectedPart =
+                selectedOption?.dataset?.part ||
+                "";
+
+
+            const params =
+                new URLSearchParams();
+
+
+            params.set(
+                "class",
+                selectedClass
+            );
+
+            params.set(
+                "subject",
+                selectedSubject
+            );
+
+            params.set(
+                "chapter",
+                selectedChapter
+            );
+
+
+            if (selectedPart) {
+
+                params.set(
+                    "part",
+                    selectedPart
+                );
+
+            }
+
+
+            window.location.href =
+                subjectData.page +
+                "?" +
+                params.toString();
+
+        }
+    );
 
 }
 
 
-classSelect.addEventListener(
-    "change",
-    function() {
 
-        resetSelect(
-            subjectSelect,
-            "Select Subject"
+/* =========================================================
+   6. GENERAL PAGE SAFETY
+========================================================= */
+
+window.addEventListener(
+    "error",
+    function(event) {
+
+        console.warn(
+            "Academix JavaScript warning:",
+            event.message
         );
 
-        resetSelect(
-            chapterSelect,
-            "Select Chapter"
-        );
-
-        openChapterBtn.disabled =
-            true;
-
-
-        const selected =
-            classSelect.value;
-
-
-        if (
-            selected &&
-            data[selected]
-        ) {
-
-            Object.keys(
-                data[selected]
-            ).forEach(subject => {
-
-                const option =
-                    document.createElement(
-                        "option"
-                    );
-
-                option.value =
-                    subject;
-
-                option.textContent =
-                    subject;
-
-                subjectSelect.appendChild(
-                    option
-                );
-
-            });
-
-            subjectSelect.disabled =
-                false;
-
-        }
-
     }
 );
 
-
-subjectSelect.addEventListener(
-    "change",
-    function() {
-
-        resetSelect(
-            chapterSelect,
-            "Select Chapter"
-        );
-
-        openChapterBtn.disabled =
-            true;
-
-
-        const selectedClass =
-            classSelect.value;
-
-        const selectedSubject =
-            subjectSelect.value;
-
-
-        if (
-            selectedClass &&
-            selectedSubject &&
-            data[selectedClass] &&
-            data[selectedClass][selectedSubject]
-        ) {
-
-            data[selectedClass]
-            [selectedSubject]
-            .forEach(chapter => {
-
-                const option =
-                    document.createElement(
-                        "option"
-                    );
-
-                option.value =
-                    chapter;
-
-                option.textContent =
-                    chapter;
-
-                chapterSelect.appendChild(
-                    option
-                );
-
-            });
-
-            chapterSelect.disabled =
-                false;
-
-        }
-
-    }
-);
-
-
-chapterSelect.addEventListener(
-    "change",
-    function() {
-
-        openChapterBtn.disabled =
-            !chapterSelect.value;
-
-    }
-);
-
-
-openChapterBtn.addEventListener(
-    "click",
-    function() {
-
-        const selectedClass =
-            classSelect.value;
-
-        const selectedSubject =
-            subjectSelect.value;
-
-        const selectedChapter =
-            chapterSelect.value;
-
-
-        if (
-            !selectedClass ||
-            !selectedSubject ||
-            !selectedChapter
-        ) {
-            return;
-        }
-
-
-        if (
-            selectedClass === "9" &&
-            selectedSubject === "Mathematics"
-        ) {
-
-            window.location.href =
-                "math.html?chapter=" +
-                encodeURIComponent(
-                    selectedChapter
-                );
-
-            return;
-
-        }
-
-
-        if (
-            selectedClass === "9" &&
-            selectedSubject === "Science"
-        ) {
-
-            window.location.href =
-                "science.html?chapter=" +
-                encodeURIComponent(
-                    selectedChapter
-                );
-
-            return;
-
-        }
-
-
-        window.location.href =
-            "Academix-search.html?query=" +
-            encodeURIComponent(
-                "Class " +
-                selectedClass +
-                " " +
-                selectedSubject +
-                " " +
-                selectedChapter
-            );
-
-    }
-);
 
 </script>
+
 
 </body>
 
