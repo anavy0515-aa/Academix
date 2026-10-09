@@ -5421,95 +5421,45 @@ if (
 
 
     /* =====================================================
-       OPEN CHAPTER
-    ===================================================== */
+   OPEN CHAPTER — ALL CLASSES & SUBJECTS
+===================================================== */
 
-    openChapterBtn.addEventListener(
-        "click",
-        function() {
+openChapterBtn.addEventListener("click", function () {
 
-            const selectedClass =
-                classSelect.value;
+    const selectedClass = classSelect.value;
+    const selectedSubject = subjectSelect.value;
+    const selectedChapter = chapterSelect.value;
 
-            const selectedSubject =
-                subjectSelect.value;
+    if (!selectedClass || !selectedSubject || !selectedChapter) {
+        return;
+    }
 
-            const selectedChapter =
-                chapterSelect.value;
+    const subjectData =
+        curriculum[selectedClass]?.[selectedSubject];
 
+    if (!subjectData) {
+        alert("Subject nahi mila.");
+        return;
+    }
 
-            if (
-                !selectedClass ||
-                !selectedSubject ||
-                !selectedChapter
-            ) {
+    // Convert chapter name into its HTML filename
+    function makeChapterFilename(name) {
+        return name
+            .normalize("NFKD")
+            .toLowerCase()
+            .replace(/[’‘']/g, "")
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/^-+|-+$/g, "")
+            + ".html";
+    }
 
-                return;
+    // Generate the chapter filename
+    const chapterFile = makeChapterFilename(selectedChapter);
 
-            }
+    // All classes and subjects open individual chapter files
+    window.location.href = chapterFile;
 
-
-            const subjectData =
-                curriculum[selectedClass]
-                [selectedSubject];
-
-
-            if (!subjectData) {
-
-                return;
-
-            }
-
-
-            const selectedOption =
-                chapterSelect.options[
-                    chapterSelect.selectedIndex
-                ];
-
-
-            const selectedPart =
-                selectedOption?.dataset?.part ||
-                "";
-
-
-            const params =
-                new URLSearchParams();
-
-
-            params.set(
-                "class",
-                selectedClass
-            );
-
-            params.set(
-                "subject",
-                selectedSubject
-            );
-
-            params.set(
-                "chapter",
-                selectedChapter
-            );
-
-
-            if (selectedPart) {
-
-                params.set(
-                    "part",
-                    selectedPart
-                );
-
-            }
-
-
-            window.location.href =
-                subjectData.page +
-                "?" +
-                params.toString();
-
-        }
-    );
-
+});
 }
 
 
